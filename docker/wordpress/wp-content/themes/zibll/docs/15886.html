@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题分类筛选、高级自定义筛选功能使用教程[V7新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题分类筛选、高级自定义筛选功能使用教程[V7新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/15886.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">wordpress适用于各种类型的网站，不同类型的网站，那么文章就会有各种不同的分类方式，例如影视类网站，肯定会有类型、演员、年份、地区的分类，资源类的网站就会有文件格式、软件平台等分类类型。那么筛选功能就十分重要了，zibll子比主题不仅支持分类筛选，标签筛选，专题筛选，同时支持高级自定义筛选功能，并且支持不同分类设置不同的筛选项目，极大的增加了网站内容的精细化管理，更加方便用户浏览体验。</p>
+
+
+
+<h2 class="wp-block-heading">特色简述</h2>
+
+
+
+<ul class="wp-block-list">
+<li>支持分类、专题、标签、以及自定义高级筛选、以及排序方式</li>
+
+
+
+<li>分类、专题、标签筛选都可以自己选择显示哪些</li>
+
+
+
+<li>分类、专题支持自动显示二级、三级目录</li>
+
+
+
+<li>支持配置默认筛选项目，还可为不同的分类单独配置不同的筛选项目(V7.3)</li>
+
+
+
+<li>自定义高级筛选支持后台批量编辑</li>
+</ul>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#f33e3e" style="--quote-color:#f33e3e"><i class="fa fa-quote-left"></i><p>高级筛选功能需升级zibll子比主题V7.2及以上版本<br/>V7.3新增后台批量编辑功能、自定义分类高级筛选功能，为不同分类设置不同的筛选项目的功能<br/>V7.4新增允许前台投稿选择高级筛选的功能</p></div></div>
+
+
+
+<h2 class="wp-block-heading">截图预览</h2>
+
+
+
+<p class="wp-block-paragraph">首先通过以下图片我们简单的预览一下这功能，截图中的内容只是示例</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-wordpress使用zibll子比主题为文章添加高级筛选分类功能教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/07/图片-18.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_859"  class="wp-image-17357" width="600" srcset="https://oss.zibll.com/zibll.com/2023/07/图片-18.png 2328w, https://oss.zibll.com/zibll.com/2023/07/图片-18.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_587 700w, https://oss.zibll.com/zibll.com/2023/07/图片-18.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_644 768w, https://oss.zibll.com/zibll.com/2023/07/图片-18.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_859 1024w" sizes="(max-width: 2328px) 100vw, 2328px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">配置教程主要分类三个步骤，首先就是默认配置，设置分类、标签、专题的筛选。第二步就是配置高级自定义筛选。第三步就是为不同分类配置单独的筛选项目。</p>
+
+
+
+<h3 class="wp-block-heading">1.默认配置</h3>
+
+
+
+<p class="wp-block-paragraph">进入主题设置-&gt;页面显示，分别在分类、专题、标签页面配置需要的筛选项目</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-wordpress使用zibll子比主题为文章添加高级筛选分类功能教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/07/图片-19.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_825"  class="wp-image-17358" width="600" srcset="https://oss.zibll.com/zibll.com/2023/07/图片-19.png 1572w, https://oss.zibll.com/zibll.com/2023/07/图片-19.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_564 700w, https://oss.zibll.com/zibll.com/2023/07/图片-19.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_619 768w, https://oss.zibll.com/zibll.com/2023/07/图片-19.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_825 1024w" sizes="(max-width: 1572px) 100vw, 1572px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">2.高级自定义筛选配置</h3>
+
+
+
+<p class="wp-block-paragraph">此功能配置主要分为两个步骤，首先添加类型及内容，然后在文章中进行选择</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined">第一步：进入主题配置，添加类型以及对应的内容</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-wordpress使用zibll子比主题为文章添加高级筛选分类功能教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/05/图片-8.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_704"  class="wp-image-15888" width="600" srcset="https://oss.zibll.com/zibll.com/2023/05/图片-8.png 1978w, https://oss.zibll.com/zibll.com/2023/05/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_481 700w, https://oss.zibll.com/zibll.com/2023/05/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_528 768w, https://oss.zibll.com/zibll.com/2023/05/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_704 1024w" sizes="(max-width: 1978px) 100vw, 1978px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined">第二步：在后台文章编辑中，选择内容</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-wordpress使用zibll子比主题为文章添加高级筛选分类功能教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/05/图片-9.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_848"  class="wp-image-15889" width="600" srcset="https://oss.zibll.com/zibll.com/2023/05/图片-9.png 1438w, https://oss.zibll.com/zibll.com/2023/05/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_580 700w, https://oss.zibll.com/zibll.com/2023/05/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_636 768w, https://oss.zibll.com/zibll.com/2023/05/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_848 1024w" sizes="(max-width: 1438px) 100vw, 1438px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">你也可以在文章列表中，快速或批量修改高级自定义筛选内容</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-wordpress使用zibll子比主题为文章添加高级筛选分类功能教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/07/图片-15.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_652"  class="wp-image-17321" width="600" srcset="https://oss.zibll.com/zibll.com/2023/07/图片-15.png 1780w, https://oss.zibll.com/zibll.com/2023/07/图片-15.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_445 700w, https://oss.zibll.com/zibll.com/2023/07/图片-15.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_489 768w, https://oss.zibll.com/zibll.com/2023/07/图片-15.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_652 1024w" sizes="(max-width: 1780px) 100vw, 1780px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">3.为分类单独配置筛选项目</h3>
+
+
+
+<p class="wp-block-paragraph">通过为不同的分类配置不同的筛选项目可以实现更加精细化的筛选效果，同时我们可以和默认配置进行配合可以实现：1.默认关闭筛选，部分分类开启筛选，2.默认开启筛选，部分分类关闭筛选，等等丰富的筛选效果。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-wordpress使用zibll子比主题为文章添加高级筛选分类功能教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/07/图片-13.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_792"  class="wp-image-17317" width="600" srcset="https://oss.zibll.com/zibll.com/2023/07/图片-13.png 1452w, https://oss.zibll.com/zibll.com/2023/07/图片-13.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_541 700w, https://oss.zibll.com/zibll.com/2023/07/图片-13.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_594 768w, https://oss.zibll.com/zibll.com/2023/07/图片-13.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_792 1024w" sizes="(max-width: 1452px) 100vw, 1452px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">4.开启前台投稿允许选择高级筛选</h3>
+
+
+
+<p class="wp-block-paragraph">此功能需更新zibll子比主题V7.4及以上版本。</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined">进入主题设置-文章功能-前台投稿：启用允许选择高级筛选</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-wordpress使用zibll子比主题为文章添加高级筛选分类功能教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/09/图片-8.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_780"  class="wp-image-18581" width="600" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-8.png 1394w, https://oss.zibll.com/zibll.com/2023/09/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_533 700w, https://oss.zibll.com/zibll.com/2023/09/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_585 768w, https://oss.zibll.com/zibll.com/2023/09/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_780 1024w" sizes="(max-width: 1394px) 100vw, 1394px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">勾选后，在前端编辑器，也可以选择高级筛选啦</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[8]-wordpress使用zibll子比主题为文章添加高级筛选分类功能教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/09/图片-9.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_783"  class="wp-image-18582" width="600" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-9.png 1312w, https://oss.zibll.com/zibll.com/2023/09/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_535 700w, https://oss.zibll.com/zibll.com/2023/09/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_587 768w, https://oss.zibll.com/zibll.com/2023/09/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_783 1024w" sizes="(max-width: 1312px) 100vw, 1312px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">over，教程结束</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

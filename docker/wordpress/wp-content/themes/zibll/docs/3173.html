@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题论坛发帖限制以及创建板块限制的配置教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题论坛发帖限制以及创建板块限制的配置教程</h1>
+  <div class="meta">来源：https://www.zibll.com/3173.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">论坛是一个更加开放式的用户互动平台，用户在这个平台进行创作发帖，与大家一起交流。这样慢慢的就形成了一个社区系统，既然涉及到发帖以及创建板块，那么作为站长就需要考虑权限问题了。</p>
+
+
+
+<div class="wp-block-zibllblock-alert alert-dismissible fade in"><div class="alert jb-green" data-isclose="" role="alert">重要通知：由于政策原因，官网下架了论坛功能演示，如需查看zibll主题论坛相关功能演示，请跳转到到：<a href="https://www.zibll.top/"><strong>www.zibll.top</strong></a></div></div>
+
+
+
+<p class="wp-block-paragraph">哪些类型的用户可以创建板块？哪些类型的用户可以发帖？<br>可以发帖的用户允许在哪些板块发帖？可以创建板块的用户可以在哪些分区创建板块呢？<br>有一些板块我想设置为只有版主才能发帖，能实现吗？</p>
+
+
+
+<p class="wp-block-paragraph">zibll子比主题全新V6，不仅更新了全新的社区论坛系统，还带来了全新的<qc style="color:#09ACE2;background:undefined">用户权限管理</qc>系统，简单轻松的就能实现以上问题</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(249,75,75,1);background:undefined">如您还未了解用户权限管理，请务必查看以下文章：</qc></p>
+
+
+
+<div data-pid="3090" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="3090.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/12/用户权限-列表图2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="zibll子比主题用户权限管理系统简介及教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="3090.html">zibll子比主题用户权限管理系统简介及教程<span class="focus-color">[V6新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2026-03-14 13:34:11" class="ml6">6个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>72</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading">统一权限设置</h2>
+
+
+
+<p class="wp-block-paragraph">首先我们需要设置一个统一的默认权限方案，也就是哪种类型的用户允许发帖、创建板块</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined">进入主题设置-&gt;功能&amp;权限-&gt;论坛权限：找到创建板块和发布帖子，根据需求配置即可</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-WordPress社区论坛发帖限制以及创建板块限制的配置教程-Wordpress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="2056" height="1352" src="https://oss.zibll.com/zibll.com/2021/12/图片-63.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_673"  class="wp-image-3176" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-63.png 2056w, https://oss.zibll.com/zibll.com/2021/12/图片-63.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_460 700w, https://oss.zibll.com/zibll.com/2021/12/图片-63.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_673 1024w, https://oss.zibll.com/zibll.com/2021/12/图片-63.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_505 768w, https://oss.zibll.com/zibll.com/2021/12/图片-63.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1010 1536w, https://oss.zibll.com/zibll.com/2021/12/图片-63.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_2048,h_1347 2048w" sizes="(max-width: 2056px) 100vw, 2056px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">您可以将权限细分的设置到每一个不同的用户组</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-WordPress社区论坛发帖限制以及创建板块限制的配置教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/12/图片-64.png"   class="wp-image-3177" style="width:600px"/></figure>
+</div>
+
+
+<h2 class="wp-block-heading">单独设置权限</h2>
+
+
+
+<p class="wp-block-paragraph">假设我们已经设置好了统一权限，大部分用户都可以创建板块和发帖。但是假设我们想实现以下功能：</p>
+
+
+
+<ul class="wp-block-list">
+<li>有一个<code>系统公告</code>的分区，我们希望这一个分区仅允许管理员以及分区版主才能创建板块，其它用户不能创建板块</li>
+
+
+
+<li>有一个<code>会员专区</code>的分区，这一个板块我们只允许会员才能创建板块</li>
+
+
+
+<li>有一个<code>版务公告</code>的<qc style="color:#fb2121;background:undefined">板块</qc>，需要设置为仅允许管理员或者版主才能在此板块发帖</li>
+
+
+
+<li>有一个<code>VIP交流</code>的<qc style="color:#fb2121;background:undefined">板块</qc>，需要设置为仅VIP会员才能在此板块发帖</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">那么我们就需要为分区或者板块单独设置权限！</qc>配置流程一共两步：</p>
+
+
+
+<p class="wp-block-paragraph"><strong><qc>1.进入主题设置-&gt;社区&amp;论坛-&gt;权限配置</qc>，先创建几个权限选项</strong></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-WordPress社区论坛发帖限制以及创建板块限制的配置教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1878" height="1450" src="https://oss.zibll.com/zibll.com/2021/12/图片-65.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_791"  class="wp-image-3178" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-65.png 1878w, https://oss.zibll.com/zibll.com/2021/12/图片-65.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_648,h_500 648w, https://oss.zibll.com/zibll.com/2021/12/图片-65.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_791 1024w, https://oss.zibll.com/zibll.com/2021/12/图片-65.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_593 768w, https://oss.zibll.com/zibll.com/2021/12/图片-65.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1186 1536w" sizes="(max-width: 1878px) 100vw, 1878px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">我们在这里添加后选项，那么我们在创建板块分区或者创建板块的时候就可以进行选择了！</p>
+
+
+
+<p class="wp-block-paragraph"><strong>2.创建分区、板块的时候选择发布限制</strong></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-WordPress社区论坛发帖限制以及创建板块限制的配置教程-Wordpress主题模板-zibll子比主题" decoding="async" width="874" height="1308" src="https://oss.zibll.com/zibll.com/2021/12/图片-66.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_684,h_1024"  class="wp-image-3179" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-66.png 874w, https://oss.zibll.com/zibll.com/2021/12/图片-66.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_334,h_500 334w, https://oss.zibll.com/zibll.com/2021/12/图片-66.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_684,h_1024 684w, https://oss.zibll.com/zibll.com/2021/12/图片-66.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_1149 768w" sizes="(max-width: 874px) 100vw, 874px" /><figcaption class="wp-element-caption">单独设置发帖权限</figcaption></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-WordPress社区论坛发帖限制以及创建板块限制的配置教程-Wordpress主题模板-zibll子比主题" decoding="async" width="886" height="1112" src="https://oss.zibll.com/zibll.com/2021/12/图片-68.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_816,h_1024"  class="wp-image-3182" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-68.png 886w, https://oss.zibll.com/zibll.com/2021/12/图片-68.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_398,h_500 398w, https://oss.zibll.com/zibll.com/2021/12/图片-68.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_816,h_1024 816w, https://oss.zibll.com/zibll.com/2021/12/图片-68.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_964 768w" sizes="(max-width: 886px) 100vw, 886px" /><figcaption class="wp-element-caption">单独设置板块创建权限</figcaption></figure>
+</div>
+
+
+<h2 class="wp-block-heading">关注后可发布</h2>
+
+
+
+<p class="wp-block-paragraph">V8.7新增关注板块后可发布、关注后可查看的功能，同时支持付费才能关注的功能，这两个功能即可以单独使用也可以配合使用，即可实现付费关注后才能发帖或查看的功能。配置方式如图：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-WordPress社区论坛发帖限制以及创建板块限制的配置教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1290" height="1672" src="https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1157,h_1500"  class="wp-image-46380" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png 1290w, https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_1036 800w, https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1157,h_1500 1157w" sizes="(max-width: 1290px) 100vw, 1290px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">关于创建板块的权限和发帖权限的配置教程就结束了，论坛功能比较多，需要配置的权限也比较多。配置权限的时候一定要细心一点，配置完成之后最好测试一下！</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

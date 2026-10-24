@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll主题代码高亮功能详解-使用古腾堡块插入高亮代码教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll主题代码高亮功能详解-使用古腾堡块插入高亮代码教程</h1>
+  <div class="meta">来源：https://www.zibll.com/2234.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">有很多技术类型的站长在使用WordPress建站的时候，代码高亮的功能是必不可少的了。zibll子比主题自带了了强大的代码高亮功能，支持多种代码语言，同时深度适配主题的日间、夜间显示模式，让整体代码高亮效果更加的美观、已读</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">特色简介</h2>
+
+
+
+<ul class="wp-block-list"><li>多种代码语言，几乎包含全部常用语言</li><li>自动识别代码语言，或者手动设置</li><li>多种显示主题，支持日间、夜间模式单独设置高亮主题</li><li>支持复制代码、新窗口打开等扩展功能</li><li>支持显示行号、单独高亮行号功能</li><li>文章中使用古腾堡模块化插入，使用简单、配置丰富</li><li>评论、私信均支持代码高亮显示</li></ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">效果预览</h2>
+
+
+
+<p class="wp-block-paragraph">我们简单的预览以下部分代码高亮效果</p>
+
+
+
+<div class="mb20 post-tab nav-top"><div class="list-inline scroll-x mini-scrollbar tab-nav-theme"><li class="active"><a class="post-tab-toggle" href="javascript:;" tab-id="0">CSS </a></li><li class=""><a class="post-tab-toggle" href="javascript:;" tab-id="1"> JS </a></li><li class=""><a class="post-tab-toggle" href="javascript:;" tab-id="2"> PHP </a></li><li class=""><a class="post-tab-toggle" href="javascript:;" tab-id="3"> 其它代码</a></li></div><div class="tab-content">
+<div class="tab-pane fade active in" tab-id="0">
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c1">/*------这是一段css代码示例-------*/</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-c1">/*------使用自动主题，显示主题会跟随日间、夜间模式自动切换-------*/</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-x11">.pay-switch</span><span class="enlighter-text"> </span><span class="enlighter-x11">.but</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">margin</span><span class="enlighter-text">: </span><span class="enlighter-x13">5px</span><span class="enlighter-text"> </span><span class="enlighter-x13">0</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-x11">.pay-payment</span><span class="enlighter-x11">.alipay</span><span class="enlighter-text"> </span><span class="enlighter-x11">.t-alipay</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">display</span><span class="enlighter-text">: none;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-x11">.pay-payment</span><span class="enlighter-x11">.wechat</span><span class="enlighter-text"> </span><span class="enlighter-x11">.t-wechat</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">display</span><span class="enlighter-text">: none;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-x11">.pay-qrcon</span><span class="enlighter-text"> </span><span class="enlighter-x11">.pay-logo</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">height</span><span class="enlighter-text">: </span><span class="enlighter-x13">35px</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">width</span><span class="enlighter-text">: </span><span class="enlighter-x13">35px</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">display</span><span class="enlighter-text">: inline-block;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">max-width</span><span class="enlighter-text">: </span><span class="enlighter-x13">100%</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">background-repeat</span><span class="enlighter-text">: no-repeat;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">vertical-align</span><span class="enlighter-text">: middle;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">background-size</span><span class="enlighter-text">: contain;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">background-position</span><span class="enlighter-text">: center;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><pre class="enlighter-raw">/*------这是一段css代码示例-------*/
+/*------使用自动主题，显示主题会跟随日间、夜间模式自动切换-------*/
+.pay-switch .but {
+    margin: 5px 0;
+}
+
+.pay-payment.alipay .t-alipay {
+    display: none;
+}
+
+.pay-payment.wechat .t-wechat {
+    display: none;
+}
+
+.pay-qrcon .pay-logo {
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    background-size: contain;
+    background-position: center;
+}</pre></div><code class="gl enlighter-origin" data-enlighter-language="css" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/*------这是一段css代码示例-------*/
+/*------使用自动主题，显示主题会跟随日间、夜间模式自动切换-------*/
+.pay-switch .but {
+    margin: 5px 0;
+}
+
+.pay-payment.alipay .t-alipay {
+    display: none;
+}
+
+.pay-payment.wechat .t-wechat {
+    display: none;
+}
+
+.pay-qrcon .pay-logo {
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    background-size: contain;
+    background-position: center;
+}</code></pre>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-beyond enlighter-hover enlighter-linenumbers enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c1">/*------这是一段css代码示例-------*/</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-c1">/*------选择开启行号，设置自定义主题-------*/</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-x11">.pay-switch</span><span class="enlighter-text"> </span><span class="enlighter-x11">.but</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">margin</span><span class="enlighter-text">: </span><span class="enlighter-x13">5px</span><span class="enlighter-text"> </span><span class="enlighter-x13">0</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-x11">.pay-payment</span><span class="enlighter-x11">.alipay</span><span class="enlighter-text"> </span><span class="enlighter-x11">.t-alipay</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">display</span><span class="enlighter-text">: none;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-x11">.pay-payment</span><span class="enlighter-x11">.wechat</span><span class="enlighter-text"> </span><span class="enlighter-x11">.t-wechat</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">display</span><span class="enlighter-text">: none;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-x11">.pay-qrcon</span><span class="enlighter-text"> </span><span class="enlighter-x11">.pay-logo</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">height</span><span class="enlighter-text">: </span><span class="enlighter-x13">35px</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">width</span><span class="enlighter-text">: </span><span class="enlighter-x13">35px</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">display</span><span class="enlighter-text">: inline-block;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">max-width</span><span class="enlighter-text">: </span><span class="enlighter-x13">100%</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">background-repeat</span><span class="enlighter-text">: no-repeat;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">vertical-align</span><span class="enlighter-text">: middle;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">background-size</span><span class="enlighter-text">: contain;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-x12">background-position</span><span class="enlighter-text">: center;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><pre class="enlighter-raw">/*------这是一段css代码示例-------*/
+/*------选择开启行号，设置自定义主题-------*/
+
+.pay-switch .but {
+    margin: 5px 0;
+}
+
+.pay-payment.alipay .t-alipay {
+    display: none;
+}
+
+.pay-payment.wechat .t-wechat {
+    display: none;
+}
+
+.pay-qrcon .pay-logo {
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    background-size: contain;
+    background-position: center;
+}</pre></div><code class="gl enlighter-origin" data-enlighter-language="css" data-enlighter-theme="beyond" data-enlighter-highlight="" data-enlighter-linenumbers="true" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/*------这是一段css代码示例-------*/
+/*------选择开启行号，设置自定义主题-------*/
+
+.pay-switch .but {
+    margin: 5px 0;
+}
+
+.pay-payment.alipay .t-alipay {
+    display: none;
+}
+
+.pay-payment.wechat .t-wechat {
+    display: none;
+}
+
+.pay-qrcon .pay-logo {
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    background-size: contain;
+    background-position: center;
+}</code></pre>
+</div>
+
+
+
+<div class="tab-pane fade" tab-id="1">
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c0">//这是JS代码示例，使用自动主题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">function</span><span class="enlighter-text"> </span><span class="enlighter-m0">selectText</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k2">var</span><span class="enlighter-text"> range,</span></div></div><div class=""><div><span class="enlighter-text">            selection;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-m0">isOS</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            range = </span><span class="enlighter-k9">document</span><span class="enlighter-text">.</span><span class="enlighter-m3">createRange</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            range.</span><span class="enlighter-m3">selectNodeContents</span><span class="enlighter-g1">(</span><span class="enlighter-text">textArea</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            selection = </span><span class="enlighter-k9">window</span><span class="enlighter-text">.</span><span class="enlighter-m3">getSelection</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            selection.</span><span class="enlighter-m3">removeAllRanges</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            selection.</span><span class="enlighter-m3">addRange</span><span class="enlighter-g1">(</span><span class="enlighter-text">range</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            textArea.</span><span class="enlighter-m3">setSelectionRange</span><span class="enlighter-g1">(</span><span class="enlighter-n1">0</span><span class="enlighter-text">, </span><span class="enlighter-n1">999999</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"> </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            textArea.</span><span class="enlighter-m3">select</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span></div></div></div><pre class="enlighter-raw">//这是JS代码示例，使用自动主题
+function selectText() {
+        var range,
+            selection;
+
+        if (isOS()) {
+            range = document.createRange();
+            range.selectNodeContents(textArea);
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+        } else {
+            textArea.select();
+        }
+    }</pre></div><code class="gl enlighter-origin" data-enlighter-language="javascript" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">//这是JS代码示例，使用自动主题
+function selectText() {
+        var range,
+            selection;
+
+        if (isOS()) {
+            range = document.createRange();
+            range.selectNodeContents(textArea);
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+        } else {
+            textArea.select();
+        }
+    }</code></pre>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-classic enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c0">//这是JS代码示例，使用自定义主题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">function</span><span class="enlighter-text"> </span><span class="enlighter-m0">selectText</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k2">var</span><span class="enlighter-text"> range,</span></div></div><div class=""><div><span class="enlighter-text">            selection;</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-m0">isOS</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            range = </span><span class="enlighter-k9">document</span><span class="enlighter-text">.</span><span class="enlighter-m3">createRange</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            range.</span><span class="enlighter-m3">selectNodeContents</span><span class="enlighter-g1">(</span><span class="enlighter-text">textArea</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            selection = </span><span class="enlighter-k9">window</span><span class="enlighter-text">.</span><span class="enlighter-m3">getSelection</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            selection.</span><span class="enlighter-m3">removeAllRanges</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            selection.</span><span class="enlighter-m3">addRange</span><span class="enlighter-g1">(</span><span class="enlighter-text">range</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">            textArea.</span><span class="enlighter-m3">setSelectionRange</span><span class="enlighter-g1">(</span><span class="enlighter-n1">0</span><span class="enlighter-text">, </span><span class="enlighter-n1">999999</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"> </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">            textArea.</span><span class="enlighter-m3">select</span><span class="enlighter-g1">(</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span></div></div></div><pre class="enlighter-raw">//这是JS代码示例，使用自定义主题
+function selectText() {
+        var range,
+            selection;
+
+        if (isOS()) {
+            range = document.createRange();
+            range.selectNodeContents(textArea);
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+        } else {
+            textArea.select();
+        }
+    }</pre></div><code class="gl enlighter-origin" data-enlighter-language="javascript" data-enlighter-theme="classic" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">//这是JS代码示例，使用自定义主题
+function selectText() {
+        var range,
+            selection;
+
+        if (isOS()) {
+            range = document.createRange();
+            range.selectNodeContents(textArea);
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+        } else {
+            textArea.select();
+        }
+    }</code></pre>
+</div>
+
+
+
+<div class="tab-pane fade" tab-id="2">
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c0">//这是PHP代码示例，使用自动主题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">function</span><span class="enlighter-text"> </span><span class="enlighter-m0">zib_posts_multi_thumbnail</span><span class="enlighter-g1">(</span><span class="enlighter-k7">$size</span><span class="enlighter-text"> = </span><span class="enlighter-s0">''</span><span class="enlighter-text">, </span><span class="enlighter-k7">$class</span><span class="enlighter-text"> = </span><span class="enlighter-s0">'fit-cover'</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">!</span><span class="enlighter-k7">$size</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k7">$size</span><span class="enlighter-text"> = </span><span class="enlighter-m0">_pz</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'thumb_postfirstimg_size'</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k0">global</span><span class="enlighter-text"> </span><span class="enlighter-k7">$post</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k7">$cache_html</span><span class="enlighter-text"> = </span><span class="enlighter-m0">wp_cache_get</span><span class="enlighter-g1">(</span><span class="enlighter-k7">$post</span><span class="enlighter-text">-</span><span class="enlighter-g1">&gt;</span><span class="enlighter-m1">ID</span><span class="enlighter-text">, </span><span class="enlighter-s0">'post_multi_thumbnail'</span><span class="enlighter-text">, </span><span class="enlighter-e0">true</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">!</span><span class="enlighter-k7">$cache_html</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k7">$html</span><span class="enlighter-text"> = </span><span class="enlighter-m0">zib_get_post_img</span><span class="enlighter-g1">(</span><span class="enlighter-k7">$size</span><span class="enlighter-text">, </span><span class="enlighter-k7">$class</span><span class="enlighter-text">, 4</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-m0">_pz</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'lazy_posts_thumb'</span><span class="enlighter-g1">))</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-k7">$html</span><span class="enlighter-text"> = </span><span class="enlighter-m0">str_replace</span><span class="enlighter-g1">(</span><span class="enlighter-s0">' src='</span><span class="enlighter-text">, </span><span class="enlighter-s0">' src="'</span><span class="enlighter-text"> . </span><span class="enlighter-m0">zib_get_lazy_thumb</span><span class="enlighter-g1">()</span><span class="enlighter-text"> . </span><span class="enlighter-s0">'" data-src='</span><span class="enlighter-text">, </span><span class="enlighter-k7">$html</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-k7">$html</span><span class="enlighter-text"> = </span><span class="enlighter-m0">str_replace</span><span class="enlighter-g1">(</span><span class="enlighter-s0">' class="'</span><span class="enlighter-text">, </span><span class="enlighter-s0">' class="lazyload '</span><span class="enlighter-text">, </span><span class="enlighter-k7">$html</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">wp_cache_set</span><span class="enlighter-g1">(</span><span class="enlighter-k7">$post</span><span class="enlighter-text">-</span><span class="enlighter-g1">&gt;</span><span class="enlighter-m1">ID</span><span class="enlighter-text">, </span><span class="enlighter-k7">$html</span><span class="enlighter-text">, </span><span class="enlighter-s0">'post_multi_thumbnail'</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">}</span><span class="enlighter-text"> </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k7">$html</span><span class="enlighter-text"> = </span><span class="enlighter-k7">$cache_html</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k0">return</span><span class="enlighter-text"> </span><span class="enlighter-k7">$html</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><pre class="enlighter-raw">//这是PHP代码示例，使用自动主题
+function zib_posts_multi_thumbnail($size = '', $class = 'fit-cover')
+{
+  if (!$size) {
+    $size = _pz('thumb_postfirstimg_size');
+  }
+  global $post;
+  $cache_html = wp_cache_get($post-&gt;ID, 'post_multi_thumbnail', true);
+  if (!$cache_html) {
+    $html = zib_get_post_img($size, $class, 4);
+    if (_pz('lazy_posts_thumb')) {
+      $html = str_replace(' src=', ' src="' . zib_get_lazy_thumb() . '" data-src=', $html);
+      $html = str_replace(' class="', ' class="lazyload ', $html);
+    }
+    wp_cache_set($post-&gt;ID, $html, 'post_multi_thumbnail');
+  } else {
+    $html = $cache_html;
+  }
+  return $html;
+}</pre></div><code class="gl enlighter-origin" data-enlighter-language="php" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">//这是PHP代码示例，使用自动主题
+function zib_posts_multi_thumbnail($size = '', $class = 'fit-cover')
+{
+	if (!$size) {
+		$size = _pz('thumb_postfirstimg_size');
+	}
+	global $post;
+	$cache_html = wp_cache_get($post-&gt;ID, 'post_multi_thumbnail', true);
+	if (!$cache_html) {
+		$html = zib_get_post_img($size, $class, 4);
+		if (_pz('lazy_posts_thumb')) {
+			$html = str_replace(' src=', ' src="' . zib_get_lazy_thumb() . '" data-src=', $html);
+			$html = str_replace(' class="', ' class="lazyload ', $html);
+		}
+		wp_cache_set($post-&gt;ID, $html, 'post_multi_thumbnail');
+	} else {
+		$html = $cache_html;
+	}
+	return $html;
+}</code></pre>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c0">//这是PHP代码示例，使用自定义主题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k0">function</span><span class="enlighter-text"> </span><span class="enlighter-m0">zib_posts_multi_thumbnail</span><span class="enlighter-g1">(</span><span class="enlighter-k7">$size</span><span class="enlighter-text"> = </span><span class="enlighter-s0">''</span><span class="enlighter-text">, </span><span class="enlighter-k7">$class</span><span class="enlighter-text"> = </span><span class="enlighter-s0">'fit-cover'</span><span class="enlighter-g1">)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">!</span><span class="enlighter-k7">$size</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k7">$size</span><span class="enlighter-text"> = </span><span class="enlighter-m0">_pz</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'thumb_postfirstimg_size'</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k0">global</span><span class="enlighter-text"> </span><span class="enlighter-k7">$post</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k7">$cache_html</span><span class="enlighter-text"> = </span><span class="enlighter-m0">wp_cache_get</span><span class="enlighter-g1">(</span><span class="enlighter-k7">$post</span><span class="enlighter-text">-</span><span class="enlighter-g1">&gt;</span><span class="enlighter-m1">ID</span><span class="enlighter-text">, </span><span class="enlighter-s0">'post_multi_thumbnail'</span><span class="enlighter-text">, </span><span class="enlighter-e0">true</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-text">!</span><span class="enlighter-k7">$cache_html</span><span class="enlighter-g1">)</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k7">$html</span><span class="enlighter-text"> = </span><span class="enlighter-m0">zib_get_post_img</span><span class="enlighter-g1">(</span><span class="enlighter-k7">$size</span><span class="enlighter-text">, </span><span class="enlighter-k7">$class</span><span class="enlighter-text">, 4</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k1">if</span><span class="enlighter-text"> </span><span class="enlighter-g1">(</span><span class="enlighter-m0">_pz</span><span class="enlighter-g1">(</span><span class="enlighter-s0">'lazy_posts_thumb'</span><span class="enlighter-g1">))</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-k7">$html</span><span class="enlighter-text"> = </span><span class="enlighter-m0">str_replace</span><span class="enlighter-g1">(</span><span class="enlighter-s0">' src='</span><span class="enlighter-text">, </span><span class="enlighter-s0">' src="'</span><span class="enlighter-text"> . </span><span class="enlighter-m0">zib_get_lazy_thumb</span><span class="enlighter-g1">()</span><span class="enlighter-text"> . </span><span class="enlighter-s0">'" data-src='</span><span class="enlighter-text">, </span><span class="enlighter-k7">$html</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">      </span><span class="enlighter-k7">$html</span><span class="enlighter-text"> = </span><span class="enlighter-m0">str_replace</span><span class="enlighter-g1">(</span><span class="enlighter-s0">' class="'</span><span class="enlighter-text">, </span><span class="enlighter-s0">' class="lazyload '</span><span class="enlighter-text">, </span><span class="enlighter-k7">$html</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-m0">wp_cache_set</span><span class="enlighter-g1">(</span><span class="enlighter-k7">$post</span><span class="enlighter-text">-</span><span class="enlighter-g1">&gt;</span><span class="enlighter-m1">ID</span><span class="enlighter-text">, </span><span class="enlighter-k7">$html</span><span class="enlighter-text">, </span><span class="enlighter-s0">'post_multi_thumbnail'</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">}</span><span class="enlighter-text"> </span><span class="enlighter-k1">else</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k7">$html</span><span class="enlighter-text"> = </span><span class="enlighter-k7">$cache_html</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">}</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k0">return</span><span class="enlighter-text"> </span><span class="enlighter-k7">$html</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><pre class="enlighter-raw">//这是PHP代码示例，使用自定义主题
+function zib_posts_multi_thumbnail($size = '', $class = 'fit-cover')
+{
+  if (!$size) {
+    $size = _pz('thumb_postfirstimg_size');
+  }
+  global $post;
+  $cache_html = wp_cache_get($post-&gt;ID, 'post_multi_thumbnail', true);
+  if (!$cache_html) {
+    $html = zib_get_post_img($size, $class, 4);
+    if (_pz('lazy_posts_thumb')) {
+      $html = str_replace(' src=', ' src="' . zib_get_lazy_thumb() . '" data-src=', $html);
+      $html = str_replace(' class="', ' class="lazyload ', $html);
+    }
+    wp_cache_set($post-&gt;ID, $html, 'post_multi_thumbnail');
+  } else {
+    $html = $cache_html;
+  }
+  return $html;
+}</pre></div><code class="gl enlighter-origin" data-enlighter-language="php" data-enlighter-theme="dracula" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">//这是PHP代码示例，使用自定义主题
+function zib_posts_multi_thumbnail($size = '', $class = 'fit-cover')
+{
+	if (!$size) {
+		$size = _pz('thumb_postfirstimg_size');
+	}
+	global $post;
+	$cache_html = wp_cache_get($post-&gt;ID, 'post_multi_thumbnail', true);
+	if (!$cache_html) {
+		$html = zib_get_post_img($size, $class, 4);
+		if (_pz('lazy_posts_thumb')) {
+			$html = str_replace(' src=', ' src="' . zib_get_lazy_thumb() . '" data-src=', $html);
+			$html = str_replace(' class="', ' class="lazyload ', $html);
+		}
+		wp_cache_set($post-&gt;ID, $html, 'post_multi_thumbnail');
+	} else {
+		$html = $cache_html;
+	}
+	return $html;
+}</code></pre>
+</div>
+
+
+
+<div class="tab-pane fade" tab-id="3">
+<p class="wp-block-paragraph">支持的代码类型很多，就算是未支持的类型，也可以使用通用代码高亮模式，显示效果依然很好，这里就随机的再示例一些其它的代码高亮，主题我也随机设置一下</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">div</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">p</span><span class="enlighter-g1">&gt;</span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">strong</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新功能</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">strong</span><span class="enlighter-g1">&gt;</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">p</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">ul</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增古腾堡模块：视频剧集模块</span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">a</span><span class="enlighter-text"> </span><span class="enlighter-x2">href</span><span class="enlighter-k3">=</span><span class="enlighter-s0">"https://www.zibll.com/2223.html"</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">【查看教程】</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">a</span><span class="enlighter-g1">&gt;</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增古腾堡模块：多栏目模块</span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">a</span><span class="enlighter-text"> </span><span class="enlighter-x2">href</span><span class="enlighter-k3">=</span><span class="enlighter-s0">"https://www.zibll.com/2195.html"</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">【查看教程】</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">a</span><span class="enlighter-g1">&gt;</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增付费视频：添加付费剧集的功能</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增社交登录：微信公众号登录、绑定功能</span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">a</span><span class="enlighter-text"> </span><span class="enlighter-x2">href</span><span class="enlighter-k3">=</span><span class="enlighter-s0">"https://www.zibll.com/2206.html"</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">【查看教程】</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">a</span><span class="enlighter-g1">&gt;</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增是否在文章列表显示付费、分类、标签信息的选项设置（主题设置-文章列表-列表标签）</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增文章图片自动添加 Alt 标签功能，提高 SEO 优化</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增主题 SEO 功能开关，方便无需主题做 SEO 优化时候关闭主题的 SEO 功能</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增页面模板：zibll文档导航</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增用户收到私信后给用户发送邮件通知的功能</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增V免签支付接口(免费开源支付接口)</span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">a</span><span class="enlighter-text"> </span><span class="enlighter-x2">rel</span><span class="enlighter-k3">=</span><span class="enlighter-s0">"noreferrer noopener"</span><span class="enlighter-text"> </span><span class="enlighter-x2">aria-label</span><span class="enlighter-k3">=</span><span class="enlighter-s0">"【项目地址】（在新窗口打开）"</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-x2">href</span><span class="enlighter-k3">=</span><span class="enlighter-s0">"https://www.zibll.com/?golink=aHR0cHM6Ly9naXRodWIuY29tL3N6dm9uZS92bXFwaHA="</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">                </span><span class="enlighter-x2">target</span><span class="enlighter-k3">=</span><span class="enlighter-s0">"_blank"</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">【项目地址】</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">a</span><span class="enlighter-g1">&gt;</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增码支付自定义支付接口地址的功能</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">新增微信官方接口JSAPI支付功能(微信APP内直接发起支付)</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">ul</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">p</span><span class="enlighter-g1">&gt;</span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">strong</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">优化内容</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">strong</span><span class="enlighter-g1">&gt;</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">p</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">ul</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">进一步优化 SEO 自动获取内容的逻辑，补全部分缺失的SEO内容，确保google seo评分100</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">优化：用户名不允许为纯数字或邮箱，避免某些小概率逻辑错误</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">优化：在支付宝APP内支持支付宝登录</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">优化：社交登录同步检查用户名是否合法，不合法则自动创建用户名</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">优化：会员专属资源在文章列表的显示效果</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">优化：部分不支持高斯模糊的浏览器的显示效果</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">优化：图片灯箱在IOS系统中放大后的清晰度</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">修复：移动端列表无图模式、多图模式不生效的 bug</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">修复：未登录查看其它作者文章可能会会显示未发布的文章的 bug</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">修复：付费模块标题可能会被遮挡的 bug</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">修复：分类页面添加模块可能会重复显示的bug</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-g1">&lt;</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text">修复：评论回复邮件昵称显示错误的bug</span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">li</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">ul</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">&lt;/</span><span class="enlighter-x1">div</span><span class="enlighter-g1">&gt;</span></div></div></div><pre class="enlighter-raw">&lt;div&gt;
+    &lt;p&gt;&lt;strong&gt;新功能&lt;/strong&gt;&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;新增古腾堡模块：视频剧集模块&lt;a href="2223.html"&gt;【查看教程】&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;新增古腾堡模块：多栏目模块&lt;a href="2195.html"&gt;【查看教程】&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;新增付费视频：添加付费剧集的功能&lt;/li&gt;
+        &lt;li&gt;新增社交登录：微信公众号登录、绑定功能&lt;a href="2206.html"&gt;【查看教程】&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;新增是否在文章列表显示付费、分类、标签信息的选项设置（主题设置-文章列表-列表标签）&lt;/li&gt;
+        &lt;li&gt;新增文章图片自动添加 Alt 标签功能，提高 SEO 优化&lt;/li&gt;
+        &lt;li&gt;新增主题 SEO 功能开关，方便无需主题做 SEO 优化时候关闭主题的 SEO 功能&lt;/li&gt;
+        &lt;li&gt;新增页面模板：zibll文档导航&lt;/li&gt;
+        &lt;li&gt;新增用户收到私信后给用户发送邮件通知的功能&lt;/li&gt;
+        &lt;li&gt;新增V免签支付接口(免费开源支付接口)&lt;a rel="noreferrer noopener" aria-label="【项目地址】（在新窗口打开）"
+                href="https://www.zibll.com/?golink=aHR0cHM6Ly9naXRodWIuY29tL3N6dm9uZS92bXFwaHA="
+                target="_blank"&gt;【项目地址】&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;新增码支付自定义支付接口地址的功能&lt;/li&gt;
+        &lt;li&gt;新增微信官方接口JSAPI支付功能(微信APP内直接发起支付)&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;&lt;strong&gt;优化内容&lt;/strong&gt;&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;进一步优化 SEO 自动获取内容的逻辑，补全部分缺失的SEO内容，确保google seo评分100&lt;/li&gt;
+        &lt;li&gt;优化：用户名不允许为纯数字或邮箱，避免某些小概率逻辑错误&lt;/li&gt;
+        &lt;li&gt;优化：在支付宝APP内支持支付宝登录&lt;/li&gt;
+        &lt;li&gt;优化：社交登录同步检查用户名是否合法，不合法则自动创建用户名&lt;/li&gt;
+        &lt;li&gt;优化：会员专属资源在文章列表的显示效果&lt;/li&gt;
+        &lt;li&gt;优化：部分不支持高斯模糊的浏览器的显示效果&lt;/li&gt;
+        &lt;li&gt;优化：图片灯箱在IOS系统中放大后的清晰度&lt;/li&gt;
+        &lt;li&gt;修复：移动端列表无图模式、多图模式不生效的 bug&lt;/li&gt;
+        &lt;li&gt;修复：未登录查看其它作者文章可能会会显示未发布的文章的 bug&lt;/li&gt;
+        &lt;li&gt;修复：付费模块标题可能会被遮挡的 bug&lt;/li&gt;
+        &lt;li&gt;修复：分类页面添加模块可能会重复显示的bug&lt;/li&gt;
+        &lt;li&gt;修复：评论回复邮件昵称显示错误的bug&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</pre></div><code class="gl enlighter-origin" data-enlighter-language="xml" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;div&gt;
+    &lt;p&gt;&lt;strong&gt;新功能&lt;/strong&gt;&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;新增古腾堡模块：视频剧集模块&lt;a href="2223.html"&gt;【查看教程】&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;新增古腾堡模块：多栏目模块&lt;a href="2195.html"&gt;【查看教程】&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;新增付费视频：添加付费剧集的功能&lt;/li&gt;
+        &lt;li&gt;新增社交登录：微信公众号登录、绑定功能&lt;a href="2206.html"&gt;【查看教程】&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;新增是否在文章列表显示付费、分类、标签信息的选项设置（主题设置-文章列表-列表标签）&lt;/li&gt;
+        &lt;li&gt;新增文章图片自动添加 Alt 标签功能，提高 SEO 优化&lt;/li&gt;
+        &lt;li&gt;新增主题 SEO 功能开关，方便无需主题做 SEO 优化时候关闭主题的 SEO 功能&lt;/li&gt;
+        &lt;li&gt;新增页面模板：zibll文档导航&lt;/li&gt;
+        &lt;li&gt;新增用户收到私信后给用户发送邮件通知的功能&lt;/li&gt;
+        &lt;li&gt;新增V免签支付接口(免费开源支付接口)&lt;a rel="noreferrer noopener" aria-label="【项目地址】（在新窗口打开）"
+                href="https://www.zibll.com/?golink=aHR0cHM6Ly9naXRodWIuY29tL3N6dm9uZS92bXFwaHA="
+                target="_blank"&gt;【项目地址】&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;新增码支付自定义支付接口地址的功能&lt;/li&gt;
+        &lt;li&gt;新增微信官方接口JSAPI支付功能(微信APP内直接发起支付)&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;&lt;strong&gt;优化内容&lt;/strong&gt;&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;进一步优化 SEO 自动获取内容的逻辑，补全部分缺失的SEO内容，确保google seo评分100&lt;/li&gt;
+        &lt;li&gt;优化：用户名不允许为纯数字或邮箱，避免某些小概率逻辑错误&lt;/li&gt;
+        &lt;li&gt;优化：在支付宝APP内支持支付宝登录&lt;/li&gt;
+        &lt;li&gt;优化：社交登录同步检查用户名是否合法，不合法则自动创建用户名&lt;/li&gt;
+        &lt;li&gt;优化：会员专属资源在文章列表的显示效果&lt;/li&gt;
+        &lt;li&gt;优化：部分不支持高斯模糊的浏览器的显示效果&lt;/li&gt;
+        &lt;li&gt;优化：图片灯箱在IOS系统中放大后的清晰度&lt;/li&gt;
+        &lt;li&gt;修复：移动端列表无图模式、多图模式不生效的 bug&lt;/li&gt;
+        &lt;li&gt;修复：未登录查看其它作者文章可能会会显示未发布的文章的 bug&lt;/li&gt;
+        &lt;li&gt;修复：付费模块标题可能会被遮挡的 bug&lt;/li&gt;
+        &lt;li&gt;修复：分类页面添加模块可能会重复显示的bug&lt;/li&gt;
+        &lt;li&gt;修复：评论回复邮件昵称显示错误的bug&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-godzilla enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-k0">CREATE</span><span class="enlighter-text">  </span><span class="enlighter-k0">TABLE</span><span class="enlighter-text">  </span><span class="enlighter-k0">ENROLLS</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        (</span><span class="enlighter-k0">SNO</span><span class="enlighter-text">      </span><span class="enlighter-k0">NUMERIC</span><span class="enlighter-text">(6,0)  </span><span class="enlighter-k3">NOT</span><span class="enlighter-text"> </span><span class="enlighter-e1">NULL</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k0">CNO</span><span class="enlighter-text">     </span><span class="enlighter-k0">CHAR</span><span class="enlighter-text">(4)  </span><span class="enlighter-k3">NOT</span><span class="enlighter-text"> </span><span class="enlighter-e1">NULL</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k0">GRADE</span><span class="enlighter-text">   </span><span class="enlighter-k0">INT</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k0">PRIMARY</span><span class="enlighter-text"> </span><span class="enlighter-k0">KEY</span><span class="enlighter-text">(</span><span class="enlighter-k0">SNO</span><span class="enlighter-text">,</span><span class="enlighter-k0">CNO</span><span class="enlighter-text">)</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k0">FOREIGN</span><span class="enlighter-text"> </span><span class="enlighter-k0">KEY</span><span class="enlighter-text">(</span><span class="enlighter-k0">SNO</span><span class="enlighter-text">) </span><span class="enlighter-k0">REFERENCES</span><span class="enlighter-text"> </span><span class="enlighter-k0">STUDENTS</span><span class="enlighter-text">(</span><span class="enlighter-k0">SNO</span><span class="enlighter-text">)</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k0">FOREIGN</span><span class="enlighter-text"> </span><span class="enlighter-k0">KEY</span><span class="enlighter-text">(</span><span class="enlighter-k0">CNO</span><span class="enlighter-text">) </span><span class="enlighter-k0">REFERENCES</span><span class="enlighter-text"> </span><span class="enlighter-k0">COURSES</span><span class="enlighter-text">(</span><span class="enlighter-k0">CNO</span><span class="enlighter-text">)</span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        </span><span class="enlighter-k0">CHECK</span><span class="enlighter-text"> ((</span><span class="enlighter-k0">GRADE</span><span class="enlighter-text"> </span><span class="enlighter-k3">IS NULL</span><span class="enlighter-text">) </span><span class="enlighter-k3">OR</span><span class="enlighter-text"> (</span><span class="enlighter-k0">GRADE</span><span class="enlighter-text"> </span><span class="enlighter-k3">BETWEEN</span><span class="enlighter-text"> 0 </span><span class="enlighter-k3">AND</span><span class="enlighter-text"> 100)))</span></div></div></div><pre class="enlighter-raw">  CREATE  TABLE  ENROLLS
+
+        (SNO      NUMERIC(6,0)  NOT NULL
+
+        CNO     CHAR(4)  NOT NULL
+
+        GRADE   INT
+
+        PRIMARY KEY(SNO,CNO)
+
+        FOREIGN KEY(SNO) REFERENCES STUDENTS(SNO)
+
+        FOREIGN KEY(CNO) REFERENCES COURSES(CNO)
+
+        CHECK ((GRADE IS NULL) OR (GRADE BETWEEN 0 AND 100)))</pre></div><code class="gl enlighter-origin" data-enlighter-language="sql" data-enlighter-theme="godzilla" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">  CREATE  TABLE  ENROLLS
+
+        (SNO      NUMERIC(6,0)  NOT NULL
+
+        CNO     CHAR(4)  NOT NULL
+
+        GRADE   INT
+
+        PRIMARY KEY(SNO,CNO)
+
+        FOREIGN KEY(SNO) REFERENCES STUDENTS(SNO)
+
+        FOREIGN KEY(CNO) REFERENCES COURSES(CNO)
+
+        CHECK ((GRADE IS NULL) OR (GRADE BETWEEN 0 AND 100)))</code></pre>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-rowhammer enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-k4">#!/bin/bash</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k7">COUNT</span><span class="enlighter-text">=1</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k7">SUM</span><span class="enlighter-text">=0</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k7">MIN</span><span class="enlighter-text">=0</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k7">MAX</span><span class="enlighter-text">=100</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k1">while</span><span class="enlighter-text"> [ </span><span class="enlighter-k7">$COUNT</span><span class="enlighter-text"> -</span><span class="enlighter-k1">le</span><span class="enlighter-text"> 5 ]; </span><span class="enlighter-k1">do</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    read -p </span><span class="enlighter-s0">"请输入1-10个整数："</span><span class="enlighter-text"> INT</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k1">if</span><span class="enlighter-text"> [[ ! </span><span class="enlighter-k7">$INT</span><span class="enlighter-text"> =~ ^[0-9]+$ ]]; </span><span class="enlighter-k1">then</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        echo </span><span class="enlighter-s0">"输入必须是整数！"</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        exit 1</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k1">elif</span><span class="enlighter-text"> [[ </span><span class="enlighter-k7">$INT</span><span class="enlighter-text"> -</span><span class="enlighter-k1">gt</span><span class="enlighter-text"> 100 ]]; </span><span class="enlighter-k1">then</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        echo </span><span class="enlighter-s0">"输入必须是100以内！"</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">        exit 1</span></div></div><div class=""><div><span class="enlighter-text">    </span><span class="enlighter-k1">fi</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k7">    SUM</span><span class="enlighter-text">=</span><span class="enlighter-s2">$</span><span class="enlighter-text">((</span><span class="enlighter-k7">$SUM</span><span class="enlighter-text">+</span><span class="enlighter-k7">$INT</span><span class="enlighter-text">))</span></div></div><div class=""><div><span class="enlighter-text">    [ </span><span class="enlighter-k7">$MIN</span><span class="enlighter-text"> -</span><span class="enlighter-k1">lt</span><span class="enlighter-text"> </span><span class="enlighter-k7">$INT</span><span class="enlighter-text"> ] &amp;&amp; MIN=</span><span class="enlighter-k7">$INT</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    [ </span><span class="enlighter-k7">$MAX</span><span class="enlighter-text"> -</span><span class="enlighter-k1">gt</span><span class="enlighter-text"> </span><span class="enlighter-k7">$INT</span><span class="enlighter-text"> ] &amp;&amp; MAX=</span><span class="enlighter-k7">$INT</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    let COUNT++</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-k1">done</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">echo </span><span class="enlighter-s0">"SUM: $SUM"</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">echo </span><span class="enlighter-s0">"MIN: $MIN"</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">echo </span><span class="enlighter-s0">"MAX: $MAX"</span></div></div></div><pre class="enlighter-raw">#!/bin/bash
+COUNT=1
+SUM=0
+MIN=0
+MAX=100
+while [ $COUNT -le 5 ]; do
+    read -p "请输入1-10个整数：" INT
+    if [[ ! $INT =~ ^[0-9]+$ ]]; then
+        echo "输入必须是整数！"
+        exit 1
+    elif [[ $INT -gt 100 ]]; then
+        echo "输入必须是100以内！"
+        exit 1
+    fi
+    SUM=$(($SUM+$INT))
+    [ $MIN -lt $INT ] &amp;&amp; MIN=$INT
+    [ $MAX -gt $INT ] &amp;&amp; MAX=$INT
+    let COUNT++
+done
+echo "SUM: $SUM"
+echo "MIN: $MIN"
+echo "MAX: $MAX"</pre></div><code class="gl enlighter-origin" data-enlighter-language="shell" data-enlighter-theme="rowhammer" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#!/bin/bash
+COUNT=1
+SUM=0
+MIN=0
+MAX=100
+while [ $COUNT -le 5 ]; do
+    read -p "请输入1-10个整数：" INT
+    if [[ ! $INT =~ ^[0-9]+$ ]]; then
+        echo "输入必须是整数！"
+        exit 1
+    elif [[ $INT -gt 100 ]]; then
+        echo "输入必须是100以内！"
+        exit 1
+    fi
+    SUM=$(($SUM+$INT))
+    [ $MIN -lt $INT ] &amp;&amp; MIN=$INT
+    [ $MAX -gt $INT ] &amp;&amp; MAX=$INT
+    let COUNT++
+done
+echo "SUM: $SUM"
+echo "MIN: $MIN"
+echo "MAX: $MAX"</code></pre>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-bootstrap4 enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text"> MarkDown规则</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1">#一级标题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1">##二级标题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1">###三级标题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1">####四级标题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1">#####五级标题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1">######六级标题</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####无序列表（MarkDown2换行需要使用两个空格，序列实现效果也是需要空两个空格）</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">*  1    </span></div></div><div class=""><div><span class="enlighter-text">*  2    </span></div></div><div class=""><div><span class="enlighter-text">*  3    </span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####有序列表</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">1.  1  </span></div></div><div class=""><div><span class="enlighter-text">2.  2  </span></div></div><div class=""><div><span class="enlighter-text">3.  3  </span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span></div></div><div class=""><div><span class="enlighter-text">&gt;添加引用</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####插入连接（插入连接与插入图片的区别在于是否存在!(感叹号))</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t3">[Baidu](http://www.baidu.com)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####插入图片</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t3">![Mou icon](http://www.yanyulin.info/pics/1593358327250.png)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####斜体(将需要设置为斜体的文字两端使用1个“*”或者“_”夹起来)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t4">*</span><span class="enlighter-t4">这里是使用了斜体*</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####粗体(将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来)</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t4">**</span><span class="enlighter-t4">这里是使用了粗体**</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1">  </span></div></div><div class=""><div><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####分割线</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t2">***</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####代码框</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t8">`public void main(String[] args)`</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####创建连接</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">&lt;test@163.com&gt;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1"></span></div></div><div class=""><div><span class="enlighter-t1">####创建段落</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    这是一个段落</span></div></div><div class=""><div><span class="enlighter-text">        这是另一个段落</span></div></div><div class=""><div><span class="enlighter-text">                这又是另一个段落</span></div></div></div><pre class="enlighter-raw"> MarkDown规则
+#一级标题
+##二级标题
+###三级标题
+####四级标题
+#####五级标题
+######六级标题
+
+
+
+####无序列表（MarkDown2换行需要使用两个空格，序列实现效果也是需要空两个空格）
+*  1    
+*  2    
+*  3    
+
+####有序列表
+1.  1  
+2.  2  
+3.  3  
+
+  
+&gt;添加引用
+
+
+####插入连接（插入连接与插入图片的区别在于是否存在!(感叹号))
+[Baidu](http://www.baidu.com)
+
+####插入图片
+![Mou icon](http://www.yanyulin.info/pics/1593358327250.png)
+
+####斜体(将需要设置为斜体的文字两端使用1个“*”或者“_”夹起来)
+*这里是使用了斜体*
+
+####粗体(将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来)
+**这里是使用了粗体**
+  
+
+####分割线
+
+***
+
+####代码框
+`public void main(String[] args)`
+
+####创建连接
+&lt;test@163.com&gt;
+
+
+####创建段落
+    这是一个段落
+        这是另一个段落
+                这又是另一个段落</pre></div><code class="gl enlighter-origin" data-enlighter-language="markdown" data-enlighter-theme="bootstrap4" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group=""> MarkDown规则
+#一级标题
+##二级标题
+###三级标题
+####四级标题
+#####五级标题
+######六级标题
+
+
+
+####无序列表（MarkDown2换行需要使用两个空格，序列实现效果也是需要空两个空格）
+*  1    
+*  2    
+*  3    
+
+####有序列表
+1.  1  
+2.  2  
+3.  3  
+
+  
+&gt;添加引用
+
+
+####插入连接（插入连接与插入图片的区别在于是否存在!(感叹号))
+[Baidu](http://www.baidu.com)
+
+####插入图片
+![Mou icon](http://www.yanyulin.info/pics/1593358327250.png)
+
+####斜体(将需要设置为斜体的文字两端使用1个“*”或者“_”夹起来)
+*这里是使用了斜体*
+
+####粗体(将需要设置为斜体的文字两端使用2个“*”或者“_”夹起来)
+**这里是使用了粗体**
+  
+
+####分割线
+
+***
+
+####代码框
+`public void main(String[] args)`
+
+####创建连接
+&lt;test@163.com&gt;
+
+
+####创建段落
+    这是一个段落
+        这是另一个段落
+                这又是另一个段落</code></pre>
+</div>
+</div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">选项设置</h2>
+
+
+
+<p class="wp-block-paragraph">我们可以进入<qc style="color:#1F91F3;background:undefined">主题设置-&gt;全局&amp;功能-&gt;常用功能</qc>：设置代码高亮的默认参数及功能：</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[1]-WordPress主题zibll子比主题使用古腾堡(Gutenberg)添加代码高亮教程-高亮代码功能详解" decoding="async" src="https://oss.zibll.com/zibll.com/2021/07/图片.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_451" class="wp-image-2237" width="600" srcset="https://oss.zibll.com/zibll.com/2021/07/图片.png 1766w, https://oss.zibll.com/zibll.com/2021/07/图片.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_308 700w, https://oss.zibll.com/zibll.com/2021/07/图片.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_451 1024w, https://oss.zibll.com/zibll.com/2021/07/图片.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_338 768w, https://oss.zibll.com/zibll.com/2021/07/图片.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_677 1536w" sizes="(max-width: 1766px) 100vw, 1766px" imgbox-index="0"></figure></div>
+
+
+
+<p class="wp-block-paragraph">注意：这里设置的是全局的默认参数，在文章中添加代码高亮时候，可以针对每一个块进行单独设置</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_3">使用古腾堡块在文章中插入</h2>
+
+
+
+<p class="wp-block-paragraph">在文章中插入代码高亮的功能就是十分简单了，使用古腾堡块<code>【zibll 高亮代码模块】</code><br>粘贴代码后可在右侧设置相关参数</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[2]-WordPress主题zibll子比主题使用古腾堡(Gutenberg)添加代码高亮教程-高亮代码功能详解" decoding="async" src="https://oss.zibll.com/zibll.com/2021/07/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_924" class="wp-image-2238" width="600" srcset="https://oss.zibll.com/zibll.com/2021/07/图片-1.png 1126w, https://oss.zibll.com/zibll.com/2021/07/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_554,h_500 554w, https://oss.zibll.com/zibll.com/2021/07/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_924 1024w, https://oss.zibll.com/zibll.com/2021/07/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_693 768w" sizes="(max-width: 1126px) 100vw, 1126px" imgbox-index="1"></figure></div>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[3]-WordPress主题zibll子比主题使用古腾堡(Gutenberg)添加代码高亮教程-高亮代码功能详解" decoding="async" src="https://oss.zibll.com/zibll.com/2021/07/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_612" class="wp-image-2239" width="600" srcset="https://oss.zibll.com/zibll.com/2021/07/图片-2.png 1714w, https://oss.zibll.com/zibll.com/2021/07/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_418 700w, https://oss.zibll.com/zibll.com/2021/07/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_612 1024w, https://oss.zibll.com/zibll.com/2021/07/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_459 768w, https://oss.zibll.com/zibll.com/2021/07/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_918 1536w" sizes="(max-width: 1714px) 100vw, 1714px" imgbox-index="2"></figure></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">在评论中使用高亮代码</h2>
+
+
+
+<p class="wp-block-paragraph">主题默认开启评论中插入代码高亮功能，如需关闭或者重新开启，请在主题设置-&gt;用户&amp;互动-&gt;评论设置：设置是否开启代码高亮</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[4]-WordPress主题zibll子比主题使用古腾堡(Gutenberg)添加代码高亮教程-高亮代码功能详解" decoding="async" src="https://oss.zibll.com/zibll.com/2021/07/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_446" class="wp-image-2240" width="600" srcset="https://oss.zibll.com/zibll.com/2021/07/图片-3.png 1532w, https://oss.zibll.com/zibll.com/2021/07/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_305 700w, https://oss.zibll.com/zibll.com/2021/07/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_446 1024w, https://oss.zibll.com/zibll.com/2021/07/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_335 768w" sizes="(max-width: 1532px) 100vw, 1532px" imgbox-index="3"></figure></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_5">在私信中使用高亮代码</h2>
+
+
+
+<p class="wp-block-paragraph">主题默认开启私信中插入代码高亮功能，如需关闭或者重新开启，请在主题设置-&gt;用户&amp;互动-&gt;消息通知：设置是否开启私信代码高亮</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[5]-WordPress主题zibll子比主题使用古腾堡(Gutenberg)添加代码高亮教程-高亮代码功能详解" decoding="async" src="https://oss.zibll.com/zibll.com/2021/07/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_567" class="wp-image-2241" width="600" srcset="https://oss.zibll.com/zibll.com/2021/07/图片-4.png 1528w, https://oss.zibll.com/zibll.com/2021/07/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_388 700w, https://oss.zibll.com/zibll.com/2021/07/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_567 1024w, https://oss.zibll.com/zibll.com/2021/07/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_425 768w" sizes="(max-width: 1528px) 100vw, 1528px" imgbox-index="4"></figure></div>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

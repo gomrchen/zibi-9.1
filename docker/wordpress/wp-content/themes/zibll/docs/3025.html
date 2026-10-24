@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WordPress网站伪静态及固定链接设置教程-解决404错误问题</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>WordPress网站伪静态及固定链接设置教程-解决404错误问题</h1>
+  <div class="meta">来源：https://www.zibll.com/3025.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">搭建好WordPress网站之后我个人建议首先要做的就是设置好固定链接，WordPress的固定链接也就是网站各个页面的链接格式，默认的方式不太符合现代化网站，推荐使用自定义的方案。</p>
+
+
+
+<p class="wp-block-paragraph">既然涉及到网站链接，为了今后的方便以及SEO优化，所以这一步一定要在建站的已开始就做好。同时子比主题部分功能也依赖于固定链接，例如<a href="https://www.zibll.com/zibll_word/user-function">第三方登录</a>。简约的链接格式也更加有利于SEO！</p>
+
+
+
+<p class="wp-block-paragraph">设置固定链接之前，一定要先配置好网站的伪静态，如果伪静态为设置好，就设置了固定链接，那么就会出现404错误！</p>
+
+
+
+<p class="wp-block-paragraph">接下来我们就按照先设置伪静态再设置固定链接的流程，手把手的图文教程带给大家！</p>
+
+
+
+<h2 class="wp-block-heading">伪静态设置</h2>
+
+
+
+<p class="wp-block-paragraph">如果您的网站是通过宝塔安装的，那么伪静态设置就十分简单了</p>
+
+
+
+<h3 class="wp-block-heading">通过宝塔设置伪静态</h3>
+
+
+
+<p class="wp-block-paragraph">进入宝塔，选择您的网站，点击<qc style="color:#09ACE2;background:undefined">设置->伪静态->WordPress</qc>，保存即可！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-WordPress网站伪静态设置及固定链接设置教程-解决404错误问题-Wordpress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1514" height="1182" src="https://oss.zibll.com/zibll.com/2021/12/图片-44.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_799"  class="wp-image-3026" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-44.png 1514w, https://oss.zibll.com/zibll.com/2021/12/图片-44.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_640,h_500 640w, https://oss.zibll.com/zibll.com/2021/12/图片-44.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_799 1024w, https://oss.zibll.com/zibll.com/2021/12/图片-44.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_600 768w" sizes="(max-width: 1514px) 100vw, 1514px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">通过代码设置伪静态</h2>
+
+
+
+<p class="wp-block-paragraph">如果没有宝塔，就需要看您的网站是通过什么程序搭建的了。部分虚拟主机也自带有伪静态设置的功能，可以在控制面板找一找！</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined">如果没有类似宝塔的控制面板，或者没有设置图形化设置伪静态的功能，那么我们可以通过修改文件的方式来设置伪静态</qc></p>
+
+
+
+<p class="wp-block-paragraph"><strong>Apache设置伪静态：</strong><br>修改网站根目录的.htaccess文件，将以下代码复制进去，保存后<qc style="color:#fb2121;background:undefined">重启一下Apache</qc></p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">RewriteEngine On
+RewriteBase /
+RewriteRule ^index.php$ – [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]</code></pre>
+
+
+
+<p class="wp-block-paragraph"><strong>Nginx设置伪静态：</strong><br>找到<code>server/nginx/conf/nginx.conf</code> (路径不一定都一样)文件，将一下代码复制到nginx.conf文件中，保存后重<qc style="color:#fb2121;background:undefined">启一下Nginx</qc></p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">location /
+{
+    try_files $uri $uri/ /index.php?$args;
+}
+
+rewrite /wp-admin$ $scheme://$host$uri/ permanent;</code></pre>
+
+
+
+<h2 class="wp-block-heading">固定链接设置</h2>
+
+
+
+<p class="wp-block-paragraph">当我们设置好了伪静态之后，我们再次设置固定链接就不会有404的错误了<br>进入<qc style="color:#1F91F3;background:undefined">WordPress后台-&gt;设置-&gt;固定链接</qc>，根据您的需要设置为非朴素即可<br>这里根据SEO和大家的经验，我们推荐将固定链接设置为<code>自定义</code>，内容为：<code>/%post_id%.html</code><br>这样的格式可以使链接更加简介，并且有益于SEO<br>如图所示：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-WordPress网站伪静态设置及固定链接设置教程-解决404错误问题-Wordpress主题模板-zibll子比主题" decoding="async" width="1506" height="1174" src="https://oss.zibll.com/zibll.com/2021/12/图片-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_798"  class="wp-image-3027" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-45.png 1506w, https://oss.zibll.com/zibll.com/2021/12/图片-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_641,h_500 641w, https://oss.zibll.com/zibll.com/2021/12/图片-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_798 1024w, https://oss.zibll.com/zibll.com/2021/12/图片-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_599 768w" sizes="(max-width: 1506px) 100vw, 1506px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">最会需要注意一下的是，如果您先设置好了固定链接，然后再设置的伪静态，那么伪静态设置好了之后一定要再次进入固定链接设置页面，点一下保存设置！</p>
+
+
+
+<p class="wp-block-paragraph">修改主题的部分功能（和链接有关的），也需要重新保存固定链接，也就是<qc style="color:#1F91F3;background:undefined">进入固定链接设置页面，点一下保存设置</qc>，具体哪些设置需要此操作，主题设置中都有详细说明，稍微留意一下即可！</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

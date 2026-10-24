@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新手必看的 DNS 解析设置方法-域名解析教程[新手教程]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>新手必看的 DNS 解析设置方法-域名解析教程[新手教程]</h1>
+  <div class="meta">来源：https://www.zibll.com/48922.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">搭建一个 WordPress 网站，第一步就是先把域名和服务器购买好，那么购买好了之后，我们需要做的就是域名解析了。这篇教程就教大家一步一步、正确地做好域名解析。</p>
+
+
+
+<p class="wp-block-paragraph">DNS 解析会告诉浏览器：这域名应该去访问哪一台服务器。</p>
+
+
+
+<p class="wp-block-paragraph">本文会用&nbsp;zibll.com&nbsp;和&nbsp;www.zibll.com&nbsp;作为示例，带你了解域名解析的基本概念、常见记录类型，以及阿里云、腾讯云 DNSPod、Cloudflare 等常见服务商的设置流程。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">需要准备什么</h2>
+
+
+
+<p class="wp-block-paragraph">在开始解析之前，你需要准备好以下信息：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>一个已经注册好的域名，例如&nbsp;zibll.com</li>
+
+
+
+<li>一台网站服务器，例如云服务器、虚拟主机、宝塔面板服务器等</li>
+
+
+
+<li>服务器的公网 IP 地址，例如：<code>192.0.2.123</code></li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">如果你的网站使用的是 CDN、对象存储、SaaS 建站平台，服务商可能会提供一个 CNAME 地址，例如：</p>
+
+
+
+<p class="wp-block-paragraph"><code>example.cdn-provider.com</code></p>
+
+
+
+<p class="wp-block-paragraph">这种情况下就不是填写 IP，而是添加 CNAME 记录。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">常见的几种解析记录</h2>
+
+
+
+<h3 class="wp-block-heading" id="wznav_2">1. A 记录</h3>
+
+
+
+<p class="wp-block-paragraph">A 记录用于把域名指向一个 IPv4 地址，是网站解析中最常见的方式。</p>
+
+
+
+<p class="wp-block-paragraph">示例：</p>
+
+
+
+<figure class="wp-block-table is-style-regular"><table class="has-fixed-layout"><thead><tr><th>主机记录</th><th>记录类型</th><th>记录值</th></tr></thead><tbody><tr><td>@</td><td>A</td><td>192.0.2.123</td></tr><tr><td>www</td><td>A</td><td>192.0.2.123</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">含义是：<code>zibll.com -&gt; 192.0.2.123 www.zibll.com -&gt; 192.0.2.123</code></p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_3">2. CNAME 记录</h3>
+
+
+
+<p class="wp-block-paragraph">CNAME 记录用于把一个域名指向另一个域名，常见于 CDN、云存储、企业邮箱、托管平台。</p>
+
+
+
+<p class="wp-block-paragraph">示例：</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>主机记录</th><th>记录类型</th><th>记录值</th></tr></thead><tbody><tr><td>www</td><td>CNAME</td><td>cname.example.com</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">含义是：<code>www.zibll.com -&gt; cname.example.com</code></p>
+
+
+
+<p class="wp-block-paragraph">注意：CNAME 的记录值必须是域名，不能填写 IP 地址。</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_4">3. MX 记录</h3>
+
+
+
+<p class="wp-block-paragraph">MX 记录用于邮箱收信。如果你只是搭建网站，暂时可以不用配置 MX 记录。</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_5">4. TXT 记录</h3>
+
+
+
+<p class="wp-block-paragraph">TXT 记录常用于域名验证，例如 SSL 证书验证、邮箱 SPF 验证、站长平台验证等。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_6">解析示例</h2>
+
+
+
+<p class="wp-block-paragraph">假设你的服务器公网 IP 是：<code>192.0.2.123</code>，用&nbsp;<code>zibll.com</code>&nbsp;和&nbsp;<code>www.zibll.com</code>&nbsp;作为示例</p>
+
+
+
+<p class="wp-block-paragraph">那么最常见的网站解析方式如下：</p>
+
+
+
+<figure class="wp-block-table is-style-regular"><table class="has-fixed-layout"><thead><tr><th>域名</th><th>主机记录</th><th>记录类型</th><th>记录值</th><th>说明</th></tr></thead><tbody><tr><td>zibll.com</td><td>@</td><td>A</td><td>192.0.2.123</td><td>主域名访问</td></tr><tr><td>www.zibll.com</td><td>www</td><td>A</td><td>192.0.2.123</td><td>www 域名访问</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">这里的新手重点是：<code>@ 代表主域名 zibll.com， www 代表 www.zibll.com</code></p>
+
+
+
+<p class="wp-block-paragraph">很多新手会误把主机记录写成完整域名，例如把主机记录写成&nbsp;www.zibll.com。大多数解析平台中，主机记录只需要填写前缀，也就是&nbsp;www。</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_7">阿里云解析示例</h3>
+
+
+
+<p class="wp-block-paragraph">登录阿里云均值台：进入云解析 DNS，选择目标域名，进入解析设置，然后点击添加记录。阿里云也说明了，主域名使用&nbsp;@，www.example.com&nbsp;这类域名主机记录填写&nbsp;www。</p>
+
+
+
+<p class="wp-block-paragraph">操作步骤：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kbnNuZXh0LmNvbnNvbGUuYWxpeXVuLmNvbS9hdXRob3JpdGF0aXZl&amp;nonce=b6edef84ea51910d5d74249876cfdd47f0bc75032aa7e204a25a39cd7f5ecdaa|1792864127">阿里云控制台</a></li>
+
+
+
+<li>进入「<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kbnNuZXh0LmNvbnNvbGUuYWxpeXVuLmNvbS9hdXRob3JpdGF0aXZl&amp;nonce=b6edef84ea51910d5d74249876cfdd47f0bc75032aa7e204a25a39cd7f5ecdaa|1792864127">云解析 DNS</a>」</li>
+
+
+
+<li>在域名列表中找到&nbsp;zibll.com</li>
+
+
+
+<li>点击进入「解析设置」</li>
+
+
+
+<li>点击「添加记录」</li>
+
+
+
+<li>添加第一条记录：<code>记录类型：A 主机记录：@ 解析线路：默认 记录值：192.0.2.123 TTL：默认或 10 分钟</code></li>
+</ol>
+
+
+
+<ol start="7" class="wp-block-list">
+<li>再添加第二条记录：<code>记录类型：A 主机记录：www 解析线路：默认 记录值：192.0.2.123 TTL：默认或 10 分钟</code></li>
+</ol>
+
+
+
+<ol start="8" class="wp-block-list">
+<li>保存后等待解析生效</li>
+</ol>
+
+
+
+<figure class="wp-block-image size-large"><img alt="图片[1]-新手必看的 DNS 解析设置方法-域名解析教程[新手教程]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1824" height="1216" src="https://oss.zibll.com/zibll.com/2026/06/20260614123824956-image-52.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_866" class="wp-image-48925" srcset="https://oss.zibll.com/zibll.com/2026/06/20260614123824956-image-52.png 1824w, https://oss.zibll.com/zibll.com/2026/06/20260614123824956-image-52.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_533 800w, https://oss.zibll.com/zibll.com/2026/06/20260614123824956-image-52.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_866 1300w" sizes="(max-width: 1824px) 100vw, 1824px" imgbox-index="0"></figure>
+
+
+
+<p class="wp-block-paragraph">参考：阿里云官方文档&nbsp;<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9oZWxwLmFsaXl1bi5jb20vemgvZG5zL3B1YnotYWRkLXBhcnNpbmctcmVjb3Jk&amp;nonce=68396beab3e1e226b761268700acd35577e22c3afe2dfb1e75fadbc96f7ac726|1792864127" rel="noreferrer noopener" target="_blank">添加解析记录</a></p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_8">腾讯云 DNSPod 解析示例</h2>
+
+
+
+<p class="wp-block-paragraph">进入云解析 DNS 控制台，添加或选择域名，进入记录管理，然后添加解析记录。腾讯云的新手快速解析也会为网站添加&nbsp;www&nbsp;和&nbsp;@&nbsp;两条 A 记录。</p>
+
+
+
+<p class="wp-block-paragraph">操作步骤：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录腾讯云控制台</li>
+
+
+
+<li>进入「云解析 DNS」</li>
+
+
+
+<li>如果域名不在列表中，点击「添加域名」，输入：<code>zibll.com</code></li>
+
+
+
+<li>点击域名进入「记录管理」</li>
+
+
+
+<li>点击「添加记录」</li>
+
+
+
+<li>添加主域名解析：<code>主机记录：@ 记录类型：A 线路类型：默认 记录值：192.0.2.123 TTL：默认</code></li>
+
+
+
+<li>添加 www 解析：<code>主机记录：www 记录类型：A 线路类型：默认 记录值：192.0.2.123 TTL：默认</code></li>
+
+
+
+<li>保存记录，等待解析生效</li>
+</ol>
+
+
+
+<ol start="4" class="wp-block-list">
+<li></li>
+</ol>
+
+
+
+<ol start="7" class="wp-block-list">
+<li></li>
+</ol>
+
+
+
+<ol start="8" class="wp-block-list">
+<li></li>
+</ol>
+
+
+
+<figure class="wp-block-image size-full"><img alt="图片[2]-新手必看的 DNS 解析设置方法-域名解析教程[新手教程]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260614124130356-image-53.png" class="wp-image-48927 lazyload" imgbox-index="1"></figure>
+
+
+
+<p class="wp-block-paragraph">参考：腾讯云官方文档&nbsp;<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9kb2N1bWVudC9wcm9kdWN0LzMwMi8zNDQ2&amp;nonce=893e7529eb47af24723a1a7fc5a2c1e3d4f8a1e7dafd338dd2268cdcf77c1d89|1792864127" rel="noreferrer noopener" target="_blank">快速添加域名解析</a></p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_9">Cloudflare 解析示例</h2>
+
+
+
+<p class="wp-block-paragraph">Cloudflare 的操作逻辑稍有不同。你需要先把域名添加到 Cloudflare，然后按照 Cloudflare 提供的 NS 服务器地址，到域名注册商处修改 DNS 服务器。之后，解析记录就需要在 Cloudflare 中管理。</p>
+
+
+
+<p class="wp-block-paragraph">操作步骤：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录 Cloudflare</li>
+
+
+
+<li>添加站点：</li>
+
+
+
+<li><code>zibll.com</code></li>
+
+
+
+<li>选择套餐</li>
+
+
+
+<li>Cloudflare 会扫描已有 DNS 记录</li>
+
+
+
+<li>进入「DNS」或「Records」页面</li>
+
+
+
+<li>点击「Add record」</li>
+
+
+
+<li>添加主域名 A 记录：</li>
+</ol>
+
+
+
+<ol start="3" class="wp-block-list">
+<li></li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><code>Type：A Name：@ IPv4 address：192.0.2.123 Proxy status：按需求选择 TTL：Auto</code></p>
+
+
+
+<p class="wp-block-paragraph">添加 www A 记录：</p>
+
+
+
+<ol start="8" class="wp-block-list">
+<li></li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><code>Type：A Name：www IPv4 address：192.0.2.123 Proxy status：按需求选择 TTL：Auto</code></p>
+
+
+
+<ol start="9" class="wp-block-list">
+<li>保存记录</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">Cloudflare 有一个特别容易让新手困惑的选项：Proxy status。</p>
+
+
+
+<ul class="wp-block-list">
+<li>开启代理：流量会经过 Cloudflare，通常显示橙色云朵</li>
+
+
+
+<li>仅 DNS：只做 DNS 解析，不经过 Cloudflare，通常显示灰色云朵</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">如果你只是想先让域名正常指向服务器，可以先选择「DNS only」。等网站正常访问后，再根据需要开启 Cloudflare 代理、缓存、防护等功能。</p>
+
+
+
+<p class="wp-block-paragraph">参考：Cloudflare 官方文档&nbsp;<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kZXZlbG9wZXJzLmNsb3VkZmxhcmUuY29tL2Rucy9tYW5hZ2UtZG5zLXJlY29yZHMvaG93LXRvL2NyZWF0ZS1kbnMtcmVjb3Jkcy8%3D&amp;nonce=fbd10470a20328fd056ed8b9776560558574b95b55cead7cb346a4de0585cfa7|1792864127" rel="noreferrer noopener" target="_blank">Manage DNS records</a></p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_10">域名解析后多久生效</h2>
+
+
+
+<p class="wp-block-paragraph">解析记录保存后，并不是所有地区都会立刻生效。常见情况如下：</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>操作类型</th><th>常见生效时间</th></tr></thead><tbody><tr><td>新增 A/CNAME 记录</td><td>几分钟到数小时</td></tr><tr><td>修改已有记录</td><td>取决于 TTL，可能几分钟到数小时</td></tr><tr><td>修改 DNS 服务器 NS</td><td>可能需要 0-48 小时</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">如果你刚刚修改过 DNS 服务器，不同地区、不同网络看到的结果可能不一致，这是正常现象。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_11">检查解析是否生效</h2>
+
+
+
+<p class="wp-block-paragraph">你可以使用以下方式检查：</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_12">方法一：浏览器访问</h3>
+
+
+
+<p class="wp-block-paragraph">直接访问：</p>
+
+
+
+<p class="wp-block-paragraph"><code>http://zibll.com http://www.zibll.com</code></p>
+
+
+
+<p class="wp-block-paragraph">如果服务器已经配置好网站，应该可以打开页面。</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_13">方法二：使用命令检查</h3>
+
+
+
+<p class="wp-block-paragraph">Windows 可以使用：</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">nslookup zibll.</span><span class="enlighter-m3">com</span><span class="enlighter-text"> nslookup www.</span><span class="enlighter-m3">zibll</span><span class="enlighter-text">.</span><span class="enlighter-m3">com</span></div></div></div><pre class="enlighter-raw">nslookup zibll.com nslookup www.zibll.com</pre></div><code class="gl enlighter-origin" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">nslookup zibll.com nslookup www.zibll.com</code></pre>
+
+
+
+<p class="wp-block-paragraph">macOS / Linux 可以使用：</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-text">dig zibll.</span><span class="enlighter-m3">com</span><span class="enlighter-text"> dig www.</span><span class="enlighter-m3">zibll</span><span class="enlighter-text">.</span><span class="enlighter-m3">com</span></div></div></div><pre class="enlighter-raw">dig zibll.com dig www.zibll.com</pre></div><code class="gl enlighter-origin" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">dig zibll.com dig www.zibll.com</code></pre>
+
+
+
+<p class="wp-block-paragraph">如果返回的 IP 是你的服务器公网 IP，例如：<code>192.0.2.123</code></p>
+
+
+
+<p class="wp-block-paragraph">说明解析基本已经生效。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_14">常见错误</h2>
+
+
+
+<h3 class="wp-block-heading" id="wznav_15">1. 主机记录填写错误</h3>
+
+
+
+<p class="wp-block-paragraph">错误写法：</p>
+
+
+
+<p class="wp-block-paragraph"><code>主机记录：www.zibll.com</code></p>
+
+
+
+<p class="wp-block-paragraph">推荐写法：</p>
+
+
+
+<p class="wp-block-paragraph"><code>主机记录：www</code></p>
+
+
+
+<p class="wp-block-paragraph">主域名则填写：</p>
+
+
+
+<p class="wp-block-paragraph"><code>主机记录：@</code></p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_16">2. 把 CNAME 记录值写成 IP</h3>
+
+
+
+<p class="wp-block-paragraph">CNAME 的记录值应该是域名，不能是 IP。</p>
+
+
+
+<p class="wp-block-paragraph">错误示例：</p>
+
+
+
+<p class="wp-block-paragraph"><code>www CNAME 192.0.2.123</code></p>
+
+
+
+<p class="wp-block-paragraph">正确示例：</p>
+
+
+
+<p class="wp-block-paragraph"><code>www CNAME example.cdn-provider.com</code></p>
+
+
+
+<p class="wp-block-paragraph">如果你要指向 IP，应使用 A 记录。</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_17">3. 只解析了 www，没有解析主域名</h3>
+
+
+
+<p class="wp-block-paragraph">如果只添加了：</p>
+
+
+
+<p class="wp-block-paragraph"><code>www.zibll.com</code></p>
+
+
+
+<p class="wp-block-paragraph">那么用户访问：</p>
+
+
+
+<p class="wp-block-paragraph"><code>zibll.com</code></p>
+
+
+
+<p class="wp-block-paragraph">可能打不开。</p>
+
+
+
+<p class="wp-block-paragraph">建议新手同时添加：</p>
+
+
+
+<p class="wp-block-paragraph"><code>@ www</code></p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_18">4.解析好了，但网站还是打不开</h3>
+
+
+
+<p class="wp-block-paragraph">这不一定是 DNS 问题，还可能是：</p>
+
+
+
+<ul class="wp-block-list">
+<li>服务器没有绑定这个域名</li>
+
+
+
+<li>WordPress 站点地址配置错误</li>
+
+
+
+<li>宝塔、Nginx、Apache 站点未绑定域名</li>
+
+
+
+<li>服务器安全组没有放行 80 / 443 端口</li>
+
+
+
+<li>网站没有配置 SSL，但强制跳转到了 HTTPS</li>
+
+
+
+<li>域名未备案，国内服务器拦截访问</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">如果你做好了解析之后，但是还没有搭建域名，你就可以查看此教程，开始搭建网站了：</p>
+
+
+
+<div data-pid="48624" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="48624.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260607133219143-教程指引-列表图-1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="zibll子比主题教程阅读指引及建议学习顺序-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="48624.html">zibll子比主题教程阅读指引及建议学习顺序<span class="focus-color">[入门必看]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-29 18:16:49" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>6882</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>119</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_19">十、推荐的新手配置方案</h2>
+
+
+
+<p class="wp-block-paragraph">如果你只是搭建一个普通 WordPress 网站，最推荐的基础配置是：</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>主机记录</th><th>类型</th><th>记录值</th></tr></thead><tbody><tr><td>@</td><td>A</td><td>你的服务器公网 IP</td></tr><tr><td>www</td><td>A</td><td>你的服务器公网 IP</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">以本文示例就是：</p>
+
+
+
+<figure class="wp-block-table"><table class="has-fixed-layout"><thead><tr><th>主机记录</th><th>类型</th><th>记录值</th></tr></thead><tbody><tr><td>@</td><td>A</td><td>192.0.2.123</td></tr><tr><td>www</td><td>A</td><td>192.0.2.123</td></tr></tbody></table></figure>
+
+
+
+<p class="wp-block-paragraph">这样配置后，用户访问以下两个地址都可以到达同一台服务器：</p>
+
+
+
+<p class="wp-block-paragraph"><code>zibll.com www.zibll.com</code></p>
+
+
+
+<p class="wp-block-paragraph">最后，你还需要在服务器或网站面板中绑定这两个域名，并在 WordPress 后台确认站点地址配置正确。域名解析只是“把用户带到服务器”，真正显示网站内容，还需要服务器和网站程序正确响应请求。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_20">搭建网站</h2>
+
+
+
+<p class="wp-block-paragraph">当你完成域名解析之后，我们就可以开始部署网站了。</p>
+
+
+
+<p class="wp-block-paragraph">我们推荐使用一键部署工具，会自动帮你完成以下全自动流程：</p>
+
+
+
+<ol class="wp-block-list">
+<li>宝塔安装</li>
+
+
+
+<li>运行环境安装</li>
+
+
+
+<li>网站搭建</li>
+
+
+
+<li>系统优化</li>
+</ol>
+
+
+
+<div data-pid="48842" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="https://www.zibll.com/48842.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260613201653498-一键搭建网站-列表图.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="一键安装宝塔、安装环境、搭建 WordPress 免费工具已上线-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="https://www.zibll.com/48842.html">一键安装宝塔、安装环境、搭建 WordPress 免费工具已上线<span class="focus-color">[超强工具]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-14 13:04:28" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>3481</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>92</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph">其他教程就可以按照我们的教程指引，进行一步一步的学习了：</p>
+
+
+
+<div data-pid="48624" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="48624.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260607133219143-教程指引-列表图-1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="zibll子比主题教程阅读指引及建议学习顺序-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="48624.html">zibll子比主题教程阅读指引及建议学习顺序<span class="focus-color">[入门必看]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-29 18:16:49" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>6882</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>119</item></div></div>
+                </div>
+                </div>
+            </div></div>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

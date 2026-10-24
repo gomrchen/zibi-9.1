@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>模块布局导入、导出、导入模板功能详解及教程[V8.9新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>模块布局导入、导出、导入模板功能详解及教程[V8.9新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/48359.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用 WordPress +zibll子比主题建站，使用模块化布局可以让网站的布局更加自由化、漂亮化，像搭积木一样，轻松地创建出自己喜欢又功能丰富的页面样式。</p>
+
+
+
+<p class="wp-block-paragraph">子比主题 V8.9 更新之后，我们又为模块布局增加了几个丰富的新功能，以及超多的优化，主要包括：</p>
+
+
+
+<ol class="wp-block-list">
+<li>模块按容器导入导出的功能</li>
+
+
+
+<li>导入内置模板的功能</li>
+
+
+
+<li>所有的模块都可以：单独设置居中大标题/单独添加标题按钮/单独设置背景图的功能</li>
+
+
+
+<li>以及新增了多款产品类的模块<a href="48023.html">【查看教程】</a></li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">这篇教程我们主要给大家讲解一下模块按顺序导出导入，以及导入布局模板的功能</p>
+
+
+
+<p class="wp-block-paragraph">很多时候，当我们把一个页面布局和添加模块的工作完成之后，如果想把该页面的容器模块批量复制到另一个页面，在以前可能需要一个一个手动添加，非常麻烦。</p>
+
+
+
+<p class="wp-block-paragraph">所以，我们现在新增了“模块导入和导出”功能，就是为了解决这个问题。通过该功能，我们可以：</p>
+
+
+
+<ol class="wp-block-list">
+<li>快速复制数据<br>将模块导出后，把导出的数据在新的页面中进行导入，即可快速复制一个容器的所有模块数据。</li>
+
+
+
+<li>跨网站复用<br>适用于我们不同网站之间的模块进行导入导出。</li>
+
+
+
+<li>分享设计<br>甚至可以将自己设计好的模块导出后，分享给其他用户使用。</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading">导入导出</h2>
+
+
+
+<p class="wp-block-paragraph">使用的方式方法也非常简单，我们只需要在“可视化模块布局”页面，或者后台的“小工具”页面里，点击“导入/导出”按钮即可。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-模块布局导入、导出、导入模板功能详解及教程[V8.9新功能]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1308" height="978" src="https://oss.zibll.com/zibll.com/2026/05/20260530124802496-image-167.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_972"  class="wp-image-48360" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/05/20260530124802496-image-167.png 1308w, https://oss.zibll.com/zibll.com/2026/05/20260530124802496-image-167.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_598 800w, https://oss.zibll.com/zibll.com/2026/05/20260530124802496-image-167.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_972 1300w" sizes="(max-width: 1308px) 100vw, 1308px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[2]-模块布局导入、导出、导入模板功能详解及教程[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530124844925-image-168.png"   class="wp-image-48361" style="width:600px"/></figure>
+</div>
+
+
+<p class="wp-block-paragraph">我们点击了导出模块之后，就可以看到当前手机下所有模块的 JSON 数据了。我们只需要把这个 JSON 数据复制下来，就可以在其他地方进行导入。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[3]-模块布局导入、导出、导入模板功能详解及教程[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530125015333-image-169.png"   class="wp-image-48362" style="width:600px"/></figure>
+</div>
+
+
+<p class="wp-block-paragraph">在导入模块数据的时候，我们可以选择“替换”或“追加”这两种方式，大家一定要注意一下。</p>
+
+
+
+<p class="wp-block-paragraph">如果选择了替换，系统会把原有容器中的所有数据清空。这一点请大家务必留意。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[4]-模块布局导入、导出、导入模板功能详解及教程[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530125055789-image-170.png"   class="wp-image-48363" style="width:600px"/></figure>
+</div>
+
+
+<h3 class="wp-block-heading">注意事项</h3>
+
+
+
+<p class="wp-block-paragraph">使用导入导出功能时，有几点需要注意，以避免出现错误：</p>
+
+
+
+<ol class="wp-block-list">
+<li>理论上，我们最好只在同一个网站进行导入导出。因为如果导入其他网站的数据，可能会出现一些异常错误。</li>
+
+
+
+<li>如果我们导入了其他非本站的数据之后，如果出现了错误，我们只需要找到出错的那个模块，然后把那个模块里面缺失的数据重新配置一下，再重新保存模块即可恢复正常<br>例如，我们导入了别人网站的一个模块，它的模块里面可能设置了分类 ID 为 55 的这个参数。但是我们网站可能没有 ID 为 55 的这个分类，那么肯定就会报错。这时候我们只需要找到对应的模块，把这个参数修改为我们网站有的 ID，即可恢复正常。</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading">模板导入</h2>
+
+
+
+<p class="wp-block-paragraph">模板导入功能是我们 V8.9 新增的一个功能，主要是为了方便用户快速构建自己的页面布局。</p>
+
+
+
+<p class="wp-block-paragraph">我们主题内置了多个常用的模块布局模板，适合新建网站的时候，快速创建需要的页面布局。这样可以极大地减少首次布局网站的工作量，提高网站布局的效率及速度。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[5]-模块布局导入、导出、导入模板功能详解及教程[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530125603883-image-171.png"   class="wp-image-48364" style="width:600px"/></figure>
+</div>
+
+
+<p class="wp-block-paragraph">最后，如果大家还未了解过主题模块布局的相关教程，建议大家看一下我们的模块布局入门教程：</p>
+
+
+
+<div data-pid="1816" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="1816.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/20260530132122133-网站布局入门教程-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="页面布局、模块使用及可视化布局教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="1816.html">页面布局、模块使用及可视化布局教程<span class="focus-color">[网站布局入门教程]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2026-06-30 22:05:19" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>8.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>98</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/48023.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">子比主题 V8.9 更新了之后，带来了多个全新的小工具模块。</p>
+
+
+
+<p class="wp-block-paragraph">使用这些模块，加上子比主题默认的模块布局，我们可以轻松地创建一个类似于<a href="https://www.zibll.com/pay-zibll">子比主题销售页面</a>的页面。</p>
+
+
+
+<p class="wp-block-paragraph">这篇教程我们就教大家如何使用模块，一步一步地创建这样的一个页面。</p>
+
+
+
+<h2 class="wp-block-heading">了解模块布局</h2>
+
+
+
+<p class="wp-block-paragraph">教程开始之前，首先我们要了解一下子比主题的模块布局。</p>
+
+
+
+<p class="wp-block-paragraph">子比主题的模块布局就是把整个页面分为几个容器，然后我们可以将模块添加到每一个容器中，自由地排列或组合。同时，每一个模块都有丰富的配置，这样我们就可以像组积木一样来为我们的网站页面布局，让整个页面的布局更加自由、灵活且强大。</p>
+
+
+
+<p class="wp-block-paragraph">如果您还未了解过子比主题的模块布局相关教程，建议您先查看以下教程：</p>
+
+
+
+<div data-pid="1816" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="1816.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/20260530132122133-网站布局入门教程-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="页面布局、模块使用及可视化布局教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="1816.html">页面布局、模块使用及可视化布局教程<span class="focus-color">[网站布局入门教程]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2026-06-30 22:05:19" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>8.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>98</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading">创建页面</h2>
+
+
+
+<p class="wp-block-paragraph">接下来我就一步一步地教大家创建一个页面。</p>
+
+
+
+<p class="wp-block-paragraph">这个页面和我们“子比主题”的销售页面类似，非常适合以下场景：</p>
+
+
+
+<ol class="wp-block-list">
+<li>单一产品的展示</li>
+
+
+
+<li>企业官网产品展示</li>
+
+
+
+<li>VIP 销售页面</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#11C33F;background:undefined">首先，第一步就是打开我们的网站后台，点击“页面”并创建页面。</qc></strong></p>
+
+
+
+<p class="wp-block-paragraph">然后，我们需要进行一些基础的页面配置：</p>
+
+
+
+<ol class="wp-block-list">
+<li>为这个页面添加标题</li>
+
+
+
+<li>开启它的页面布局模块</li>
+
+
+
+<li>关闭页面内容显示</li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1544" height="1452" src="https://oss.zibll.com/zibll.com/2026/05/20260530120520357-image-154.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1222"  class="wp-image-48344" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/05/20260530120520357-image-154.png 1544w, https://oss.zibll.com/zibll.com/2026/05/20260530120520357-image-154.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_752 800w, https://oss.zibll.com/zibll.com/2026/05/20260530120520357-image-154.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1222 1300w" sizes="(max-width: 1544px) 100vw, 1544px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">添加模块</h2>
+
+
+
+<p class="wp-block-paragraph">接下来我们保存当前页面。进入当前页面的前台显示之后，我们可以在右下角齿轮按钮这里，进入我们的模块布局。后者点击头像，进入模块布局都可以。</p>
+
+
+
+<p class="wp-block-paragraph">这里告诉大家一个小技巧：在我们前台页面中，你在哪个页面点击“模块布局”按钮，进入之后编辑的就是此页面的布局模块。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[2]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530120947777-image-155.png"   class="wp-image-48345" style="width:600px"/></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[3]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530121028709-image-156.png"   class="wp-image-48346" style="width:600px"/></figure>
+</div>
+
+
+<h2 class="wp-block-heading">添加模块</h2>
+
+
+
+<p class="wp-block-paragraph">此时我们的整个页面都是空白的，什么都没有，没有关系。我们进入小工具模块的可视化编辑页面之后，我们就可以为当前页面添加模块了。</p>
+
+
+
+<p class="wp-block-paragraph">在这里我们可以看到一个容器，就是我们刚刚开启的“顶部全宽度”容器，那么我们直接在当前页面内添加模块即可。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="1436" height="950" src="https://oss.zibll.com/zibll.com/2026/05/20260530121301760-image-157.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_860"  class="wp-image-48347" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/05/20260530121301760-image-157.png 1436w, https://oss.zibll.com/zibll.com/2026/05/20260530121301760-image-157.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_529 800w, https://oss.zibll.com/zibll.com/2026/05/20260530121301760-image-157.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_860 1300w" sizes="(max-width: 1436px) 100vw, 1436px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">这里我们有两种添加模块的方式：</p>
+
+
+
+<ol class="wp-block-list">
+<li>最基础的手动添加：按照模块一个一个地按需要添加即可</li>
+
+
+
+<li>导入模块模板（V8.9 新增功能）：我们主题已经内置了一些常用的模板，可以使用模板导入的方式快速创建页面</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading">导入模板</h2>
+
+
+
+<p class="wp-block-paragraph">导入模块模板功能是 V8.9 新增的一个功能。同时我们内置了许多预设模板，通过这种功能，我们可以：</p>
+
+
+
+<ol class="wp-block-list">
+<li>快速创建页面</li>
+
+
+
+<li>快速为已存在的页面添加常用模块</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">这样就不用一个一个地添加了。我们可以在添加模板之后，再进行适当的修改和调整就可以了。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="1440" height="960" src="https://oss.zibll.com/zibll.com/2026/05/20260530121457456-image-158.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_866"  class="wp-image-48348" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/05/20260530121457456-image-158.png 1440w, https://oss.zibll.com/zibll.com/2026/05/20260530121457456-image-158.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_533 800w, https://oss.zibll.com/zibll.com/2026/05/20260530121457456-image-158.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_866 1300w" sizes="(max-width: 1440px) 100vw, 1440px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">修改调整</h2>
+
+
+
+<p class="wp-block-paragraph">我们选择了导入模板之后，这个页面模板是我专门仿照着子比销售页面设计的，所以做出来的效果基本和子比销售页面一致。</p>
+
+
+
+<p class="wp-block-paragraph">导入之后，我们需要对每一个模板进行修改和调整，把里面相关的文字以及图片，调整成我们所需要的即可。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="2032" height="1632" src="https://oss.zibll.com/zibll.com/2026/05/20260530121805221-image-159.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1044"  class="wp-image-48349" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/05/20260530121805221-image-159.png 2032w, https://oss.zibll.com/zibll.com/2026/05/20260530121805221-image-159.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_642 800w, https://oss.zibll.com/zibll.com/2026/05/20260530121805221-image-159.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1044 1300w" sizes="(max-width: 2032px) 100vw, 2032px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">这里我们需要重点关注前两个模块，因为这两个模块都涉及到了购买按钮。</p>
+
+
+
+<p class="wp-block-paragraph">模块的处理逻辑如下：</p>
+
+
+
+<ol class="wp-block-list">
+<li>你可以绑定一篇虚拟付费文章。绑定之后，按钮可以根据用户是否购买显示不同的状态。</li>
+
+
+
+<li>你可以绑定一个跳转按键，点击之后直接跳转。</li>
+
+
+
+<li>可以绑定购买会员的按钮，同时根据当前用户是否为会员来显示不同的效果。</li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[7]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530122159329-image-160.png"   class="wp-image-48350" style="width:600px"/></figure>
+</div>
+
+
+<h2 class="wp-block-heading">手动添加模块</h2>
+
+
+
+<p class="wp-block-paragraph">当然了，有的时候我们使用主题预制的模板，不一定能完全满足需求，或者说模板与我们的需求之间还是存在差异。</p>
+
+
+
+<p class="wp-block-paragraph">在这种情况下，我们可以根据网站的不同需求，删除不需要的模块，同时也可以添加其他的模块。我们只需要根据自己的实际需要，灵活进行添加或删除即可。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[8]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="2026" height="1734" src="https://oss.zibll.com/zibll.com/2026/05/20260530122358924-image-163.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1112"  class="wp-image-48354" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/05/20260530122358924-image-163.png 2026w, https://oss.zibll.com/zibll.com/2026/05/20260530122358924-image-163.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_684 800w, https://oss.zibll.com/zibll.com/2026/05/20260530122358924-image-163.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1112 1300w" sizes="(max-width: 2026px) 100vw, 2026px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">小技巧</h2>
+
+
+
+<p class="wp-block-paragraph">主题 V8.9 更新了许多关于模块配置的小技巧：</p>
+
+
+
+<ol class="wp-block-list">
+<li>模块预览与定位<br>我们在预览页面中，将鼠标移动到任一模块后，左侧的模块列表也会有对应的展示。</li>
+
+
+
+<li>快速编辑功能<br>当我们鼠标移动到某一个模块时，该模块右上角会悬浮一个编辑按钮，点击即可快速跳转到当前模块的编辑框内。</li>
+
+
+
+<li>设置页面背景：<br>大家可以看到，子比主题销售页面的背景还有一些浅色的光晕背景，这种设计可以让整个页面显得更加舒适、漂亮。V8.9 支持为每一个页面单独设置页面背景。</li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[9]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="2048" height="1396" src="https://oss.zibll.com/zibll.com/2026/05/20260530122558600-image-164.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_886"  class="wp-image-48355" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/05/20260530122558600-image-164.png 2048w, https://oss.zibll.com/zibll.com/2026/05/20260530122558600-image-164.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_545 800w, https://oss.zibll.com/zibll.com/2026/05/20260530122558600-image-164.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_886 1300w" sizes="(max-width: 2048px) 100vw, 2048px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[10]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="2046" height="1706" src="https://oss.zibll.com/zibll.com/2026/05/20260530123505639-image-166.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1083"  class="wp-image-48357" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/05/20260530123505639-image-166.png 2046w, https://oss.zibll.com/zibll.com/2026/05/20260530123505639-image-166.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_667 800w, https://oss.zibll.com/zibll.com/2026/05/20260530123505639-image-166.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1083 1300w" sizes="(max-width: 2046px) 100vw, 2046px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">同时 V8.9 还更新了可视化模块布局的性能优化，让原本比较卡顿的可视化布局页面变得十分流畅，大家都来体验一下吧！</p>
+
+
+
+<h2 class="wp-block-heading">设为首页</h2>
+
+
+
+<p class="wp-block-paragraph">如果你需要把自己新建的页面设置为网站的首页，那么你可以在后台的“设置-阅读”中进行选择即可。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[11]-模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页[V8.9新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530123049544-image-165.png"   class="wp-image-48356" style="width:600px"/></figure>
+</div>
+
+
+<h2 class="wp-block-heading">举一反三</h2>
+
+
+
+<p class="wp-block-paragraph">本篇教程通过创建一个“防子比主题销售页面”的示例，重点教大家如何使用子比主题的模块布局。</p>
+
+
+
+<p class="wp-block-paragraph">子比主题拥有上百款模块，每个模块都具有丰富的配置性。通过这个例子，大家可以学会创建自己所需的任何页面。这些模块一应俱全，涵盖了多种类型：</p>
+
+
+
+<ol class="wp-block-list">
+<li>文章类型</li>
+
+
+
+<li>论坛类型</li>
+
+
+
+<li>商城类型</li>
+
+
+
+<li>产品类型</li>
+
+
+
+<li>图文、视频等各种类型</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">只要充分发挥您的想象力，就可以创建出各种所需的页面。以下页面都是通过本文相同的方式来创建的，大家可以参考学习一下</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://www.zibll.com/%e7%bd%91%e5%9d%80%e5%af%bc%e8%88%aa%e7%a4%ba%e4%be%8b%e2%91%a1">网址导航页面演示②</a></li>
+
+
+
+<li><a href="https://demo.zibll.com/shop">https://demo.zibll.com/shop</a></li>
+
+
+
+<li><a href="https://www.zibll.com/%e9%a1%b5%e9%9d%a2%e5%b8%83%e5%b1%80%e6%bc%94%e7%a4%ba">https://www.zibll.com/%e9%a1%b5%e9%9d%a2%e5%b8%83%e5%b1%80%e6%bc%94%e7%a4%ba</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

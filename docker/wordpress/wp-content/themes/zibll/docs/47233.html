@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题智能多语言翻译功能简介及配置教程[V9.0有更新]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题智能多语言翻译功能简介及配置教程[V9.0有更新]</h1>
+  <div class="meta">来源：https://www.zibll.com/47233.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用WordPress做网站，往往都只能设定一种语言，但是很多时候我们可能会遇到不同国家的用户，也就是说我们需要网站同时拥有多个语言，并支持切换，zibll子比主题之前一直都是不支持其他语言的，我们也在思考如何来解决多语言问题。现在zibll子比主题V8.8推出了智能多语言翻译功能，无需人工手动翻译，配置简单，几分钟就能让您的网站支持多语言切换功能！</p>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#ff4d4d" style="--quote-color:#ff4d4d"><i class="fa fa-quote-left"></i><p>注意：智能多语言翻译和原生的多语言是有一定区别的。子比主题支持原生支持多语言，可以将你的网站在后台设置为英语或简体中文。子比主题默认自带两种语言包：中文和英语。你可以通过插件或其他方式通过 .POT 文件的方式来扩展其他语言包。而本文所说的智能多语言翻译功能，主要是指在前台显示多个语言的切换按钮，且不需要自己编写语言包，方便不同国家的用户可以切换到想要的语种，而不是固定使用一种语种。<br/>zibll主题V9.0新增前后台语言分离功能，可以分开设置前台和后台的语言，例如：前台设置为英语，后台设置为中文片<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2026/06/20260629144103714-image-155.png" data-imgbox="imgbox">【查看截图】</a></p></div></div>
+
+
+
+<h2 class="wp-block-heading">功能简介</h2>
+
+
+
+<p class="wp-block-paragraph">zibll主题智能多语言翻译功能基于 <strong><a href="https://www.zibll.com/?golink=aHR0cHM6Ly9naXRodWIuY29tL3hueDMvdHJhbnNsYXRl&#038;nonce=5f5a37d78ec399775b597f1fb6b54b4e326df6dfc39ffe0d5a38ac64a3d40b62|1792863716" >translate 开源项目</a></strong>，为网站提供智能翻译及多语言切换功能。用户启用后，可在网站前台轻松切换不同语言，提升国际化访问体验，适用于多语言内容展示和跨境访问需求。</p>
+
+
+
+<p class="wp-block-paragraph"><strong>主要特点：</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>配置简单</strong>：基于 translate 开源项目，自动识别和翻译网页内容，无需人工翻译，仅需在后台一键开启即可</li>
+
+
+
+<li><strong>翻译精准度极高</strong>：实测翻译默认翻译服务，精准度高达99%，如需更好的翻译效果还支持AI大模型翻译</li>
+
+
+
+<li><strong>响应速度极快：</strong>100毫秒即可翻译整页翻译，并自动缓存到用户本地，再次打开网站几乎0延迟翻译</li>
+
+
+
+<li><strong>自动识别并翻译：</strong>支持自动识别用户所在地区，并自动翻译，无需用户手动切换</li>
+
+
+
+<li><strong>多语言切换</strong>：支持在前台展示语言切换按钮，用户可以自由选择自己熟悉的语言。</li>
+
+
+
+<li><strong>自定义翻译</strong>：允许自定义术语词汇，确保专业内容和品牌名称不被误翻译。</li>
+
+
+
+<li><strong>多语言支持</strong>：支持中文、英文、韩文、日文、法文、德文等60+语言，基本适配所有</li>
+
+
+
+<li><strong>翻译服务可选</strong>：内置微软免费翻译服务，同时支持接入 GiteeAI 大模型翻译服务，提高翻译精度。</li>
+
+
+
+<li><strong>灵活配置</strong>：支持自动切换用户语言、本地语言设置、指定忽略翻译词汇等，满足多样化需求</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">进入网站后台-zibll主题配置-全局功能-多语言翻译，启用智能多语言翻译，并按需配置即可</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-zibll子比主题智能多语言翻译功能简介及配置教程[V9.0有更新]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1412" height="1378" src="https://oss.zibll.com/zibll.com/2026/04/20260428131053276-image-99.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1268"  class="wp-image-47234" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260428131053276-image-99.png 1412w, https://oss.zibll.com/zibll.com/2026/04/20260428131053276-image-99.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_780 800w, https://oss.zibll.com/zibll.com/2026/04/20260428131053276-image-99.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1268 1300w" sizes="(max-width: 1412px) 100vw, 1412px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">语言切换列表</h3>
+
+
+
+<p class="wp-block-paragraph">继续在此页面，我们添加并排序我们需要在前台显示的语言列表：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[2]-zibll子比主题智能多语言翻译功能简介及配置教程[V9.0有更新]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/04/20260428134108123-image-100.png"   class="wp-image-47235" style="width:600px"/></figure>
+</div>
+
+
+<p class="wp-block-paragraph">这里需要注意的是，不建议添加太多，太多效果反而不好。另外显示图标一般为国旗，主题自带了几个常用语言的图标，如果没有需要自己添加的，建议去阿里图库搜索对应的国旗，并使用自定义SVG代码的方式添加即可，图标添加详细教程请看以下文章：</p>
+
+
+
+<div data-pid="547" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="https://www.zibll.com/547.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2020/03/主题教程-1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_600,h_375" alt="网站使用自定义SVG图标详细图文教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="https://www.zibll.com/547.html">网站使用自定义SVG图标详细图文教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2025-10-22 15:45:39" class="ml6">1年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>3.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>42</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph"><strong>前台显示效果截图：</strong></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-zibll子比主题智能多语言翻译功能简介及配置教程[V9.0有更新]-WordPress主题模板-zibll子比主题" decoding="async" width="1674" height="1082" src="https://oss.zibll.com/zibll.com/2026/04/20260428134530776-image-101.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_840"  class="wp-image-47236" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260428134530776-image-101.png 1674w, https://oss.zibll.com/zibll.com/2026/04/20260428134530776-image-101.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_517 800w, https://oss.zibll.com/zibll.com/2026/04/20260428134530776-image-101.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_840 1300w" sizes="(max-width: 1674px) 100vw, 1674px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">配置说明</h3>
+
+
+
+<ul class="wp-block-list">
+<li><strong>切换语言列表：</strong>选择并配置前台可以切换的语言列表</li>
+
+
+
+<li><strong>自动切换用户语言</strong>：首次访问网站时自动识别用户语言并切换，可选择开启或关闭。</li>
+
+
+
+<li><strong>本地语言</strong>：设置默认显示的语言，例如“简体中文”。</li>
+
+
+
+<li><strong>自定义翻译术语</strong>：可添加关键术语，指定翻译结果，可起到翻译修正效果</li>
+
+
+
+<li><strong>自定义翻译服务接口</strong>：如果使用自建 translate 接口，可填写域名，支持多个接口。</li>
+
+
+
+<li><strong>忽略翻译指定词汇</strong>：例如输入 <code>zibll</code>，确保该词不被翻译。</li>
+
+
+
+<li><strong>翻译服务选择</strong>：可选择微软免费翻译服务，或使用 GiteeAI 大模型翻译以提高精准度。</li>
+
+
+
+<li><strong>限定语种翻译</strong>：可限制只翻译指定原始语言内容，避免不必要的翻译。</li>
+
+
+
+<li><strong>动画过渡效果</strong>：可选择开启或关闭翻译请求的动画过渡效果。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">注意事项：</h2>
+
+
+
+<p class="wp-block-paragraph">zibll智能多语言并非人工翻译，所以还是有几点需要注意的：</p>
+
+
+
+<ul class="wp-block-list">
+<li>前台切换语言列表不建议选择太多，建议根据自己网站的受众地区，仅开启常用语言即可</li>
+
+
+
+<li>机器翻译并不能保证100%精准，如果你发现了翻译错误的地方，可以使用<strong>自定义翻译术语</strong>功能进行修改微调</li>
+
+
+
+<li><qc style="color:rgba(252,138,33,1);background:undefined">由于不同语言同一段文字长度差异巨大，特别是日文、俄文等，翻译后页面UI可能会有错位现象，主题已经尽量适配了，但是极少地方可能还是会有，这个是无法完全避免的，请知晓</qc></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">隐私说明</h2>
+
+
+
+<p class="wp-block-paragraph">zibll智能多语言是基于<strong>translate</strong>开源项目，翻译时会把内容传到翻译接口，如果您对隐私有极高要求，建议自己私有化部署<strong>translate</strong>翻译服务，部署后将地址配置到主题设置中即可。</p>
+
+
+
+<p class="wp-block-paragraph">部署教程：<a href="https://www.zibll.com/?golink=aHR0cHM6Ly90cmFuc2xhdGUuenZvLmNuLzM5MTEyOS5odG1s&#038;nonce=3383701a2ae3f0874d819f90a91ba20bc6be61b11896c7e1332e6fef54b7d3fe|1792863716" >https://translate.zvo.cn/391129.html</a></p>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

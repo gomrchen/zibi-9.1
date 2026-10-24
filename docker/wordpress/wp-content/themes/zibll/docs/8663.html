@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题卡密充值、卡密兑换积分、卡密兑换会员功能详解及使用教程[V6.5新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题卡密充值、卡密兑换积分、卡密兑换会员功能详解及使用教程[V6.5新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/8663.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">有一些老站长可能会卡密充值的功能了解比较多，使用wordpress建站的站长很多时候不方便接入收款方式，但是有需要销售商品，这时候就可以通过卡密充值的方式充值到余额，然后用户就可以通过余额购买商品了。<br>同时卡密功能可以用于其他的一些用户活动，例如把赠送卡密给客户等等。</p>
+
+
+
+<p class="wp-block-paragraph">zibll子比主题V6.5更新就带来了全新的卡密充值功能，首先我们简单的介绍一下。</p>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#fb2121" style="--quote-color:#fb2121"><i class="fa fa-quote-left"></i><p>此功能需升级zibll子比主题V6.5及以上版本</p></div></div>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q"><i class="fa fa-quote-left"></i><p>zibll子比主题更新V7.4后，新增卡密兑换会员、卡密兑换积分的功能，使用教程和此教程类似<br>更新V8.3后，新增自定义卡密功能，方便配合商城系统实现自动发卡</p></div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">功能简介</h2>
+
+
+
+<ul class="wp-block-list">
+<li>精美设计的UI，简单漂亮</li>
+
+
+
+<li>支持单独开启或关闭，支持自定义说明简介</li>
+
+
+
+<li>支持批量移动生成卡密</li>
+
+
+
+<li>支持批量导入卡密</li>
+
+
+
+<li>支持导出卡密为Excel文档或txt文档</li>
+
+
+
+<li>支持卡密充值余额、卡密兑换会员、卡密兑换积分(v7.4)</li>
+
+
+
+<li>卡密充值余额支持设置单密码模式，不需要卡号(v7.4)</li>
+
+
+
+<li>支持自定义卡密创建和导入，方便配合商城系统实现自动发卡（V8.3）</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">截图预览</h2>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1270" height="1312" src="https://oss.zibll.com/zibll.com/2022/06/图片-22.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_991,h_1024" class="wp-image-8666" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/图片-22.png 1270w, https://oss.zibll.com/zibll.com/2022/06/图片-22.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_484,h_500 484w, https://oss.zibll.com/zibll.com/2022/06/图片-22.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_991,h_1024 991w, https://oss.zibll.com/zibll.com/2022/06/图片-22.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_793 768w" sizes="(max-width: 1270px) 100vw, 1270px" imgbox-index="0"><figcaption class="wp-element-caption">卡密充值余额</figcaption></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1388" height="1304" src="https://oss.zibll.com/zibll.com/2023/09/图片-15.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_962" class="wp-image-18595" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-15.png 1388w, https://oss.zibll.com/zibll.com/2023/09/图片-15.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_657 700w, https://oss.zibll.com/zibll.com/2023/09/图片-15.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_721 768w, https://oss.zibll.com/zibll.com/2023/09/图片-15.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_962 1024w" sizes="(max-width: 1388px) 100vw, 1388px" imgbox-index="1"><figcaption class="wp-element-caption">卡密兑换积分</figcaption></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1578" height="1506" src="https://oss.zibll.com/zibll.com/2023/09/图片-14.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_977" class="wp-image-18594" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-14.png 1578w, https://oss.zibll.com/zibll.com/2023/09/图片-14.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_668 700w, https://oss.zibll.com/zibll.com/2023/09/图片-14.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_732 768w, https://oss.zibll.com/zibll.com/2023/09/图片-14.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_977 1024w" sizes="(max-width: 1578px) 100vw, 1578px" imgbox-index="2"><figcaption class="wp-element-caption">卡密兑换会员</figcaption></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_2">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#08B89A;background:undefined">进入主题设置-&gt;付费商城-&gt;余额充值：开启卡密</qc>充值余额功能</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1828" height="1264" src="https://oss.zibll.com/zibll.com/2022/06/图片-23.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_708" class="wp-image-8667" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/图片-23.png 1828w, https://oss.zibll.com/zibll.com/2022/06/图片-23.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_484 700w, https://oss.zibll.com/zibll.com/2022/06/图片-23.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_708 1024w, https://oss.zibll.com/zibll.com/2022/06/图片-23.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_531 768w, https://oss.zibll.com/zibll.com/2022/06/图片-23.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1062 1536w" sizes="(max-width: 1828px) 100vw, 1828px" imgbox-index="3"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:#08B89A;background:undefined">进入主题设置-&gt;用户互动-&gt;用户积分：</qc>开启卡密兑换积分功能</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1662" height="1140" src="https://oss.zibll.com/zibll.com/2023/09/图片-16.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_702" class="wp-image-18596" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-16.png 1662w, https://oss.zibll.com/zibll.com/2023/09/图片-16.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_480 700w, https://oss.zibll.com/zibll.com/2023/09/图片-16.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_526 768w, https://oss.zibll.com/zibll.com/2023/09/图片-16.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_702 1024w" sizes="(max-width: 1662px) 100vw, 1662px" imgbox-index="4"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><meta http-equiv="content-type" content="text/html; charset=utf-8"><qc style="color:#08B89A;background:undefined">进入主题设置-&gt;付费商城-&gt;VIP会员：</qc>开启卡密兑换会员功能</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1658" height="1138" src="https://oss.zibll.com/zibll.com/2023/09/图片-17.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_702" class="wp-image-18597" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-17.png 1658w, https://oss.zibll.com/zibll.com/2023/09/图片-17.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_480 700w, https://oss.zibll.com/zibll.com/2023/09/图片-17.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_527 768w, https://oss.zibll.com/zibll.com/2023/09/图片-17.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_702 1024w" sizes="(max-width: 1658px) 100vw, 1658px" imgbox-index="5"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_3">卡密管理</h2>
+
+
+
+<p class="wp-block-paragraph">进入zibll商城-&gt;充值管理，即可看到卡密列表，支持批量删除。以及导入导出</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="2060" height="1366" src="https://oss.zibll.com/zibll.com/2023/09/图片-18.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_679" class="wp-image-18598" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-18.png 2060w, https://oss.zibll.com/zibll.com/2023/09/图片-18.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_464 700w, https://oss.zibll.com/zibll.com/2023/09/图片-18.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_509 768w, https://oss.zibll.com/zibll.com/2023/09/图片-18.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_679 1024w" sizes="(max-width: 2060px) 100vw, 2060px" imgbox-index="6"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_4">导入卡密</h2>
+
+
+
+<p class="wp-block-paragraph">点击添加卡密，可选择自动生成卡密或导入卡密</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[8]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1830" height="1262" src="https://oss.zibll.com/zibll.com/2022/06/图片-25.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_706" class="wp-image-8669" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/图片-25.png 1830w, https://oss.zibll.com/zibll.com/2022/06/图片-25.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_483 700w, https://oss.zibll.com/zibll.com/2022/06/图片-25.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_706 1024w, https://oss.zibll.com/zibll.com/2022/06/图片-25.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_530 768w, https://oss.zibll.com/zibll.com/2022/06/图片-25.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1059 1536w" sizes="(max-width: 1830px) 100vw, 1830px" imgbox-index="7"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[9]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1826" height="1262" src="https://oss.zibll.com/zibll.com/2022/06/图片-26.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_708" class="wp-image-8670" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/图片-26.png 1826w, https://oss.zibll.com/zibll.com/2022/06/图片-26.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_484 700w, https://oss.zibll.com/zibll.com/2022/06/图片-26.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_708 1024w, https://oss.zibll.com/zibll.com/2022/06/图片-26.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_531 768w, https://oss.zibll.com/zibll.com/2022/06/图片-26.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1062 1536w" sizes="(max-width: 1826px) 100vw, 1826px" imgbox-index="8"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_5">导出卡密</h2>
+
+
+
+<p class="wp-block-paragraph">如果您需要将卡密放在其他平台进行销售，或有其他用途，都可以导出卡密</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[10]-WordPress卡密充值卡密兑换会员自动发卡主题插件详细使用教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1646" height="1096" src="https://oss.zibll.com/zibll.com/2022/06/图片-27.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_682" class="wp-image-8671" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/图片-27.png 1646w, https://oss.zibll.com/zibll.com/2022/06/图片-27.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_466 700w, https://oss.zibll.com/zibll.com/2022/06/图片-27.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_682 1024w, https://oss.zibll.com/zibll.com/2022/06/图片-27.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_511 768w, https://oss.zibll.com/zibll.com/2022/06/图片-27.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1023 1536w" sizes="(max-width: 1646px) 100vw, 1646px" imgbox-index="9"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">教程结束，使用十分简单，对应功能请查阅以下教程</p>
+
+
+
+<div data-pid="767" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="767.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2020/05/vip会员-列表图1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="zibll子比主题VIP会员系统详解及使用教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="767.html">zibll子比主题VIP会员系统详解及使用教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2023-09-14 13:56:33" class="ml6">3年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>4.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>93</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-pid="7349" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="7349.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2022/04/积分-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="zibll子比主题积分功能积分消费详解及使用教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="7349.html"><item class="meta-pay badg badg-sm mr6 c-yellow" data-toggle="tooltip" title="" data-original-title="付费阅读"><i class="fa fa-book mr3"></i><span class="em09"><svg class="" aria-hidden="true"><use xlink:href="#icon-points"></use></svg></span>10</item>zibll子比主题积分功能积分消费详解及使用教程<span class="focus-color">[积分]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2023-09-14 13:23:18" class="ml6">3年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>1.4W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>124</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-pid="7342" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="7342.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2022/04/余额-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="zibll子比主题余额充值余额消费详解及配置教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="7342.html">zibll子比主题余额充值余额消费详解及配置教程<span class="focus-color">[余额]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2024-10-13 13:20:34" class="ml6">2年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>1.1W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>96</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

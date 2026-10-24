@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论坛付费板块、付费圈子功能详解及配置教程[V8.7新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>论坛付费板块、付费圈子功能详解及配置教程[V8.7新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/46784.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用WordPress搭建社区论坛或者私域、圈子、贴吧等类型的网站，很多站长都会有付费板块、付费圈子的需求，zibll子比主题支持完善的社区论坛系统，此次zibll子比主题V8.7新增了两个重要付费板块相关的功能，分别是：</p>
+
+
+
+<ol class="wp-block-list">
+<li>新增板块发布权限和阅读权限都支持配置关注后允许，可实现例如：关注板块后才能查看、才能发帖，加入圈子后才能查看、发布等功能</li>
+
+
+
+<li>新增自定义关注板块的关注名称命名，也就是修改“关注”这两个字，例如改为：加入、入驻、订阅等，更加适合将论坛作为圈子、社群等组织使用</li>
+
+
+
+<li>新增付费关注的功能，用户需支付费用后才能关注，配合以上两个功能即可实现：付费板块、付费圈子等功能</li>
+</ol>
+
+
+
+<div class="wp-block-zibllblock-alert alert-dismissible fade in"><div class="alert jb-green" data-isclose="" role="alert">重要通知：由于政策原因，官网下架了论坛功能演示，如需查看zibll主题论坛相关功能演示，请跳转到到：<a href="https://www.zibll.top/"><strong>www.zibll.top</strong></a></div></div>
+
+
+
+<h2 class="wp-block-heading">使用说明</h2>
+
+
+
+<p class="wp-block-paragraph">这里有几个功能需要注意：1.它们是完全独立的功能！2.又是相互关联的功能</p>
+
+
+
+<ul class="wp-block-list">
+<li>板块、帖子、关注等这些命名都是可以自定义修改的，例如改为圈子、论坛、社区、贴吧等</li>
+
+
+
+<li>板块的发布权限和查看权限支持单独设置，例如关注后才能查看，但是会员才能发布。或者查看和发布都需要关注后才行</li>
+
+
+
+<li>付费关注是单独的功能，也可以设置无需付费就能关注。设置成付费关注，在配个关注后的权限，即可实现付费加入后才能查看或发布的效果</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">根据上面的说明，我们的配置也主要分为三个步骤，十分简单：</p>
+
+
+
+<h3 class="wp-block-heading">1.命名配置</h3>
+
+
+
+<p class="wp-block-paragraph">进入主题设置-社区&amp;论坛-命名定义：即可按需修改命名</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-论坛付费板块、付费圈子功能详解及配置教程[V8.7新功能]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1360" height="1184" src="https://oss.zibll.com/zibll.com/2026/04/20260409133028526-image-43.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1131"  class="wp-image-46785" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260409133028526-image-43.png 1360w, https://oss.zibll.com/zibll.com/2026/04/20260409133028526-image-43.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_696 800w, https://oss.zibll.com/zibll.com/2026/04/20260409133028526-image-43.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1131 1300w" sizes="(max-width: 1360px) 100vw, 1360px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">2.配置权限</h3>
+
+
+
+<p class="wp-block-paragraph">我们在新建板块时候，或者修改板块时候都可以配置对应的权限，权限分为发布权限和阅读权限，支持分别配置。</p>
+
+
+
+<p class="wp-block-paragraph">我们将权限设置为<code>关注后</code>，即可实现关注板块后才能发帖或者关注后才能查看此板块内容的效果</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-论坛付费板块、付费圈子功能详解及配置教程[V8.7新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="1290" height="1672" src="https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1157,h_1500"  class="wp-image-46380" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png 1290w, https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_1036 800w, https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1157,h_1500 1157w" sizes="(max-width: 1290px) 100vw, 1290px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">3.设置付费关注</h3>
+
+
+
+<p class="wp-block-paragraph">我们将权限设置为<code>关注</code>后，如果我们还需要用户付费才能关注，我们仅需要打开付费关注，并设置价格即可，支持设置积分或现金价格。设置价格后，关注板块时候就需要付费才能关注了！</p>
+
+
+
+<p class="wp-block-paragraph">配置方式请看上面图片，下图为关注时需要付费的截图演示：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-论坛付费板块、付费圈子功能详解及配置教程[V8.7新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="2492" height="1476" src="https://oss.zibll.com/zibll.com/2026/04/20260409133721211-image-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_769"  class="wp-image-46787" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260409133721211-image-45.png 2492w, https://oss.zibll.com/zibll.com/2026/04/20260409133721211-image-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_473 800w, https://oss.zibll.com/zibll.com/2026/04/20260409133721211-image-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_769 1300w" sizes="(max-width: 2492px) 100vw, 2492px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">功能演示</h2>
+
+
+
+<p class="wp-block-paragraph">我在我们官网社区上创建了一个付费关注的演示板块，点击下方链接体验</p>
+
+
+
+<p class="wp-block-paragraph"><a href="https://www.zibll.com/forum/46378.html">付费板块演示</a></p>
+
+
+
+<h2 class="wp-block-heading">扩展阅读</h2>
+
+
+
+<div data-pid="3173" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="3173.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/12/20260409135058547-论坛发帖权限-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="zibll子比主题论坛发帖限制以及创建板块限制的配置教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="3173.html">zibll子比主题论坛发帖限制以及创建板块限制的配置教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2026-08-01 21:22:43" class="ml6">1个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>9575</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>33</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-pid="4449" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="4449.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2022/02/阅读限制-查看权限-列表图1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_420" alt="论坛板块、帖子内容查看权限-阅读限制功能详解-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="4449.html">论坛板块、帖子内容查看权限-阅读限制功能详解</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2026-08-01 21:22:19" class="ml6">1个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>9552</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>56</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

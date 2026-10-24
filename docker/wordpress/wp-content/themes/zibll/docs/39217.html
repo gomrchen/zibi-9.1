@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题商品参数配置-配置继承功能详解及说明[V8.2新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题商品参数配置-配置继承功能详解及说明[V8.2新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/39217.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">zibll子比主题V8.2新增商城系统，在配置商品参数的时候，我们带来了全新的配置继承功能，让餐食配置时既简单易用又高度的自由化！</p>
+
+
+
+<p class="wp-block-paragraph">那么什么是参数继承呢？简单的说就是商品的某一个参数，我们可以为商品、商品分类、父分类、主题设置都进行配置。当系统查询此参数的时候，会先查询该商品的配置，如果该参数没有配置，就查询该商品的分类配置，如果改分类也没有配置，就同理依次查询父分类，最后查询主题配置中的参数。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">参数继承示例</h2>
+
+
+
+<p class="wp-block-paragraph">例如我们有一个商品名为<code>苹果16</code>，它的分类结构依次为：<code>数码产品</code>-&gt;<code>手机</code>-&gt;<code>苹果</code></p>
+
+
+
+<p class="wp-block-paragraph">系统现在需要获取这个商品的运费，那么参数查询的流程为：</p>
+
+
+
+<ol class="wp-block-list">
+<li>系统首先会查询<code>苹果16</code>这个商品的运费参数，如果有单独设置则返回，如果为默认则继续查询分类配置</li>
+
+
+
+<li>继续查询分类<code>苹果</code>的分类参数，如果有单独设置则返回，如果为默认则继续查询父分类配置</li>
+
+
+
+<li>继续查询分类<code>手机</code>的分类参数，如果有单独设置则返回，如果为默认则继续查询父分类配置</li>
+
+
+
+<li>继续查询分类<code>数码产品</code>的分类参数，如果有单独设置则返回，如果为默认则继续主题配置中的设置</li>
+
+
+
+<li>最后查询<code>主题设置</code>中的参数，返回参数数据</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">通过上面的查询逻辑，相信我们就完全理解什么是继承功能了，那么如何配置参数就十分简单了。</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">在商品编辑最底部，我们可以配置商品的参数：</qc><qc style="color:rgba(242,103,7,1);background:undefined">（注意：支持参数继承的配置都有黄色备注）</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-商品参数配置-配置继承功能详解及说明-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250926130351496-image-88.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_839" class="wp-image-39250" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250926130351496-image-88.png 2090w, https://oss.zibll.com/zibll.com/2025/09/20250926130351496-image-88.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_516 800w, https://oss.zibll.com/zibll.com/2025/09/20250926130351496-image-88.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_839 1300w" sizes="(max-width: 2090px) 100vw, 2090px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">在商品分类编辑中，可以配置当前分类下的商品参数：</qc><qc style="color:rgba(242,103,7,1);background:undefined">（注意：支持参数继承的配置都有黄色备注）</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-商品参数配置-配置继承功能详解及说明-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250926130552494-image-89.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1153" class="wp-image-39251" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250926130552494-image-89.png 2004w, https://oss.zibll.com/zibll.com/2025/09/20250926130552494-image-89.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_709 800w, https://oss.zibll.com/zibll.com/2025/09/20250926130552494-image-89.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1153 1300w" sizes="(max-width: 2004px) 100vw, 2004px" imgbox-index="1"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">最后，在主题设置中我们可以配置商品参数的最终默认值：</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-商品参数配置-配置继承功能详解及说明-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250926130729417-image-90.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1103" class="wp-image-39252" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250926130729417-image-90.png 1732w, https://oss.zibll.com/zibll.com/2025/09/20250926130729417-image-90.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_678 800w, https://oss.zibll.com/zibll.com/2025/09/20250926130729417-image-90.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1103 1300w" sizes="(max-width: 1732px) 100vw, 1732px" imgbox-index="2"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_2">思维扩展</h2>
+
+
+
+<p class="wp-block-paragraph">看完了上面的教程，配置起来是不是超级简单，同时如果你理解了这个继承功能，相信你也能想到它的高度自由化了！通过这个配置继承功能，我们就能轻松简单的实现许多场景，例如：</p>
+
+
+
+<ul class="wp-block-list">
+<li>一家服装店铺，默认全部商品包邮（主题设置中配置运费为0），但是有几件冬季衣服需要运费20元（单独给这几件设置运费20）</li>
+
+
+
+<li>一家杂货店，手机配件支持退货退款但不支持仅保价，话费充值不支持任何售后，还有单独几件商品不支持保价</li>
+</ul>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

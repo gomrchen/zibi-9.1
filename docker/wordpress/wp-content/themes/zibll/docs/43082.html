@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/43082.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用WordPress搭建的网站的站长，可能全都有过对搜索功能不满意的时候，主要问题就是不能模糊搜索，例如搜索<code>网站搭建教程</code>，那么标题为<code>网站使用宝塔搭建的详细教程</code>就无法匹配到</p>
+
+
+
+<p class="wp-block-paragraph">其实这也是不WordPress的问题，所有使用mysql数据库的搜索的程序，都是一样的，要想实现搜索<code>网站搭建教程</code>，那么标题为<code>网站使用宝塔搭建的详细教程</code>也能匹配，那就需要分词。那这个分词就不是一些简单的代码能搞定的了，特别是中文、韩文、日文等语言，它不像英语使用固定的空格分词，所以想要在WordPress上实现分词搜索、模糊搜索一直都是一大难点！</p>
+
+
+
+<p class="wp-block-paragraph">同时，熟悉Mysql数据库的人或者有经验的站长肯定都知道，搜索功能十分耗时的，因为使用like %关键词%语法就无法使用索引，而且还无法做缓存，如果你的文章数量很大，那搜索的时候可就慢的很啊！</p>
+
+
+
+<p class="wp-block-paragraph">这两个痛点，其实也一直困扰着我很久很久，在我尝试了很多种方案后，现在！更新zibll <code>V8.5</code>之后 <qc style="color:rgba(252,98,98,1);background:undefined">zibll子比主题智能搜索它来了！</qc></p>
+
+
+
+<h2 class="wp-block-heading">特点简介</h2>
+
+
+
+<ul class="wp-block-list">
+<li>基于Meilisearch搜索引擎，完美实现智能分词，搜索<code>网站搭建教程</code>时候，会智能分词为<code>网站</code>、<code>搭建</code>、<code>教程</code>，完美适配几乎所有语言，真正实现模糊搜索</li>
+
+
+
+<li>超高性能，Meilisearch是内存驱动索引，据官方说上亿数据都能实现毫秒级响应，我自己测试，10万加数据，仅需零点几毫秒，而mysql需要3秒以上</li>
+
+
+
+<li>搭建配置极其简单：使用docker命令搭建，一个命令即可搞定，真正的有手就行</li>
+
+
+
+<li>搜索结果排序更加智能，系统会自动计算关键词匹配得分并排序，让更加符合用户需求的内容排在前面</li>
+
+
+
+<li>支持智能筛选，根据搜索关键词自动显示有关联的分类、标签、话题等筛选方式</li>
+
+
+
+<li>支持设置近义词、同义词、错词纠正</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">教程</h2>
+
+
+
+<p class="wp-block-paragraph">教程一共分为两个步骤，都十分简单：</p>
+
+
+
+<ol class="wp-block-list">
+<li>在服务器使用docker部署Meilisearch</li>
+
+
+
+<li>在主题设置中配置</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading">1.部署Meilisearch</h3>
+
+
+
+<p class="wp-block-paragraph">Meilisearch使用docker部署，也就是说任何服务器都支持，虚拟主机只要有docker的都可以，那么我们已宝塔为例，开始教程</p>
+
+
+
+<p class="wp-block-paragraph">1.安装docker：进入宝塔，找到docker，点击安装</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1770" height="742" src="https://oss.zibll.com/zibll.com/2025/12/20251227220438796-image-214.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_544"  class="wp-image-43083" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/12/20251227220438796-image-214.png 1770w, https://oss.zibll.com/zibll.com/2025/12/20251227220438796-image-214.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_335 800w, https://oss.zibll.com/zibll.com/2025/12/20251227220438796-image-214.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_544 1300w" sizes="(max-width: 1770px) 100vw, 1770px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">2.新建一个文件夹，用于存放meilisearch数据，方便在docker中映射，例如<code>/www/wwwroot/meilisearch</code></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[2]-zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2025/12/20251227221805619-image-216.png"   class="wp-image-43085" style="width:600px"/></figure>
+</div>
+
+
+<p class="wp-block-paragraph">2.点击容器，创建容器。选择命令创建，输入以下命令即可。</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="dockerfile" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">docker run -d --restart=always -p 7700:7700 -v /www/wwwroot/meilisearch:/meili_data getmeili/meilisearch:v1.29 meilisearch --master-key=112233</code></pre>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="1766" height="648" src="https://oss.zibll.com/zibll.com/2025/12/20251227222045628-image-217.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_477"  class="wp-image-43086" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/12/20251227222045628-image-217.png 1766w, https://oss.zibll.com/zibll.com/2025/12/20251227222045628-image-217.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_293 800w, https://oss.zibll.com/zibll.com/2025/12/20251227222045628-image-217.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_477 1300w" sizes="(max-width: 1766px) 100vw, 1766px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">也可选择容器编排，输入以下代码：（和上面的命令创建二选一）</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="yaml" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">services:
+  meilisearch:
+    # 镜像及版本
+    image: getmeili/meilisearch:v1.29
+    # 容器名称
+    container_name: meilisearch-service
+    # 端口映射 宿主机:容器
+    ports:
+      - "7700:7700"
+    # 数据卷挂载
+    volumes:
+      - /www/wwwroot/meilisearch:/meili_data
+    # 启动命令设置密钥
+    command: meilisearch --master-key=112233
+    # 重启策略
+    restart: always</code></pre>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[4]-zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2025/12/20251227222226810-image-218.png"   class="wp-image-43087" style="width:600px"/></figure>
+</div>
+
+
+<p class="wp-block-paragraph">然后就可以等待部署完成，然后在docker容器列表中，看到在运行中即可。<br>然后，因为宝塔会记录日志，建议设置一下日志保存时间，以免日志慢慢积累过大。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[5]-zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2025/12/20251227222648334-image-219.png"   class="wp-image-43088" style="width:600px"/></figure>
+</div>
+
+
+<h3 class="wp-block-heading">2.主题配置</h3>
+
+
+
+<p class="wp-block-paragraph">部署完成后，我们就可以在主题配置开启meilisearch智能搜索功能了。流程一共两步：</p>
+
+
+
+<ol class="wp-block-list">
+<li>填入相关参数并保存</li>
+
+
+
+<li>首次配置，需要同步索引数据</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">进入主题设置-&gt;全局功能-&gt;搜索功能，开启meilisearch智能搜索，并填入参数</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="2026" height="1176" src="https://oss.zibll.com/zibll.com/2025/12/20251227223244685-image-220.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_754"  class="wp-image-43089" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/12/20251227223244685-image-220.png 2026w, https://oss.zibll.com/zibll.com/2025/12/20251227223244685-image-220.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_464 800w, https://oss.zibll.com/zibll.com/2025/12/20251227223244685-image-220.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_754 1300w" sizes="(max-width: 2026px) 100vw, 2026px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">说明：这里的api地址，默认为<code>http://127.0.0.1:7700</code>，也就是本地服务器地址加7700端口，API密钥就是部署时<code>-master-key=</code>后面的值，可以自定义</p>
+
+
+
+<h2 class="wp-block-heading">注意事项</h2>
+
+
+
+<ul class="wp-block-list">
+<li>同一个服务器多个网站时，主题设置中的索引前缀必须保证唯一性，不能与其他网站的案引前缀相同</li>
+
+
+
+<li>首次配置好，必须要重建索引数据，不然搜索不到内容</li>
+
+
+
+<li>后面当有内容新增或变化时系统会自动同步对应的索引数据，一般无需再次手动重建索引数据，但是如果遇到搜索结果有问题的时候，或者修改过数据库内容，都可以手动重建索引数据</li>
+
+
+
+<li>修改部分主题配置，也需要手动重建索引数据，具体有影响的配置，都有红色提醒文字</li>
+
+
+
+<li>启用meilisearch智能搜索后，会自动显示智能筛选，会根据搜索关键词自动显示分类、话题等筛选，就无需再手动配置手动筛选了</li>
+
+
+
+<li>meilisearch是内存驱动，所以需要占用服务器内存，所以需要关注服务器内存使用情况。当然meilisearch也是我测试过所有搜索引擎中内存占用最小了，5万数据，大于占用1GB内存，仅供参考</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">meilisearch智能搜索的智能筛选截图示例：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="2242" height="1714" src="https://oss.zibll.com/zibll.com/2025/12/20251227224418366-image-221.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_993"  class="wp-image-43092" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/12/20251227224418366-image-221.png 2242w, https://oss.zibll.com/zibll.com/2025/12/20251227224418366-image-221.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_611 800w, https://oss.zibll.com/zibll.com/2025/12/20251227224418366-image-221.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_993 1300w" sizes="(max-width: 2242px) 100vw, 2242px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">其他搜索配置</h2>
+
+
+
+<p class="wp-block-paragraph">最后，zibll主题的搜索功能除了meilisearch智能搜索功能外，还支持非常强大又实用的功能配置，参看下图</p>
+
+
+
+<figure class="wp-block-image size-large"><img alt="图片[8]-zibll子比主题Meilisearch智能搜索配置教程[V8.5新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="1456" height="1612" src="https://oss.zibll.com/zibll.com/2025/12/20251227224624718-image-222.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1439"  class="wp-image-43093" srcset="https://oss.zibll.com/zibll.com/2025/12/20251227224624718-image-222.png 1456w, https://oss.zibll.com/zibll.com/2025/12/20251227224624718-image-222.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_885 800w, https://oss.zibll.com/zibll.com/2025/12/20251227224624718-image-222.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1439 1300w" sizes="(max-width: 1456px) 100vw, 1456px" /></figure>
+
+
+
+<p class="wp-block-paragraph">ok教程结束，最后说一句，之前用过我在论坛发布的meilisearch智能搜索抢先版插件的，记得卸载删除了哦！现在主题内置了，不需要插件了</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

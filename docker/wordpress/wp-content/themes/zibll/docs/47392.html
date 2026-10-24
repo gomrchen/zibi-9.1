@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手把手教你开发zibll附加插件-附空白插件模板及AI SKILL【插件开发入门】</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>手把手教你开发zibll附加插件-附空白插件模板及AI SKILL【插件开发入门】</h1>
+  <div class="meta">来源：https://www.zibll.com/47392.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<h2 class="wp-block-heading" id="wznav_0">写在前面</h2>
+
+
+
+<p class="wp-block-paragraph">开发插件前提是需要具备一定的编程能力的，至少要有PHP、JS、CSS等语言的基础，想要开发出有价值的插件还需要熟悉WordPress，zibll源码等等</p>
+
+
+
+<p class="wp-block-paragraph">这里我主要为大家提供一个入门教程，一方面是为了方便有能力的开发者快速入门，另一方面也是为了让新手学习，提升自我能力</p>
+
+
+
+<h2 class="wp-block-heading">使用AI工具开发</h2>
+
+
+
+<p class="wp-block-paragraph">如果您已经在使用ai工具呢，你可以安装一下技能，就无需上面繁琐的操作了。SKILL.md的安装教程就更加简单了，直接下载解压后，直接把文件给AI，叫它安装一下这个SKILL即可</p>
+
+
+
+<div mce-contenteditable="false" class="muted-box file-download-box mb20"><div class="flex ac jsb"><div class="flex ac"><div class="mr10"><div class="file-download-icon"></div></div><div class="text-ellipsis-2 file-download-name" mce-contenteditable="true">20260608120129656-zibll-additional-plugin-AI技能.zip</div></div><div class="flex0 ml20"><a class="but c-blue file-download-btn" href="javascript:;" download-nonce="5a23dd2db2eaa391b07d8405436d3a0f7d4d56f1299f709c8b6a43be3df8babe|1792863759" data-download-file="48679"><i class="fa fa-download"></i>下载</a></div></div><div class="mt10"><div class="flex ab jsb muted-2-color file-download-desc em09"><div class="desc-left">zip文件</div><div class="desc-right">9.7K</div></div></div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">创建文件及目录</h2>
+
+
+
+<p class="wp-block-paragraph">教程开始了，首先第一步就是创建自己的插件文件夹和基础的文件。</p>
+
+
+
+<ol class="wp-block-list">
+<li>首先我们创建一个空白文件夹，命名为<code>zibll-additional-demo01</code></li>
+
+
+
+<li>在此文件夹下新建插件的入口文件<code>zibll-additional-demo01.php</code>，注意：此文件名必须和插件文件夹名称一致！</li>
+
+
+
+<li>根据需要我们可以创建其他资源文件夹或文件，以供后期使用</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">定义插件基础信息</h2>
+
+
+
+<p class="wp-block-paragraph">WordPress插件有统一的注释方式，让系统识别到插件的基础信息，例如插件名称、作者等</p>
+
+
+
+<p class="wp-block-paragraph">我们打开zibll-additional-demo01/zibll-additional-demo01.php文件，在最顶部写上以下代码：</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="php" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;?php
+/**
+ * Plugin Name:  zibll主题附加插件模板
+ * Description:  一个空白zibll主题附加插件模板示例
+ * Version:      1.0.1
+ * Plugin URI:   https://www.zibll.com/
+ * Author:       zibll:老唐
+ * Author URI:   https://www.zibll.com/
+ * Requires PHP: 7.0-8.5
+ */</code></pre>
+
+
+
+<p class="wp-block-paragraph">在这部分注释里面，定义了插件的名称、简介、版本等信息，我们根据自己的需要进行修改，完成这一步后，此插件在WordPress后台就可以看到插件信息了</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter is-resized"><img decoding="async" src="https://oss.zibll.com/zibll.com/2025/10/20251012150203269-image-102.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_591" alt="20251012150203269-image-102" style="width:600px"/></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_3">添加基础函数</h2>
+
+
+
+<p class="wp-block-paragraph">接下来就是我们就可以在<code>zibll-additional-demo01.php</code>文件中添加自己的函数功能了，根据你开发的插件的功能进行添加使用，我们的建议是：如果函数内容不多，就直接在<code>zibll-additional-demo01.php</code>文件写就行了，如果插件函数内容多，就一定要新建文件夹并区分类型进行引用。</p>
+
+
+
+<p class="wp-block-paragraph">接下来我们就按照开发一个zibll附加功能插件作为示例，带大家快速入门。</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(249,152,32,1);background:undefined">首先，因为我们开发的插件是基于zibll主题的，所以我们第一步需要判断当前主题是否是zibll主题，如果不是，就发出提醒并不在执行其他任何代码，避免出现严重错误。</qc></p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/**
+ * 判断依赖主题是否启用
+ */
+function zibll_additional_demo01_error_notices()
+{
+    $con = '&lt;div class="notice notice-error is-dismissible">
+                &lt;h3>插件错误！&lt;/h3>
+                &lt;p>此插件依赖于zibll主题，请先启用zibll子比主题&lt;/p>&lt;/div>';
+    echo $con;
+}
+if (get_stylesheet() != 'zibll') {
+    add_action('admin_notices', 'zibll_additional_demo01_error_notices');
+    return;
+}</code></pre>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">插件启用时执行的函数</h2>
+
+
+
+<p class="wp-block-paragraph">WordPress针对函数启用的时候，有一个<code>register_activation_hook</code>钩子函数，有时候我们需要在插件启用的时候，做一些任务，就可以使用此函数进行挂载：</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/**
+ * 插件激活时执行的函数
+ */
+function zibll_additional_demo01_register_activation_hook()
+{
+ 
+    // 在这里添加插件激活时需要执行的代码
+    // 例如，创建数据库表、初始化选项等
+    
+}
+register_activation_hook(__FILE__, 'zibll_additional_demo01_register_activation_hook');</code></pre>
+
+
+
+<h2 class="wp-block-heading" id="wznav_5">使用zibll后台框架创建配置项目</h2>
+
+
+
+<ol class="wp-block-list">
+<li>新建<code>.../zibll-additional-demo01/inc/options.php</code>文件，在第一行写上<code>&lt;?php</code></li>
+
+
+
+<li>在<code>zibll-additional-demo01.php</code>入口文件中添加以下代码，引入上面创建的文件</li>
+</ol>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">require_once dirname(__FILE__) . '/inc/options.php';</code></pre>
+
+
+
+<p class="wp-block-paragraph">接下来，我们就可以使用zibll主题的CSF框架，快速生成后台配置。</p>
+
+
+
+<p class="wp-block-paragraph">使用zibll主题的CSF框架只需要将函数挂钩在<code>after_setup_theme</code>钩子即可（任何zibll主题函数，都可以在挂钩函数内使用，不能在外部使用，因为WordPress加载顺序是先加载插件、再加载主题）</p>
+
+
+
+<p class="wp-block-paragraph">在<code>.../zibll-additional-demo01/inc/options.php</code>文件中添加以下代码：</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/**
+ * 使用CSF框架添加后台选项
+ */
+function zibll_additional_demo01_admin_csf_options()
+{
+    //只有后台才执行此代码
+    if (!is_admin()) {
+        return;
+    }
+
+    //定义插件唯一的options储存KEY
+    //必须要修改为你自己的，不然会冲突
+    $options_key = 'zibll_additional_demo01_options';
+
+    //开始构建
+    CSF::createOptions($options_key, array(
+        'menu_title'         => 'zibll附加插件演示配置',
+        'menu_slug'          => $options_key,
+        'framework_title'    => 'zibll附加插件演示配置',
+        'show_in_customizer' => false, //不在wp-customize中也显示相同的选项
+        'footer_text'        => '一个空白zibll主题附加插件模板示例',
+        'footer_credit'      => '&lt;i class="fa fa-fw fa-heart-o" aria-hidden="true">&lt;/i> ',
+        'theme'              => 'light',
+    ));
+
+    CSF::createSection($options_key, array(
+        'title'  => '全局配置',
+        'icon'   => 'fa fa-fw fa-home',
+        'fields' => array(
+            array(
+                'id'      => 'xxx_text', //id为参数唯一标识，只能为小写字母、数字、下划线组成，不能有空格
+                'title'   => '参数标题',
+                'default' => '默认值',
+                'type'    => 'text', //text为文本框类型，还有很多类型可选
+                'desc'    => '这里是参数的描述信息',
+            ),
+            /**
+             * 这里可以继续添加更多配置项
+             * csf函数使用示例可参考主题的.../zibll/inc/options/admin-options.php文件
+             */
+        ),
+    ));
+
+    CSF::createSection($options_key, array(
+        'title'  => '其他配置',
+        'icon'   => 'fa fa-fw fa-heart',
+        'fields' => array(
+            array(
+                'id'      => 'xxx_text', //id为参数唯一标识，只能为小写字母、数字、下划线组成，不能有空格
+                'title'   => '参数标题',
+                'default' => '默认值',
+                'type'    => 'text', //text为文本框类型，还有很多类型可选
+                'desc'    => '这里是参数的描述信息',
+            ),
+        ),
+    ));
+
+}
+add_action('after_setup_theme', 'zibll_additional_demo01_admin_csf_options');</code></pre>
+
+
+
+<p class="wp-block-paragraph">然后，我们就可以在后台看到我们创建的配置项目了！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter is-resized"><img decoding="async" src="https://oss.zibll.com/zibll.com/2025/10/20251012154238916-image-103.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_374" alt="20251012154238916-image-103" style="width:600px"/></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_6">获取参数配置函数</h2>
+
+
+
+<p class="wp-block-paragraph">我们创建好了配置项目，那么我们肯定需要获取参数并使用，所以我们需要创建一个函数，用于获取参数的值，方便以后使用。</p>
+
+
+
+<p class="wp-block-paragraph">在<code>.../zibll-additional-demo01/inc/options.php</code>文件中添加以下代码：</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/**
+ * 获取插件配置项的值
+ * 使用示例：$value = zibll_additional_demo01_get_option('xxx_text', '默认值');
+ * @param string $key 配置项的键
+ * @param mixed $default 如果配置项不存在，返回的默认值
+ * @return mixed 配置项的值或默认值
+ */
+function zibll_additional_demo01_get_option($key, $default = false)
+{
+
+    // 声明静态变量以加快检索速度
+    static $options = null;
+    if ($options === null) {
+        //定义插件唯一的options储存KEY，需要和zibll_additional_demo01_admin_csf_options函数中的一致
+        $options_key = 'zibll_additional_demo01_options';
+        $options = get_option($options_key);
+    }
+
+    return $options[$key] ?? $default;
+}</code></pre>
+
+
+
+<h2 class="wp-block-heading" id="wznav_7">创建小工具模块示例</h2>
+
+
+
+<p class="wp-block-paragraph">同样的，你可以使用zibll主题的小工具Zib_CFSwidget框架快速创建小工具。</p>
+
+
+
+<ol class="wp-block-list">
+<li>新建<code>.../zibll-additional-demo01/inc/widget.php</code>文件，在第一行写上<code>&lt;?php</code></li>
+
+
+
+<li>在<code>zibll-additional-demo01.php</code>入口文件中添加以下代码，引入上面创建的文件</li>
+</ol>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">require_once dirname(__FILE__) . '/inc/widget.php';</code></pre>
+
+
+
+<p class="wp-block-paragraph">同样的，我们使用<code>zib_require_end</code>挂钩创建，在<code>.../zibll-additional-demo01/inc/widget.php</code>文件中添加以下代码：</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/**
+ * 使用CSF框架添加小工具示例
+ */
+function zibll_additional_demo01_widget_create_demo1()
+{
+
+    //小工具唯一标识，请修改为自己的，同时也是此小工具的内容获取函数的函数名
+    $widget_key = 'zibll_additional_demo01_demo1_widget';
+
+    Zib_CFSwidget::create($widget_key, array(
+        'title'       => 'zibll附加插件演示模块示例1',
+        'zib_layout'  => true, //是否启用模块背景、间距等布局选项
+        'zib_title'   => true, //是否启用标题配置项
+        'zib_affix'   => true, //是否启用侧栏浮动配置项
+        'zib_show'    => true, //是否启用显示控制配置项
+        'zib_animation_in'    => true, //是否启用入场动画配置项
+        'description' => '这是一个zibll主题附加插件的小工具演示示例，可以在这里添加自己的小工具内容和配置参数。',
+        'reminder'    => '',   //添加此模块的重要提醒
+        'fields'      => array(
+            array(
+                'id'      => 'xxx_text', //id为参数唯一标识，只能为小写字母、数字、下划线组成，不能有空格
+                'title'   => '参数标题',
+                'default' => '默认值',
+                'type'    => 'text', //text为文本框类型，还有很多类型可选
+                'desc'    => '这里是参数的描述信息',
+            ),
+            /**
+             * 这里可以继续添加更多配置项
+             * csf函数使用示例可参考主题的.../zibll/inc/options/admin-options.php文件
+             */
+        ),
+    ));
+
+}
+add_action('after_setup_theme', 'zibll_additional_demo01_widget_create_demo1');
+
+/**
+ * 小工具内容输出函数示例
+ * 注意：函数名必须和上面Zib_CFSwidget::create()中第一个参数一致
+ */
+function zibll_additional_demo01_demo1_widget($args, $instance)
+{
+    //获取参数示例
+    $xxx_text = $instance['xxx_text'] ?? '默认值';
+
+    //这里是小工具的输出内容
+    echo '&lt;div class="zib-widget c-yellow">模块内容输出示例：' . esc_html($xxx_text) . '&lt;/div>';
+}
+
+/**
+ * 模块是否显示控制
+ * 函数名规范为：上面Zib_CFSwidget::create()中第一个参数加‘_is_show’后缀
+ * 如果返回false，则不显示该小工具
+ * 默认请返回$is_show
+ */
+function zibll_additional_demo01_demo1_widget_is_show($is_show, $args, $instance)
+{
+    if (empty($instance['xxx_text'])) {
+        return false;
+    }
+
+    return $is_show;
+}
+</code></pre>
+
+
+
+<h2 class="wp-block-heading" id="wznav_8">加载JS和CSS文件</h2>
+
+
+
+<p class="wp-block-paragraph">很多时候我们都需要在前台或者后台引入CSS或JS文件，我们可以创建<code>.../assets/js</code>和<code>../assets/css</code>文件夹，并对应创建js和css文件。并在<code>zibll-additional-demo01.php</code>文件中引入加载即可。</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><code class="gl" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/**
+ * 前台引入资源文件
+ */
+function zibll_additional_demo01_enqueue_scripts()
+{
+
+    $ver = '1.0.1'; //插件版本号，使用时请定义
+
+    wp_enqueue_style('zibll_additional_demo01_', plugin_dir_url(__FILE__) . 'assets/css/main.css', array(), $ver);
+    wp_enqueue_script('zibll_additional_demo01_', plugin_dir_url(__FILE__) . 'assets/js/main.js', array('jquery'), $ver);
+}
+add_action('wp_enqueue_scripts', 'zibll_additional_demo01_enqueue_scripts');
+
+/**
+ * 后台引入资源文件
+ */
+function zibll_additional_demo01_admin_enqueue_scripts()
+{
+
+    $ver = '1.0.1'; //插件版本号，使用时请定义
+
+    wp_enqueue_style('zibll_additional_demo01_', plugin_dir_url(__FILE__) . 'assets/css/admin.css', array(), $ver);
+    wp_enqueue_script('zibll_additional_demo01_', plugin_dir_url(__FILE__) . 'assets/js/admin.js', array('jquery'), $ver);
+}
+add_action('admin_enqueue_scripts', 'zibll_additional_demo01_admin_enqueue_scripts');</code></pre>
+
+
+
+<h2 class="wp-block-heading" id="wznav_9">使用钩子函数技巧</h2>
+
+
+
+<ul class="wp-block-list">
+<li>WordPress强大的核心就是钩子函数，主题也遵循这样的开发逻辑，插件最常用的就是钩子函数。</li>
+
+
+
+<li>关于钩子函数的详解这里就不赘述了，建议百度，教程很多。</li>
+
+
+
+<li>我这里提几点使用技巧，首先就是善用全局搜索，搜索关键词：do_action，apply_filters，add_action，add_filters</li>
+
+
+
+<li>其次就是除了主题的钩子，WordPress也自带了很多钩子，都可以使用</li>
+
+
+
+<li>如需修改页面的内容，有时候不一定要用php钩子，使用js也可以</li>
+
+
+
+<li>函数的调用时机是很重要的，特别是比较耗时的函数，一定要做好判断</li>
+
+
+
+<li><qc style="color:rgba(255,101,101,1);background:undefined">插件的所有函数都必须要要唯一的前缀，以免函数冲突</qc></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_10">空白插件模板下载</h2>
+
+
+
+<p class="wp-block-paragraph">最后，附上本教程的空白模板插件。</p>
+
+
+
+<p class="wp-block-paragraph">必要的使用教程：</p>
+
+
+
+<ol class="wp-block-list">
+<li>下载并解压后，修改<code>文件夹名称</code>和<code>zibll-additional-demo01.php</code>文件名</li>
+
+
+
+<li>建议使用批量替换搜索<code>zibll_additional_demo01_</code>并替换为您插件的函数<qc style="color:rgba(253,99,99,1);background:undefined">唯一前缀</qc></li>
+
+
+
+<li>修改插件名称等信息，测试无误后，在进行内容创作</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">下载地址：</p>
+
+
+
+<div mce-contenteditable="false" class="muted-box file-download-box mb20"><div class="flex ac jsb"><div class="flex ac"><div class="mr10"><div class="file-download-icon"></div></div><div class="text-ellipsis-2 file-download-name" mce-contenteditable="true">20260608121406537-zibll-additional-demo01.zip</div></div><div class="flex0 ml20"><a class="but c-blue file-download-btn" href="javascript:;" download-nonce="b345de3b7fb3816651a92af9ba79bcef6c8c1450100fe9d903fef241db6f0fe8|1792863759" data-download-file="48682"><i class="fa fa-download"></i>下载</a></div></div><div class="mt10"><div class="flex ab jsb muted-2-color file-download-desc em09"><div class="desc-left">zip文件</div><div class="desc-right">6.2K</div></div></div></div>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

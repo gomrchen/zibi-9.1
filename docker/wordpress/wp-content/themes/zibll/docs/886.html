@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zibll子比主题-海报分享功能简介以及图片跨域问题解决方法</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>Zibll子比主题-海报分享功能简介以及图片跨域问题解决方法</h1>
+  <div class="meta">来源：https://www.zibll.com/886.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">海报分享功能，简单的说就是把文章生成一张带有二维码链接的图片，方便在社交软件进行分享。一般说需要插件才能实现此功能，但是子比主题自带此功能，全自动生成，使用简单、简洁好看</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[1]-Zibll子比主题-海报分享功能简介以及图片跨域问题解决方法" fetchpriority="high" decoding="async" src="https://oss.zibll.com/zibll.com/2020/07/poster_886-673x1024.png" data-src="https://oss.zibll.com/zibll.com/2020/07/poster_886-673x1024.png" class="wp-image-890 lazyloaded lazyloadafter" width="362" height="548" imgbox-index="0"></figure></div>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q"><i class="fa fa-quote-left"></i><p>顺便说一下此功能的加载方式，在主题功能介绍中就提到过：主题的功能也才用模块动态加载的方式，就是为了让页面加载更快！ <br>那么到底是什么意思呢？此功能才用JS-canvas 绘图的方式，所需要的全部代码文件一共12KB！但是这12KB的文件的并不会在页面加载的时候加载此文件！而是在点击分享按钮之后才会加载这12KB的文件并生成图片！<br>使用这样的逻辑，在页面加载的时候相当于没有开启此功能一样，同时主题大量的采用了这样的动态加载方案，目的只有一个！那就是快！再快！</p></div></div>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#0950de" style="--quote-color:#0950de"><i class="fa fa-quote-left"></i><p><strong>V4.1版本更新：</strong><br>1、更新动态加载方式：页面全部加载完毕后延迟2秒加载相关JS文件或者点击按钮立即加载，这样即保证了页面加载速度，也保证了该功能的加载速度<br>2、更新了图片获取的错误处理：很多朋友都遇到了海报不能正常生成的情况，大多数原因都是因为图片跨域或其他原因导致的图片不能加载的问题。本次更新之后，在加载海报图片时候，会按照以下进行加载：<br>文章缩略图-&gt;主题设置设置的默认海报图-&gt;主题文件夹内自带的默认海报图。<br>不管是什么原因导致的图片未能加载，均依次向后加载。确保此功能一定能生成！<br>如果此时你发现，海报生成的图片并不是你设置的文章缩略图，那么就请按照下方的教程设置好跨域规则！</p></div></div>
+
+
+
+<h1 class="wp-block-zibllblock-biaoti title-theme">功能设置</h1>
+
+
+
+<ul class="wp-block-list"><li>在Wordpress后台-主题设置-文章页功能：开启<code>生成海报分享</code>功能</li><li>同时设置好默认的默认图像、logo和 底部文案</li><li>保存后在每一篇文章的分享按钮中就会增加 海报分享 按钮啦<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/07/image-15.png" data-imgbox="imgbox">【查看截图】</a></li></ul>
+
+
+
+<div class="wp-block-zibllblock-alert alert-dismissible fade in"><div class="alert jb-yellow" role="alert"> 此功能才用JS-canvas 绘图的方案，可能会有一定兼容性的问题！在某些较老的浏览器上可能会出现不能生成的情况！<br>另外如果网站图片使用了OSS等云存储，一定要先设置好跨域规则！教程请参考下方</div></div>
+
+
+
+<h1 class="wp-block-zibllblock-biaoti title-theme">解决图片跨域问题</h1>
+
+
+
+<p class="wp-block-paragraph">如果您网站的图片是保存在云储存上，例如阿里OSS，腾讯OCS，七牛云等等，并且此功能一直显示加载中而不能生成图片！那么请继续往下看！</p>
+
+
+
+<p class="wp-block-paragraph">这是什么原因造成的呢？简单的说就是因为浏览器安全策略导致跨域的图片不能加载！解决的方式也十分简单，给图片添加<code>Access-Control-Allow-Origin</code>请求头即可！</p>
+
+
+
+<p class="wp-block-paragraph">很简单，也就几步搞定，以下我就按照阿里云OSS为例详细的教大家设置此功能！其它云储存都差不多</p>
+
+
+
+<p class="wp-block-paragraph"><strong>1.登录阿里云对象储存OSS控制台，选择你的Bucket，找到跨域设置</strong></p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[2]-Zibll子比主题-海报分享功能简介以及图片跨域问题解决方法" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/07/image-16-1024x777.png" class="wp-image-893 lazyload" width="746" height="564" imgbox-index="1"></figure></div>
+
+
+
+<p class="wp-block-paragraph"><strong>2.按照下面截图设置保存！</strong></p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img alt="图片[3]-Zibll子比主题-海报分享功能简介以及图片跨域问题解决方法" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/07/image-17-664x1024.png" class="wp-image-894 lazyload" imgbox-index="2"></figure></div>
+
+
+
+<p class="wp-block-paragraph"><strong>3.重点请注意！</strong></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgb(246,43,43,1);background:undefined">设置好跨域规则前，已经上传的图片是无效的！<br>设置好跨域规程后 ，新上传的图片才有效！</qc></p>
+
+
+
+<p class="wp-block-paragraph">所以，大家懂了吧，此功能需要获取文章的特色图像，所以设置好跨域规则前上传的特色图像，就需要重新上传一下啦<br>我自己测试阿里云OSS是这样的，其它的云存储请自己测试一下！ </p>
+
+
+
+<p class="wp-block-paragraph"><strong>4.最后细节</strong></p>
+
+
+
+<p class="wp-block-paragraph">如果完成了上面的教程，还是不能生成！<br><qc style="color:rgb(248,46,46,1);background:undefined">那么请检查一下是不是服务器或者宝塔等管理程序屏蔽了POST请求！</qc></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

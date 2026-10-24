@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题用户徽章功能详解及配置教程[V6.7新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题用户徽章功能详解及配置教程[V6.7新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/10537.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">用户徽章功能是现在很多社交类网站和app必不可少的功能了，能有效的增加网站交互的趣味性。</p>
+
+
+
+<p class="wp-block-paragraph">zibll子比主题V6.7就更新了用户徽章功能，接下来我们就来了解一下这个功能。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">功能介绍</h2>
+
+
+
+<p class="wp-block-paragraph">首先我们简单的了解一下用户徽章功能的特色</p>
+
+
+
+<ul class="wp-block-list"><li>支持添加并排序任意数量的徽章分类、徽章</li><li>所有的徽章均可自定义名称、简介、图标以及获取方式</li><li>用户自定义设置主要佩戴徽章（默认佩戴最新获取的）</li><li>支持手动赋予用户徽章功能，方便实现限定徽章、活动徽章等功能</li><li>系统支持10多种自动判断达标获取徽章的类型设置</li><li>主题自带了一套徽章参数，覆盖了常用徽章，包含30个徽章图标，减低站长首次配置的难度，特别是绘图</li></ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">截图预览</h2>
+
+
+
+<p class="wp-block-paragraph">以下截图使用默认参数、图标。</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[1]-为wordpress网站主题添加用户徽章功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2022/10/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_892" class="wp-image-10539" width="600" srcset="https://oss.zibll.com/zibll.com/2022/10/图片-5.png 1656w, https://oss.zibll.com/zibll.com/2022/10/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_574,h_500 574w, https://oss.zibll.com/zibll.com/2022/10/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_892 1024w, https://oss.zibll.com/zibll.com/2022/10/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_669 768w, https://oss.zibll.com/zibll.com/2022/10/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1338 1536w" sizes="(max-width: 1656px) 100vw, 1656px" imgbox-index="0"></figure></div>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[2]-为wordpress网站主题添加用户徽章功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2022/10/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1001" class="wp-image-10540" width="600" srcset="https://oss.zibll.com/zibll.com/2022/10/图片-6.png 1514w, https://oss.zibll.com/zibll.com/2022/10/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_511,h_500 511w, https://oss.zibll.com/zibll.com/2022/10/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1001 1024w, https://oss.zibll.com/zibll.com/2022/10/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_751 768w" sizes="(max-width: 1514px) 100vw, 1514px" imgbox-index="1"></figure></div>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-full is-resized"><img alt="图片[3]-为wordpress网站主题添加用户徽章功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2022/10/图片-7.png" class="wp-image-10541 lazyload" width="400" imgbox-index="2"></figure></div>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-full is-resized"><img alt="图片[4]-为wordpress网站主题添加用户徽章功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2022/10/图片-8.png" class="wp-image-10542 lazyload" width="400" imgbox-index="3"></figure></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">进入<qc style="color:#1F91F3;background:undefined">主题设置-&gt;用户功能-&gt;用户徽章</qc>:启用并配置参数</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[5]-为wordpress网站主题添加用户徽章功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2022/10/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_828" class="wp-image-10543" width="600" srcset="https://oss.zibll.com/zibll.com/2022/10/图片-9.png 1774w, https://oss.zibll.com/zibll.com/2022/10/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_619,h_500 619w, https://oss.zibll.com/zibll.com/2022/10/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_828 1024w, https://oss.zibll.com/zibll.com/2022/10/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_621 768w, https://oss.zibll.com/zibll.com/2022/10/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1242 1536w" sizes="(max-width: 1774px) 100vw, 1774px" imgbox-index="4"></figure></div>
+
+
+
+<p class="wp-block-paragraph">首先添加徽章分类，点击展开分类后，再添加徽章，输入徽章的名称、简介和图标，并设置获取方式</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[6]-为wordpress网站主题添加用户徽章功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2022/10/图片-11.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_712" class="wp-image-10545" width="600" srcset="https://oss.zibll.com/zibll.com/2022/10/图片-11.png 1926w, https://oss.zibll.com/zibll.com/2022/10/图片-11.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_487 700w, https://oss.zibll.com/zibll.com/2022/10/图片-11.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_712 1024w, https://oss.zibll.com/zibll.com/2022/10/图片-11.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_534 768w, https://oss.zibll.com/zibll.com/2022/10/图片-11.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1069 1536w" sizes="(max-width: 1926px) 100vw, 1926px" imgbox-index="5"></figure></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_3">注意事项</h2>
+
+
+
+<ul class="wp-block-list"><li>徽章参数建议设定好之后就不建议再修改，以免出现错误</li><li>修改徽章参数后，可能部分用户的数据会与配置项不匹配，可以使用<strong>重置全部用户徽章数据</strong></li><li>启用或重置后，用户登录网站则会自动获取达到条件的徽章，需要注意的是如果老用户一直未登录则不会获取徽章</li></ul>
+
+
+
+<p class="wp-block-paragraph"> </p>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

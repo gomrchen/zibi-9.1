@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>常见CDN缓存加速配置教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>常见CDN缓存加速配置教程</h1>
+  <div class="meta">来源：https://www.zibll.com/46856.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">首先声明一下，这篇教程不是针对zibll子比主题的，是针对所有WordPress网站的，甚至是大多数网站的配置方式。</p>
+
+
+
+<p class="wp-block-paragraph">做网站我们是十分推荐使用CDN的，有两大核心好处：1.<qc style="color:#ef0c7e;background:undefined">网站加速</qc>，2.<qc style="color:#ef0c7e;background:undefined">保护网站</qc></p>
+
+
+
+<p class="wp-block-paragraph">网站加速是CDN最核心的功能，CDN通过多节点分布，和内容缓存，能极大的提高网站打开速度。</p>
+
+
+
+<p class="wp-block-paragraph">其次使用cdn可以有效的隐藏服务器源IP地址，能起到一定的保护作用。另外现在有很多CDN产品都支持WEB防护功能，能抵挡部分甚至大部分CC攻击。</p>
+
+
+
+<h2 class="wp-block-heading">选购指南</h2>
+
+
+
+<p class="wp-block-paragraph">考虑到上面我们讲的CDN两个核心优点，所以我们建议再选购CDN的时候，尽量选择支持WEB防护的CDN，也就是支持CC防御的CDN，现在不管是大厂，还是稍小公司的CDN产品基本都有带防御的了，所以不再推荐没有防御功能的CDN产品。</p>
+
+
+
+<p class="wp-block-paragraph">同时我们也需要考虑自己的服务器所在地，例如海外服务器一般没有备案，也是无法使用国内的CDN产品的，这时候可以选择带防御的海外CDN产品</p>
+
+
+
+<p class="wp-block-paragraph">这里国内目前我们推荐：</p>
+
+
+
+<ul class="wp-block-list">
+<li><a href="https://www.zibll.com/?golink=aHR0cHM6Ly9jbG91ZC50ZW5jZW50LmNvbS9wcm9kdWN0L3Rlbw%3D%3D&#038;nonce=9a56bfae3346fe615210bf21807824998f7142c8c413ee7dc802d35aa6958309|1792863717" >腾讯云EdgeOne(边缘安全加速平台简称EO)</a>，价格也算合理，普通小站使用9.9元/月的都够用了，还支持单独购买流量和请求量。支持CC防御，控制台简洁友好</li>
+
+
+
+<li><a href="https://www.zibll.com/?golink=aHR0cHM6Ly93d3cuYWxpeXVuLmNvbS9wcm9kdWN0L2VzYQ%3D%3D&#038;nonce=a5312d897837c83e8bdb77a01e5d5633c8f585c0db57319857ac0f106d819b37|1792863717" >阿里云边缘安全加速 ESA</a>，和腾讯EO类似，也是支持WEB防御的CDN产品，都是大厂出品，价格也合理</li>
+
+
+
+<li>其他还有很多优秀的CDN产品不一一列举了</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">缓存配置要点</h2>
+
+
+
+<p class="wp-block-paragraph">CDN第一大核心优势当然是加速了，当然缓存配置也就是最重要的加速功能了，而这个缓存配置又是很多新手站长容易出错的，所以这篇教程最重要的还是教大家正确的配置CDN缓存！</p>
+
+
+
+<p class="wp-block-paragraph">CDN缓存配置核心要点就一句话：</p>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#1F91F3;background:undefined">只缓存静态文件，其他的一律不缓存！记住，只缓存静态文件！</qc></strong></p>
+
+
+
+<p class="wp-block-paragraph">WordPress网站以及大多数的网站，都是动态生成内容的，所以不能缓存任何页面，而一个网站真正占流量大头的肯定还是静态文件，所以我们只需要缓存静态文件就相当于缓存整个网站的80%以上了。</p>
+
+
+
+<p class="wp-block-paragraph">这里给新手站长解释一下什么是静态文件，一句话说就是不会变化的文件，例如：图片，视频，字体、css、js等</p>
+
+
+
+<p class="wp-block-paragraph"><strong>两个细节需要注意：</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li>.html文件一定不能缓存，因为伪静态后，html文件实际上也是动态的</li>
+
+
+
+<li>一定要保留链接参数（后面截图上有注明，注意看一下）</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading">缓存配置教程</h2>
+
+
+
+<p class="has-vivid-cyan-blue-color has-text-color has-link-color wp-elements-1 wp-block-paragraph">不管什么CDN，整个教程核心就3点：</p>
+
+
+
+<ol class="wp-block-list">
+<li class="has-vivid-cyan-blue-color has-text-color has-link-color wp-elements-2">选择按照<code>文件格式</code>缓存</li>
+
+
+
+<li class="has-vivid-cyan-blue-color has-text-color has-link-color wp-elements-3">输入以下静态文件格式</li>
+
+
+
+<li class="has-vivid-cyan-blue-color has-text-color has-link-color wp-elements-4">开启保留参数、时间选长点</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">常见静态文件格式有：jpg、jpeg、png、css、js、svg、zip、woff、gif、webp、doc、rar、mp4。如果您的网站还会上传其他格式的文件，也一并添加进入即可，例如音频格式mp3，安卓软件包apk，win软件exe，mac软件包dmg等等，这个就根据自己网站的类型，平时会上传什么格式的就添加什么格式即可！</p>
+
+
+
+<h2 class="wp-block-heading">缓存配置示例</h2>
+
+
+
+<p class="wp-block-paragraph">ok，接下来我们就按照常见的CDN截图示例一下，教大家正确的配置CDN缓存</p>
+
+
+
+<h3 class="wp-block-heading">腾讯云EO配置示例</h3>
+
+
+
+<p class="wp-block-paragraph">绑定域名后，我们进入规则引擎，添加规则。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-常见CDN缓存加速配置教程-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1970" height="1246" src="https://oss.zibll.com/zibll.com/2026/04/20260411201032749-image-56.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_822"  class="wp-image-46861" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260411201032749-image-56.png 1970w, https://oss.zibll.com/zibll.com/2026/04/20260411201032749-image-56.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_505 800w, https://oss.zibll.com/zibll.com/2026/04/20260411201032749-image-56.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_822 1300w" sizes="(max-width: 1970px) 100vw, 1970px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">新建一个规则，按照我们上面说的方法配置即可！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-常见CDN缓存加速配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1532" height="978" src="https://oss.zibll.com/zibll.com/2026/04/20260411201622114-image-57.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_829"  class="wp-image-46862" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260411201622114-image-57.png 1532w, https://oss.zibll.com/zibll.com/2026/04/20260411201622114-image-57.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_510 800w, https://oss.zibll.com/zibll.com/2026/04/20260411201622114-image-57.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_829 1300w" sizes="(max-width: 1532px) 100vw, 1532px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">阿里云ESA示例</h3>
+
+
+
+<p class="wp-block-paragraph">绑定域名后，进入规则，添加缓存规则，按上面说的方法配置即可！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-常见CDN缓存加速配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1896" height="1716" src="https://oss.zibll.com/zibll.com/2026/04/20260411203456724-image-59.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1176"  class="wp-image-46864" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260411203456724-image-59.png 1896w, https://oss.zibll.com/zibll.com/2026/04/20260411203456724-image-59.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_724 800w, https://oss.zibll.com/zibll.com/2026/04/20260411203456724-image-59.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1176 1300w" sizes="(max-width: 1896px) 100vw, 1896px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-常见CDN缓存加速配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1870" height="1592" src="https://oss.zibll.com/zibll.com/2026/04/20260411203858704-image-60.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1106"  class="wp-image-46865" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260411203858704-image-60.png 1870w, https://oss.zibll.com/zibll.com/2026/04/20260411203858704-image-60.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_681 800w, https://oss.zibll.com/zibll.com/2026/04/20260411203858704-image-60.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1106 1300w" sizes="(max-width: 1870px) 100vw, 1870px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">阿里云全站加速DCDN示例</h3>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-常见CDN缓存加速配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="2560" height="1356" src="https://oss.zibll.com/zibll.com/2026/04/20260411202321342-image-58-scaled.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_688"  class="wp-image-46863" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260411202321342-image-58-scaled.png 2560w, https://oss.zibll.com/zibll.com/2026/04/20260411202321342-image-58-scaled.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_423 800w, https://oss.zibll.com/zibll.com/2026/04/20260411202321342-image-58-scaled.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_688 1300w" sizes="(max-width: 2560px) 100vw, 2560px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">其它CDN缓存示例</h3>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-常见CDN缓存加速配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1488" height="998" src="https://oss.zibll.com/zibll.com/2026/04/20260411204357883-image-61.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_871"  class="wp-image-46866" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/04/20260411204357883-image-61.png 1488w, https://oss.zibll.com/zibll.com/2026/04/20260411204357883-image-61.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_536 800w, https://oss.zibll.com/zibll.com/2026/04/20260411204357883-image-61.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_871 1300w" sizes="(max-width: 1488px) 100vw, 1488px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">看了教程，大家是不是一下就清晰明了了，大家只需要记住，只缓存静态文件即可！</p>
+
+
+
+<p class="wp-block-paragraph">最后，关于cdn防御，一般来说ddos是无法完全防住的，使用cdn可以隐藏源IP地址，能起到一定的DDOS防护作用，CC防御相对来说比较容易一点，上面我们提到的阿里云ESA和腾讯EO都可以防御大部分CC攻击，但是呢，还是根据套餐类型，防护效果也有很大的区别。还有就是即使是收费较高的套餐，也需要配置好防御规则，才能效果好，这个防御规则就十分复杂了，必须要根据实时日志，分析并找到攻击的相同点，然后指定防御规则才能起到最好效果。</p>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

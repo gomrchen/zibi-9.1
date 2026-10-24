@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>启用微信公众号登录后设置自定义菜单教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>启用微信公众号登录后设置自定义菜单教程</h1>
+  <div class="meta">来源：https://www.zibll.com/2916.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">微信公众号登录是一个优质WordPress网站必不可少的第三方的登录方式，zibll子比主题支持PC端扫码登录，微信APP内无感登录，体验十分优雅。<br>使用微信公众号登录，需要启用服务器配置，启用服务器配置之后，微信公号号平台的自定义菜单设置和自动回复功能就失效了。zibll子比主题为了解决这个问题，在V6版本中特新加入了自定义菜单和关键词自动回复功能。</p>
+
+
+
+<p class="wp-block-paragraph">本篇教程将用两种不同的方式详细的教大家如何在启用微信公共号登录后设置自定义菜单功能！</p>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q"><i class="fa fa-quote-left"></i><p>zibllV8.8新增：获取当前菜单数据、获取已发布消息 article_id 明细的功能，方便设置公众号菜单</p></div></div>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#1F91F3;background:undefined">第一种方法，使用zibll子比主题的自定义菜单功能。(需zibll子比主题V6及以上版本)</qc></strong></p>
+
+
+
+<p class="wp-block-paragraph">1.进入<qc style="color:#A845F7;background:undefined">主题设置-&gt;用户功能-&gt;第三方登录-&gt;微信公众号登录</qc><br>当启用公众号登录之后，就能看到自定义菜单配置啦</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-微信公众号启用服务器配置后设置自定义菜单图文教程-Wordpress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1540" height="1628" src="https://oss.zibll.com/zibll.com/2021/12/20260430120209724-image-105.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1374" class="wp-image-47296" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/12/20260430120209724-image-105.png 1540w, https://oss.zibll.com/zibll.com/2021/12/20260430120209724-image-105.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_845 800w, https://oss.zibll.com/zibll.com/2021/12/20260430120209724-image-105.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1374 1300w" sizes="(max-width: 1540px) 100vw, 1540px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">2.填写自定义菜单的json配置后点击设定即可</p>
+
+
+
+<p class="wp-block-paragraph">那么问题来了，在哪里获取<code>自定义菜单的json配置</code>呢？</p>
+
+
+
+<p class="wp-block-paragraph">第一种方法：进入微信公众号平台，先临时关闭服务器配置，再进入自定义菜单配置，设置好你想要的菜单，生成JSON数据（部分用户可能会没有此功能）</p>
+
+
+
+<p class="wp-block-paragraph">第二种方法：进入网站：<a rel="noreferrer noopener" aria-label="https://wei.jiept.com/（在新窗口打开）" href="https://www.zibll.com/?golink=aHR0cHM6Ly93ZWkuamllcHQuY29tLw%3D%3D&amp;nonce=a57827f6f35132e63542344d908c36d537e00357bb421e12ec3a7ef8a061ea58|1792864160" target="_blank">https://wei.jiept.com/</a>，根据需求配置好菜单，复制下方的JSON数据</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-微信公众号启用服务器配置后设置自定义菜单图文教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1996" height="1694" src="https://oss.zibll.com/zibll.com/2021/12/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_869" class="wp-image-2949" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-2.png 1996w, https://oss.zibll.com/zibll.com/2021/12/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_589,h_500 589w, https://oss.zibll.com/zibll.com/2021/12/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_869 1024w, https://oss.zibll.com/zibll.com/2021/12/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_652 768w, https://oss.zibll.com/zibll.com/2021/12/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1304 1536w" sizes="(max-width: 1996px) 100vw, 1996px" imgbox-index="1"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">第三种方法：在主题设置点击获取当前菜单数据，获取后，可以进行修改后再使用（需升级V8.8及以上版本）</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[3]-微信公众号启用服务器配置后设置自定义菜单图文教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/12/20260430115817308-image-103.png" class="wp-image-47293 lazyload" style="width:600px" imgbox-index="2"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong>获取已发布消息 article_id 明细</strong>：如果我们需要在链接中添加已发布的消息作为菜单，则需要对应的<strong>article_id</strong>参数，主题更新V8.8后，新增了获取<strong>已发布消息</strong>列表的功能，点击即可查看：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[4]-微信公众号启用服务器配置后设置自定义菜单图文教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/12/20260430120038114-image-104.png" class="wp-image-47295 lazyload" style="width:600px" imgbox-index="3"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">是不是十分简单呢？自定义菜单这个功能呢也不是一个经常需要修改的功能，所以主题也就没有做详细的配置项目了。<br>使用此功能还是有几点需要注意的：</p>
+
+
+
+<ul class="wp-block-list">
+<li>设置自定义菜单前，请先设置好公众好登录功能，确保登录功能没问题</li>
+
+
+
+<li>设置好成功后会有几分钟的延迟才能生效，请耐心等待</li>
+
+
+
+<li>设置失败，下方会显示微信返回的原因和错误代码，虽然是英文的，百度依然可以解决</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#1F91F3;background:undefined">第二种方法，可以通过其它第三方授权进行设置</qc></strong></p>
+
+
+
+<p class="wp-block-paragraph">这种第三方微信公众号助手就太多了，有免费的，有收费的，我就拿凡科微信公众号助手来示例一下：</p>
+
+
+
+<p class="wp-block-paragraph"><a rel="noreferrer noopener" aria-label="（在新窗口打开）" href="https://www.zibll.com/?golink=aHR0cHM6Ly9pLmZrdy5jb20v&amp;nonce=8e5010b97f03e30310f8d4ac10a164731a0deeb78eac70263a4c11f4c4c57526|1792864160" target="_blank">凡科公众号助手</a>有免费功能也有付费功能，设置自定义菜单功能是免费的，具体流程如下：</p>
+
+
+
+<ol class="wp-block-list">
+<li>注册并登录<a rel="noreferrer noopener" aria-label="（在新窗口打开）" href="https://www.zibll.com/?golink=aHR0cHM6Ly9pLmZrdy5jb20v&amp;nonce=8e5010b97f03e30310f8d4ac10a164731a0deeb78eac70263a4c11f4c4c57526|1792864160" target="_blank">凡科公众号助手</a></li>
+
+
+
+<li>扫码授权你的微信公众号</li>
+
+
+
+<li>最后进入自定义菜单设置就可以了</li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-微信公众号启用服务器配置后设置自定义菜单图文教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1940" height="1422" src="https://oss.zibll.com/zibll.com/2021/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_751" class="wp-image-2950" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-3.png 1940w, https://oss.zibll.com/zibll.com/2021/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_682,h_500 682w, https://oss.zibll.com/zibll.com/2021/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_751 1024w, https://oss.zibll.com/zibll.com/2021/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_563 768w, https://oss.zibll.com/zibll.com/2021/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1126 1536w" sizes="(max-width: 1940px) 100vw, 1940px" imgbox-index="4"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">教程结束，<a href="https://www.zibll.com/zibll_word/user-function">点击这里</a>可以了解更多的子比主题第三方登录的相关教程，也可以在下方查看微信公众号登录教程</p>
+
+
+
+<div data-pid="2206" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="2206.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/06/微信登录-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_497" alt="Zibll子比主题-第三方登录-接入微信公众号扫码登录图文教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="2206.html">Zibll子比主题-第三方登录-接入微信公众号扫码登录图文教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-01-29 16:20:40" class="ml6">8个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2.8W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>51</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(249,71,71,1);background:undefined">注意：如果域名被微信拦截了，俗称红了，该域名就不能使用微信的相关功能，包括登录、支付、等</qc></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

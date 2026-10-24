@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zibll子比主题-接入支付宝当面付、支付企业支付详细图文教程[最新]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>Zibll子比主题-接入支付宝当面付、支付企业支付详细图文教程[最新]</h1>
+  <div class="meta">来源：https://www.zibll.com/655.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">WordPress搭建的网站使用支付宝进行网站收款是目前最简单可靠的方式了，同时开通没有费用(微信官方接口有每年300认证的费用)，费率经常都会打折。这篇文章我们就手把手的教大家接入支付宝官网收款接口。</p>
+
+
+
+<p class="wp-block-paragraph">支付宝官方收款接口主要分为两个商品：当面付和企业支付，企业支付必须要有营业执照(个体户、公司都可以)，当面付可以不用，但是当面付官方要求用于线下实体店使用，所以需要上传实体店的照片，当然这一部分可以作假，自己没有实体店，可以想办法找其它图片，比如朋友店铺，甚至是地图上的图片。最后提醒一下，使用当面付有一定可能性会被禁封支付宝商户权限，不能进行商家收款，其它功能不影响，原因就是刚刚说的，当面付官方要求用于线下实体店使用，网站使用来自不同地区付款的太多了就容易被支付宝判定违规。</p>
+
+
+
+<p class="wp-block-paragraph">所以，申请支付宝的哪一个产品主要取决于你有没有营业执照，有的话就选企业支付，没有的话就用当面付。</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(252,66,66,1);background:undefined">以下教程适不仅适用于zibll子比主题，基本上所有主题的接入流程都是一样的。</qc></p>
+
+
+
+<p class="wp-block-paragraph"><strong>教程十分简单，全部步骤一共三步：</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li>在<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9iLmFsaXBheS5jb20vcGFnZS9ob21l&#038;nonce=e97c373d2c7a0e9c89e683e0786855f17297bd6f4fb7d18a4c5595491145dbe2|1792863798"  target="_blank" rel="noreferrer noopener">支付宝商户平台</a>，开通相关产品（当面付或电脑网站支付）</li>
+
+
+
+<li>在<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9vcGVuLmFsaXBheS5jb20vZGV2ZWxvcC9tYW5hZ2U%3D&#038;nonce=f378f49c662aaae3638a77658d30e2d2aa42b9ed818de6d9c35d8e208fc7c2ad|1792863798"  target="_blank" rel="noreferrer noopener">支付宝开放平台</a>，创建网页应用并绑定刚刚开通的商户产品</li>
+
+
+
+<li>在开发平台为刚刚创建的应用生成密钥，并填入主题设置，搞定！</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading">商户平台开通产品</h2>
+
+
+
+<p class="wp-block-paragraph">首先我们根据自己是否有营业执照选择使用当面付还是企业支付，然后登录<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9iLmFsaXBheS5jb20vcGFnZS9ob21l&#038;nonce=e97c373d2c7a0e9c89e683e0786855f17297bd6f4fb7d18a4c5595491145dbe2|1792863798"  target="_blank" rel="noreferrer noopener">支付宝商户平台</a>，申请开通对应的产品。注意：如果是有营业执照，选择企业支付，需要用法人证件重新注册一个企业支付宝账号，这个注册需要审核，大概1-2天，审核通过后才可以进行此步骤。</p>
+
+
+
+<p class="wp-block-paragraph">登录<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9iLmFsaXBheS5jb20vcGFnZS9ob21l&#038;nonce=e97c373d2c7a0e9c89e683e0786855f17297bd6f4fb7d18a4c5595491145dbe2|1792863798"  target="_blank" rel="noreferrer noopener">支付宝商户平台</a>，进入<qc style="color:#ef0c7e;background:undefined">产品中心</qc>，选择要申请的产品。个人选择<qc style="color:#ef0c7e;background:undefined">当面付</qc>，企业选择<qc style="color:#ef0c7e;background:undefined">电脑网站支付</qc>和<qc style="color:#ef0c7e;background:undefined">手机网站支付</qc>(H5支付)</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411114114834-image-21.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_770"  class="wp-image-24035" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411114114834-image-21.png 2066w, https://oss.zibll.com/zibll.com/2024/04/20240411114114834-image-21.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_526 700w, https://oss.zibll.com/zibll.com/2024/04/20240411114114834-image-21.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_770 1024w" sizes="(max-width: 2066px) 100vw, 2066px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">点进入后，就是填写资料了，根据自己的情况进行填写，当面付需要上传实体店图片，自己有最好，如果自己没有，一定要找尽可能像真实的，这样才容易通过！取名字的时候也要注意，根据自己的图片(有营业执照就根据营业执照名称)来填写。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411114525153-image-26.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_768"  class="wp-image-24040" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411114525153-image-26.png 2072w, https://oss.zibll.com/zibll.com/2024/04/20240411114525153-image-26.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_525 700w, https://oss.zibll.com/zibll.com/2024/04/20240411114525153-image-26.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_768 1024w" sizes="(max-width: 2072px) 100vw, 2072px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">资料填写完成后就提交审核了，<qc style="color:#fb2121;background:undefined">审核通过后，我们才可以正常使用！</qc></p>
+
+
+
+<h2 class="wp-block-heading">开放平台创建应用</h2>
+
+
+
+<p class="wp-block-paragraph">我们用刚刚开通商户产品<qc style="color:#fb2121;background:undefined">相同的支付宝账</qc>号登录<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9vcGVuLmFsaXBheS5jb20vZGV2ZWxvcC9tYW5hZ2U%3D&#038;nonce=f378f49c662aaae3638a77658d30e2d2aa42b9ed818de6d9c35d8e208fc7c2ad|1792863798"  target="_blank" rel="noreferrer noopener">支付宝开放平台控制台</a>，选择<qc style="color:#ef0c7e;background:undefined">网页/移动应用</qc>，并创建应用。</p>
+
+
+
+<figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
+<figure class="wp-block-image size-large"><img alt="图片[3]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1294" height="742" data-id="24042" src="https://oss.zibll.com/zibll.com/2024/04/20240411120617890-image-28.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_587"  class="wp-image-24042" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411120617890-image-28.png 1294w, https://oss.zibll.com/zibll.com/2024/04/20240411120617890-image-28.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_401 700w, https://oss.zibll.com/zibll.com/2024/04/20240411120617890-image-28.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_587 1024w" sizes="(max-width: 1294px) 100vw, 1294px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img alt="图片[4]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" width="1192" height="1250" data-id="24043" src="https://oss.zibll.com/zibll.com/2024/04/20240411120758418-image-29.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1073"  class="wp-image-24043" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411120758418-image-29.png 1192w, https://oss.zibll.com/zibll.com/2024/04/20240411120758418-image-29.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_734 700w, https://oss.zibll.com/zibll.com/2024/04/20240411120758418-image-29.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1073 1024w" sizes="(max-width: 1192px) 100vw, 1192px" /></figure>
+</figure>
+
+
+
+<p class="wp-block-paragraph">应用创建完成后，进入刚刚创建的应用，点击可调用产品，查看是否有刚刚在商户平台开通的产品（当面付、电脑网站支付、手机网站支付）。注意：<qc style="color:#ef0c7e;background:undefined">产品审核通过后才会显示</qc>！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411122205633-image-31.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_524"  class="wp-image-24047" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411122205633-image-31.png 2012w, https://oss.zibll.com/zibll.com/2024/04/20240411122205633-image-31.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_358 700w, https://oss.zibll.com/zibll.com/2024/04/20240411122205633-image-31.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_524 1024w" sizes="(max-width: 2012px) 100vw, 2012px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">生成密钥并填入主题设置</h2>
+
+
+
+<p class="wp-block-paragraph">接下来就是最后一步，也是最重要的一步了，也是很多站长容易出错的一步，请认真看下面的教程，重点部分我都用了红色字体着重显示！</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined">1.点击开发设置，点击设置接口加签方式</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411122720705-image-32.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_771"  class="wp-image-24049" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411122720705-image-32.png 2064w, https://oss.zibll.com/zibll.com/2024/04/20240411122720705-image-32.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_527 700w, https://oss.zibll.com/zibll.com/2024/04/20240411122720705-image-32.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_771 1024w" sizes="(max-width: 2064px) 100vw, 2064px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">2.加密方式选择密钥，下一步</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411122904136-image-33.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_399"  class="wp-image-24050" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411122904136-image-33.png 1706w, https://oss.zibll.com/zibll.com/2024/04/20240411122904136-image-33.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_273 700w, https://oss.zibll.com/zibll.com/2024/04/20240411122904136-image-33.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_399 1024w" sizes="(max-width: 1706px) 100vw, 1706px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[8]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411123001967-image-34.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_490"  class="wp-image-24052" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411123001967-image-34.png 1736w, https://oss.zibll.com/zibll.com/2024/04/20240411123001967-image-34.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_335 700w, https://oss.zibll.com/zibll.com/2024/04/20240411123001967-image-34.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_490 1024w" sizes="(max-width: 1736px) 100vw, 1736px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">3.<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9vcGVuZG9jcy5hbGlwYXkuY29tL2NvbW1vbi8wMmtpcGs%3D&#038;nonce=03888f0bb6ddde635026729450f21d553fd03e7ec94d934c9151627ff3d2223b|1792863798" >点击此处</a>或上面截图地方，根据自己电脑版本下载密钥工具。</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[9]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411123148924-image-35.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1025"  class="wp-image-24053" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411123148924-image-35.png 1262w, https://oss.zibll.com/zibll.com/2024/04/20240411123148924-image-35.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150 150w, https://oss.zibll.com/zibll.com/2024/04/20240411123148924-image-35.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_701 700w, https://oss.zibll.com/zibll.com/2024/04/20240411123148924-image-35.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1025 1024w" sizes="(max-width: 1262px) 100vw, 1262px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">4.打开刚刚下载的密钥工具，点击生成密钥，复制</qc><qc style="color:#fb2121;background:undefined">应用</qc><strong><qc style="color:rgba(210,32,121,1);background:undefined">公</qc></strong><qc style="color:#fb2121;background:undefined">钥</qc><qc style="color:#09ACE2;background:undefined">复制到支付宝，点击下一步。同时记录好</qc><qc style="color:#fb2121;background:undefined">应用</qc><strong><qc style="color:rgba(193,34,114,1);background:undefined">私</qc></strong><qc style="color:#fb2121;background:undefined">钥</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[10]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411123634932-image-36.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_782"  class="wp-image-24054" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411123634932-image-36.png 1604w, https://oss.zibll.com/zibll.com/2024/04/20240411123634932-image-36.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_535 700w, https://oss.zibll.com/zibll.com/2024/04/20240411123634932-image-36.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_782 1024w" sizes="(max-width: 1604px) 100vw, 1604px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[11]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411124101444-image-37.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_777"  class="wp-image-24055" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411124101444-image-37.png 1588w, https://oss.zibll.com/zibll.com/2024/04/20240411124101444-image-37.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_531 700w, https://oss.zibll.com/zibll.com/2024/04/20240411124101444-image-37.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_777 1024w" sizes="(max-width: 1588px) 100vw, 1588px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[12]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411124137599-image-38.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_478"  class="wp-image-24056" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411124137599-image-38.png 1648w, https://oss.zibll.com/zibll.com/2024/04/20240411124137599-image-38.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_327 700w, https://oss.zibll.com/zibll.com/2024/04/20240411124137599-image-38.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_478 1024w" sizes="(max-width: 1648px) 100vw, 1648px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">5.确认上传后，点击忽略IP白名单设置，就会显示支付宝公钥了。然后把刚刚获取的应用私钥和现在的支付宝公钥，复制到主题设置！</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[13]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411124939383-image-40.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_700"  class="wp-image-24058" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411124939383-image-40.png 1798w, https://oss.zibll.com/zibll.com/2024/04/20240411124939383-image-40.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_478 700w, https://oss.zibll.com/zibll.com/2024/04/20240411124939383-image-40.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_700 1024w" sizes="(max-width: 1798px) 100vw, 1798px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[14]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411125135132-image-41.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_861"  class="wp-image-24059" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411125135132-image-41.png 1730w, https://oss.zibll.com/zibll.com/2024/04/20240411125135132-image-41.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_589 700w, https://oss.zibll.com/zibll.com/2024/04/20240411125135132-image-41.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_861 1024w" sizes="(max-width: 1730px) 100vw, 1730px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">提醒：这里特别容易搞混淆的就是公钥、私钥了。主题设置需要用到的是 <qc style="color:#ef0c7e;background:undefined"><strong>支付宝</strong></qc><qc style="color:#A845F7;background:undefined"><strong>公钥</strong></qc> 和 <strong><qc style="color:#1F91F3;background:undefined">应用</qc><qc style="color:#664FFA;background:undefined">私钥</qc></strong>，一定要注意不要搞混了！</p>
+
+
+
+<p class="wp-block-paragraph">最后，我们记得设置授权回调地址，并提交应用审核。记住：配置完成并不代表可以用了，<qc style="color:#fb2121;background:undefined">一定要商户产品和应用都审核通过后才能使用</qc>！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[15]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411130941981-image-42.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_783"  class="wp-image-24064" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411130941981-image-42.png 1952w, https://oss.zibll.com/zibll.com/2024/04/20240411130941981-image-42.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_535 700w, https://oss.zibll.com/zibll.com/2024/04/20240411130941981-image-42.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_783 1024w" sizes="(max-width: 1952px) 100vw, 1952px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[16]-WordPress网站接入支付宝方面付企业支付接口进行收款详细图文教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/04/20240411131011639-image-43.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_494"  class="wp-image-24065" width="600" srcset="https://oss.zibll.com/zibll.com/2024/04/20240411131011639-image-43.png 2028w, https://oss.zibll.com/zibll.com/2024/04/20240411131011639-image-43.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_338 700w, https://oss.zibll.com/zibll.com/2024/04/20240411131011639-image-43.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_494 1024w" sizes="(max-width: 2028px) 100vw, 2028px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">ok，下课！</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

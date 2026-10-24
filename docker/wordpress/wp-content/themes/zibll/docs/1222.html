@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zibll子比主题正确使用自定义代码示例及教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>Zibll子比主题正确使用自定义代码示例及教程</h1>
+  <div class="meta">来源：https://www.zibll.com/1222.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">子比主题拥有丰富的扩展性，有不少的小伙伴也喜欢各种搭配和美化，或者添加一些自定义的功能。</p>
+
+
+
+<p class="wp-block-paragraph">说到这里，相信大多人首先就想到的就是改源码！</p>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#fb2121;background:undefined">错！错！错！</qc></strong></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#333;background:undefined">直接修改源码，首先就是麻烦，毕竟还要找到源文件修改。其次就是还有风险，万一不小心改错了什么，更麻烦！最重要的就是更新直接覆盖，你添加的代码全没了….</qc></p>
+
+
+
+<p class="wp-block-paragraph">使用子比主题添加自定义代码就十分简单了，主题设置提供多个位置的自定义代码！方便修改，还不会因更新而丢失！嗯哼，这样是不是很方便啊！</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">添加教程</h2>
+
+
+
+<p class="wp-block-paragraph">首先要确认您需要添加的代码类型和功能，一般主要为CSS代码、JavaScript代码和HTML代码！<br>CSS代码用于显示样式一般添加到页面头部。<br>JavaScript代码一般添加到页面底部。<br>HTML代码就要根据需要选择添加位置了。</p>
+
+
+
+<p class="wp-block-paragraph">CSS代码和JavaScript代码一般位置都是非固定的，所以不要多考虑，全部保存到主题设置！</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_1">CSS、JS代码添加示例</h3>
+
+
+
+<p class="wp-block-paragraph">进入<qc style="color:#3B6ED5;background:undefined">主题设置-自定义代码</qc> | v5.0及以上为<qc style="color:#3B6ED5;background:undefined">主题设置-全局&amp;功能-自定义代码</qc></p>
+
+
+
+<p class="wp-block-paragraph">CSS保存到<qc style="color:#3B6ED5;background:undefined">自定义CSS样式</qc> | JavaScript代码保存到<qc style="color:#3B6ED5;background:undefined">自定义javascript代码</qc></p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[1]-Zibll子比主题正确使用自定义代码示例及教程-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" src="https://oss.zibll.com/zibll.com/2020/12/自定义代码设置-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_704" class="wp-image-1224" width="634" height="433" imgbox-index="0"></figure></div>
+
+
+
+<p class="wp-block-paragraph">主题添加<strong>自定义CSS样式</strong>和自定义<strong>JavaScript代码</strong>不需要写对应的HTML标签！</p>
+
+
+
+<p class="wp-block-paragraph"><strong>示例代码：</strong></p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c1">/*自定义CSS样式不需要写&lt;style&gt;标签*/</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-c1">/**自定义CSS代码示例-调整文章列表卡片的图片长宽比例*/</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">.posts-item.</span><span class="enlighter-m3">card</span><span class="enlighter-text"> .item-thumbnail </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">    padding-bottom: </span><span class="enlighter-n1">50</span><span class="enlighter-text">%;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">}</span></div></div></div><pre class="enlighter-raw">/*自定义CSS样式不需要写&lt;style&gt;标签*/
+/**自定义CSS代码示例-调整文章列表卡片的图片长宽比例*/
+.posts-item.card .item-thumbnail {
+    padding-bottom: 50%;
+}</pre></div><code class="gl enlighter-origin" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">/*自定义CSS样式不需要写&lt;style&gt;标签*/
+/**自定义CSS代码示例-调整文章列表卡片的图片长宽比例*/
+.posts-item.card .item-thumbnail {
+    padding-bottom: 50%;
+}</code></pre>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-c0">//自定义JavaScript代码不需要写&lt;script&gt;标签</span><span class="enlighter-c0"></span></div></div><div class=""><div><span class="enlighter-c0">//JavaScript代码示例-百度统计代码</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">var _hmt = _hmt </span><span class="enlighter-g0">||</span><span class="enlighter-text"> </span><span class="enlighter-g1">[]</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">(</span><span class="enlighter-k1">function</span><span class="enlighter-g1">()</span><span class="enlighter-text"> </span><span class="enlighter-g1">{</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  var hm = document.</span><span class="enlighter-m3">createElement</span><span class="enlighter-g1">(</span><span class="enlighter-s0">"script"</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  hm.</span><span class="enlighter-m3">src</span><span class="enlighter-text"> = </span><span class="enlighter-s0">"https://hm.baidu.com/hm.js?820fa9xxxxxxxxxxxxxxxxxxxxxxxxxx"</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text">  var s = document.</span><span class="enlighter-m3">getElementsByTagName</span><span class="enlighter-g1">(</span><span class="enlighter-s0">"script"</span><span class="enlighter-g1">)[</span><span class="enlighter-n1">0</span><span class="enlighter-g1">]</span><span class="enlighter-text">; </span></div></div><div class=""><div><span class="enlighter-text">  s.</span><span class="enlighter-m3">parentNode</span><span class="enlighter-text">.</span><span class="enlighter-m3">insertBefore</span><span class="enlighter-g1">(</span><span class="enlighter-text">hm, s</span><span class="enlighter-g1">)</span><span class="enlighter-text">;</span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">})()</span><span class="enlighter-text">;</span></div></div></div><pre class="enlighter-raw">//自定义JavaScript代码不需要写&lt;script&gt;标签
+//JavaScript代码示例-百度统计代码
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?820fa9xxxxxxxxxxxxxxxxxxxxxxxxxx";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</pre></div><code class="gl enlighter-origin" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">//自定义JavaScript代码不需要写&lt;script&gt;标签
+//JavaScript代码示例-百度统计代码
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?820fa9xxxxxxxxxxxxxxxxxxxxxxxxxx";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</code></pre>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">HTML代码添加示例</h2>
+
+
+
+<p class="wp-block-paragraph">HTML代码就要区分功能和显示位置了。那么主题提供哪些位置可以添加呢？</p>
+
+
+
+<p class="wp-block-paragraph"> <strong>主题设置可添加的自定义HTML代码位置： </strong></p>
+
+
+
+<ul class="wp-block-list"><li>主题设置-自定义代码-自定义头部代码</li><li>主题设置-自定义代码-自定义底部代码 </li><li>主题设置-文章页- 在文章内容前插入内容 </li><li>主题设置-文章页- 在文章内容后插入内容  </li></ul>
+
+
+
+<p class="wp-block-paragraph">除了主题设置呢，更多的位置就是在小工具模块了！<br>通过<code>自定义代码小工具</code>模块可以将您的自定义代码添加到几乎任何位置！</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_3">自定义代码小工具示例</h3>
+
+
+
+<p class="wp-block-paragraph">可以通过前台登录后点击<qc style="color:#3B6ED5;background:undefined">模块配置</qc>或者在<qc style="color:rgb(55,112,226,1);background:undefined">wp后台-外观-小工具</qc>添加小工具模块</p>
+
+
+
+<pre class="wp-block-zibllblock-enlighter"><div class="enlighter-default enlighter-v-standard enlighter-t-dracula enlighter-hover enlighter-overflow-scroll"><div class="enlighter-toolbar"><div class="enlighter-btn enlighter-btn-raw"></div><div class="enlighter-btn enlighter-btn-copy"></div><div class="enlighter-btn enlighter-btn-window"></div></div><div class="enlighter" style=""><div class=""><div><span class="enlighter-g1">&lt;</span><span class="enlighter-text">!--自定义代码示例-一个图片广告代码--</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">a href=</span><span class="enlighter-s0">"https://www.aliyun.com/minisite/goods?userCode=qyth9w2q"</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text">  </span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">img src=</span><span class="enlighter-s0">"https://oss.zibll.com/demo.zibll.com/2020/03/860X80.jpg"</span><span class="enlighter-text"> </span><span class="enlighter-k1">class</span><span class="enlighter-text">=</span><span class="enlighter-s0">"image wp-image-915  attachment-full size-full"</span><span class="enlighter-text">  style=</span><span class="enlighter-s0">"max-width: 100%; height: auto;"</span><span class="enlighter-text"> srcset=</span><span class="enlighter-s0">"https://oss.zibll.com/demo.zibll.com/2020/03/860X80.jpg 860w, https://oss.zibll.com/demo.zibll.com/2020/03/860X80-600x56.jpg 600w, https://oss.zibll.com/demo.zibll.com/2020/03/860X80-768x71.jpg 768w"</span><span class="enlighter-text"> sizes=</span><span class="enlighter-s0">"(max-width: 860px) 100vw, 860px"</span><span class="enlighter-g1">&gt;</span><span class="enlighter-text"></span></div></div><div class=""><div><span class="enlighter-text"></span><span class="enlighter-g1">&lt;</span><span class="enlighter-text">/a</span><span class="enlighter-g1">&gt;</span></div></div></div><pre class="enlighter-raw">&lt;!--自定义代码示例-一个图片广告代码--&gt;
+&lt;a href="https://www.aliyun.com/minisite/goods?userCode=qyth9w2q"&gt;
+  &lt;img src="https://oss.zibll.com/demo.zibll.com/2020/03/860X80.jpg" class="image wp-image-915  attachment-full size-full"  style="max-width: 100%; height: auto;" srcset="https://oss.zibll.com/demo.zibll.com/2020/03/860X80.jpg 860w, https://oss.zibll.com/demo.zibll.com/2020/03/860X80-600x56.jpg 600w, https://oss.zibll.com/demo.zibll.com/2020/03/860X80-768x71.jpg 768w" sizes="(max-width: 860px) 100vw, 860px"&gt;
+&lt;/a&gt;</pre></div><code class="gl enlighter-origin" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;!--自定义代码示例-一个图片广告代码--&gt;
+&lt;a href="https://www.aliyun.com/minisite/goods?userCode=qyth9w2q"&gt;
+  &lt;img src="https://oss.zibll.com/demo.zibll.com/2020/03/860X80.jpg" class="image wp-image-915  attachment-full size-full"  style="max-width: 100%; height: auto;" srcset="https://oss.zibll.com/demo.zibll.com/2020/03/860X80.jpg 860w, https://oss.zibll.com/demo.zibll.com/2020/03/860X80-600x56.jpg 600w, https://oss.zibll.com/demo.zibll.com/2020/03/860X80-768x71.jpg 768w" sizes="(max-width: 860px) 100vw, 860px"&gt;
+&lt;/a&gt;</code></pre>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-full is-resized"><img alt="图片[2]-Zibll子比主题正确使用自定义代码示例及教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/12/小工具添加自定义代码.png" class="wp-image-1226 lazyload" width="534" height="632" imgbox-index="1"></figure></div>
+
+
+
+<p class="wp-block-paragraph">自定义代码能实现的功能千变万化，以上教程只是一个推荐示例，肯定不能满足所有人的需求，不是万不得已不推荐直接修改源码！</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#fb2121;background:undefined"><strong>只要使用自定义代码就一定会有风险！所以请注意！</strong></qc></p>
+
+
+
+<ul class="wp-block-list"><li>使用自义定代码，需要有一定的代码基础</li><li>代码不规范、或代码错误将会引起意料不到的问题</li><li>如果网站遇到未知错误，请首先检查自定义代码是否规范、无误 </li></ul>
+
+
+
+<p class="wp-block-paragraph">最后提一下，PHP代码是没法这样设置的，只有改源码！</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>丝丝顺滑的图片浏览体验-图片灯箱功能详解</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>丝丝顺滑的图片浏览体验-图片灯箱功能详解</h1>
+  <div class="meta">来源：https://www.zibll.com/683.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用wordpress建图片站的站长可以说非常多的，zibll子比主题是一款多功能的阅读类主题，说到阅读，那肯定少不了图片。如何让图片布局灵活、漂亮！又如何让用户易于图片浏览、图片操作，这些都是子比主题重要的开发项目，越是看似简单的时候，我们越会做的认真。</p>
+
+
+
+<p class="wp-block-paragraph">首先主题才用模块化布局，同时文章也基于wordpress的古腾堡编辑器才用模块化编辑文章，那么使用子比主题就能很轻松的用模块的方式将图片添加到您的网站。</p>
+
+
+
+<p class="wp-block-paragraph">特别是在文章中插入图片，不急支持最基础的图片插入，还支持多宫格布局，图片蒙版，图片幻灯片，图片异步加载等功能，方便每一位站长简单轻松的实现漂亮的文章图片插入！<br>将文章中的图片布局完成之后，我们需要考虑的就是用户查看图片的体验如何？所以子比主题开发了强大的图片灯箱功能，点击图片即可弹出图片灯箱查看原图，支持缩放、切换等功能，整个过程行如流水、丝丝顺滑！</p>
+
+
+
+<div data-quantity="1" data-radius="false" class="wp-block-zibllblock-buttons"><span class="an_1 but jb-blue"><a href="https://demo.zibll.com/1381.html" target="_blank" rel="noreferrer noopener" aria-label="图片文章及图片灯箱体验（在新窗口打开）">图片文章及图片灯箱体验</a></span></div>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q"><i class="fa fa-quote-left"></i><p>本文部分功能需升级zibll子比主题V5.3及以上版本！</p></div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">特色简介</h2>
+
+
+
+<p class="wp-block-paragraph">本篇教程我们主要讲解图片灯箱功能，这个功能很简单，仅仅是点击图片即可，那么我们首先介绍一下子比主题的图片灯箱有哪些特点：</p>
+
+
+
+<ul class="wp-block-list"><li>两种模式可设置：单图模式和幻灯片模式</li><li>支持缩略图导航功能</li><li>支持下载原图功能</li><li>支持自动播放功能</li><li>支持双击放大、缩小</li><li>支持下滑关闭</li><li>支持移动端双指触摸放大、缩小</li><li>支持键盘左右键切换图片</li><li>采用硬件加速的动画引擎，整个切换、缩放过程丝丝顺滑</li><li>未使用第三方JS插件，自行开发仅6KB大小文件</li><li>对应的js文件动态按需加载</li><li>灯箱内图片自动获取原图且异步加载，有效提高页面加载速度</li></ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">选项配置</h2>
+
+
+
+<p class="wp-block-paragraph">此功能建议保持默认即可，如需配置可以进入：<br><qc style="color:#1F91F3;background:undefined">主题设置-&gt;文章&amp;列表-&gt;文章功能：图片灯箱</qc></p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[1]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://oss.zibll.com/zibll.com/2021/04/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_507" class="wp-image-1960" width="600" srcset="https://oss.zibll.com/zibll.com/2021/04/图片-3.png 1556w, https://oss.zibll.com/zibll.com/2021/04/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_347 700w, https://oss.zibll.com/zibll.com/2021/04/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_507 1024w, https://oss.zibll.com/zibll.com/2021/04/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_381 768w, https://oss.zibll.com/zibll.com/2021/04/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_761 1536w" sizes="(max-width: 1556px) 100vw, 1556px" imgbox-index="0"></figure></div>
+
+
+
+<p class="wp-block-paragraph">配置项目十分简单，根据选项按需配置即可</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">功能体验</h2>
+
+
+
+<p class="wp-block-paragraph">那么我们简单的放几张图片供大家体验一下，记得要分别在PC端和移动端都体验喔！</p>
+
+
+
+<figure class="wp-block-gallery columns-3 is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img alt="图片[2]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-1.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1919" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-1.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-1" class="wp-image-1919 lazyload" imgbox-index="1"></figure></li><li class="blocks-gallery-item"><figure><img alt="图片[3]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-8.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1911" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-8.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-8" class="wp-image-1911 lazyload" imgbox-index="2"></figure></li><li class="blocks-gallery-item"><figure><img alt="图片[4]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-10.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1913" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-10.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-10" class="wp-image-1913 lazyload" imgbox-index="3"></figure></li><li class="blocks-gallery-item"><figure><img alt="图片[5]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-4.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1907" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-4.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-4" class="wp-image-1907 lazyload" imgbox-index="4"></figure></li><li class="blocks-gallery-item"><figure><img alt="图片[6]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-3.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1906" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-3.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-3" class="wp-image-1906 lazyload" imgbox-index="5"></figure></li><li class="blocks-gallery-item"><figure><img alt="图片[7]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-2.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1905" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-2.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-2" class="wp-image-1905 lazyload" imgbox-index="6"></figure></li><li class="blocks-gallery-item"><figure><img alt="图片[8]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-12.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1915" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-12.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-12" class="wp-image-1915 lazyload" imgbox-index="7"></figure></li><li class="blocks-gallery-item"><figure><img alt="图片[9]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-11.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1914" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-11.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-11" class="wp-image-1914 lazyload" imgbox-index="8"></figure></li><li class="blocks-gallery-item"><figure><img alt="图片[10]-wordpress主题zibll子比主题丝丝顺滑的文章图片灯箱-点击查看原图-功能详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/美女-13.jpeg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_640" data-id="1916" data-full-url="https://oss.zibll.com/zibll.com/2021/04/美女-13.jpeg" data-link="https://www.zibll.com/1900.html/%e7%be%8e%e5%a5%b3-13" class="wp-image-1916 lazyload" imgbox-index="9"></figure></li></ul></figure>
+
+
+
+<h2 class="wp-block-heading" id="wznav_3">扩展阅读</h2>
+
+
+
+<p class="wp-block-paragraph">如需了解主题与图片相关的功能，你可能需要查看以下文章：</p>
+
+
+
+<div data-pid="675" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="675.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2020/04/gutengbao.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_550,h_229" alt="Zibll子比主题-使用古腾堡块在文章中插入幻灯片教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="675.html">Zibll子比主题-使用古腾堡块在文章中插入幻灯片教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2020-10-06 13:51:13" class="ml6">6年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2.1W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>27</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-pid="689" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="689.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2020/04/古腾堡编辑器-列表图2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="Zibll子比主题-编辑器增强-古腾堡编辑器块详解-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="689.html">Zibll子比主题-编辑器增强-古腾堡编辑器块详解<span class="focus-color">[入门详解]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2025-09-27 18:48:50" class="ml6">1年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>3.5W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>128</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-pid="1900" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="1900.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/image-42.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_489" alt="为文章设置视频封面-幻灯片封面-图片封面教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="1900.html">为文章设置视频封面-幻灯片封面-图片封面教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2022-12-08 15:43:28" class="ml6">4年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>1.3W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>90</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-pid="1921" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="1921.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/视频模块-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="通过模块和古腾堡块为网站或文章添加或嵌入视频教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="1921.html">通过模块和古腾堡块为网站或文章添加或嵌入视频教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2025-01-01 12:54:55" class="ml6">1年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>1.8W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>100</item></div></div>
+                </div>
+                </div>
+            </div></div>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

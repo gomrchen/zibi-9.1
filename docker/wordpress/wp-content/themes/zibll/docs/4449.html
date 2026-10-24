@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论坛板块、帖子内容查看权限-阅读限制功能详解</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>论坛板块、帖子内容查看权限-阅读限制功能详解</h1>
+  <div class="meta">来源：https://www.zibll.com/4449.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用Wordpress建站做一个社区论坛，那么对于用户活跃的社区论坛来说，细分化的用户权限管理是必不可少的！zibll子比主题拥有强大的用户权限管理系统，可以轻松且高自由化的设置每一项权限功能。</p>
+
+
+
+<div class="wp-block-zibllblock-alert alert-dismissible fade in"><div class="alert jb-green" data-isclose="" role="alert">重要通知：由于政策原因，官网下架了论坛功能演示，如需查看zibll主题论坛相关功能演示，请跳转到到：<a href="https://www.zibll.top/"><strong>www.zibll.top</strong></a></div></div>
+
+
+
+<p class="wp-block-paragraph">作为论坛的两个基本功能：发布和查看。<br>发布包含：创建板块、创建话题、发布帖子等<br>查看主要为查看帖子的内容</p>
+
+
+
+<p class="wp-block-paragraph">通过zibll子比主题强大的用户权限管理系统可以轻松的实现哪些用户可以创建板块，哪些用户可以发帖，甚至是哪些用户可以在哪些板块中发帖，哪些用户可以在哪些分区中创建板块，是不是觉得有点复杂？其实十分简单，如果您还未了解过zibll权限管理系统或不明白发布限制功能配置方式，建议您先查看以下文章</p>
+
+
+
+<div data-pid="3090" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg gradient-bg-loaded" data-opacity="0.1" style="background-image: linear-gradient(135deg, rgba(178, 163, 255, 0.1) 10%, rgba(118, 141, 251, 0.1) 80%);">
+            <div class="mr10"><div class="item-thumbnail"><a href="3090.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/2021/12/用户权限-列表图2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" data-src="https://oss.zibll.com/zibll.com/2021/12/用户权限-列表图2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="zibll子比主题用户权限管理系统简介及教程-WordPress主题模板-zibll子比主题" class="fit-cover radius8 no-imgbox lazyloaded lazyloadafter"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="3090.html">zibll子比主题用户权限管理系统简介及教程<span class="focus-color">[V6新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="avatar avatar-id-1 ls-is-cached lazyloaded lazyloadafter"><img decoding="async" class="avatar-badge ls-is-cached lazyloaded lazyloadafter" src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-03-14 13:34:11" class="ml6">6个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>72</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-pid="3173" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="3173.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/12/20260409135058547-论坛发帖权限-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="zibll子比主题论坛发帖限制以及创建板块限制的配置教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="3173.html">zibll子比主题论坛发帖限制以及创建板块限制的配置教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-08-01 21:22:43" class="ml6">1个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>9575</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>33</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph">学会了发布限制之后，我们还需要考虑一个问题，如何设置哪些人允许查看哪些内容呢？<br>接下来的教程，我们熟悉<code>板块查看限制</code>和<code>帖子阅读限制</code>这两个功能的配置！</p>
+
+
+
+<p class="wp-block-paragraph">支持设置为：</p>
+
+
+
+<ul class="wp-block-list">
+<li>登录后即可查看</li>
+
+
+
+<li>评论后可查看</li>
+
+
+
+<li>达到某个等级后可查看</li>
+
+
+
+<li>开通某个等级的会员后可查看</li>
+
+
+
+<li>认证用户可查看</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">板块查看限制</h2>
+
+
+
+<p class="wp-block-paragraph">板块查看限制，顾名思义就是将板块设置为限制查看后，拥有权限的用户才能查看到该板块的帖子内容，没有权限的无法查看</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined">配置教程主要为两个部分：</qc><br>1、配置哪些用户可以设置此功能<br>2、配置板块的查看限制功能</p>
+
+
+
+<p class="wp-block-paragraph">首先进入<qc style="color:#09ACE2;background:undefined">主题设置-&gt;功能&amp;权限-&gt;论坛权限</qc>：找到<qc style="color:#09ACE2;background:undefined">设置板块查看权限</qc>的功能，按照需要设置用户组</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-wordpress论坛板块-圈子-帖子配置查看权限-阅读限制教程详解Wordpress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1848" height="1648" src="https://oss.zibll.com/zibll.com/2022/02/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_913" class="wp-image-4470" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/02/图片-5.png 1848w, https://oss.zibll.com/zibll.com/2022/02/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_561,h_500 561w, https://oss.zibll.com/zibll.com/2022/02/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_913 1024w, https://oss.zibll.com/zibll.com/2022/02/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_685 768w, https://oss.zibll.com/zibll.com/2022/02/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1370 1536w" sizes="(max-width: 1848px) 100vw, 1848px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">设置好这一步之后，那么拥有此权限的用户，就可以在对应的板块设置该板块的查看权限了！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-wordpress论坛板块-圈子-帖子配置查看权限-阅读限制教程详解Wordpress主题模板-zibll子比主题" decoding="async" width="1880" height="1286" src="https://oss.zibll.com/zibll.com/2022/02/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_700" class="wp-image-4471" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/02/图片-6.png 1880w, https://oss.zibll.com/zibll.com/2022/02/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_479 700w, https://oss.zibll.com/zibll.com/2022/02/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_700 1024w, https://oss.zibll.com/zibll.com/2022/02/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_525 768w, https://oss.zibll.com/zibll.com/2022/02/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1051 1536w" sizes="(max-width: 1880px) 100vw, 1880px" imgbox-index="1"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-wordpress论坛板块-圈子-帖子配置查看权限-阅读限制教程详解Wordpress主题模板-zibll子比主题" decoding="async" width="1150" height="1196" src="https://oss.zibll.com/zibll.com/2022/02/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_985,h_1024" class="wp-image-4472" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/02/图片-7.png 1150w, https://oss.zibll.com/zibll.com/2022/02/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_481,h_500 481w, https://oss.zibll.com/zibll.com/2022/02/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_985,h_1024 985w, https://oss.zibll.com/zibll.com/2022/02/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_799 768w" sizes="(max-width: 1150px) 100vw, 1150px" imgbox-index="2"></figure>
+</div>
+
+
+<h3 class="wp-block-heading" id="wznav_1">关注板块后查看</h3>
+
+
+
+<p class="wp-block-paragraph">V8.7新增关注板块后可发布、关注后可查看的功能，同时支持付费才能关注的功能，这两个功能即可以单独使用也可以配合使用，即可实现付费关注后才能发帖或查看的功能。配置方式如图：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-wordpress论坛板块-圈子-帖子配置查看权限-阅读限制教程详解Wordpress主题模板-zibll子比主题" decoding="async" width="1290" height="1672" src="https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1157,h_1500" class="wp-image-46380" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png 1290w, https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_1036 800w, https://oss.zibll.com/zibll.com/2026/03/20260330122535158-image-144.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1157,h_1500 1157w" sizes="(max-width: 1290px) 100vw, 1290px" imgbox-index="3"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_2">帖子查看限制</h2>
+
+
+
+<p class="wp-block-paragraph">板块查看限制是将整个板块的所有帖子都进行限制查看，当然我们肯定也需要将某一篇帖子单独设置查看限制</p>
+
+
+
+<p class="wp-block-paragraph">同样的<qc style="color:#1F91F3;background:undefined">配置教程主要为两个部分：</qc><br>1、配置哪些用户可以设置此功能<br>2、配置板块的查看限制功能</p>
+
+
+
+<p class="wp-block-paragraph">首先进入<qc style="color:#09ACE2;background:undefined">主题设置-&gt;功能&amp;权限-&gt;论坛权限</qc>：找到<qc style="color:#09ACE2;background:undefined">设置帖子查看权限</qc>的功能，按照需要设置用户组</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-wordpress论坛板块-圈子-帖子配置查看权限-阅读限制教程详解Wordpress主题模板-zibll子比主题" decoding="async" width="1542" height="1800" src="https://oss.zibll.com/zibll.com/2022/02/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_877,h_1024" class="wp-image-4473" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/02/图片-8.png 1542w, https://oss.zibll.com/zibll.com/2022/02/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_428,h_500 428w, https://oss.zibll.com/zibll.com/2022/02/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_877,h_1024 877w, https://oss.zibll.com/zibll.com/2022/02/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_896 768w, https://oss.zibll.com/zibll.com/2022/02/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1316,h_1536 1316w" sizes="(max-width: 1542px) 100vw, 1542px" imgbox-index="4"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">设置好之后，拥有权限的用户就可以在发帖或者帖子管理中单独设置该帖子的查看权限了</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-wordpress论坛板块-圈子-帖子配置查看权限-阅读限制教程详解Wordpress主题模板-zibll子比主题" decoding="async" width="1896" height="988" src="https://oss.zibll.com/zibll.com/2022/02/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_534" class="wp-image-4474" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/02/图片-9.png 1896w, https://oss.zibll.com/zibll.com/2022/02/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_365 700w, https://oss.zibll.com/zibll.com/2022/02/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_534 1024w, https://oss.zibll.com/zibll.com/2022/02/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_400 768w, https://oss.zibll.com/zibll.com/2022/02/图片-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_800 1536w" sizes="(max-width: 1896px) 100vw, 1896px" imgbox-index="5"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-wordpress论坛板块-圈子-帖子配置查看权限-阅读限制教程详解Wordpress主题模板-zibll子比主题" decoding="async" width="2378" height="1160" src="https://oss.zibll.com/zibll.com/2022/02/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_500" class="wp-image-4475" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/02/图片-10.png 2378w, https://oss.zibll.com/zibll.com/2022/02/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_341 700w, https://oss.zibll.com/zibll.com/2022/02/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_500 1024w, https://oss.zibll.com/zibll.com/2022/02/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_375 768w, https://oss.zibll.com/zibll.com/2022/02/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_749 1536w, https://oss.zibll.com/zibll.com/2022/02/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_2048,h_999 2048w" sizes="(max-width: 2378px) 100vw, 2378px" imgbox-index="6"></figure>
+</div>                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

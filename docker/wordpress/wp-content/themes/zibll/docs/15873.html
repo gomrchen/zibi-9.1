@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题评论和用户主页显示IP归属地功能配置教程[V7.2新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题评论和用户主页显示IP归属地功能配置教程[V7.2新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/15873.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用wordpress搭建网站的站长们估计已经对这个功能很熟悉了，包括现在主流的软件都有显示ip归属地的功能了，使用zibll子比主题，仅需简单两步即可实现评论显示ip归属地以及用户中心显示用户ip归属地。</p>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#fb2121" style="--quote-color:#fb2121"><i class="fa fa-quote-left"></i><p>使用此功能需升级zibll子比主题V7.2及以上版本</p></div></div>
+
+
+
+<h2 class="wp-block-heading">截图示例</h2>
+
+
+
+<figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
+<figure class="wp-block-image size-large"><img alt="图片[1]-wordpress使用zibll主题为网站添加评论IP归属地用户IP地址功能详细教程-WordPress主题模板-zibll子比主题" decoding="async" data-id="15875" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2023/05/图片-1.png"   class="wp-image-15875"/></figure>
+
+
+
+<figure class="wp-block-image size-large"><img alt="图片[2]-wordpress使用zibll主题为网站添加评论IP归属地用户IP地址功能详细教程-WordPress主题模板-zibll子比主题" decoding="async" data-id="15874" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2023/05/图片.png"   class="wp-image-15874"/></figure>
+</figure>
+
+
+
+<h2 class="wp-block-heading">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">这个功能的配置就十分简单了，仅需在主题设置开启此功能即可。</p>
+
+
+
+<p class="wp-block-paragraph">同时主题自带了免费的太平洋公共查询接口，但是免费的公共接口可靠性不太高，那么子比主题还接入了腾讯和高德接口，相对更为可靠！</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(251,78,78,1);background:undefined">同时主题支持多接口轮流查询，一个接口未查询到地址，自动切换另一个接口进行查询，再次提高了可靠性！</qc></p>
+
+
+
+<p class="wp-block-paragraph">首先我们进入主题设置，开启对应的显示：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-wordpress使用zibll主题为网站添加评论IP归属地用户IP地址功能详细教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/05/图片-2.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_772"  class="wp-image-15876" width="600" srcset="https://oss.zibll.com/zibll.com/2023/05/图片-2.png 1750w, https://oss.zibll.com/zibll.com/2023/05/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_528 700w, https://oss.zibll.com/zibll.com/2023/05/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_579 768w, https://oss.zibll.com/zibll.com/2023/05/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_772 1024w" sizes="(max-width: 1750px) 100vw, 1750px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-wordpress使用zibll主题为网站添加评论IP归属地用户IP地址功能详细教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/05/图片-3.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_773"  class="wp-image-15877" width="600" srcset="https://oss.zibll.com/zibll.com/2023/05/图片-3.png 1752w, https://oss.zibll.com/zibll.com/2023/05/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_528 700w, https://oss.zibll.com/zibll.com/2023/05/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_580 768w, https://oss.zibll.com/zibll.com/2023/05/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_773 1024w" sizes="(max-width: 1752px) 100vw, 1752px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong>完成以上操作以后，就直接可以使用此功能了，但是以下几点需要注意一下：</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>如果您的服务器使用了代理功能，主题已做针对性优化，也能正常获取IP。但是，如果是本地局域网搭建，则无法获取IP，并且也有部分用户可能会通过某些技术手段来隐藏IP，那么也可能无法正确的获取IP，故此功能并非100%可靠</li>
+
+
+
+<li>同理，因为是需要通过接口查询IP归属地址，接口查询也无法做到100%可靠，推荐同事使用腾讯和高德的接口，并使用轮询查询功能，可靠性更高</li>
+
+
+
+<li>重要提醒：<qc style="color:rgba(248,81,81,1);background:undefined">评论显示IP归属地，是在用户评论的时候进行获取，所以已评论的内容不会再显示</qc></li>
+
+
+
+<li><qc style="color:rgba(249,107,107,1);background:undefined">用户显示IP归属地，是在用户登录的时候进行获取，已注册的用户需要下一次登录的时候才会显示</qc></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">接口配置</h2>
+
+
+
+<p class="wp-block-paragraph">上面我们已经说过了，主题自带免费的查询接口，无需任何配置即可使用，但是如果您需要更可靠的使用，我们建议自己申请腾讯或者高德的接口进行使用。</p>
+
+
+
+<p class="wp-block-paragraph">首先我们进入主题设置，选择我们需要使用的接口，并把相应的接口参数填上即可：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-wordpress使用zibll主题为网站添加评论IP归属地用户IP地址功能详细教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/05/图片-10.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_815"  class="wp-image-15904" width="600" srcset="https://oss.zibll.com/zibll.com/2023/05/图片-10.png 2022w, https://oss.zibll.com/zibll.com/2023/05/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_557 700w, https://oss.zibll.com/zibll.com/2023/05/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_611 768w, https://oss.zibll.com/zibll.com/2023/05/图片-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_815 1024w" sizes="(max-width: 2022px) 100vw, 2022px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">腾讯接口申请教程</h3>
+
+
+
+<p class="wp-block-paragraph">申请地址：<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9sYnMucXEuY29tL2Rldi9jb25zb2xlL2FwcGxpY2F0aW9uL21pbmU%3D&#038;nonce=e05093216d237e99dd556f3445f182a08650ebdd029218e40b028723e3241bf8|1792863720"  target="_blank" rel="noreferrer noopener">点击跳转</a></p>
+
+
+
+<p class="wp-block-paragraph">如图所示，创建应用后，将参数填入主题设置即可</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-wordpress使用zibll主题为网站添加评论IP归属地用户IP地址功能详细教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/05/图片-5.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_583"  class="wp-image-15880" width="600" srcset="https://oss.zibll.com/zibll.com/2023/05/图片-5.png 2864w, https://oss.zibll.com/zibll.com/2023/05/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_398 700w, https://oss.zibll.com/zibll.com/2023/05/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_437 768w, https://oss.zibll.com/zibll.com/2023/05/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_583 1024w" sizes="(max-width: 2864px) 100vw, 2864px" /></figure>
+</div>
+
+
+<h3 class="wp-block-heading">高德接口申请教程</h3>
+
+
+
+<p class="wp-block-paragraph">申请地址：<a rel="noreferrer noopener" href="https://www.zibll.com/?golink=aHR0cHM6Ly9jb25zb2xlLmFtYXAuY29tL2Rldi9rZXkvYXBw&#038;nonce=86d7c02d472bc789747b6709ddac63716ff6d3206c0bafa4d4f4267fa26ed0cb|1792863720"  target="_blank">点击跳转</a></p>
+
+
+
+<p class="wp-block-paragraph">如图所示，创建KEY，选择web服务，提交后将参数填入主题设置即可</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-wordpress使用zibll主题为网站添加评论IP归属地用户IP地址功能详细教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2023/05/图片-6.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_731"  class="wp-image-15882" width="600" srcset="https://oss.zibll.com/zibll.com/2023/05/图片-6.png 2736w, https://oss.zibll.com/zibll.com/2023/05/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_499 700w, https://oss.zibll.com/zibll.com/2023/05/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_548 768w, https://oss.zibll.com/zibll.com/2023/05/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_731 1024w" sizes="(max-width: 2736px) 100vw, 2736px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">over！教程结束</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

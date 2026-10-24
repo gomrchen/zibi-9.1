@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>php安装扩展教程-解决网站提醒缺少mbstring组件的错误</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>php安装扩展教程-解决网站提醒缺少mbstring组件的错误</h1>
+  <div class="meta">来源：https://www.zibll.com/47062.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">这个教程本来不应该存在的，但是由于PHP 在某个版本之后（貌似是8.0开始）默认居然不自带mbstring组件了，这可是十分基础的文字处理组件啊，经常要用到。</p>
+
+
+
+<p class="wp-block-paragraph">缺少mbstring组件，网站后台会有提醒，没有这个提醒就说明自带已经安装好了，就不要再安装了</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter is-resized"><img decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2025/11/20251128124840125-image-174.png"  alt="20251128124840125-image-174" style="width:400px"/></figure>
+</div>
+
+
+<p class="wp-block-paragraph">教程十分简单，进入宝塔，点击PHP设置-点击安装扩展，找到mbstring，点击安装，搞定</p>
+
+
+
+<p class="wp-block-paragraph">需要注意的是，如果你安装了多个不同版本的PHP，最好都安装一下，至少要把你在用的版本的php给装了</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter is-resized"><img decoding="async" src="https://oss.zibll.com/zibll.com/2025/11/20251128123759907-image-173.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1060" alt="20251128123759907-image-173" style="width:600px"/></figure>
+</div>
+
+
+<p class="wp-block-paragraph">同样的，如果需要安装其他组件，方法也一样。</p>
+
+
+
+<p class="wp-block-paragraph">最后，这几个组件建议都要安装：</p>
+
+
+
+<ul class="wp-block-list">
+<li>opcache 强烈推荐安装，提升性能的核心组件</li>
+
+
+
+<li>fileinfo，imagemagick，exif，这三个建议安装，可以提高网站上传效率</li>
+
+
+
+<li>redis 强烈建议安装，但是这个比较占内存，4G内存可能都有点紧张，8G就完全没问题了。这是重要的缓存组件，详细使用教程请查看此教程：<a href="https://www.zibll.com/1997.html">使用Redis和opcache为网站加速教程&amp;浅谈快到起飞的子比主题</a></li>
+</ul>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

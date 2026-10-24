@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题VIP会员系统详解及使用教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题VIP会员系统详解及使用教程</h1>
+  <div class="meta">来源：https://www.zibll.com/767.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">在V2.0版本更新后，加入优雅的支付体验，带来了全新的付费下载和付费阅读功能，极大的方便了站长做付费内容。</p>
+
+
+
+<p class="wp-block-paragraph">在V3.0版本更新后，子比主题带来了全新的VIP会员系统，支持多级会员、会员属性设置、会员单独定价等功能。通过付费资源和会员系统搭配，就大大的增加了网站的互动性，也让子比主题正式的走进资源主题的行列！</p>
+
+
+
+<p class="wp-block-paragraph"><strong>目前会员系统的功能及特色：</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>支持两级会员分级，可独立选择是否开启</li>
+
+
+
+<li>每一级会员均支持自定义会员名称（例如黄金会员、钻石会员等）</li>
+
+
+
+<li>支持自定义会员简介、权益设置</li>
+
+
+
+<li>支持自定义会员名称和会员图标</li>
+
+
+
+<li>会员购买、续费、升级均可设置多种销售商品</li>
+
+
+
+<li>每一个会员商品均可独立设置价格、有效期、促销活动等</li>
+
+
+
+<li>站内的所有资源均可针对不同的级别的会员单独定价</li>
+
+
+
+<li>前台开通会员的流程一气呵成、优雅自然</li>
+
+
+
+<li>网站管理员可在后台管理任意用户的会员信息</li>
+
+
+
+<li>通过主题用户权限管理系统可细分的配置会员特权<a href="3090.html" data-type="post" data-id="3090">【查看教程】</a></li>
+
+
+
+<li>支持卡密兑换会员<a href="8663.html" data-type="post" data-id="8663">【查看教程】</a></li>
+
+
+
+<li>支持积分兑换会员</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>会员系统主要的三个开发逻辑：</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li>会员属性 （自定义设置会员的名称、简介等）</li>
+
+
+
+<li>会员商品 （自义定用户可以购买的会员商品） </li>
+
+
+
+<li>会员特权 （自义定不同会员享受的不同资源价格）  </li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">通过这三个逻辑，整个会员系统就十分的清晰简单了，同时又拥有了高度的自由化，更加容易实现各种不同类网站的需求，那么接下来我们围绕这三点开始详细教程！</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">会员属性设置</h2>
+
+
+
+<p class="wp-block-paragraph"><strong>准备工作：</strong>使用会员功能，请务必保证支付收款系统正常使用，不然怎么购买会员呢？设置教程请查看以下文章：</p>
+
+
+
+<div data-pid="580" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="580.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2020/03/支付功能-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="付费阅读、付费资源、付费图库、付费视频等知识付费功能详解及教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="580.html">付费阅读、付费资源、付费图库、付费视频等知识付费功能详解及教程<span class="focus-color">[图文教程]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-04-09 15:02:51" class="ml6">5个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>13.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>801</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#1F91F3;background:undefined">进入主题设置-商城设置</qc>-VIP会员</strong></p>
+
+
+
+<p class="wp-block-paragraph">配置会员相关功能及参数</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" src="https://oss.zibll.com/zibll.com/2023/09/图片-6.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_853" class="wp-image-18480" width="600" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-6.png 1624w, https://oss.zibll.com/zibll.com/2023/09/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_583 700w, https://oss.zibll.com/zibll.com/2023/09/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_640 768w, https://oss.zibll.com/zibll.com/2023/09/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_853 1024w" sizes="(max-width: 1624px) 100vw, 1624px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">接下来再根据需要 选择开启一级会员和二级会员，当然请注意以下几点：</p>
+
+
+
+<ul class="wp-block-list">
+<li>一级会员和二级会员都关闭，则相当于关闭了会员功能</li>
+
+
+
+<li>如果只需要一个会员分级，请开启一级会员关闭二级会员</li>
+
+
+
+<li>也就说<qc style="color:#ef0c7e;background:undefined">不能开启二级会员而关闭一级会员</qc></li>
+
+
+
+<li>会员分级开关最好一开始设置好后就尽量不要修改，以免后期用户会员信息错误</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">会员商品设置</h2>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" src="https://oss.zibll.com/zibll.com/2023/09/图片-7.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_1028" class="wp-image-18481" width="600" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-7.png 1674w, https://oss.zibll.com/zibll.com/2023/09/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150 150w, https://oss.zibll.com/zibll.com/2023/09/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_703 700w, https://oss.zibll.com/zibll.com/2023/09/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_771 768w, https://oss.zibll.com/zibll.com/2023/09/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1028 1024w" sizes="(max-width: 1674px) 100vw, 1674px" imgbox-index="1"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">会员商品设置也就是用户可以购买的会员商品，你可以理解为淘宝购物的商品选项，而这一部分的功能设置是可以搭配多种组合的</p>
+
+
+
+<ul class="wp-block-list">
+<li>每一级会员可以设置最少1个最多4个商品选项（可任意开关）</li>
+
+
+
+<li>每个商品选项都可以单独设置价格和会员有效期</li>
+
+
+
+<li>执行价不允许为0！</li>
+
+
+
+<li>有效期选0则为永久有效</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">通过修改会员商品选项的有效期和会员名称，可以有多种组合搭配，举几个例子大家参考一下：</p>
+
+
+
+<ul class="wp-block-list">
+<li>xxa网站只有一种会员：贝壳VIP，购买会员时候，不同价格享受的会员有效期不同</li>
+
+
+
+<li>xxb网站有两种会员：黄金会员和铂金会员，购买的时候不同价格购买的会员不同，但是都是永久有效 </li>
+
+
+
+<li>xxc网站有两种会员：包月会员和包年会员，购买的时候不同价格购买不同有效期的会员 </li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">卡密兑换积分</h2>
+
+
+
+<p class="wp-block-paragraph">升级zibll子比主题V7.4以后可使用此功能，同时依赖于<a href="7349.html" data-type="post" data-id="7349">用户积分功能</a></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" src="https://oss.zibll.com/zibll.com/2023/09/图片-19.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_682" class="wp-image-18603" width="600" srcset="https://oss.zibll.com/zibll.com/2023/09/图片-19.png 1942w, https://oss.zibll.com/zibll.com/2023/09/图片-19.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_466 700w, https://oss.zibll.com/zibll.com/2023/09/图片-19.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_511 768w, https://oss.zibll.com/zibll.com/2023/09/图片-19.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_682 1024w" sizes="(max-width: 1942px) 100vw, 1942px" imgbox-index="2"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_3">会员权益设置</h2>
+
+
+
+<p class="wp-block-paragraph">针对不同级别的会员，文章的付费内容是可以单独定价的，当然也可以设置为0元，则为XX会员免费</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_4">付费内容特权</h3>
+
+
+
+<p class="wp-block-paragraph">设置的方法非常简单，编辑文章时在下方的付费功能中设置对应会员的价格即可！设置为0则为该会员免费！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" fetchpriority="high" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/06/image-3.png" class="wp-image-803 lazyload" width="662" height="213" imgbox-index="3"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/06/image-4.png" class="wp-image-804 lazyload" width="666" height="182" imgbox-index="4"></figure>
+</div>
+
+
+<h3 class="wp-block-heading" id="wznav_5">隐藏内容特权</h3>
+
+
+
+<p class="wp-block-paragraph">除了付费内容之外呢，主题本次更新新增了全新的古腾堡块-<code>隐藏内容快</code>，你可以在文章中插入部分隐藏内容，同时你可以设置隐藏可见的模式：</p>
+
+
+
+<ul class="wp-block-list">
+<li>登录可见</li>
+
+
+
+<li>评论可见</li>
+
+
+
+<li>付费阅读可见（此模式则依靠付费功能设置）</li>
+
+
+
+<li>一级会员可见</li>
+
+
+
+<li>二级会员可见</li>
+</ul>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/06/image-1024x594.png" class="wp-image-784 lazyload" width="658" height="379" imgbox-index="5"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_6">功能特权</h2>
+
+
+
+<p class="wp-block-paragraph">通过zibll子比主题强大的用户权限管理系统，可精细化的配置会员能使用的用户功能</p>
+
+
+
+<div data-pid="3090" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="3090.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/12/用户权限-列表图2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="zibll子比主题用户权限管理系统简介及教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="3090.html">zibll子比主题用户权限管理系统简介及教程<span class="focus-color">[V6新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-03-14 13:34:11" class="ml6">6个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>72</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_7">其它功能</h2>
+
+
+
+<p class="wp-block-paragraph">到这里教程部分就结束了，会员系统在前端用户中心会显示用户的会员信息和订单信息，在此就不一一介绍了，下面展示部分截图</p>
+
+
+
+<figure class="wp-block-gallery has-nested-images columns-4 is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
+<figure class="wp-block-image size-large"><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/06/image-8.png" data-imgbox="imgbox"><img alt="图片[7]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" data-id="808" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/06/image-8.png" class="wp-image-808 lazyload" imgbox-index="6"></a><figcaption class="wp-element-caption">开通会员弹窗</figcaption></figure>
+
+
+
+<figure class="wp-block-image size-large"><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/06/image-7.png" data-imgbox="imgbox"><img alt="图片[8]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" data-id="807" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/06/image-7.png" class="wp-image-807 lazyload" imgbox-index="7"></a><figcaption class="wp-element-caption">用户中心开通会员</figcaption></figure>
+
+
+
+<figure class="wp-block-image size-large"><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/06/image-6.png" data-imgbox="imgbox"><img alt="图片[9]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" data-id="806" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/06/image-6.png" class="wp-image-806 lazyload" imgbox-index="8"></a><figcaption class="wp-element-caption">顶部导航开通会员</figcaption></figure>
+
+
+
+<figure class="wp-block-image size-large"><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/06/image-5.png" data-imgbox="imgbox"><img alt="图片[10]-Zibll子比主题-全新的VIP会员系统-会员功能-详细使用教程" decoding="async" width="1048" height="472" data-id="805" src="https://oss.zibll.com/zibll.com/2020/06/image-5.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_461" class="wp-image-805" srcset="https://oss.zibll.com/zibll.com/2020/06/image-5.png 1048w, https://oss.zibll.com/zibll.com/2020/06/image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_550,h_248 550w, https://oss.zibll.com/zibll.com/2020/06/image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_461 1024w, https://oss.zibll.com/zibll.com/2020/06/image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_346 768w" sizes="(max-width: 1048px) 100vw, 1048px" imgbox-index="9"></a><figcaption class="wp-element-caption">用户中心会员信息</figcaption></figure>
+</figure>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

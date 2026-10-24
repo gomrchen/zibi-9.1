@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多个网站同时使用一套第三方社交登录帐号-代理登录功能详解</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>多个网站同时使用一套第三方社交登录帐号-代理登录功能详解</h1>
+  <div class="meta">来源：https://www.zibll.com/2290.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">在使用WordPress建站，使用社交帐号登录的功能是必不可少的，例如常见的QQ登录、微信登录、微博登录等等，zibll子比主题自带了多种的社交登录方式，包含<a href="979.html">QQ登录</a>、<a href="2206.html">微信登录</a>、<a href="2206.html">微信公众号登录</a>、<a href="1001.html">GitHub登录</a>、微博登录、码云(gitee)登录、百度登录、支付宝登录，不需要使用任何插件，即可快速的接入第三方帐号登录或者绑定，既快捷又安全。</p>
+
+
+
+<p class="wp-block-paragraph">这时候，有一个问题就出现了，大多数的第三方登录接口都只能申请一个账号，甚至申请十分困难。那么我有很多个网站的时候该怎么办呢？给每个网站都申请一个接口，这是不太可能的，就算有些帐号支持，那也十分的不方便！</p>
+
+
+
+<p class="wp-block-paragraph">zibll子比主题V5.6的新功能：社交帐号登录<code>代理登录功能</code>，就能完美的解决这个问题了。将申请的第三方登录设置到一个网站，然后将此网站设置为<code>代理登录服务器</code>，那么我的其它所有网站仅需设置为<code>代理登录客户端</code>，就可以直接使用所有的第三方社交帐号登录啦</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img alt="图片[1]-WordPress主题使用代理登录功能实现多个网站使用同一个第三方登录帐号教程-zibll子比主题" fetchpriority="high" decoding="async" width="1400" height="900" src="https://oss.zibll.com/zibll.com/2021/07/社交代理登录.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_658" class="wp-image-2296" srcset="https://oss.zibll.com/zibll.com/2021/07/社交代理登录.png 1400w, https://oss.zibll.com/zibll.com/2021/07/社交代理登录.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_450 700w, https://oss.zibll.com/zibll.com/2021/07/社交代理登录.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_658 1024w, https://oss.zibll.com/zibll.com/2021/07/社交代理登录.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_494 768w" sizes="(max-width: 1400px) 100vw, 1400px" imgbox-index="0"></figure></div>
+
+
+
+<h2 class="wp-block-heading">使用教程</h2>
+
+
+
+<p class="wp-block-paragraph">这个功能使用非常简单，仅需简单的两步就可实现</p>
+
+
+
+<ol class="wp-block-list"><li>将已经设置好社交账号登录的网站A开启<code>代理登录服务端</code>模式</li><li>将其它的网站开启<code>代理登录客户端</code>模式，并填入网站A的网址和接口密钥即可</li></ol>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[2]-WordPress主题使用代理登录功能实现多个网站使用同一个第三方登录帐号教程-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2021/07/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_690" class="wp-image-2291" width="500" srcset="https://oss.zibll.com/zibll.com/2021/07/图片-6.png 1834w, https://oss.zibll.com/zibll.com/2021/07/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_472 700w, https://oss.zibll.com/zibll.com/2021/07/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_690 1024w, https://oss.zibll.com/zibll.com/2021/07/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_518 768w, https://oss.zibll.com/zibll.com/2021/07/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1035 1536w" sizes="(max-width: 1834px) 100vw, 1834px" imgbox-index="1"></figure></div>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img alt="图片[3]-WordPress主题使用代理登录功能实现多个网站使用同一个第三方登录帐号教程-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2021/07/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_689" class="wp-image-2293" width="500" srcset="https://oss.zibll.com/zibll.com/2021/07/图片-8.png 2198w, https://oss.zibll.com/zibll.com/2021/07/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_471 700w, https://oss.zibll.com/zibll.com/2021/07/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_689 1024w, https://oss.zibll.com/zibll.com/2021/07/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_517 768w, https://oss.zibll.com/zibll.com/2021/07/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1034 1536w, https://oss.zibll.com/zibll.com/2021/07/图片-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_2048,h_1379 2048w" sizes="(max-width: 2198px) 100vw, 2198px" imgbox-index="2"></figure></div>
+
+
+
+<p class="wp-block-paragraph">教程结束，十分简单，有几点需要注意一下：</p>
+
+
+
+<ul class="wp-block-list"><li>启用了代理登录客户端，也可以同时启用其它的社交登录方式，如果有重复的则代理登录优先</li><li>涉及到个人信息安全，请妥善保管好自己的通讯密钥</li></ul>
+
+
+
+<div data-quantity="1" data-radius="false" class="wp-block-zibllblock-buttons"><span class="an_1 but jb-blue"><a href="https://www.zibll.com/zibll_word/user-function">查看更多登录功能详解</a></span></div>
+
+
+
+<p class="wp-block-paragraph"></p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

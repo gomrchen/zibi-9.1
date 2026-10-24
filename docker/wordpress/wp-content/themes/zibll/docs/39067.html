@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll商城系统详解-知识付费、实物商城等功能入门教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll商城系统详解-知识付费、实物商城等功能入门教程</h1>
+  <div class="meta">来源：https://www.zibll.com/39067.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">zibll子比主题从21年开始就支持虚拟资源付费功能了，包含付费阅读、付费下载、付费视频、付费图库，配合付费VIP功能，让zibll主题成为了更多知识付费网站的热门WordPress主题模板。zibll子比主题更新V8.2后，又带来了全新的商城系统，这一次真正的让zibll子比主题成为最优雅、最完善的WordPress商城主题了！</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">功能简介</h2>
+
+
+
+<p class="wp-block-paragraph">简单的介绍一下zibll主题的商城系统的功能和逻辑</p>
+
+
+
+<p class="wp-block-paragraph">首先，zibll子比主题商城商品主要分为3大类型：文章、帖子、商品</p>
+
+
+
+<ul class="wp-block-list">
+<li>发布文章时支持设置付费阅读、付费下载、付费视频、付费图库，这是知识付费网站常用的板块，例如教程收费网站、课程收费网站、软件下载网站、图片分享网站等等</li>
+
+
+
+<li>发布帖子时支持设置收费阅读帖子、支持隐藏部分内容付费查看，这是社区论坛、圈子等类型网站必备功能</li>
+
+
+
+<li>V8.2新增的商城功能，直接发布商品，支持任意实物商品（例如手机、服饰等）、自动发货的虚拟商品（例如：卡密、自动发送文本等）、手动发货的虚拟商品（例如游戏币充值、软件定制等），几乎和我们目前熟知的淘宝、京东、拼多多的购物流程一致，这成为了独立商城网站的必要功能</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">其次，就是强大的辅助功能，例如推广返佣（推荐奖励、分销功能）、创作分成、站内余额、站内积分、VIP付费会员、优惠码、卡密兑换、站内消息等功能与商城系统紧密配合，实现各种个性化、高度自定义的丰富效果。</p>
+
+
+
+<p class="wp-block-paragraph"><strong>V8.2新增的商城功能又有更多的特点以及更强大的功能：</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>商品发布：
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="wp-block-list">
+<li>自动虚拟商品：卡密、邀请码、等任意文本内容自动发货</li>
+
+
+
+<li>手动发货虚拟商品：例如话费充值、游戏币充值、远程技术辅助等</li>
+
+
+
+<li>任意实物商品：支持物流发货、物流监控、运费配置等</li>
+</ul>
+
+
+
+<ul class="wp-block-list">
+<li>商品选项：不同商品规格不同价格，不同库存，不同图片等</li>
+
+
+
+<li>服务保障：自定义商品服务，例如7天无理由退货等服务</li>
+
+
+
+<li>价格类型：积分商品、现金商品</li>
+
+
+
+<li>商品参数：例如手机的像素、屏幕尺寸、电池容量等</li>
+
+
+
+<li>商品限购：按会员等级、是否认证分别设置限购数量</li>
+
+
+
+<li>推广返佣：支持设置按比例返佣、固定佣金，按会员等级单数设置等(V8.5)</li>
+
+
+
+<li>自定义用户必留信息：例如话费充值要求用户必留手机号等</li>
+
+
+
+<li>自定义售后服务：是否开启退款、退货、保价等</li>
+
+
+
+<li>还支持配置封面图像、封面视频，支持多级分类、支持商品标签等功能</li>
+</ul>
+</li>
+
+
+
+<li>优惠活动：
+<ul class="wp-block-list">
+<li>支持立减、折扣的优惠方式</li>
+
+
+
+<li>支持设置时间有效期，满多少金额可享受、哪些用户类型可享受</li>
+
+
+
+<li>赠品：支持添加多个赠品，支持赠送站内虚拟资源(积分、会员、经验值等)或其它任意商品</li>
+
+
+
+<li>优惠活动可叠加、可多选</li>
+</ul>
+</li>
+
+
+
+<li>功能逻辑：
+<ul class="wp-block-list">
+<li>用户下单，快捷支付</li>
+
+
+
+<li>加入购物车、合并支付</li>
+
+
+
+<li>虚拟商品自动发货，实物商品通知商家发货</li>
+
+
+
+<li>物流跟踪，用户确认收货</li>
+
+
+
+<li>用户评价</li>
+
+
+
+<li>申请售后、商家处理、退货或退款</li>
+</ul>
+</li>
+
+
+
+<li>后台统计：
+<ul class="wp-block-list">
+<li>重新设计了后台统计页面</li>
+
+
+
+<li>功能更加丰富、UI更加美观</li>
+</ul>
+</li>
+
+
+
+<li>其它特色：
+<ul class="wp-block-list">
+<li>配置极其简单：3分钟上手，后台配置清晰一目了然，配置逻辑简单易懂，不用看教程都会用</li>
+
+
+
+<li>功能强大且高度自由化：几乎商城需要的所有功能都有，并且我们首次采用配置继承功能，配置参数时高度自由化</li>
+
+
+
+<li>精心打磨的UI设计：不管是PC端还是移动端，所有细节都是精心打磨，大到整体框架，小到文字颜色、间距再到UI动画都是精心处理，就是让用户享受比淘宝京东还丝滑的购物体验</li>
+
+
+
+<li>优雅的的购物体验：用户的购物流程和现代化商城APP完全一致，简单易用，0上手成本</li>
+
+
+
+<li>高性能优化：V8.2新增了约20%的代码量，但是性能反而再次提升20%，降低建站成本和门槛<a href="https://www.zibll.com/1997.html">【查看优化教程及说明】</a></li>
+</ul>
+</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">收款教程</h2>
+
+
+
+<p class="wp-block-paragraph">首先，使用付费商城功能，需要先配置好收款接口，详细请查看以下教程：</p>
+
+
+
+<div data-pid="39133" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="https://www.zibll.com/39133.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2023/09/20250925155140476-收款接口配置-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_497" alt="zibll子比主题使用付费功能-收款接口配置教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="https://www.zibll.com/39133.html">zibll子比主题使用付费功能-收款接口配置教程<span class="focus-color">[V9.0有更新]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-29 15:04:51" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>7389</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>39</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">知识付费教程</h2>
+
+
+
+<p class="wp-block-paragraph">在文章中发布付费内容，例如付费阅读、付费下载、付费视频、付费图库，常用于知识付费网站，例如软件下载网站、教程网站、课程网站等。详细配置教程如下：</p>
+
+
+
+<div data-pid="580" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="580.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2020/03/支付功能-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="付费阅读、付费资源、付费图库、付费视频等知识付费功能详解及教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="580.html">付费阅读、付费资源、付费图库、付费视频等知识付费功能详解及教程<span class="focus-color">[图文教程]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-04-09 15:02:51" class="ml6">5个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>13.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>801</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_3">商城教程</h2>
+
+
+
+<p class="wp-block-paragraph">zibll子比主题V8.2新增商城功能，支持任意实物商品、支持自动发货虚拟商品、手动发货虚拟商品，使用体验和淘宝京东等商城一致，配置教程请查看以下教程：</p>
+
+
+
+<div data-pid="39144" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="39144.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260607124834282-商城系统入门教程-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="zibll子比主题-商城系统简介-商城功能入门配置教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="39144.html">zibll子比主题-商城系统简介-商城功能入门配置教程<span class="focus-color">[V8.2新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-07 12:52:34" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>9146</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>56</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-quantity="1" data-radius="false" class="wp-block-zibllblock-buttons"><span class="an_1 but jb-green"><a href="https://demo.zibll.com/shop">查看商城演示</a></span></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">其他教程</h2>
+
+
+
+<p class="wp-block-paragraph">我们学会了基础了商城发布和功能配置教程之后，就还需要根据自己网站的需求配置VIP会员、分销、分成等功能了，这些功能相互配合，才能使我们网站更加完善，更好的提高收益！更多教程请查看以下目录：</p>
+
+
+
+<div data-quantity="1" data-radius="true" class="wp-block-zibllblock-buttons radius"><span class="an_1 but b-blue"><a href="https://www.zibll.com/zibll_word/%e5%95%86%e5%9f%8e%e5%8a%9f%e8%83%bd">查看商城功能配置教程</a></span></div>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

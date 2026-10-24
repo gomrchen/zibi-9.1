@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>页面布局、模块使用及可视化布局教程[网站布局入门教程]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>页面布局、模块使用及可视化布局教程[网站布局入门教程]</h1>
+  <div class="meta">来源：https://www.zibll.com/1816.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">建设一个wordpress网站，网站的布局肯定是最重要的。美观漂亮且易于阅读又能突出网站重点的布局设计更容易吸引力用户浏览网站。对于站长来说，网站布局也是最让人头疼的一件事儿了。zibll子比主题为了解决这个问题，采用模块化配置，将页面分为多种容器，再将不同的内容做成不同的模块，站长可自由的将任意模块放置到任意位置容器中，从而实现高度自由化，轻松的实现多种布局样式！</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">熟悉布局概念</h2>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#ef0c7e;background:undefined">首先我们了解，什么是布局容器？</qc></strong><br>我们将一个空白的页面，分为多个不同位置的方块，每一个方块里面都可以放置任意的模块，同时这些方块可以自由的删除、清空，方块里面的内容也就是模块也可以随意的添加、删除、更换、排序。那么我们就把这样可以放置模块的方块叫为容器。</p>
+
+
+
+<p class="wp-block-paragraph">如果你还不明白，那么看一下这一样图，子比主题是如何设计布局容器的。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" fetchpriority="high" decoding="async" width="1452" height="1628" src="https://oss.zibll.com/zibll.com/2021/04/image.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_913,h_1024" class="wp-image-1818" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/04/image.png 1452w, https://oss.zibll.com/zibll.com/2021/04/image.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_446,h_500 446w, https://oss.zibll.com/zibll.com/2021/04/image.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_913,h_1024 913w, https://oss.zibll.com/zibll.com/2021/04/image.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_861 768w, https://oss.zibll.com/zibll.com/2021/04/image.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1370,h_1536 1370w" sizes="(max-width: 1452px) 100vw, 1452px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">通过上面的图片可以看出来，一个页面的固定内容有：顶部导航、页面主内容、底部页面。那么除此之外，其它位置都是可放置模块的容器，换句话说就是默认是没有内容的，只有你在容器内添加了模块那么该容器位置才会显示内容！</p>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#ef0c7e;background:undefined">了解了布局容器之后，还有一个重要的布局要素也是：页面区分。</qc></strong><br>为了实现在不同类型的页面能组合不同的布局内容，比如我们需要在首页的顶部全宽度显示一个幻灯片模块，但是其它类型页面不显示。那么子比主题在设计容器的时候，每一个不同类型的页面都有该页面类型单独的容器：<br><qc style="color:#1F91F3;background:undefined">例如：顶部全宽度容器，那么对应的就有：<br>首页-顶部全宽度、文章页-顶部全宽度、分类页顶部全宽度、用户页-顶部全宽度、搜索页顶部全宽度、其它页面-顶部全宽度</qc></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#ef0c7e;background:undefined">另外请注意，所有页面的侧边栏都是可以单独开启或者关闭的，那么如果在没有开启侧边栏页面中，全宽度容器和主内容容器其实是一样的效果！</qc>如图所示：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" width="1092" height="1224" src="https://oss.zibll.com/zibll.com/2021/04/image-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_914,h_1024" class="wp-image-1819" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/04/image-1.png 1092w, https://oss.zibll.com/zibll.com/2021/04/image-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_446,h_500 446w, https://oss.zibll.com/zibll.com/2021/04/image-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_914,h_1024 914w, https://oss.zibll.com/zibll.com/2021/04/image-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_861 768w" sizes="(max-width: 1092px) 100vw, 1092px" imgbox-index="1"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:#ef0c7e;background:undefined">最后，出了上图之外的容器，还有没有其它位置的容器呢？</qc></strong><br>答案是有的！除了页面主要位置之外，子比主题还设计了一个在移动端弹出菜单内的容器，方便将模块添加到此处。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" width="955" height="1588" src="https://oss.zibll.com/zibll.com/2021/04/image-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_616,h_1024" class="wp-image-1820" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/04/image-2.png 955w, https://oss.zibll.com/zibll.com/2021/04/image-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_301,h_500 301w, https://oss.zibll.com/zibll.com/2021/04/image-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_616,h_1024 616w, https://oss.zibll.com/zibll.com/2021/04/image-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_1277 768w, https://oss.zibll.com/zibll.com/2021/04/image-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_924,h_1536 924w" sizes="(max-width: 955px) 100vw, 955px" imgbox-index="2"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_1">开始配置</h2>
+
+
+
+<p class="wp-block-paragraph">熟悉了模块容器之后我们开始配置布局，整个布局配置流程大概分为：<br>1.必要的主题设置 2.页面的布局设置 3.添加模块</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_2">必要的设置</h3>
+
+
+
+<p class="wp-block-paragraph"><strong>我们按照从页面的顶部到底部的流程进行设置，首先我们来设置顶部导航栏的样式。</strong></p>
+
+
+
+<p class="wp-block-paragraph">顶部导航栏分为PC端样式和移动端样式，设置的方法都在<qc style="color:#1F91F3;background:undefined">主题设置-页面显示-顶部导航</qc><br>具体方法请查看以下文章：</p>
+
+
+
+<div data-pid="529" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="529.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2020/03/20251022171152952-导航栏-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="Zibll子比主题-顶部导航栏及菜单配置教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="529.html">Zibll子比主题-顶部导航栏及菜单配置教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2025-10-22 17:12:15" class="ml6">1年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>6.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>31</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph"><strong>接下来就是最主要的侧边栏设置，针对不同页面选择是否开启侧边栏，以及设置侧边栏靠左还是靠右</strong></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined"> 进入主题设置-全局&amp;功能-页面&amp;显示 </qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" width="1546" height="787" src="https://oss.zibll.com/zibll.com/2021/04/image-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_521" class="wp-image-1821" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/04/image-3.png 1546w, https://oss.zibll.com/zibll.com/2021/04/image-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_356 700w, https://oss.zibll.com/zibll.com/2021/04/image-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_521 1024w, https://oss.zibll.com/zibll.com/2021/04/image-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_391 768w, https://oss.zibll.com/zibll.com/2021/04/image-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_782 1536w" sizes="(max-width: 1546px) 100vw, 1546px" imgbox-index="3"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">同时每一篇文章、页面都可以单独的设置侧边栏功能。编辑文章或页面时候， 在右下角的扩展功能处进行设置</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" width="1047" height="949" src="https://oss.zibll.com/zibll.com/2021/04/image-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_928" class="wp-image-1822" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/04/image-4.png 1047w, https://oss.zibll.com/zibll.com/2021/04/image-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_552,h_500 552w, https://oss.zibll.com/zibll.com/2021/04/image-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_928 1024w, https://oss.zibll.com/zibll.com/2021/04/image-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_696 768w" sizes="(max-width: 1047px) 100vw, 1047px" imgbox-index="4"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong>最后我们设置页面底部</strong></p>
+
+
+
+<p class="wp-block-paragraph">进入<qc style="color:#1F91F3;background:undefined">主题设置-页面显示-底部页脚</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" width="1418" height="901" src="https://oss.zibll.com/zibll.com/2021/04/image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_651" class="wp-image-1823" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/04/image-5.png 1418w, https://oss.zibll.com/zibll.com/2021/04/image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_445 700w, https://oss.zibll.com/zibll.com/2021/04/image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_651 1024w, https://oss.zibll.com/zibll.com/2021/04/image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_488 768w" sizes="(max-width: 1418px) 100vw, 1418px" imgbox-index="5"></figure>
+</div>
+
+
+<h3 class="wp-block-heading" id="wznav_3">添加模块</h3>
+
+
+
+<p class="wp-block-paragraph">一些必要的设置完成之后，我们就可以开始添加模块了。在上面的内容中，我们了解了不同页面的各个位置为容器，那么接下来我们需要把模块添加到对应的容器中，实现我们想要的布局效果。</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#fb2121;background:undefined">添加模块支持可视化配置的，每一次修改都可以实时预览，自己每一次的添加、修改都一目了然，推荐刚刚接触模块配置的新用户使用！</qc><br><qc style="color:#1F91F3;background:undefined">进入方式：1.前台管理员登录后，点击模块配置   2.wp后台-外观-小工具-使用实时预览管理</qc></p>
+
+
+
+<figure class="wp-block-gallery has-nested-images columns-default is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex">
+<figure class="wp-block-image size-full"><img alt="图片[7]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" data-id="39332" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2025/09/20250927174217345-image-115.png" class="wp-image-39332 lazyload" imgbox-index="6"></figure>
+
+
+
+<figure class="wp-block-image size-large"><img alt="图片[8]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" data-id="1825" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/image-7.png" class="wp-image-1825 lazyload" imgbox-index="7"></figure>
+</figure>
+
+
+
+<p class="wp-block-paragraph"><strong>对于已经很熟悉容器位置的老用来说，可以直接在<qc style="color:#1F91F3;background:undefined">wp后台-外观-小工具</qc>处进行配置，可以更加快速的添加、修改模块，同时加载速度更快</strong></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#ef0c7e;background:undefined">注意：使用实时预览管理，不会显示全部位置容器，只会显示当前页面存在的容器，进入之后默认是在首页，那么只会显示在首页的容器，如果你想在文章页面添加模块，需要先在右侧页面点击进入任意文章页。</qc></p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_4">模块明细</h3>
+
+
+
+<p class="wp-block-paragraph">进入模块配置之后，就可以选择添加模块了。在这里你就可以看到十分丰富的模块了，将不同的模块添加到需要的位置，同时支持拖动排序。目前子比主题支持以下模块，同时还在不断的更新中！</p>
+
+
+
+<ul class="wp-block-list">
+<li>幻灯片模块(功能超级强大)：多张图片或视频切换轮播图组件<a href="1246.html">【查看教程】</a></li>
+
+
+
+<li>图文视频封面模块（功能超级强大）：多种布局的图片或视频展示<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2026/06/20260629165645807-image-166.png" data-imgbox="imgbox">【查看截图】</a><a href="49463.html">【查看教程】</a></li>
+
+
+
+<li>幻灯片加图文视频封面组合模块（V9.0）<a href="49485.html">【查看教程】</a></li>
+
+
+
+<li>一言模块：显示精彩一言</li>
+
+
+
+<li>个人信息模块： 未登录时候显示登录注册按钮，登录后显示用户的个人信息  <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-19.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>分类专题图文模块： 将分类、专题显示为图文卡片 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-23.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>文章列表模块：根据设置显示文章列表</li>
+
+
+
+<li>文章mini模块：样式小一点的文章列表 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-12.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>多栏目文章模块：一个模块显示多个栏目的文章</li>
+
+
+
+<li>多栏目mini模块：样式小一点的多栏目文章 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-9.png" data-imgbox="imgbox">【查看截图】 </a></li>
+
+
+
+<li>搜索框模块：多功能的搜索模块 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-21.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>文章目录树模块：显示在文章页的文章目录树<a href="1717.html">【查看教程】</a></li>
+
+
+
+<li>评论模块：显示最近评论的模块 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-10.png" data-imgbox="imgbox">【查看截图】 </a></li>
+
+
+
+<li>标签云模块：根据设置显示网站的的标签 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-11.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>公告模块：添加多个公告滚动显示 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-20.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>用户列表模块：根据设置显示用户列表 </li>
+
+
+
+<li>链接列表模块：实现友情链接、合作伙伴等链接列表功能<a href="https://www.zibll.com/%e7%bd%91%e5%9d%80%e5%af%bc%e8%88%aa%e7%a4%ba%e4%be%8b%e2%91%a1">【查看演示】</a></li>
+
+
+
+<li>合作伙伴模块(V8.8)：左右滑动的链接列表<a href="https://www.zibll.com/%e7%bd%91%e5%9d%80%e5%af%bc%e8%88%aa%e7%a4%ba%e4%be%8b%e2%91%a1">【查看演示】</a></li>
+
+
+
+<li>图像模块：显示图片</li>
+
+
+
+<li>画廊模块：显示多张图片</li>
+
+
+
+<li>超级视频模块(V5.2)：支持更多格式的视频 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-17.png" data-imgbox="imgbox">【查看截图】</a> <a href="https://www.zibll.com/1921.html">【查看教程】</a></li>
+
+
+
+<li>超级嵌入模块 (V5.2) ：可以嵌入任意在线播放器或任意在线内容 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-15.png" data-imgbox="imgbox">【查看截图】 </a><a href="https://www.zibll.com/1934.html">【查看教程】</a></li>
+
+
+
+<li>图文封面模块 (V5.2) ：显示图片和文字封面的模块 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-13.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>分类专题聚合模块 (V5.2) ：显示分类或专题内容及文章的聚合模块 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-16.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>付费购买模块(V5.2)：显示付费文章的购买卡片 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-18.png" data-imgbox="imgbox">【查看截图】</a> </li>
+
+
+
+<li>图标卡片 (V5.2) ：显示图标和文字的卡片 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-22.png" data-imgbox="imgbox">【查看截图】 </a></li>
+
+
+
+<li>帖子列表模块：显示论坛帖子列表，多种显示样式及配置<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212105679-image-10.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>板块列表模块：显示论坛板块列表<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212221533-image-11.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>板块信息模块：用于显示一个板块详细信息的模块<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212303907-image-12.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>社区话题模块：显示社区论坛话题<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212442168-image-13.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>付费卡片模块：显示付费购买信息<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212557626-image-14.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>热门榜单模块：根据评论量、查看量、点赞量等显示文章排行榜<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212623719-image-15.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>用户排行榜模块：显示用户排行榜<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212744931-image-16.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>图标卡片[横版]模块：横版显示的图标卡片<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212850131-image-17.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>图标卡片[竖版]模块：竖版显示的图标卡片<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009212913202-image-18.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>多栏目帖子列表模块：以TAB栏目的方式同时显示多个栏目的帖子<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2025/01/20250101130118511-image.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>商品列表模块：用于显示商城商品列表<a href="https://demo.zibll.com/shop">【查看演示】</a></li>
+
+
+
+<li>单行商品列表模块：左右滑动显示的商品列表<a href="https://demo.zibll.com/shop">【查看演示】</a></li>
+
+
+
+<li>文字标题模块(V8.8)：有丰富自定义的标题、简介模块<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260430141001821-image-118.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>按钮组模块(V8.8):显示单个后多个按钮，样式丰富<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260430141001821-image-118.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>额外间距模块(V8.8)：在模块之前添加额外的间距，用于布局调整</li>
+
+
+
+<li>复合信息卡片模块(v8.8):显示图标、标题、简介的卡片，样式精美<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260630215814431-image-188.png" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>产品虚拟评价模块(v8.9):zibll销售页同款 <a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260630215653993-image-185.png" data-imgbox="imgbox">【查看截图】</a><a href="https://www.zibll.com/pay-zibll">【查看预览】</a></li>
+
+
+
+<li>产品常见问题解答模块(v8.9):zibll销售页同款<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260630215741559-image-186.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1120" data-imgbox="imgbox">【查看截图】</a><a href="https://www.zibll.com/pay-zibll">【查看预览】</a></li>
+
+
+
+<li>产品数据展示模块(v8.9):zibll销售页同款<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260630215752529-image-187.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_413" data-imgbox="imgbox">【查看截图】</a><a href="https://www.zibll.com/pay-zibll">【查看预览】</a></li>
+
+
+
+<li>产品亮点卡片模块(v8.9):zibll销售页同款<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260630215826831-image-189.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_848" data-imgbox="imgbox">【查看截图】</a><a href="https://www.zibll.com/pay-zibll">【查看预览】</a></li>
+
+
+
+<li>产品图文亮点模块(v8.9):zibll销售页同款<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260630220244185-image-193.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1003" data-imgbox="imgbox">【查看截图】</a><a href="https://www.zibll.com/pay-zibll">【查看预览】</a></li>
+
+
+
+<li>产品 3D 交互展示模块(v8.9):zibll销售页同款<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260630215917291-image-192.png" data-imgbox="imgbox">【查看截图】</a><a href="https://www.zibll.com/pay-zibll">【查看预览】</a></li>
+
+
+
+<li>产品选项卡片模块(v8.9):zibll销售页同款<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/20260630215859952-image-191.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_874" data-imgbox="imgbox">【查看截图】</a><a href="https://www.zibll.com/pay-zibll">【查看预览】</a></li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_5">模块入场动画</h2>
+
+
+
+<p class="wp-block-paragraph">zibll子比主题更新V8.8之后新增模块入场动画功能：当页面滚动到模块时，模块以动画的形式出现，支持多种动画效果<a href="https://demo.zibll.com/shop">【查看演示】</a></p>
+
+
+
+<p class="wp-block-paragraph">配置方式十分简单，添加模块时候，选择入场动画即可：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[9]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/20260430141718703-image-119.png" class="wp-image-47334 lazyload" style="width:600px" imgbox-index="8"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_6">模块标题、按钮、背景色等</h2>
+
+
+
+<p class="wp-block-paragraph">我们可以给每一个模块都设置标题。同时，如果当前模块放置在顶部全宽度的容器中，我们还可以为模块设置背景颜色，这样呈现出来的效果会更加丰富。<a href="https://www.zibll.com/pay-zibll">【查看演示】</a></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[10]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" width="2038" height="1744" src="https://oss.zibll.com/zibll.com/2021/04/20260530130559955-image-172.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1112" class="wp-image-48368" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/04/20260530130559955-image-172.png 2038w, https://oss.zibll.com/zibll.com/2021/04/20260530130559955-image-172.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_684 800w, https://oss.zibll.com/zibll.com/2021/04/20260530130559955-image-172.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1112 1300w" sizes="(max-width: 2038px) 100vw, 2038px" imgbox-index="9"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_7">空白页面添加模块</h2>
+
+
+
+<p class="wp-block-paragraph">上面说到，主题设定了首页、文章页、分类页等页面的容器，那我们如果需要新建一个空白页面，然后再给这个页面添加模块，该如何操作呢？</p>
+
+
+
+<p class="wp-block-paragraph"><strong>1.新建页面，在右侧底部开启布局容器，并选择需要的容器位置</strong></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[11]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" width="2136" height="1816" src="https://oss.zibll.com/zibll.com/2025/09/20250927170547450-image-111.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1105" class="wp-image-39327" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927170547450-image-111.png 2136w, https://oss.zibll.com/zibll.com/2025/09/20250927170547450-image-111.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_680 800w, https://oss.zibll.com/zibll.com/2025/09/20250927170547450-image-111.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1105 1300w" sizes="(max-width: 2136px) 100vw, 2136px" imgbox-index="10"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">2.保存后在前台，点击模块布局，就可以看到对应的容器了，使用模块配置添加需要的模块即可！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[12]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" width="2182" height="1438" src="https://oss.zibll.com/zibll.com/2024/10/20241009214308617-image-20.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_674" class="wp-image-29721" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2024/10/20241009214308617-image-20.png 2182w, https://oss.zibll.com/zibll.com/2024/10/20241009214308617-image-20.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_461 700w, https://oss.zibll.com/zibll.com/2024/10/20241009214308617-image-20.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_674 1024w" sizes="(max-width: 2182px) 100vw, 2182px" imgbox-index="11"></figure>
+</div>
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#1F91F3" style="--quote-color:#1F91F3"><i class="fa fa-quote-left"></i><p>使用此功能配合子比主题丰富的模块，可以创建出各种各样的页面，甚至你还可以单独创建一个页面，添加需要的模块，再把此页面设置为首页<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/10/20241009214853163-image-21.png" data-imgbox="imgbox">【查看教程】</a>，这是一个自由度超高的功能，能实现哪些优秀的效果，就需要丰富的想象力了！</p></div></div>
+
+
+
+<p class="wp-block-paragraph">例如我们通过模块化布局的方式创建一个商场首页：</p>
+
+
+
+<div data-pid="39214" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="39214.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2025/09/20260607125525239-商城首页教程-列表图-1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="zibll子比主题-商城首页创建及配置教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="39214.html">zibll子比主题-商城首页创建及配置教程<span class="focus-color">[V8.2新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-09 21:07:20" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>1.1W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>41</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph">例如，我们通过模块化布局的方式，创建一个仿<a href="https://www.zibll.com/pay-zibll">子比主题销售页面</a>：</p>
+
+
+
+<div data-pid="48023" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="48023.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260531003014526-仿zibll销售-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="48023.html">模块布局示例：仅用模块创建一个仿zibll销售页面的产品详情页<span class="focus-color">[V8.9新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-01 19:47:12" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>3498</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>65</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_8">模块显示规则</h2>
+
+
+
+<p class="wp-block-paragraph">模块显示规则可以根据当前的页面状态来判断模块是否显示。目前主要有多种方案：</p>
+
+
+
+<ol class="wp-block-list">
+<li>我们可以设置在 PC 端是否显示、移动端是否显示，或者都显示</li>
+
+
+
+<li>我们可以根据内容 ID 来隐藏或显示</li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[13]-wordpress网站使用zibll子比主题实现模块化布局、多种布局方案详解" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2024/10/20241009215544861-image-22.png" class="wp-image-29724 lazyload" style="width:229px;height:auto" imgbox-index="12"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_9">导入导出、导入模板</h2>
+
+
+
+<p class="wp-block-paragraph">主题 V8.9 新增了模板模块导入导出的功能，以及导入预制模块模板的功能。这可以让刚搭建网站的用户快速为网站布局，更加高效、方便。</p>
+
+
+
+<div data-pid="48359" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="48359.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2026/05/20260530132836741-模板导入导出-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="模块布局导入、导出、导入模板功能详解及教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="48359.html">模块布局导入、导出、导入模板功能详解及教程<span class="focus-color">[V8.9新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-01 19:47:25" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2790</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>84</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_10">更多配置技巧</h2>
+
+
+
+<p class="wp-block-paragraph">我们在可视化布局页面的时候，当鼠标划过每一个模块，左侧模块列表中也会有提示用于定位。同时，我们在预览框中的每一个模块中点击右侧的编辑，即可快速弹出当前模块的编辑框。</p>
+
+
+
+<p class="wp-block-paragraph">根据上面的教程，我们配置了整体页面的布局，为了更好的效果，我们还需要配置一些其他设置。</p>
+
+
+
+<p class="wp-block-paragraph">如果需要调整<qc style="color:#ef0c7e;background:undefined">文章列表</qc>的显示效果，请查看以下文章：</p>
+
+
+
+<div data-pid="958" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="958.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2020/10/文章列表-列表图.jpg" alt="Zibll子比主题-如何设置文章列表为卡片模式、多图模式、自动模式等-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="958.html">Zibll子比主题-如何设置文章列表为卡片模式、多图模式、自动模式等</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2021-07-03 15:33:54" class="ml6">5年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>3.5W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>56</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph">最后提醒一下：使用模块配置，可以将任意模块添加到任意位置的容器。<qc style="color:#ef0c7e;background:undefined">但是！并不是所有模块都适合添加到任意位置</qc>！请根据实际效果合理调整！</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

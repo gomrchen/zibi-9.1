@@ -1,4 +1,27 @@
 <?php
+
+if (!function_exists('zib_theme_doc_uri')) {
+    /**
+     * 本地主题文档 URL（docs/ 离线镜像）
+     */
+    function zib_theme_doc_uri($name)
+    {
+        $name = ltrim((string) $name, '/');
+        if ($name === '') {
+            $name = 'index.html';
+        }
+        if (!preg_match('/\.html?$/i', $name)) {
+            $name .= '.html';
+        }
+        $rel = 'docs/' . $name;
+        if (is_file(get_theme_file_path($rel))) {
+            return get_theme_file_uri($rel);
+        }
+        return get_theme_file_uri('docs/index.html');
+    }
+}
+
+
 /*
  * @Author        : Qinver
  * @Url           : zibll.com
@@ -556,7 +579,7 @@ class CFS_Module
             <li>' . esc_html__('在下方粘贴公众号自定义菜单的json配置代码后提交即可', 'zib_language') . '</li>
             <li>' . esc_html__('如果失败，会直接显示微信返回的错误码，可按照错误进行分析处理', 'zib_language') . '</li>
             <li>' . esc_html__('设置好成功后会有几分钟的延迟才能生效，请耐心等待', 'zib_language') . '</li>
-            <li><a target="_blank" href="https://www.zibll.com/2916.html">' . esc_html__('点此查看官网教程', 'zib_language') . '</a></li>
+            <li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2916.html')) . '">' . esc_html__('点此查看官网教程', 'zib_language') . '</a></li>
             <ajaxform class="ajax-form">
                 <p><textarea ajax-name="json" row="5" placeholder="' . esc_attr__('请粘贴公众号自定义菜单的json配置代码', 'zib_language') . '" style="width: 100%;height: 299px;"></textarea></p>
                 <div class="ajax-notice"></div>
@@ -1683,7 +1706,7 @@ class CFS_Module
             <br/> ' . __('2、部分权限涉及到一些敏感功能，请注意相关风险！', 'zib_language') . '
             <br/> ' . __('3、由于功能权限较多，部分权限逻辑稍微复杂，请一定要仔细查看、设置！', 'zib_language') . '
             <br/> ' . __('4、设置的过程中如果出现混乱，可以重置选区将当前页面的用户权限恢复到初始值', 'zib_language') . '
-            <br/><a target="_blank" href="https://www.zibll.com/3090.html">' . __('查看官方教程', 'zib_language') . '</a>
+            <br/><a target="_blank" href="' . esc_url(zib_theme_doc_uri('3090.html')) . '">' . __('查看官方教程', 'zib_language') . '</a>
             </div>',
             'style'   => 'warning',
             'type'    => 'submessage',
@@ -1990,12 +2013,12 @@ class CFS_Module
                             <p class="ajax-notice"></p>
                             <a href="javascript:;" class="but jb-blue mr10 online-update"><i class="fa fa-cloud-download fa-fw"></i> ' . esc_html__('在线更新', 'zib_language') . '</a><a href="javascript:;" class="but c-yellow ajax-submit"><i class="fa fa-ban fa-fw"></i> ' . esc_html__('忽略此次更新', 'zib_language') . '</a>
                         </div>
-                        <div style="text-align: right;font-size: 12px;opacity: .5;"><a style="color: inherit;" target="_blank" href="https://www.zibll.com/1411.html">' . esc_html__('遇到问题？点此查看官网教程', 'zib_language') . '</a></div>
+                        <div style="text-align: right;font-size: 12px;opacity: .5;"><a style="color: inherit;" target="_blank" href="' . esc_url(zib_theme_doc_uri('1411.html')) . '">' . esc_html__('遇到问题？点此查看官网教程', 'zib_language') . '</a></div>
                     </div>';
 
             $log = '<div class="box-theme">';
             $log .= $data['update_content'];
-            $log .= '</div><div><a class="but c-blue" target="_blank" href="https://www.zibll.com/375.html">' . esc_html__('查看更多更新日志', 'zib_language') . '</a></div>';
+            $log .= '</div><div><a class="but c-blue" target="_blank" href="' . esc_url(zib_theme_doc_uri('375.html')) . '">' . esc_html__('查看更多更新日志', 'zib_language') . '</a></div>';
             $csf[] = array(
                 'type'    => 'notice',
                 'style'   => 'info',
@@ -2016,75 +2039,75 @@ class CFS_Module
             </div>';
 
             $docs = '<div class="flex hh zibll-doscs">';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/375.html">' . esc_html__('Zibll子比主题历史更新日志', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/3025.html">' . esc_html__('网站伪静态及固定链接设置教程-解决404错误问题', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/43082.html">' . esc_html__('Meilisearch搜索配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/47233.html">' . esc_html__('多语言智能翻译配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/46856.html">' . esc_html__('常见CDN缓存加速配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/46784.html">' . esc_html__('论坛付费板块、付费圈子配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/15886.html">' . esc_html__('文章高级筛选分类教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/15873.html">' . esc_html__('评论及用户显示IP归属地教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/951.html">' . esc_html__('网址导航页面创建教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/39206.html">' . esc_html__('商城快递查询接口配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/39214.html">' . esc_html__('商城首页创建教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/39217.html">' . esc_html__('商品参数继承及配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/39221.html">' . esc_html__('商品详情页布局教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/39144.html">' . esc_html__('商城系统入门教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/26764.html">' . esc_html__('商品优惠码配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/25892.html">' . esc_html__('网站背景图配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/13972.html">' . esc_html__('文件上传格式、大小限制配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/11852.html">' . esc_html__('视频封面图集封面配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/10537.html">' . esc_html__('用户徽章系统配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/8663.html">' . esc_html__('卡密充值到余额功能教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/655.html">' . esc_html__('接入支付宝收款接口教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/7327.html">' . esc_html__('用户发布付费内容参与创作分成教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/18579.html">' . esc_html__('积分转账、余额转账功能教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/7342.html">' . esc_html__('余额充值、余额支付功能教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/7349.html">' . esc_html__('积分、签到功能教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/?s=人机验证">' . esc_html__('人机验证相关功能教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/3090.html">' . esc_html__('用户权限管理系统使用教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/8673.html">' . esc_html__('用户邀请码注册功能使用教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/zibll_word/%e7%a4%be%e5%8c%ba%e8%ae%ba%e5%9d%9b">' . esc_html__('社区论坛系列教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/41904.html">' . esc_html__('论坛帖子推荐指数排序方式详解', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2997.html">' . esc_html__('API内容审核使用教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2983.html">' . esc_html__('手机底部TAB栏目配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2976.html">' . esc_html__('用户等级系统配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2956.html">' . esc_html__('用户身份认证功能使用教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1816.html">' . esc_html__('网站布局设置、模块配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2290.html">' . esc_html__('第三方账号登录：代理登录教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2234.html">' . esc_html__('主题强大漂亮的代码高亮功能教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1802.html">' . esc_html__('添加广告位教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1717.html">' . esc_html__('文章目录树使用教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/?s=短信">' . esc_html__('短信验证码功能相关教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/?s=视频">' . esc_html__('视频功能、视频剧集功能教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1071.html">' . esc_html__('推广返佣、推荐奖励使用教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1246.html">' . esc_html__('新版幻灯片使用教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1244.html">' . esc_html__('消息系统-站内通知-用户私信功能详解', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1012.html">' . esc_html__('导航菜单添加自定义徽章及多种样式菜单教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1222.html">' . esc_html__('正确使用自定义代码示例及教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/8681.html">' . esc_html__('微信公众号模板消息推送教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2916.html">' . esc_html__('微信公众号配置自定义菜单教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/7297.html">' . esc_html__('微信分享有图教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2206.html">' . esc_html__('主题接入微信登录图文教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/1001.html">' . esc_html__('主题接入Github登录图文教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/979.html">' . esc_html__('主题接入QQ登录图文教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/958.html">' . esc_html__('文章列表显示模式设置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/886.html">' . esc_html__('海报分享功能详细教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/2195.html">' . esc_html__('古腾堡编辑器-在文章中插入TAB栏目教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/860.html">' . esc_html__('古腾堡编辑器-在文章中插入其他文章卡片教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/853.html">' . esc_html__('古腾堡编辑器-隐藏内容模块使用教程>', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/767.html">' . esc_html__('主题VIP会员系统详细使用教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/720.html">' . esc_html__('邮件SMTP发送邮件教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/689.html">' . esc_html__('编辑器增强-古腾堡编辑器块入门详解', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/683.html">' . esc_html__('强大的图片灯箱功能详解', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/675.html">' . esc_html__('使用古腾堡块在文章中插入幻灯片教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/580.html">' . esc_html__('主题付费阅读、付费资源功能详解', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/529.html">' . esc_html__('主题导航菜单设置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/519.html">' . esc_html__('主题常用功能设置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/498.html">' . esc_html__('主题前端显示配置教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/18629.html">' . esc_html__('WordPress换域名教程', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/46.html">' . esc_html__('主题详细安装教程/更新教程/首次配置指南', 'zib_language') . '</a></li>';
-            $docs .= '<li><a target="_blank" href="https://www.zibll.com/zibll_word">' . esc_html__('更多主题文档及教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('375.html')) . '">' . esc_html__('Zibll子比主题历史更新日志', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('3025.html')) . '">' . esc_html__('网站伪静态及固定链接设置教程-解决404错误问题', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('43082.html')) . '">' . esc_html__('Meilisearch搜索配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('47233.html')) . '">' . esc_html__('多语言智能翻译配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('46856.html')) . '">' . esc_html__('常见CDN缓存加速配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('46784.html')) . '">' . esc_html__('论坛付费板块、付费圈子配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('15886.html')) . '">' . esc_html__('文章高级筛选分类教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('15873.html')) . '">' . esc_html__('评论及用户显示IP归属地教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('951.html')) . '">' . esc_html__('网址导航页面创建教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('39206.html')) . '">' . esc_html__('商城快递查询接口配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('39214.html')) . '">' . esc_html__('商城首页创建教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('39217.html')) . '">' . esc_html__('商品参数继承及配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('39221.html')) . '">' . esc_html__('商品详情页布局教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('39144.html')) . '">' . esc_html__('商城系统入门教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('26764.html')) . '">' . esc_html__('商品优惠码配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('25892.html')) . '">' . esc_html__('网站背景图配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('13972.html')) . '">' . esc_html__('文件上传格式、大小限制配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('11852.html')) . '">' . esc_html__('视频封面图集封面配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('10537.html')) . '">' . esc_html__('用户徽章系统配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('8663.html')) . '">' . esc_html__('卡密充值到余额功能教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('655.html')) . '">' . esc_html__('接入支付宝收款接口教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('7327.html')) . '">' . esc_html__('用户发布付费内容参与创作分成教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('18579.html')) . '">' . esc_html__('积分转账、余额转账功能教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('7342.html')) . '">' . esc_html__('余额充值、余额支付功能教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('7349.html')) . '">' . esc_html__('积分、签到功能教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('search-人机验证.html')) . '">' . esc_html__('人机验证相关功能教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('3090.html')) . '">' . esc_html__('用户权限管理系统使用教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('8673.html')) . '">' . esc_html__('用户邀请码注册功能使用教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('zibll_word-社区论坛.html')) . '">' . esc_html__('社区论坛系列教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('41904.html')) . '">' . esc_html__('论坛帖子推荐指数排序方式详解', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2997.html')) . '">' . esc_html__('API内容审核使用教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2983.html')) . '">' . esc_html__('手机底部TAB栏目配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2976.html')) . '">' . esc_html__('用户等级系统配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2956.html')) . '">' . esc_html__('用户身份认证功能使用教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1816.html')) . '">' . esc_html__('网站布局设置、模块配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2290.html')) . '">' . esc_html__('第三方账号登录：代理登录教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2234.html')) . '">' . esc_html__('主题强大漂亮的代码高亮功能教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1802.html')) . '">' . esc_html__('添加广告位教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1717.html')) . '">' . esc_html__('文章目录树使用教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('search-短信.html')) . '">' . esc_html__('短信验证码功能相关教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('search-视频.html')) . '">' . esc_html__('视频功能、视频剧集功能教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1071.html')) . '">' . esc_html__('推广返佣、推荐奖励使用教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1246.html')) . '">' . esc_html__('新版幻灯片使用教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1244.html')) . '">' . esc_html__('消息系统-站内通知-用户私信功能详解', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1012.html')) . '">' . esc_html__('导航菜单添加自定义徽章及多种样式菜单教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1222.html')) . '">' . esc_html__('正确使用自定义代码示例及教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('8681.html')) . '">' . esc_html__('微信公众号模板消息推送教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2916.html')) . '">' . esc_html__('微信公众号配置自定义菜单教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('7297.html')) . '">' . esc_html__('微信分享有图教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2206.html')) . '">' . esc_html__('主题接入微信登录图文教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('1001.html')) . '">' . esc_html__('主题接入Github登录图文教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('979.html')) . '">' . esc_html__('主题接入QQ登录图文教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('958.html')) . '">' . esc_html__('文章列表显示模式设置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('886.html')) . '">' . esc_html__('海报分享功能详细教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('2195.html')) . '">' . esc_html__('古腾堡编辑器-在文章中插入TAB栏目教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('860.html')) . '">' . esc_html__('古腾堡编辑器-在文章中插入其他文章卡片教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('853.html')) . '">' . esc_html__('古腾堡编辑器-隐藏内容模块使用教程>', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('767.html')) . '">' . esc_html__('主题VIP会员系统详细使用教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('720.html')) . '">' . esc_html__('邮件SMTP发送邮件教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('689.html')) . '">' . esc_html__('编辑器增强-古腾堡编辑器块入门详解', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('683.html')) . '">' . esc_html__('强大的图片灯箱功能详解', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('675.html')) . '">' . esc_html__('使用古腾堡块在文章中插入幻灯片教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('580.html')) . '">' . esc_html__('主题付费阅读、付费资源功能详解', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('529.html')) . '">' . esc_html__('主题导航菜单设置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('519.html')) . '">' . esc_html__('主题常用功能设置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('498.html')) . '">' . esc_html__('主题前端显示配置教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('18629.html')) . '">' . esc_html__('WordPress换域名教程', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('46.html')) . '">' . esc_html__('主题详细安装教程/更新教程/首次配置指南', 'zib_language') . '</a></li>';
+            $docs .= '<li><a target="_blank" href="' . esc_url(zib_theme_doc_uri('zibll_word.html')) . '">' . esc_html__('更多主题文档及教程', 'zib_language') . '</a></li>';
             $docs .= '</div>';
 
             $docs .= '<style>.zibll-doscs>li{  min-width: calc(50% - 14px);margin-left: 14px;}</style>';
@@ -2121,7 +2144,7 @@ class CFS_Module
                                     'title'   => __('更新日志', 'zib_language'),
                                     'type'    => 'content',
                                     'style'   => 'success',
-                                    'content' => ($db_update['update_description'] ? '<p>' . $db_update['update_description'] . '</p>' : '') . $db_update['update_content'] . '<p><a class="but c-blue" target="_blank" href="https://www.zibll.com/375.html">' . esc_html__('查看更多更新日志', 'zib_language') . '</a></p>',
+                                    'content' => ($db_update['update_description'] ? '<p>' . $db_update['update_description'] . '</p>' : '') . $db_update['update_content'] . '<p><a class="but c-blue" target="_blank" href="' . esc_url(zib_theme_doc_uri('375.html')) . '">' . esc_html__('查看更多更新日志', 'zib_language') . '</a></p>',
                                 ),
                             ),
                         ),

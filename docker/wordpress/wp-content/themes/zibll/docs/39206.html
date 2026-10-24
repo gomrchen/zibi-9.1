@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题商城物流跟踪-快递查询接口配置教程[V8.2新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题商城物流跟踪-快递查询接口配置教程[V8.2新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/39206.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">zibll子比主题更新V8.2之后，新增了实物商城功能，现在可以使用zibll主题搭建独立的WordPress商城网站了！</p>
+
+
+
+<p class="wp-block-paragraph">既然是实物商城，那肯定少不了物流跟踪功能，例如发货、退货，所以我们需要配置好快递查询接口</p>
+
+
+
+<h2 class="wp-block-heading">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">进入<qc style="color:#09ACE2;background:undefined">后台->主题设置->商城&amp;商品->物流&amp;发货</qc>：配置快递查询接口、以及接口参数等其它功能</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-商城物流跟踪-快递查询接口配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250925221305563-image-79.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1331"  class="wp-image-39227" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250925221305563-image-79.png 1708w, https://oss.zibll.com/zibll.com/2025/09/20250925221305563-image-79.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_819 800w, https://oss.zibll.com/zibll.com/2025/09/20250925221305563-image-79.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1331 1300w" sizes="(max-width: 1708px) 100vw, 1708px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">关于查询快递查询间隔时间设置，需要注意的是：主题并不会在后台查询快递信息，而是当用户或管理员点击查看快递信息时，才会通过API接口进行查询。这里配置的间隔时间，实际上是API查询的最小时间间隔，也就是说在此间隔时间内，用户或管理员查看同一快递信息，都不会通过API更新内容</p>
+
+
+
+<h2 class="wp-block-heading">快递鸟接口</h2>
+
+
+
+<p class="wp-block-paragraph">快递鸟是国内知名的物流信息服务商，价格实惠，支持免费试用。</p>
+
+
+
+<p class="wp-block-paragraph">配置方法：注册并登录后，进入<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9iaXoua2RuaWFvLmNvbS9hY2NvdW50LWNlbnRlci9hcGk%3D&#038;nonce=e56c7733e100c3901fe28ccea7fa0fc44242ce68b94c8fabc815907b58fb769d|1792863722"  target="_blank" rel="noreferrer noopener">快递鸟后台-账号管理-API密钥管理</a>，将获取到的<code>用户ID</code>和<code>API KEY</code>填入主题配置即可</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-商城物流跟踪-快递查询接口配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250925222534474-image-80.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_436"  class="wp-image-39228" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250925222534474-image-80.png 2168w, https://oss.zibll.com/zibll.com/2025/09/20250925222534474-image-80.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_268 800w, https://oss.zibll.com/zibll.com/2025/09/20250925222534474-image-80.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_436 1300w" sizes="(max-width: 2168px) 100vw, 2168px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">快递100接口</h2>
+
+
+
+<p class="wp-block-paragraph">快递100也是常用的快递接口，支持免费试用。</p>
+
+
+
+<p class="wp-block-paragraph">注册并登录后，进入<a rel="noreferrer noopener" href="https://www.zibll.com/?golink=aHR0cHM6Ly9hcGkua3VhaWRpMTAwLmNvbS9tYW5hZ2VyL3YyL3F1ZXJ5L292ZXJ2aWV3&#038;nonce=8cd3787e146ec44b6f29ad3c8e5917b282e42e85dd3980c59c45fd7ea70d1e65|1792863722"  target="_blank">快递100后台</a>，将<code>授权key</code>和<code>customer填入</code>主题配置即可。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-商城物流跟踪-快递查询接口配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250925223046589-image-81.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_715"  class="wp-image-39229" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250925223046589-image-81.png 1872w, https://oss.zibll.com/zibll.com/2025/09/20250925223046589-image-81.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_440 800w, https://oss.zibll.com/zibll.com/2025/09/20250925223046589-image-81.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_715 1300w" sizes="(max-width: 1872px) 100vw, 1872px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">阿里云接口</h2>
+
+
+
+<p class="wp-block-paragraph">阿里云全球快递物流查询支持30天100次免费试用</p>
+
+
+
+<p class="wp-block-paragraph">先进入<a rel="noreferrer noopener" href="https://www.zibll.com/?golink=aHR0cHM6Ly9tYXJrZXQuYWxpeXVuLmNvbS9hcGltYXJrZXQvZGV0YWlsL2NtYXBpMDIzMjAxI3NrdT15dW5jb2RlMTcyMDEwMDAwMTk%3D&#038;nonce=78440b771f4efb3fe1ae47233b3233ebe6cbd0625670654d8731fb156afdcf19|1792863722"  target="_blank">全球快递物流查询</a>页面，免费领取试用或购买后，进入<a rel="noreferrer noopener" href="https://www.zibll.com/?golink=aHR0cHM6Ly9tYXJrZXRuZXh0LmNvbnNvbGUuYWxpeXVuLmNvbS9iaXpsaXN0P3RyaWFsPTE%3D&#038;nonce=3e7c5ed00cafbae7199d987f620d8691872c33ca170e962ba3318398bab9e4c9|1792863722"  target="_blank">云市场控制台</a>，就可以看到<code>AppCode</code>了，只需要把<code>AppCode</code>填写到主题配置中即可</p>
+
+
+
+<figure class="wp-block-image size-large"><img alt="图片[4]-商城物流跟踪-快递查询接口配置教程-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1664" height="968" src="https://oss.zibll.com/zibll.com/2025/09/20250925223627724-image-83.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_756"  class="wp-image-39231" srcset="https://oss.zibll.com/zibll.com/2025/09/20250925223627724-image-83.png 1664w, https://oss.zibll.com/zibll.com/2025/09/20250925223627724-image-83.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_465 800w, https://oss.zibll.com/zibll.com/2025/09/20250925223627724-image-83.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_756 1300w" sizes="(max-width: 1664px) 100vw, 1664px" /></figure>
+
+
+
+<h2 class="wp-block-heading">后台测试</h2>
+
+
+
+<p class="wp-block-paragraph">参数填写完成后记得先保存主题配置！然后就可以找一个订单号，自己先测试一下</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-商城物流跟踪-快递查询接口配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250925224244640-image-84.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_735"  class="wp-image-39232" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250925224244640-image-84.png 1304w, https://oss.zibll.com/zibll.com/2025/09/20250925224244640-image-84.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_452 800w, https://oss.zibll.com/zibll.com/2025/09/20250925224244640-image-84.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_735 1300w" sizes="(max-width: 1304px) 100vw, 1304px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">功能截图</h2>
+
+
+
+<p class="wp-block-paragraph">商家后台发货截图</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-商城物流跟踪-快递查询接口配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250925224611777-image-85.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1095"  class="wp-image-39233" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250925224611777-image-85.png 2146w, https://oss.zibll.com/zibll.com/2025/09/20250925224611777-image-85.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_673 800w, https://oss.zibll.com/zibll.com/2025/09/20250925224611777-image-85.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1095 1300w" sizes="(max-width: 2146px) 100vw, 2146px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">前台UI截图</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-商城物流跟踪-快递查询接口配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250925224718478-image-86.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1019"  class="wp-image-39234" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250925224718478-image-86.png 1818w, https://oss.zibll.com/zibll.com/2025/09/20250925224718478-image-86.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_627 800w, https://oss.zibll.com/zibll.com/2025/09/20250925224718478-image-86.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1019 1300w" sizes="(max-width: 1818px) 100vw, 1818px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[8]-商城物流跟踪-快递查询接口配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2025/09/20250925224823149-image-87.png"   class="wp-image-39235" width="600"/></figure>
+</div>                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

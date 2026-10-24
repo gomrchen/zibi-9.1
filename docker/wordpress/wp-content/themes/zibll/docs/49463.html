@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题超强模块-图文视频封面模块配置教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题超强模块-图文视频封面模块配置教程</h1>
+  <div class="meta">来源：https://www.zibll.com/49463.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">zibll主题在使用模块化配置的时候，经常会遇到插入图片、插入视频的情况。我们有一个非常强大的模块，叫<code>图文视频封面模块</code>，专门用于展示视频、图片等信息的万能模块，支持单行显示数量、附加文本等丰富的配置项，让这个模块变得十分强大。</p>
+
+
+
+<h2 class="wp-block-heading">模块效果预览</h2>
+
+
+
+<p class="wp-block-paragraph">首先我们预览一下可以实现的效果：</p>
+
+
+
+<p class="wp-block-paragraph">单独一个图片：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[1]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2026/06/20260629170714925-image-168.png" data-src="https://oss.zibll.com/zibll.com/2026/06/20260629170714925-image-168.png" class="wp-image-49468 lazyloaded lazyloadafter" style="width:600px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">单行多张图片：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1428" height="444" src="https://oss.zibll.com/zibll.com/2026/06/20260629165645807-image-166.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_404" class="wp-image-49464" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/06/20260629165645807-image-166.png 1428w, https://oss.zibll.com/zibll.com/2026/06/20260629165645807-image-166.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_248 800w, https://oss.zibll.com/zibll.com/2026/06/20260629165645807-image-166.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_404 1300w" sizes="(max-width: 1428px) 100vw, 1428px" imgbox-index="1"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">移动端多行多张图片：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[3]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260629165740531-image-167.png" class="wp-image-49465 lazyload" style="width:600px" imgbox-index="2"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">单行多个图片加文字：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[4]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260629171056940-image-169.png" class="wp-image-49470 lazyload" style="width:600px" imgbox-index="3"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">单独一个视频：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img alt="图片[5]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260629170947350-yanshi-3-2.gif" class="wp-image-49469 lazyload" imgbox-index="4"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">视频加文字：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img alt="图片[6]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260629170418572-yanshi-1.gif" class="wp-image-49466 lazyload" imgbox-index="5"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">单行多个视频：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img alt="图片[7]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260629170609894-yanshi-2.gif" class="wp-image-49467 lazyload" imgbox-index="6"></figure>
+</div>
+
+
+<h2 class="wp-block-heading">模块配置</h2>
+
+
+
+<p class="wp-block-paragraph">如果您还不熟悉子比主题模块布局的话，请先查看以下教程：</p>
+
+
+
+<div data-pid="1816" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="1816.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/20260530132122133-网站布局入门教程-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="页面布局、模块使用及可视化布局教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="1816.html">页面布局、模块使用及可视化布局教程<span class="focus-color">[网站布局入门教程]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-30 22:05:19" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>8.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>98</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph">从上面的阅览中我们可以看出来这个模块的功能十分强大，主要用于图片、视频、文字相关内容展示。配置方式也非常简单：在需要添加此模块的地方，选择图文视频封面模块，然后依次配置模块的长宽比例、布局数量等其他配置，再在下方添加需要展示的图片或视频</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[8]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1428" height="1066" src="https://oss.zibll.com/zibll.com/2026/06/20260629171440565-image-170.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_970" class="wp-image-49471" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2026/06/20260629171440565-image-170.png 1428w, https://oss.zibll.com/zibll.com/2026/06/20260629171440565-image-170.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_597 800w, https://oss.zibll.com/zibll.com/2026/06/20260629171440565-image-170.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_970 1300w" sizes="(max-width: 1428px) 100vw, 1428px" imgbox-index="7"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img alt="图片[9]-zibll子比主题超强模块-图文视频封面模块配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260629171510852-image-171.png" class="wp-image-49472 lazyload" imgbox-index="8"></figure>
+</div>                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

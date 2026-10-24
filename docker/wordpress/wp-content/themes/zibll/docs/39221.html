@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题商城商品详情页配置及内容布局教程[V8.2新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题商城商品详情页配置及内容布局教程[V8.2新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/39221.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">zibll子比主题v8.2更新的商城系统，满足各种类型商商城网站，支持发布任意商品，包括所有实物商品，自动发货的虚拟商品和手动发货的虚拟商品，那么同时，不同类型的商品对详情页的UI布局可能也有不同的需求。因此主题也适配了多种效果，满足几乎所有类型的商品显示。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">基础配置</h2>
+
+
+
+<p class="wp-block-paragraph">我们先说商品详情页的配置功能，这个很简单，一张图就够了：<br>进入后台-主题设置-商城商品-商品详情页：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-商城商品详情页配置及内容布局教程[V8.2新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250927131427879-image-104.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_913" class="wp-image-39302" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927131427879-image-104.png 1848w, https://oss.zibll.com/zibll.com/2025/09/20250927131427879-image-104.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_561 800w, https://oss.zibll.com/zibll.com/2025/09/20250927131427879-image-104.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_913 1300w" sizes="(max-width: 1848px) 100vw, 1848px" imgbox-index="0"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_1">内容区域布局配置</h2>
+
+
+
+<p class="wp-block-paragraph">重点我们说的就是内容区域的布局配置，这直接影响到商品详情显示的UI效果，必须要根据自己商品的情况合理设置，才能达到最好的效果。</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_2">配置方法</h3>
+
+
+
+<p class="wp-block-paragraph">首选我们看一下，需要配置的几个重点参数和功能：</p>
+
+
+
+<ol class="wp-block-list">
+<li>商品详情而布局：全屏、适应内容宽度、适应内容宽度+侧边栏</li>
+
+
+
+<li>商品详情背景盒子：显示、隐藏</li>
+
+
+
+<li>古腾堡块：无缝图块</li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[2]-商城商品详情页配置及内容布局教程[V8.2新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2025/09/20250927132531316-image-105.png" class="wp-image-39303 lazyload" width="600" imgbox-index="1"></figure>
+</div>
+
+
+<h3 class="wp-block-heading" id="wznav_3">配置示例</h3>
+
+
+
+<p class="wp-block-paragraph">那么我们根据常见的不同商品类型，举几个例子来展示一下这几种功能配置后的布局效果</p>
+
+
+
+<p class="wp-block-paragraph"><strong>1.</strong>最常见的实物商品，例如手机、服饰、家电等，目前淘宝京东拼多多等商城最常见的做法就是商品详情介绍全部都是图片拼接，并且全屏展示，效果最佳。<br>那么我么这样配置：<qc style="color:#3B6ED5;background:undefined">1.商品详情页布局选择全屏，2.商品详情背景盒子选择隐藏，3.所有商品介绍只是用无缝图插入图片</qc>（无缝图开启宽度填满容器）。最终效果如下：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[3]-商城商品详情页配置及内容布局教程[V8.2新功能]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2025/09/20250927135419993-iShot_2025-09-27_13.53.48-scaled.jpg" class="wp-image-39311 lazyload" width="600" height="1449" imgbox-index="2"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong>2.</strong>有时候我们的商品介绍并不是全是图片填满，可能就是常规的图文融合，因为一般也只有知名产品、或者大公司才能为自己的产品做全图介绍，那么像这种图片文字都有的详情介绍，使用全屏显示效果就不好看了。那么我们这样配置：<qc style="color:#3B6ED5;background:undefined">1.商品详情页布局选择内容适配宽度，2.商品详情背景盒子选择显示，3.商品介绍就正常编辑</qc>。最终效果如下：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-商城商品详情页配置及内容布局教程[V8.2新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250927141133138-iShot_2025-09-27_14.11.18-scaled.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_2544" class="wp-image-39314" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927141133138-iShot_2025-09-27_14.11.18-scaled.jpg 1308w, https://oss.zibll.com/zibll.com/2025/09/20250927141133138-iShot_2025-09-27_14.11.18-scaled.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_1565 800w, https://oss.zibll.com/zibll.com/2025/09/20250927141133138-iShot_2025-09-27_14.11.18-scaled.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_2544 1300w" sizes="(max-width: 1308px) 100vw, 1308px" imgbox-index="3"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong>3.</strong>很多站长可能不会销售比较知名的品牌产品，例如技术服务、自动发卡等，没有专业的图片介绍，同时还可能需要显示丰富的内容，那么这时候我们可以开启侧边栏（注意：侧边栏不会在移动端显示），整体效果如下：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-商城商品详情页配置及内容布局教程[V8.2新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250927143246202-iShot_2025-09-27_14.32.07.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1658" class="wp-image-39316" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927143246202-iShot_2025-09-27_14.32.07.jpg 1564w, https://oss.zibll.com/zibll.com/2025/09/20250927143246202-iShot_2025-09-27_14.32.07.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_1020 800w, https://oss.zibll.com/zibll.com/2025/09/20250927143246202-iShot_2025-09-27_14.32.07.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1658 1300w" sizes="(max-width: 1564px) 100vw, 1564px" imgbox-index="4"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_4">模块化布局</h2>
+
+
+
+<p class="wp-block-paragraph">同时，商品详情页也是支持zibll模块化布局的，你可以在详情页的侧边栏、底部等位置添加任意模块（上面截图的侧边栏内容就是通过模块添加的），如果您还未了解过模块化布局，请查看以下教程：</p>
+
+
+
+<div data-pid="1816" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="1816.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/20260530132122133-网站布局入门教程-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="页面布局、模块使用及可视化布局教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="1816.html">页面布局、模块使用及可视化布局教程<span class="focus-color">[网站布局入门教程]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-30 22:05:19" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>8.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>98</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_5">更多TAB栏目</h2>
+
+
+
+<p class="wp-block-paragraph">有时候，有些特殊商品我们需要添加更多的内容用于丰富商品介绍，例如手机一般会额外显示参数配置、售后细则等，那么我们可以添加更多TAB栏目，丰富详情页的说明。</p>
+
+
+
+<p class="wp-block-paragraph">效果示例：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-商城商品详情页配置及内容布局教程[V8.2新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250927145201152-image-108.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_986" class="wp-image-39319" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927145201152-image-108.png 1566w, https://oss.zibll.com/zibll.com/2025/09/20250927145201152-image-108.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_606 800w, https://oss.zibll.com/zibll.com/2025/09/20250927145201152-image-108.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_986 1300w" sizes="(max-width: 1566px) 100vw, 1566px" imgbox-index="5"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">添加方式：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-商城商品详情页配置及内容布局教程[V8.2新功能]-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/09/20250927144953970-image-107.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_949" class="wp-image-39318" width="600" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927144953970-image-107.png 2002w, https://oss.zibll.com/zibll.com/2025/09/20250927144953970-image-107.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_584 800w, https://oss.zibll.com/zibll.com/2025/09/20250927144953970-image-107.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_949 1300w" sizes="(max-width: 2002px) 100vw, 2002px" imgbox-index="6"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_6">配置继承</h2>
+
+
+
+<p class="wp-block-paragraph">不用担心是不是要每次都配置一下，zibll子比主题支持配置继承功能，让配置极其简单又高度自由化，详情请查看以下教程：</p>
+
+
+
+<div data-pid="39217" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="39217.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2026/06/20260607124837627-商品参数配置-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="zibll子比主题商品参数配置-配置继承功能详解及说明-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="39217.html">zibll子比主题商品参数配置-配置继承功能详解及说明<span class="focus-color">[V8.2新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-07 12:52:06" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2687</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>60</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<p class="wp-block-paragraph">ok，教程结束，合理的运用各项配置，就能让您的商城网站优雅漂亮！</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

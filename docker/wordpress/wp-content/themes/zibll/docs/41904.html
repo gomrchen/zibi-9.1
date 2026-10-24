@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论坛帖子推荐指数排序方式详解及教程[V8.5新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>论坛帖子推荐指数排序方式详解及教程[V8.5新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/41904.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用WordPress和zibll子比主题搭建社区论坛的站长也越来越多了，论坛帖子的排序方式支持按时间、浏览量、评分、回帖量、收藏量等数据进行排序，但是这些排序当时难免有点单一，所以zibll子比主题更新V8.5，带来了全新的<code>推荐指数</code>排序方式</p>
+
+
+
+<p class="wp-block-paragraph">推荐指数排序方式是按照 发帖时间、浏览量、回帖量、收藏量、帖子加分、帖子扣分与我们设置的权重基数综合计算得出的。</p>
+
+
+
+<p class="wp-block-paragraph">这样就能更好的评判帖子的受欢迎程度，通过这种排序方式能够让用户跟喜欢的内容尽量排在前面</p>
+
+
+
+<div class="wp-block-zibllblock-alert alert-dismissible fade in"><div class="alert jb-green" data-isclose="" role="alert">重要通知：由于政策原因，官网下架了论坛功能演示，如需查看zibll主题论坛相关功能演示，请跳转到到：<a href="https://www.zibll.top/"><strong>www.zibll.top</strong></a></div></div>
+
+
+
+<p class="wp-block-paragraph">首先，我们需要在主题配置中，为各项类型配置权重系数。一般建议保持默认，后面根据自己网站的情况适当的调整系数即可。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-论坛帖子推荐指数排序方式详解及教程[V8.5新功能]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1938" height="1442" src="https://oss.zibll.com/zibll.com/2025/11/20251227133331776-image-210.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_967" class="wp-image-43060" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/11/20251227133331776-image-210.png 1938w, https://oss.zibll.com/zibll.com/2025/11/20251227133331776-image-210.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_595 800w, https://oss.zibll.com/zibll.com/2025/11/20251227133331776-image-210.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_967 1300w" sizes="(max-width: 1938px) 100vw, 1938px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">我们简单的说一下这计算逻辑，让各位站长能够清晰的理解</p>
+
+
+
+<ol class="wp-block-list">
+<li>当有新帖子首次发布的时候，会自动给予一个当前最高值作为时间权重加成分，这样可以让最新发布的帖子排在最前面，然后时间加成得分会按照三个阶段逐步衰减</li>
+
+
+
+<li>就是阅读、收藏、评论、加分等行为发生时，按对应的系数加分，扣分同理系数减分</li>
+
+
+
+<li>主要注意的是阅读、收藏、评论、加分等加分系数很容易理解，就是简单的乘法计算。只要是时间加成得分的衰减过程，这个配置，决定了新发布内容的时间排序权重，这个一定要根据自己网站的发帖量合理设置</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:rgba(251,92,172,1);background:undefined">重点强调：</qc></strong></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(230,114,114,1);background:undefined">因为此排序方式，使用了sql高级计算语法，比较耗时，所以强烈建议配置redis缓存使用！</qc></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(255,82,82,1);background:undefined">同时开启redis缓存后，排序的结果将会按照设置的时间进行缓存，需要注意的是那么这个顺序在缓存时间内就不会更新，毕竟顺序也不需要实时更新。</qc></p>
+
+
+
+<div data-quantity="1" data-radius="false" class="wp-block-zibllblock-buttons"><span class="an_1 but b-blue"><a href="https://www.zibll.com/1997.html">点击查看Redis缓存配置教程</a></span></div>
+
+
+
+<p class="wp-block-paragraph">那么，帖子的排序情况大致为：</p>
+
+
+
+<ul class="wp-block-list">
+<li>新发布的帖子在前面，但是如果浏览量或其它得分不高，也就是受欢迎程度不如之前的老帖子，那么就会慢慢往后面排，就是我们常说的帖子沉下去了</li>
+
+
+
+<li>即使是很久之前发布的帖子，只要是一直有人查看、互动，那么就能一直得分，一直保持排在前面一些</li>
+
+
+
+<li>同样的有些垃圾帖子，很多人扣分，那么很快就会越来越靠后了</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">这个逻辑和能实现的效果相信大家都明白了，主要的目的就是让用户喜欢的内容尽量排在前面，这也是现在代化APP常见命名为：<code>综合</code>、<code>推荐</code>等排序的方式。</p>
+
+
+
+<p class="wp-block-paragraph">需要注意的是：不同类型的网站，用户互动的情况可能不一致，那么我们就需要根据实际情况来调整各项系数了。</p>
+
+
+
+<p class="wp-block-paragraph">注意：修改系数后，并不会让所有帖子立即生效，是在下一次互动触发时，就会采用最新的配置来计算</p>
+
+
+
+<p class="wp-block-paragraph">最后，我们还需要将此排序方式运用到网站中，我们可以在主题配置中配置首页、板块页面的排序方式，也可以在添加小工具模块时，选择此排序方式</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-论坛帖子推荐指数排序方式详解及教程[V8.5新功能]-WordPress主题模板-zibll子比主题" decoding="async" width="1388" height="1086" src="https://oss.zibll.com/zibll.com/2025/11/20251129155643294-image-190.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1017" class="wp-image-41908" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/11/20251129155643294-image-190.png 1388w, https://oss.zibll.com/zibll.com/2025/11/20251129155643294-image-190.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_625 800w, https://oss.zibll.com/zibll.com/2025/11/20251129155643294-image-190.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1017 1300w" sizes="(max-width: 1388px) 100vw, 1388px" imgbox-index="1"></figure>
+</div>                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

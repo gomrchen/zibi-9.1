@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数据库批量替换插件正式发布、一键换域名工具[插件发布]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>数据库批量替换插件正式发布、一键换域名工具[插件发布]</h1>
+  <div class="meta">来源：https://www.zibll.com/19369.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">如何快速完美的更换WordPress网站域名？使用云存储后如何批量修改老文章的数据？网站安装证书后，如何把域名完美的由http改为https？想要批量快速的修改数据库内容又该如何呢？根据其他百度的教程使用了SQL命令执行后怎么有这么多问题呢？</p>
+
+
+
+<p class="wp-block-paragraph">现在，WordPress<code>数据库批量替换插件</code>它来了，这些问题都不再是问题。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">前言</h2>
+
+
+
+<p class="wp-block-paragraph">上面这些问题，估计90%的站长都为之头疼过，对于经验不足的站长来说，根本就无从下手。即使是有一定编程能力的站长，可能会百度教程，通过sql命令批量替换，但是<code>序列化数据</code>的坑始终无法解决。这个问题已经有很多站长找过我了，前几天我也写了一篇教程详细的阐述了数据库<code>序列化数据</code>的逻辑，以及SQL批量替换命令的详细图文教程。现在，我也按照约定，开发了此插件，为大家解决这个难题！</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(250,58,58,1);background:undefined">此工具可以无脑使用，但是我还是强烈建议大家学习一下数据库的基本逻辑，详情请查看以下文章：</qc></p>
+
+
+
+<div data-pid="18629" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg gradient-bg-loaded" data-opacity="0.1" style="background-image: linear-gradient(135deg, rgba(226, 235, 252, 0.1) 10%, rgba(222, 226, 245, 0.1) 80%);">
+            <div class="mr10"><div class="item-thumbnail"><a href="18629.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/2023/09/换域名-列表图1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" data-src="https://oss.zibll.com/zibll.com/2023/09/换域名-列表图1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="WordPress换域名、批量修改替换网站链接URL最完美教程-WordPress主题模板-zibll子比主题" class="fit-cover radius8 no-imgbox lazyloaded lazyloadafter"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="18629.html">WordPress换域名、批量修改替换网站链接URL最完美教程<span class="focus-color">[新手必看]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="avatar avatar-id-1 ls-is-cached lazyloaded lazyloadafter"><img decoding="async" class="avatar-badge ls-is-cached lazyloaded lazyloadafter" src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2023-10-13 00:21:38" class="ml6">3年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2.6W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>125</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">功能介绍</h2>
+
+
+
+<p class="wp-block-paragraph">此插件主要用于数据库内容批量替换，例如以下场景：</p>
+
+
+
+<ul class="wp-block-list">
+<li>网站更换域名（网址），这个是最常用的</li>
+
+
+
+<li>网站使用了云储存，需要把老数据中的图片地址更换过来</li>
+
+
+
+<li>网站域名由http换为https（这个其实也是换域名）</li>
+
+
+
+<li>批量替换付费下载链接中部分内容（之前我记得蓝奏云就换了域名，让很多站长麻烦很久）</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">以上示例，仅仅是一些常用的场景，实际上这个工具的核心就是数据库内容批量替换，但是既然涉及到数据库，那么<strong><qc style="color:rgba(245,61,61,1);background:undefined">使用此插件，请务必阅读并熟知以下注意事项：</qc></strong></p>
+
+
+
+<ol class="wp-block-list">
+<li>使用前，请务必备份整个数据库！免得你操作出错没有了后悔药</li>
+
+
+
+<li>替换时，请勿输入很短的替换值，容易误修改</li>
+
+
+
+<li>工具会自动分析数据库表，自动处理序列化数据，<qc style="color:#1F91F3;background:undefined">支持所有主题及插件</qc>！</li>
+
+
+
+<li>此工具仅批量修改数据库内容，对修改后会导致的结果无法判断，如果您不清楚您的操作会带来什么结果，请谨慎操作</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><strong>插件的几个特点说明一下</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>支持所有主题和插件</li>
+
+
+
+<li>插件开箱即用，启用后只在插件替换页面加载内容，其它任何地方都没有加载任何内容，确保性能影响为0</li>
+
+
+
+<li>默认支持中文、英文两种语言</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">插件截图</h2>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-WordPress一键完美换域名插件教程-数据库批量替换免费插件-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1434" height="1498" src="https://oss.zibll.com/zibll.com/2023/10/20231012230827336-图片-1.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_1069" class="wp-image-19372" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2023/10/20231012230827336-图片-1.png 1434w, https://oss.zibll.com/zibll.com/2023/10/20231012230827336-图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_731 700w, https://oss.zibll.com/zibll.com/2023/10/20231012230827336-图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_802 768w, https://oss.zibll.com/zibll.com/2023/10/20231012230827336-图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1069 1024w" sizes="(max-width: 1434px) 100vw, 1434px" imgbox-index="0"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_3">插件下载</h2>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q"><i class="fa fa-quote-left"></i><p>此插件为免费工具，您可以自由使用和分享，如您需要分享或二次开发，请务必保留并在显眼处体现作者名（zibll-老唐），以及www.zibll.com的网站<br>请勿用于商业用途，随便改一改还要卖钱的，是绝对不行的！</p></div></div>
+
+
+
+<div mce-contenteditable="false" class="muted-box file-download-box mb20"><div class="flex ac jsb"><div class="flex ac"><div class="mr10"><div class="file-download-icon"></div></div><div class="text-ellipsis-2 file-download-name" mce-contenteditable="true">sql-batch-replace-V1.8.zip</div></div><div class="flex0 ml20"><a class="but c-blue file-download-btn" href="javascript:;" download-nonce="e1f98c33e23a4dd79d8b69bb87b8289c59fe68f4f4f8cddd783626d594292570|1792863952" data-download-file="49782"><i class="fa fa-download"></i>下载</a></div></div><div class="mt10"><div class="flex ab jsb muted-2-color file-download-desc em09"><div class="desc-left">zip文件</div><div class="desc-right">24.0K</div></div><div class="flex ab jsb muted-2-color file-download-desc em09"><div class="desc-left">版本</div><div class="desc-right">V1.8</div></div><div class="flex ab jsb muted-2-color file-download-desc em09"><div class="desc-left">更新时间</div><div class="desc-right">2026-07-10</div></div></div></div>
+
+
+
+<p class="wp-block-paragraph">使用方法：下载插件，进入<qc style="color:rgba(252,77,77,1);background:undefined">WP后台-&gt;插件</qc>，上传插件并启用。进入<qc style="color:rgba(246,84,84,1);background:undefined">WP后台-&gt;设置-&gt;数据库批量替换</qc>开始使用</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">补充教程</h2>
+
+
+
+<p class="wp-block-paragraph">关于网站换域名的技巧和流程，简单说一下</p>
+
+
+
+<p class="wp-block-paragraph">例如你之前的域名为 <code>www.abcddd.com</code> 现在想要换为 <code>www.abc111.com</code>，那么替换的时候，请输入<code>https://www.abcddd.com</code> 换为 <code>https://www.abc111.com</code></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(252,124,68,1);background:undefined">千万不要输入<code>abcddd</code>换为 <code>abc111</code>，这样很容易误操作!</qc></p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(250,115,62,1);background:undefined"><strong>然后流程顺序很重要，不然换了之后就可能打不开网站了！流程如下：</strong></qc></p>
+
+
+
+<ol class="wp-block-list">
+<li>先把新域名做好解析，并确认解析生效（使用终端ping命令进行测试）</li>
+
+
+
+<li>在宝塔(或其它服务工具)把新域名添加到网站域名中，旧域名先不要删除，并确保新域名能访访问网站（还没有使用工具换域名，用新域名打开会有很多错误，只要能打开网站任意内容即可）<a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2024/07/20240712204420397-image-44.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_929" data-imgbox="imgbox">【查看截图】</a></li>
+
+
+
+<li>确保上一条没有问题了！再使用本文的工具在WP后台一键更换域名</li>
+
+
+
+<li>如果新域名也是https，记得在服务器更新新域名的SSL证书</li>
+
+
+
+<li>最后，记得刷新redis以及各种缓存！然后在宝塔(或其它服务工具)把旧的域名删除即可</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">最后，大家遇到什么问题，先自己分析，确实是插件问题，再在下面评论即可！</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

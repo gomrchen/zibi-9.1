@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>使用微信JSSDK分享实现微信分享有图的配置教程[微信分享有图]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>使用微信JSSDK分享实现微信分享有图的配置教程[微信分享有图]</h1>
+  <div class="meta">来源：https://www.zibll.com/7297.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">相信各位站长都知道，将自己的网站分享到微信APP内，默认是没有logo图片显示的。但是微信提供了jssdk的分享方式，如果有已经认证的公众号，那就可以通过微信jssdk分享的方式，发给微信好友或者朋友圈，就可以显示网站的logo图片了。</p>
+
+
+
+<p class="wp-block-paragraph">zibll子比主题自带了微信JSSDK分享功能，接下来我们就一步一步的教大家如何开启此功能！</p>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#fb2121" style="--quote-color:#fb2121"><i class="fa fa-quote-left"></i><p>使用此功能，需升级zibll子比主题V6.3及以上版本！</p></div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">截图预览</h2>
+
+
+
+<p class="wp-block-paragraph">首先我们来看一下开启此功能前后的对比效果</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-wordpress网站使用微信jssdk实现微信分享有图详细教程-Wordpress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="846" height="1762" src="https://oss.zibll.com/zibll.com/2022/04/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_492,h_1024" class="wp-image-7299" style="width:400px" srcset="https://oss.zibll.com/zibll.com/2022/04/图片-5.png 846w, https://oss.zibll.com/zibll.com/2022/04/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_240,h_500 240w, https://oss.zibll.com/zibll.com/2022/04/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_492,h_1024 492w, https://oss.zibll.com/zibll.com/2022/04/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_1600 768w, https://oss.zibll.com/zibll.com/2022/04/图片-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_737,h_1536 737w" sizes="(max-width: 846px) 100vw, 846px" imgbox-index="0"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_1">配置说明</h2>
+
+
+
+<p class="wp-block-paragraph">使用此功能，需要有已经认证的微信公众号。配置教程就十分简单了，大致分为这几部</p>
+
+
+
+<ol class="wp-block-list">
+<li>配置微信公众号的js安全域名和网页授权域名</li>
+
+
+
+<li>将微信公众号的AppID和AppSecret填入主题设置</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">首先登录<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vY29uc29sZS9pbmRleD90YWIxPWJ1c2luZXNzJmFtcDt0YWIyPWRldg%3D%3D&amp;nonce=31d3d272bdf2d08c8b9d8e12a0c001d792d8e8ae173a9e7032c608719ae0d275|1792863929" target="_blank" rel="noreferrer noopener">微信开发者平台</a>，<qc style="color:#1F91F3;background:undefined">选择自己的服务号或公众号</qc>点击进去</p>
+
+
+
+<p class="wp-block-paragraph">1.首先请检查自己的公众号是否已经认证，并取得了分享接口权限</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-wordpress网站使用微信jssdk实现微信分享有图详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1654" height="1602" src="https://oss.zibll.com/zibll.com/2022/04/20260129162647369-image-229.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1259" class="wp-image-44377" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/04/20260129162647369-image-229.png 1654w, https://oss.zibll.com/zibll.com/2022/04/20260129162647369-image-229.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_774 800w, https://oss.zibll.com/zibll.com/2022/04/20260129162647369-image-229.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1259 1300w" sizes="(max-width: 1654px) 100vw, 1654px" imgbox-index="1"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">2.设置ip白名单，并获取AppID和AppSecret</p>
+
+
+
+<p class="wp-block-paragraph">3.配置微信公众号的js安全域名和网页授权域名</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-wordpress网站使用微信jssdk实现微信分享有图详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="2130" height="1736" src="https://oss.zibll.com/zibll.com/2022/11/20260129160502672-image-227.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1059" class="wp-image-44368" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2022/11/20260129160502672-image-227.png 2130w, https://oss.zibll.com/zibll.com/2022/11/20260129160502672-image-227.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_652 800w, https://oss.zibll.com/zibll.com/2022/11/20260129160502672-image-227.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1059 1300w" sizes="(max-width: 2130px) 100vw, 2130px" imgbox-index="2"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong>最后进入主题设置-&gt;文章&amp;列表-&gt;文章功能：开启微信分享有图，填入AppID和AppSecret</strong></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-wordpress网站使用微信jssdk实现微信分享有图详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1704" height="1172" src="https://oss.zibll.com/zibll.com/2022/04/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_704" class="wp-image-7302" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2022/04/图片-7.png 1704w, https://oss.zibll.com/zibll.com/2022/04/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_481 700w, https://oss.zibll.com/zibll.com/2022/04/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_704 1024w, https://oss.zibll.com/zibll.com/2022/04/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_528 768w, https://oss.zibll.com/zibll.com/2022/04/图片-7.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1056 1536w" sizes="(max-width: 1704px) 100vw, 1704px" imgbox-index="3"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">最后需要注意的是，如果你的图片开启了防盗链，那么仍然可能会无法获取到图片，这时候建议开启全站使用网站图片，并将网站图标设置为未开启防盗链的图片链接。</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(251,82,82,1);background:undefined">重要提醒：有些站长配置后分享出来的只有一个链接，没有卡片也没有图片，这个不是配置原因，这个是微信分享的一个小限制，首次分享需要从公众号进入网站后再进行分享才会显示为卡片。（备注：即使没有按照此教程配置分享有图，那么也应该显示为卡片，只是没有图和简介）</qc></p>
+
+
+
+<p class="wp-block-paragraph">此功能和微信公众号登录、微信官方支付的教程都十分相似，都可以用同一个公众号。如果遇到问题还可以看看以下文章</p>
+
+
+
+<div data-pid="2206" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="2206.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/06/微信登录-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_497" alt="Zibll子比主题-第三方登录-接入微信公众号扫码登录图文教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="2206.html">Zibll子比主题-第三方登录-接入微信公众号扫码登录图文教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-01-29 16:20:40" class="ml6">8个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2.8W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>51</item></div></div>
+                </div>
+                </div>
+            </div></div>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

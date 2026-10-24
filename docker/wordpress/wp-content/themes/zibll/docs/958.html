@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zibll子比主题-如何设置文章列表为卡片模式、多图模式、自动模式等</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>Zibll子比主题-如何设置文章列表为卡片模式、多图模式、自动模式等</h1>
+  <div class="meta">来源：https://www.zibll.com/958.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">子比主题支持多种文章列表显示模式：图文模式、卡片模式、多图模式、自动模式、无缝模式等，可以通过不同的列表显示样式搭配出不同的显示效果。但是要如何设置、有哪些注意事项呢？接下来就一一解答！</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">特色介绍</h2>
+
+
+
+<ul class="wp-block-list"><li>两种主要模式：卡片模式和列表模式</li><li>卡片模式两种样式风格(V5.2)</li><li>列表模式两种样式风格（v5.2）</li><li>列表模式可设置缩略图靠左靠右显示（v5.2）</li><li>支持设置缩略图长宽比例（v5.2)</li><li>支持设置幻灯片缩略图（v5.2）</li><li>支持设置缩略图大小</li><li>支持自动获取缩略图</li><li>支持多图模式以及自动图文模式（无缩略图自动转文字模式）</li><li>支持选择显示小部件</li></ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">截图预览</h2>
+
+
+
+<p class="wp-block-paragraph">首先我们看一下有哪些不同的列表显示样式</p>
+
+
+
+<figure class="wp-block-gallery columns-2 is-cropped wp-block-gallery-1 is-layout-flex wp-block-gallery-is-layout-flex"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/10/image-5.png" data-imgbox="imgbox"><img alt="图片[1]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" decoding="async" src="https://oss.zibll.com/zibll.com/2020/10/image-5.png" data-src="https://oss.zibll.com/zibll.com/2020/10/image-5.png" data-id="959" data-full-url="https://oss.zibll.com/zibll.com/2020/10/image-5.png" data-link="https://www.zibll.com/958.html/image-5" class="wp-image-959 lazyloading" imgbox-index="0"></a><figcaption class="blocks-gallery-item__caption">卡片模式</figcaption></figure></li><li class="blocks-gallery-item"><figure><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/10/image-6.png" data-imgbox="imgbox"><img alt="图片[2]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" decoding="async" src="https://oss.zibll.com/zibll.com/2020/10/image-6.png" data-src="https://oss.zibll.com/zibll.com/2020/10/image-6.png" data-id="960" data-full-url="https://oss.zibll.com/zibll.com/2020/10/image-6.png" data-link="https://www.zibll.com/958.html/image-6-5" class="wp-image-960 lazyloading" imgbox-index="1"></a><figcaption class="blocks-gallery-item__caption">列表模式</figcaption></figure></li><li class="blocks-gallery-item"><figure><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/10/image-9.png" data-imgbox="imgbox"><img alt="图片[3]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/10/image-9.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_896" data-id="963" data-full-url="https://oss.zibll.com/zibll.com/2020/10/image-9.png" data-link="https://www.zibll.com/958.html/image-9-4" class="wp-image-963 lazyload" imgbox-index="2"></a><figcaption class="blocks-gallery-item__caption">多图模式</figcaption></figure></li><li class="blocks-gallery-item"><figure><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/10/image-7.png" data-imgbox="imgbox"><img alt="图片[4]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/10/image-7.png" data-id="961" data-full-url="https://oss.zibll.com/zibll.com/2020/10/image-7.png" data-link="https://www.zibll.com/958.html/image-7-5" class="wp-image-961 lazyload" imgbox-index="3"></a><figcaption class="blocks-gallery-item__caption">自动获取缩略图</figcaption></figure></li><li class="blocks-gallery-item"><figure><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/10/image-8.png" data-imgbox="imgbox"><img alt="图片[5]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/10/image-8.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_659" data-id="962" data-full-url="https://oss.zibll.com/zibll.com/2020/10/image-8.png" data-link="https://www.zibll.com/958.html/image-8-5" class="wp-image-962 lazyload" imgbox-index="4"></a><figcaption class="blocks-gallery-item__caption">文章模式</figcaption></figure></li><li class="blocks-gallery-item"><figure><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2020/10/image-10.png" data-imgbox="imgbox"><img alt="图片[6]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2020/10/image-10.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_783" data-id="964" data-full-url="https://oss.zibll.com/zibll.com/2020/10/image-10.png" data-link="https://www.zibll.com/958.html/image-10-4" class="wp-image-964 lazyload" imgbox-index="5"></a><figcaption class="blocks-gallery-item__caption">自动图文模式</figcaption></figure></li><li class="blocks-gallery-item"><figure><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-26.png" data-imgbox="imgbox"><img alt="图片[7]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/image-26.png" data-id="1848" data-full-url="https://oss.zibll.com/zibll.com/2021/04/image-26.png" data-link="https://www.zibll.com/958.html/image-26-3" class="wp-image-1848 lazyload" imgbox-index="6"></a><figcaption class="blocks-gallery-item__caption">缩略图靠右</figcaption></figure></li><li class="blocks-gallery-item"><figure><a href="javascript:;" box-img="https://oss.zibll.com/zibll.com/2021/04/image-25.png" data-imgbox="imgbox"><img alt="图片[8]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/image-25.png" data-id="1847" data-full-url="https://oss.zibll.com/zibll.com/2021/04/image-25.png" data-link="https://www.zibll.com/958.html/image-25-3" class="wp-image-1847 lazyload" imgbox-index="7"></a><figcaption class="blocks-gallery-item__caption">另一种卡片模式样式</figcaption></figure></li></ul></figure>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">进入<qc style="color:#1F91F3;background:">主题设置-文章&amp;列表-文章列表</qc>-&gt;在此修改需要显示的模式以及布局</p>
+
+
+
+<figure class="wp-block-image size-large"><img alt="图片[9]-wordpress网站使用zibll子比主题实现多种文章列表样式-卡片样式-图文样式" fetchpriority="high" decoding="async" width="1481" height="1056" src="https://oss.zibll.com/zibll.com/2021/04/image-29.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_730" class="wp-image-1851" srcset="https://oss.zibll.com/zibll.com/2021/04/image-29.png 1481w, https://oss.zibll.com/zibll.com/2021/04/image-29.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_500 700w, https://oss.zibll.com/zibll.com/2021/04/image-29.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_730 1024w, https://oss.zibll.com/zibll.com/2021/04/image-29.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_548 768w" sizes="(max-width: 1481px) 100vw, 1481px" imgbox-index="8"></figure>
+
+
+
+<p class="wp-block-paragraph">各种效果的设置都有详细的说明，设置的时候请注意看看哦<br>不仅可以设置全局显示模式，还可以单独设置不同页面的显示模式，甚至不同分类都是可以单独设置的，再甚至每一篇文章都可以显示为不同模式哦。当然也有限制规则，所以请继续往下看！</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_3">显示规则</h2>
+
+
+
+<p class="wp-block-paragraph">由于主题的布局、显示效果多样化以及高度的自由化，所以为了不出现混乱，在配置的时候需要掌握一定的规则，有些效果才能生效，具体如下：</p>
+
+
+
+<ul class="wp-block-list"><li>常规的图文模式和卡片模式是最常见的，几乎没有什么规则。当其他模式不生效的时候也会自动转换为这两种模式</li><li>除了图文模式和卡片模式之外，其它显示模式均需要在开启侧边栏的页面才生效</li><li>列表自动图文模式（全文无图自动转文字模式）需要关闭 <qc style="color:#3B6ED5;background:undefined">缩略图-&gt;使用分类封面为缩略图 </qc>才能生效</li><li>列表多图模式在<qc style="color:rgb(50,110,232,1);background:undefined">非卡片</qc>模式及有侧边栏的页面才生效，文章格式为“图片、画廊”的文章默认显示为此模式，也可以在设置某一个分类都显示为此模式。同时，当文章内的图片低于2张时，此模式不生效</li></ul>
+
+
+
+<p class="wp-block-paragraph">OK，这就是全部规则了，可能感觉有点复杂。其实很简单：没有侧边栏的页面因为要显示多列，为了避免高度不一致，所以统一为卡片模式或者图文模式。其它模式则需要注意缩略图问题。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">扩展阅读</h2>
+
+
+
+<div data-pid="1816" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="1816.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/20260530132122133-网站布局入门教程-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="页面布局、模块使用及可视化布局教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="1816.html">页面布局、模块使用及可视化布局教程<span class="focus-color">[网站布局入门教程]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-06-30 22:05:19" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>8.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>98</item></div></div>
+                </div>
+                </div>
+            </div></div>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

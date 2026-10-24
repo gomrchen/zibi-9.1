@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题-商城首页创建及配置教程[V8.2新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题-商城首页创建及配置教程[V8.2新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/39214.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">zibll子比主题更新V8.2后，带来了全新的商城系统，支持销售所有类型的商品，现在我们可以使用WordPress和zibll主题就能轻松、快捷、低成本的搭建一个精美优雅的商城网站了。</p>
+
+
+
+<p class="wp-block-paragraph">此次更新我们抛弃了之前论坛系统使用页面模板的创建首页的方式，现在我们可以完全使用一个空白页面+模块化布局创建任何页面，当然用来创建商城首页也再合适不过了！</p>
+
+
+
+<h2 class="wp-block-heading">熟悉模块化布局</h2>
+
+
+
+<p class="wp-block-paragraph">教程开始之前，我们需要先了解一下zibll子比主题强大的模块化布局功能，就像拼积木一样组合布局，简单方便且高度自由化！我们强烈建议先查看并熟悉以下教程：</p>
+
+
+
+<div data-pid="1816" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="1816.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/04/20260530132122133-网站布局入门教程-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_560" alt="页面布局、模块使用及可视化布局教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="1816.html">页面布局、模块使用及可视化布局教程<span class="focus-color">[网站布局入门教程]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2026-06-30 22:05:19" class="ml6">3个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>8.7W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>98</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading">创建页面并配置</h2>
+
+
+
+<p class="wp-block-paragraph">教程开始，首先第一步就是创建一个空白页面，并做一些基础的必要配置：</p>
+
+
+
+<ol class="wp-block-list">
+<li>先设置别名，也就是网址链接后缀，注意必须为唯一值，不能重复（如果你后面需要把此页面设置为整个网站首页，可以忽略此步骤）</li>
+
+
+
+<li>将布局设置为无侧边栏，一般商城首页都是不需要的，如果你需要在侧边栏显示模块，也可以开启</li>
+
+
+
+<li>因为我们仅使用模块化布局，所以需要关闭标题显示</li>
+
+
+
+<li>同理，关闭内容显示</li>
+
+
+
+<li>重要的来了！必须开启模块布局，并开启一个容器位置（因为没有开启侧边栏，所以除了侧边栏其他几个容器都是一样的）</li>
+
+
+
+<li>有些商城首页顶部会显示视频或者幻灯片，看上去很大气，所以顶部多功能组件功能根据您的需要启用<a href="https://www.zibll.com/40290.html">【查看教程】</a></li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-商城首页创建及配置教程-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="2136" height="1816" src="https://oss.zibll.com/zibll.com/2025/09/20250927170547450-image-111.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1105"  class="wp-image-39327" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927170547450-image-111.png 2136w, https://oss.zibll.com/zibll.com/2025/09/20250927170547450-image-111.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_680 800w, https://oss.zibll.com/zibll.com/2025/09/20250927170547450-image-111.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1105 1300w" sizes="(max-width: 2136px) 100vw, 2136px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">添加模块</h2>
+
+
+
+<p class="wp-block-paragraph">保存页面后，进入前台，点击模块配置，即可进入模块配置页面，在这里我们按需添加模块</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-商城首页创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1740" height="1224" src="https://oss.zibll.com/zibll.com/2025/09/20250927171849326-image-112.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_914"  class="wp-image-39328" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927171849326-image-112.png 1740w, https://oss.zibll.com/zibll.com/2025/09/20250927171849326-image-112.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_562 800w, https://oss.zibll.com/zibll.com/2025/09/20250927171849326-image-112.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_914 1300w" sizes="(max-width: 1740px) 100vw, 1740px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-商城首页创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="2418" height="1590" src="https://oss.zibll.com/zibll.com/2025/09/20250927172408460-image-113.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_854"  class="wp-image-39329" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927172408460-image-113.png 2418w, https://oss.zibll.com/zibll.com/2025/09/20250927172408460-image-113.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_526 800w, https://oss.zibll.com/zibll.com/2025/09/20250927172408460-image-113.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_854 1300w" sizes="(max-width: 2418px) 100vw, 2418px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">作为商城首页，一把常用的模块有：幻灯片模块、图片模块、图文视频封面模块、还有最重要的商品列表模块等等</p>
+
+
+
+<p class="wp-block-paragraph">通过各种模块组合，我们很轻松的就可以做好我们的商场首页了</p>
+
+
+
+<h2 class="wp-block-heading">导入模块模板</h2>
+
+
+
+<p class="wp-block-paragraph">子比主题 V8.9 更新了模块模板导入的功能，可以更加快速地创建商城首页。</p>
+
+
+
+<p class="wp-block-paragraph">选择模板导入后，就可以实现和<a href="https://demo.zibll.com/shop">官方演示站商城首页</a>类似的效果。导入后，只需要把标题、图片按自己的需要进行修改即可。</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-商城首页创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1324" height="1038" src="https://oss.zibll.com/zibll.com/2025/09/20260609210536540-image-30.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1019"  class="wp-image-48746" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/09/20260609210536540-image-30.png 1324w, https://oss.zibll.com/zibll.com/2025/09/20260609210536540-image-30.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_627 800w, https://oss.zibll.com/zibll.com/2025/09/20260609210536540-image-30.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1019 1300w" sizes="(max-width: 1324px) 100vw, 1324px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">设置为网站首页</h2>
+
+
+
+<p class="wp-block-paragraph">有些网站主要以商场为主，文章、论坛只作为次要内容，我们就可以把刚刚创建的页面设置为网站首页，文章或论坛就可以作为商城的辅助信息平台了，例如淘宝社区、评测等等。</p>
+
+
+
+<p class="wp-block-paragraph">配置方法也十分简单，<qc style="color:#1F91F3;background:undefined">进入后台-&gt;设置-&gt;阅读</qc>：将主页设置为静态页面，并选择刚刚创建的页面</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-商城首页创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1602" height="1222" src="https://oss.zibll.com/zibll.com/2025/09/20250927173325425-image-114.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_991"  class="wp-image-39330" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927173325425-image-114.png 1602w, https://oss.zibll.com/zibll.com/2025/09/20250927173325425-image-114.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_610 800w, https://oss.zibll.com/zibll.com/2025/09/20250927173325425-image-114.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_991 1300w" sizes="(max-width: 1602px) 100vw, 1602px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">主题关联配置</h2>
+
+
+
+<p class="wp-block-paragraph">创建好商城首页后，我们还需要将商城首页的链接配置到主题设置中，然后再根据需要配置商城的面包屑导航</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-商城首页创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" width="1398" height="1910" src="https://oss.zibll.com/zibll.com/2025/09/20250927175338643-iShot_2025-09-27_17.53.12.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1776"  class="wp-image-39339" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2025/09/20250927175338643-iShot_2025-09-27_17.53.12.jpg 1398w, https://oss.zibll.com/zibll.com/2025/09/20250927175338643-iShot_2025-09-27_17.53.12.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_1092 800w, https://oss.zibll.com/zibll.com/2025/09/20250927175338643-iShot_2025-09-27_17.53.12.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1776 1300w" sizes="(max-width: 1398px) 100vw, 1398px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">举一反三</h2>
+
+
+
+<p class="wp-block-paragraph">最后，大家一样要把思路打开，模块化布局是一个十分强大的功能，如果您略懂HTML，那将会有更好的效果和模块。同时以上教程我们仅仅是以创建网站首页为例，同时您还可以通过此方式创建任意的页面，或任意效果的首页。例如企业官网，炫酷的视频首页、技术服务说明页面等等</p>
+
+
+
+<h2 class="wp-block-heading">官方演示</h2>
+
+
+
+<div data-quantity="1" data-radius="false" class="wp-block-zibllblock-buttons"><span class="an_1 but jb-green"><a href="https://demo.zibll.com/shop">查看商城演示</a></span></div>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

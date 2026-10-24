@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题第三方社交帐号登录接入教程[V9.1有更新]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题第三方社交帐号登录接入教程[V9.1有更新]</h1>
+  <div class="meta">来源：https://www.zibll.com/49416.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">第三方登录可以让用户使用 QQ、微信、微博、GitHub、Google 等账号快速登录网站。子比主题已内置多种社交登录方式，站长只需要在对应服务商平台创建应用，获取 <code>AppID / Client ID</code>、<code>AppKey</code>、<code>AppSecret / Client Secret</code> 等信息，并填写到子比主题后台即可。</p>
+
+
+
+<p class="wp-block-paragraph">目前子比主题支持的全部登录方式：</p>
+
+
+
+<ul class="wp-block-list">
+<li>Wechat Social插件</li>
+
+
+
+<li>彩虹聚合登录</li>
+
+
+
+<li>Zibll代理登录</li>
+
+
+
+<li>QQ登录</li>
+
+
+
+<li>微信登录(公众号模式)</li>
+
+
+
+<li>微信登录(开放平台模式)</li>
+
+
+
+<li>微博登录</li>
+
+
+
+<li>码云(gitee)登录</li>
+
+
+
+<li>百度登录</li>
+
+
+
+<li>支付宝登录</li>
+
+
+
+<li>抖音登录（V9.1）</li>
+
+
+
+<li>GitHub登录</li>
+
+
+
+<li>Google登录</li>
+
+
+
+<li>Facebook登录</li>
+
+
+
+<li>Microsoft登录</li>
+
+
+
+<li>Twitter登录</li>
+
+
+
+<li>Apple登录</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">接入前准备</h2>
+
+
+
+<p class="wp-block-paragraph">在开始配置前，请先确认以下条件：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>网站已正确安装并启用子比主题。</li>
+
+
+
+<li>网站已配置 HTTPS，建议全站启用 SSL。</li>
+
+
+
+<li>WordPress 固定链接正常。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">不同版本菜单名称可能略有差异，以实际后台显示为准。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">配置流程</h2>
+
+
+
+<p class="wp-block-paragraph">大多数第三方登录的接入流程类似：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>注册并登录对应开放平台。</li>
+
+
+
+<li>创建网站应用或网页应用。</li>
+
+
+
+<li>填写网站名称、网站地址、应用图标、备案信息等。</li>
+
+
+
+<li>填写授权回调地址。</li>
+
+
+
+<li>获取应用的 <code>AppID</code>、<code>AppKey</code>、<code>Client ID</code>、<code>Client Secret</code> 等参数。</li>
+
+
+
+<li>回到子比主题后台，启用对应登录方式并保存参数。</li>
+
+
+
+<li>前台测试登录是否正常。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">需要特别注意：回调地址必须和服务商平台填写的地址完全一致，包括协议 <code>https://</code>、域名、路径、末尾斜杠等。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">开始配置</h2>
+
+
+
+<p class="wp-block-paragraph">进入主题设置-用户互动-第三方登录，在这个页面就可以看到全部的第三方登录方式了，按照您的需要开始接入即可</p>
+
+
+
+<figure class="wp-block-image size-large"><img alt="图片[1]-zibll子比主题第三方社交帐号登录接入教程[V9.1有更新]-WordPress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1664" height="1512" src="https://oss.zibll.com/zibll.com/2026/06/20260629124912891-image-154.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1181" class="wp-image-49417" srcset="https://oss.zibll.com/zibll.com/2026/06/20260629124912891-image-154.png 1664w, https://oss.zibll.com/zibll.com/2026/06/20260629124912891-image-154.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_726 800w, https://oss.zibll.com/zibll.com/2026/06/20260629124912891-image-154.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1181 1300w" sizes="(max-width: 1664px) 100vw, 1664px" imgbox-index="0"></figure>
+
+
+
+<h2 class="wp-block-heading" id="wznav_3">QQ 登录</h2>
+
+
+
+<p class="wp-block-paragraph">QQ 登录需要前往 QQ 互联创建网站应用。</p>
+
+
+
+<div data-quantity="1" data-radius="true" class="wp-block-zibllblock-buttons radius"><span class="an_1 but b-blue"><a href="979.html">QQ登录接入教程</a></span></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">微信登录：公众号模式</h2>
+
+
+
+<p class="wp-block-paragraph">微信公众号登录支持认证或未认证的公众号登录，详细请查看以下教程。</p>
+
+
+
+<div data-quantity="2" data-radius="true" class="wp-block-zibllblock-buttons radius"><span class="an_1 but b-blue"><a href="2206.html">认证公众号登录教程</a></span><span class="an_2 but b-blue"><a href="https://www.zibll.com/11006.html">未认证公众号登录教程</a></span></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_5">微信登录：开放平台模式</h2>
+
+
+
+<p class="wp-block-paragraph">微信开放平台模式适合 PC 网站扫码登录，用户可通过微信扫码完成登录。</p>
+
+
+
+<p class="wp-block-paragraph">接入教程：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录微信开放平台。</li>
+
+
+
+<li>完成开发者资质认证。</li>
+
+
+
+<li>创建“网站应用”。</li>
+
+
+
+<li>填写网站名称、网站地址、应用图标、介绍等信息。</li>
+
+
+
+<li>配置授权回调域。</li>
+
+
+
+<li>提交审核。</li>
+
+
+
+<li>审核通过后获取 <code>AppID</code> 和 <code>AppSecret</code>。</li>
+
+
+
+<li>回到子比主题后台，选择微信登录开放平台模式。</li>
+
+
+
+<li>填写 <code>AppID</code> 和 <code>AppSecret</code>。</li>
+
+
+
+<li>保存并测试 PC 端扫码登录。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>微信开放平台网站应用通常需要企业资质和审核。</li>
+
+
+
+<li>公众号模式和开放平台模式不是一回事。</li>
+
+
+
+<li>PC 网站扫码登录一般使用开放平台模式。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_6">微博登录</h2>
+
+
+
+<p class="wp-block-paragraph">微博登录需要在微博开放平台创建网页应用。</p>
+
+
+
+<p class="wp-block-paragraph">接入教程：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录微博开放平台。</li>
+
+
+
+<li>创建网站接入应用。</li>
+
+
+
+<li>填写应用名称、网站地址、应用介绍、图标等信息。</li>
+
+
+
+<li>设置 OAuth 回调地址。</li>
+
+
+
+<li>获取 <code>App Key</code> 和 <code>App Secret</code>。</li>
+
+
+
+<li>回到子比主题后台，开启微博登录。</li>
+
+
+
+<li>填写 <code>App Key</code> 和 <code>App Secret</code>。</li>
+
+
+
+<li>保存并测试登录。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>微博登录需要正确配置授权回调页。</li>
+
+
+
+<li>应用资料不完整可能影响审核。</li>
+
+
+
+<li>网站域名需要和应用配置保持一致。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_7">码云 Gitee 登录</h2>
+
+
+
+<p class="wp-block-paragraph">Gitee 登录适合技术类网站、开发者社区或资源站。</p>
+
+
+
+<p class="wp-block-paragraph">接入教程：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录 Gitee。</li>
+
+
+
+<li>进入个人设置或开发者应用管理。</li>
+
+
+
+<li>创建第三方应用。</li>
+
+
+
+<li>填写应用名称、应用主页、应用描述。</li>
+
+
+
+<li>填写子比主题提供的 Gitee 回调地址。</li>
+
+
+
+<li>创建后获取 <code>Client ID</code> 和 <code>Client Secret</code>。</li>
+
+
+
+<li>回到子比主题后台，开启 Gitee 登录。</li>
+
+
+
+<li>填写 <code>Client ID</code> 和 <code>Client Secret</code>。</li>
+
+
+
+<li>保存并测试。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>回调地址必须完整填写。</li>
+
+
+
+<li>Gitee 登录更适合面向开发者用户的网站。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_8">百度登录</h2>
+
+
+
+<p class="wp-block-paragraph">百度登录需要在百度开发者平台创建应用。</p>
+
+
+
+<p class="wp-block-paragraph">接入教程：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录百度开发者平台。</li>
+
+
+
+<li>创建应用。</li>
+
+
+
+<li>选择网页应用或 OAuth 相关应用类型。</li>
+
+
+
+<li>填写应用名称、网站地址、应用说明。</li>
+
+
+
+<li>配置授权回调地址。</li>
+
+
+
+<li>获取 <code>API Key</code> 和 <code>Secret Key</code>。</li>
+
+
+
+<li>回到子比主题后台，开启百度登录。</li>
+
+
+
+<li>填写相关参数。</li>
+
+
+
+<li>保存并测试。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>百度平台通常使用 <code>API Key</code> 和 <code>Secret Key</code>。</li>
+
+
+
+<li>应用配置里的域名、回调地址要与网站保持一致。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_9">支付宝登录</h2>
+
+
+
+<p class="wp-block-paragraph">支付宝登录适合电商、会员付费、虚拟商品等网站。</p>
+
+
+
+<p class="wp-block-paragraph">教程内容：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录支付宝开放平台。</li>
+
+
+
+<li>创建网页应用。</li>
+
+
+
+<li>添加“支付宝会员授权”或相关用户授权能力。</li>
+
+
+
+<li>配置应用网关、授权回调地址等信息。</li>
+
+
+
+<li>生成或配置应用公钥、支付宝公钥。</li>
+
+
+
+<li>获取应用 <code>APPID</code>。</li>
+
+
+
+<li>回到子比主题后台，开启支付宝登录。</li>
+
+
+
+<li>按主题要求填写 <code>APPID</code>、应用私钥、支付宝公钥等参数。</li>
+
+
+
+<li>保存并测试登录。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>支付宝登录通常涉及密钥配置，比普通 OAuth 稍复杂。</li>
+
+
+
+<li>私钥不要泄露，也不要放在公开页面。</li>
+
+
+
+<li>如果同时使用支付宝支付，要区分登录授权和支付接口配置。</li>
+
+
+
+<li>由于支付宝登录不支持手机端的网页，所以只会在 PC 端显示登录按钮。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_10">抖音登录</h2>
+
+
+
+<p class="wp-block-paragraph">申请入口：<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kZXZlbG9wZXIub3Blbi1kb3V5aW4uY29tLw%3D%3D&amp;nonce=03a1ec047ffb181bcb94ad012cc7ca7b43a036fef770d9f30fa6a6ef0f4a402f|1792864105" target="_blank" rel="noreferrer noopener">抖音开放平台</a>&nbsp;→ 创建网站应用&nbsp;→ 申请「授权登录与用户基础信息」</p>
+
+
+
+<p class="wp-block-paragraph">后台：主题设置 → 用户互动 → 社交登录 →&nbsp;抖音登录<br>填入开放平台的&nbsp;ClientKey / ClientSecret</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_11">GitHub 登录</h2>
+
+
+
+<p class="wp-block-paragraph">GitHub 登录通过 OAuth App 接入。GitHub 官方文档说明，创建 OAuth App 时需要填写应用主页地址和授权回调地址，并在创建后获得客户端凭据。</p>
+
+
+
+<div data-quantity="1" data-radius="true" class="wp-block-zibllblock-buttons radius"><span class="an_1 but b-blue"><a href="1001.html">GitHub登录接入教程</a></span></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_12">Google 登录</h2>
+
+
+
+<p class="wp-block-paragraph">Google 登录需要在 Google Cloud Console 创建 OAuth 客户端。Google 官方文档说明，Web 应用需要创建 OAuth 凭据，并配置授权重定向 URI。参考：<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kZXZlbG9wZXJzLmdvb2dsZS5jb20vaWRlbnRpdHkvcHJvdG9jb2xzL29hdXRoMi93ZWItc2VydmVy&amp;nonce=3000e5dfccb9780980753ab56baaa72e7c0410264d0f1b84298eb761206b5c43|1792864105">Google OAuth Web Server 文档</a>。</p>
+
+
+
+<p class="wp-block-paragraph">教程内容：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>进入 Google Cloud Console。</li>
+
+
+
+<li>创建或选择一个项目。</li>
+
+
+
+<li>配置 OAuth 同意屏幕。</li>
+
+
+
+<li>创建 OAuth 客户端 ID。</li>
+
+
+
+<li>应用类型选择 Web application。</li>
+
+
+
+<li>在授权重定向 URI 中填写子比主题提供的 Google 回调地址。</li>
+
+
+
+<li>创建后获取 <code>Client ID</code> 和 <code>Client Secret</code>。</li>
+
+
+
+<li>回到子比主题后台，开启 Google 登录。</li>
+
+
+
+<li>填写 <code>Client ID</code> 和 <code>Client Secret</code>。</li>
+
+
+
+<li>保存后测试。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>Google 登录通常要求 HTTPS。</li>
+
+
+
+<li>如果应用对外公开，可能需要完善 OAuth 同意屏幕信息。</li>
+
+
+
+<li>部分敏感权限可能触发 Google 审核，但普通登录一般只需基础资料权限。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_13">Facebook 登录</h2>
+
+
+
+<p class="wp-block-paragraph">Facebook 登录需要在 Meta for Developers 创建应用并启用 Facebook Login。</p>
+
+
+
+<p class="wp-block-paragraph">教程内容：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录 Meta for Developers。</li>
+
+
+
+<li>创建应用。</li>
+
+
+
+<li>添加 Facebook Login 产品。</li>
+
+
+
+<li>选择 Web 平台。</li>
+
+
+
+<li>填写网站 URL。</li>
+
+
+
+<li>在 OAuth 设置中填写有效 OAuth 回调地址。</li>
+
+
+
+<li>获取 <code>App ID</code> 和 <code>App Secret</code>。</li>
+
+
+
+<li>回到子比主题后台，开启 Facebook 登录。</li>
+
+
+
+<li>填写 <code>App ID</code> 和 <code>App Secret</code>。</li>
+
+
+
+<li>保存并测试。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>应用上线前需要切换为 Live 模式。</li>
+
+
+
+<li>站点隐私政策 URL 通常需要填写。</li>
+
+
+
+<li>普通登录建议只申请基础资料和邮箱权限。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_14">Microsoft 登录</h2>
+
+
+
+<p class="wp-block-paragraph">Microsoft 登录需要在 Microsoft Entra 管理中心注册应用。微软文档说明，注册应用时需要配置重定向 URI。参考：<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL2VuLXVzL2VudHJhL2lkZW50aXR5LXBsYXRmb3JtL3F1aWNrc3RhcnQtcmVnaXN0ZXItYXBw&amp;nonce=e0edd4717968dd6dc5950b827083569c37d87c2125f068a5e320d560cf5ddad2|1792864105">Microsoft 注册应用文档</a>。</p>
+
+
+
+<p class="wp-block-paragraph">教程内容：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>进入 Microsoft Entra 管理中心。</li>
+
+
+
+<li>创建应用注册。</li>
+
+
+
+<li>填写应用名称。</li>
+
+
+
+<li>选择支持的账户类型。</li>
+
+
+
+<li>平台选择 Web。</li>
+
+
+
+<li>填写子比主题提供的 Microsoft 回调地址。</li>
+
+
+
+<li>创建后复制 <code>Application Client ID</code>。</li>
+
+
+
+<li>创建客户端密码并复制 <code>Client Secret</code>。</li>
+
+
+
+<li>回到子比主题后台，开启 Microsoft 登录。</li>
+
+
+
+<li>填写 <code>Client ID</code> 和 <code>Client Secret</code>。</li>
+
+
+
+<li>保存并测试。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>客户端密码只会完整显示一次，创建后请及时保存。</li>
+
+
+
+<li>账户类型会影响哪些 Microsoft 用户可以登录。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_15">Twitter / X 登录</h2>
+
+
+
+<p class="wp-block-paragraph">Twitter 现为 X，登录通常通过 X Developer Platform 的 OAuth 能力接入。参考：<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kb2NzLnguY29tLw%3D%3D&amp;nonce=d2e391c5f2495c63c17e37fb5abfe1b0359d145e629b629342781036fbeefb10|1792864105">X OAuth 文档入口</a>。</p>
+
+
+
+<p class="wp-block-paragraph">教程内容：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录 X Developer Platform。</li>
+
+
+
+<li>创建 Project 和 App。</li>
+
+
+
+<li>启用用户认证设置。</li>
+
+
+
+<li>选择 OAuth 2.0 或 OAuth 1.0a，具体以子比主题支持方式为准。</li>
+
+
+
+<li>填写网站地址和回调地址。</li>
+
+
+
+<li>获取 <code>Client ID</code>、<code>Client Secret</code>，或 <code>API Key</code>、<code>API Secret</code>。</li>
+
+
+
+<li>回到子比主题后台，开启 Twitter 登录。</li>
+
+
+
+<li>填写对应参数。</li>
+
+
+
+<li>保存并测试。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>X 开发者平台权限和套餐政策可能变化较频繁。</li>
+
+
+
+<li>如果主题后台要求 <code>API Key / API Secret</code>，就按 OAuth 1.0a 应用参数填写。</li>
+
+
+
+<li>如果要求 <code>Client ID / Client Secret</code>，则按 OAuth 2.0 应用参数填写。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_16">Apple 登录</h2>
+
+
+
+<p class="wp-block-paragraph">Apple 登录需要 Apple Developer 账号，并配置 Sign in with Apple。Apple 官方文档说明，网页登录需要创建 Services ID，并配置网站域名和返回地址。参考：<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL2hlbHAvYWNjb3VudC9jYXBhYmlsaXRpZXMvY29uZmlndXJlLXNpZ24taW4td2l0aC1hcHBsZS1mb3ItdGhlLXdlYi8%3D&amp;nonce=2e630cf92dd1949685b462e52ea1603c46a0bc1c21ce4bbb85df8b0df0918ccf|1792864105">Apple 网页登录配置文档</a>。</p>
+
+
+
+<p class="wp-block-paragraph">教程内容：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>登录 Apple Developer。</li>
+
+
+
+<li>进入 Certificates, Identifiers &amp; Profiles。</li>
+
+
+
+<li>创建或选择支持 Sign in with Apple 的 App ID。</li>
+
+
+
+<li>创建 Services ID。</li>
+
+
+
+<li>在 Services ID 中启用 Sign in with Apple。</li>
+
+
+
+<li>配置网站域名和 Return URLs。</li>
+
+
+
+<li>创建 Sign in with Apple 私钥。</li>
+
+
+
+<li>获取 <code>Services ID</code>、<code>Team ID</code>、<code>Key ID</code> 和私钥文件内容。</li>
+
+
+
+<li>回到子比主题后台，开启 Apple 登录。</li>
+
+
+
+<li>按主题要求填写相关参数。</li>
+
+
+
+<li>保存并测试。</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>Apple 登录配置项较多，常见字段包括 <code>Client ID / Services ID</code>、<code>Team ID</code>、<code>Key ID</code>、私钥。</li>
+
+
+
+<li>Return URL 必须和子比主题回调地址一致。</li>
+
+
+
+<li>Apple Developer 账号通常需要付费开发者资格。</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_17">建议接入顺序</h2>
+
+
+
+<p class="wp-block-paragraph">第三方社交账号登录并不是接入的越多越好，一般我们会根据自己网站的类型选择性进行接入。如果是国内站点，建议优先接入：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>QQ 登录</li>
+
+
+
+<li>微信登录</li>
+
+
+
+<li>微博登录</li>
+
+
+
+<li>支付宝登录</li>
+
+
+
+<li>Gitee 登录</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">如果是技术类或国际化站点，建议接入：</p>
+
+
+
+<ol start="1" class="wp-block-list">
+<li>GitHub 登录</li>
+
+
+
+<li>Google 登录</li>
+
+
+
+<li>Microsoft 登录</li>
+
+
+
+<li>Apple 登录</li>
+
+
+
+<li>Facebook / Twitter 登录</li>
+</ol>
+
+
+
+<h2 class="wp-block-heading" id="wznav_18">其他方式或插件</h2>
+
+
+
+<p class="wp-block-paragraph">除了主题自带的这些第三方登录接口之外，同时主题还支持接入彩虹聚合登录以及Wechat Social登录插件。如果你不想自己一个一个的申请的话，可以用这两种方式进行接入。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_19">zibll代理登录</h2>
+
+
+
+<p class="wp-block-paragraph">子比代理登录是针对有多个网站都使用的是子比主题的话，那么你只需要在一个网站上配置第三方登录即可，其他的子比主题网站使用子比带笔登录功能即可接入同一套第三方社交账号登录，极大地方便并简化了配置流程，且解决了第三方社交账号登录不能设置多个回调的问题。</p>
+
+
+
+<div data-quantity="1" data-radius="true" class="wp-block-zibllblock-buttons radius"><span class="an_1 but b-blue"><a href="2290.html">zibll子比代理登录配置教程</a></span></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_20">海外平台接入提醒</h2>
+
+
+
+<p class="wp-block-paragraph">由于国内网络限制，如果你启用了海外社交平台登录，那么需要你的服务器及用户端网络都能正常连接对应平台，才能正常使用对应的登录功能。例如您开启了谷歌账户登录，那么需要您的服务器能够正常访问谷歌，以及用户端也能够正常访问谷歌，才可以使用。</p>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

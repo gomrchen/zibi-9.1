@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题-网址导航、友情链接页面创建教程[V8新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题-网址导航、友情链接页面创建教程[V8新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/951.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts"class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">Zibll子比主题V3.0更新之后，增加了一个“链接列表”的页面模板，通过这个模板可以创建友情链接页面，或者其他的链接列表页面。同时网址链接由后台统一管理，方便调用。</p>
+
+
+
+<p class="wp-block-paragraph">zibll更新V8.0后将原来的“链接列表”页面模板修改修改为“网址导航”页面模板，同时增加了多选分类、搜索模块、网址导航等功能。</p>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#fb2121" style="--quote-color:#fb2121"><i class="fa fa-quote-left"></i><p>此功能需升级zibll子比主题V8.0及以上版本！</p></div></div>
+
+
+
+<p class="wp-block-paragraph">接下来我们就一步一步的教大家创建一个网址导航页面！</p>
+
+
+
+<h2 class="wp-block-heading">管理链接</h2>
+
+
+
+<p class="wp-block-paragraph">我们可以在后台统一管理链接，以及链接分类！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-WP友情链接页面/网址导航页面创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/10/20241009164655564-image-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_682"  class="wp-image-29683" width="600" srcset="https://oss.zibll.com/zibll.com/2024/10/20241009164655564-image-3.png 1794w, https://oss.zibll.com/zibll.com/2024/10/20241009164655564-image-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_466 700w, https://oss.zibll.com/zibll.com/2024/10/20241009164655564-image-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_682 1024w" sizes="(max-width: 1794px) 100vw, 1794px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-WP友情链接页面/网址导航页面创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/10/20241009164712394-image-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_682"  class="wp-image-29684" width="600" srcset="https://oss.zibll.com/zibll.com/2024/10/20241009164712394-image-4.png 1788w, https://oss.zibll.com/zibll.com/2024/10/20241009164712394-image-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_466 700w, https://oss.zibll.com/zibll.com/2024/10/20241009164712394-image-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_682 1024w" sizes="(max-width: 1788px) 100vw, 1788px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">创建网址导航页面</h2>
+
+
+
+<ol class="wp-block-list">
+<li>首先在Wordpress后台新建页面，输入标题</li>
+
+
+
+<li>在页面模板选择“Zibll-链接列表”模板，然后记得保存一下，再刷新一下页面，在下面就可以看到模板配置了</li>
+
+
+
+<li>根据需要编写页面内容（或者空白）</li>
+
+
+
+<li>根据需要修改页面的特色图片（也就是封面图）</li>
+
+
+
+<li>选择需要显示的分类，支持多选、拖动排序，选择的分类大于1个时候，将会以网址导航的形式显示</li>
+
+
+
+<li>根据需要选择是否开启搜索引擎模块，以及提交链接模块</li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-WP友情链接页面/网址导航页面创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/10/20241009165213163-image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_679"  class="wp-image-29685" width="600" srcset="https://oss.zibll.com/zibll.com/2024/10/20241009165213163-image-5.png 1782w, https://oss.zibll.com/zibll.com/2024/10/20241009165213163-image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_464 700w, https://oss.zibll.com/zibll.com/2024/10/20241009165213163-image-5.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_679 1024w" sizes="(max-width: 1782px) 100vw, 1782px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-WP友情链接页面/网址导航页面创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/10/20241009165515579-image-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1107"  class="wp-image-29686" width="600" srcset="https://oss.zibll.com/zibll.com/2024/10/20241009165515579-image-6.png 1566w, https://oss.zibll.com/zibll.com/2024/10/20241009165515579-image-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_757 700w, https://oss.zibll.com/zibll.com/2024/10/20241009165515579-image-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1107 1024w" sizes="(max-width: 1566px) 100vw, 1566px" /></figure>
+</div>
+
+
+<h2 class="wp-block-heading">注意事项</h2>
+
+
+
+<p class="wp-block-paragraph">我们在配置页面的时候，有几点需要注意一下</p>
+
+
+
+<ul class="wp-block-list">
+<li>选择页面模板后一定要保存再刷新页面才能看到模板配置</li>
+
+
+
+<li>如果只选择了一个分类，则不会显示导航栏，更加适合做为友情链接等页面使用</li>
+
+
+
+<li>支持三种风格显示，根据自己喜欢选择</li>
+
+
+
+<li>开启了首页引擎模块后，建议在有下面关闭页面标题显示，同时请设置一张特色图像作为背景图</li>
+
+
+
+<li>此页面同时支持开启小工具模块布局，如果您需要在此页面添加更多模块，可以使用小工具添加</li>
+
+
+
+<li>在任何页面都可以使用模块配置的方式添加链接列表模块，支持4种样式，使用更自由<a href="1816.html" data-type="post" data-id="1816">【查看教程】</a></li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">最后，我们看一下，此页面的演示！</p>
+
+
+
+<div data-pid="50" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="https://www.zibll.com/friendship-links"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2024/10/20241009163914977-封面背景1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_333" alt="网址导航-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="https://www.zibll.com/friendship-links">网址导航</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2025-09-28 21:14:42" class="ml6">1年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>5.5W+</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<div data-pid="29829" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="https://www.zibll.com/%e7%bd%91%e5%9d%80%e5%af%bc%e8%88%aa%e7%a4%ba%e4%be%8b%e2%91%a1"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2024/10/20241009163917355-封面背景2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_330" alt="网址导航示例②-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="https://www.zibll.com/%e7%bd%91%e5%9d%80%e5%af%bc%e8%88%aa%e7%a4%ba%e4%be%8b%e2%91%a1">网址导航示例②</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="代理会员" alt="代理会员"></span></a><span title="2024-10-11 23:43:11" class="ml6">2年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>1.2W+</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-WP友情链接页面/网址导航页面创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/10/20241011224754392-image-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_958"  class="wp-image-29823" width="600" srcset="https://oss.zibll.com/zibll.com/2024/10/20241011224754392-image-45.png 2046w, https://oss.zibll.com/zibll.com/2024/10/20241011224754392-image-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_655 700w, https://oss.zibll.com/zibll.com/2024/10/20241011224754392-image-45.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_958 1024w" sizes="(max-width: 2046px) 100vw, 2046px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-WP友情链接页面/网址导航页面创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/10/20241011224904768-image-46.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_906"  class="wp-image-29824" width="600" srcset="https://oss.zibll.com/zibll.com/2024/10/20241011224904768-image-46.png 2084w, https://oss.zibll.com/zibll.com/2024/10/20241011224904768-image-46.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_619 700w, https://oss.zibll.com/zibll.com/2024/10/20241011224904768-image-46.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_906 1024w" sizes="(max-width: 2084px) 100vw, 2084px" /></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-WP友情链接页面/网址导航页面创建及配置教程-WordPress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2024/10/20241011232743862-image-47.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_910"  class="wp-image-29833" width="600" srcset="https://oss.zibll.com/zibll.com/2024/10/20241011232743862-image-47.png 2090w, https://oss.zibll.com/zibll.com/2024/10/20241011232743862-image-47.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_622 700w, https://oss.zibll.com/zibll.com/2024/10/20241011232743862-image-47.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_910 1024w" sizes="(max-width: 2090px) 100vw, 2090px" /></figure>
+</div>                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

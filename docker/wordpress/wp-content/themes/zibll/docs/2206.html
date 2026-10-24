@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zibll子比主题-第三方登录-接入微信公众号扫码登录图文教程</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>Zibll子比主题-第三方登录-接入微信公众号扫码登录图文教程</h1>
+  <div class="meta">来源：https://www.zibll.com/2206.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">使用WordPress建站，那么第三方登录肯定是必不可少的，子比主题支持丰富的社交帐号登录，例如微信登录就是十分常见的登录方式，zibll子比主题更新V5.5之后，带来了微信公众号登录的功能，对于很多已经开通了微信公众号就更加方便了。</p>
+
+
+
+<p class="wp-block-paragraph">使用微信公众号登录，可直接免跳转扫码登录，在微信APP内支持无感登录，用户体验更好，还能帮助公众号引流，另外也就不用再申请微信开放平台的网页授权了</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">效果预览</h2>
+
+
+
+<p class="wp-block-paragraph">首先我看一下微信公众号的登录页面预览：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-WordPress主题-zibll子比主题使用微信登录-微信公众号登录详细教程" fetchpriority="high" decoding="async" width="1918" height="1222" src="https://oss.zibll.com/zibll.com/2021/06/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_652" class="wp-image-2208" style="width:700px" srcset="https://oss.zibll.com/zibll.com/2021/06/图片-6.png 1918w, https://oss.zibll.com/zibll.com/2021/06/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_446 700w, https://oss.zibll.com/zibll.com/2021/06/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_652 1024w, https://oss.zibll.com/zibll.com/2021/06/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_489 768w, https://oss.zibll.com/zibll.com/2021/06/图片-6.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_979 1536w" sizes="(max-width: 1918px) 100vw, 1918px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong>特点及功能：</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>免跳转直接扫码，用户体验更好</li>
+
+
+
+<li>微信APP内无需扫码无感登录(V5.6)</li>
+
+
+
+<li>微信APP内支持自动登录(V6.0)</li>
+
+
+
+<li>支持添加关键词自动回复功能(V6.0)</li>
+
+
+
+<li>支持按照用户发送的关键词搜索文章/帖子后回复给用户的功能(V7.5)</li>
+
+
+
+<li>支持设置自定义菜单功能(V6.0)<a href="2916.html">【查看教程】</a></li>
+
+
+
+<li>支持设置用户首次关注以及扫码的自动消息回复</li>
+
+
+
+<li>启用此功能后，可开启微信官方JSAPI支付功能(V6.0起，微信JSAPI支付不再依赖此功能)</li>
+
+
+
+<li>支持未认证的公众号或订阅号接入（V6.8新功能<a href="https://www.zibll.com/11006.html">【查看教程】</a>）</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#08B89A;background:undefined"><strong>如果您的公众号是订阅号或者没有认证，请查看以下教程进行配置：</strong></qc></p>
+
+
+
+<div data-pid="11006" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="https://www.zibll.com/11006.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2022/11/订阅号截图登录-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="第三方登录-网站接入未认证的微信公众号或订阅号扫码登录教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="https://www.zibll.com/11006.html">第三方登录-网站接入未认证的微信公众号或订阅号扫码登录教程<span class="focus-color">[V6.8新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-01-29 16:10:17" class="ml6">8个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>3.8W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>123</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">接入教程</h2>
+
+
+
+<p class="wp-block-paragraph">接下来我们就一步一步的开始接入教程，首先我们整理一下，大致为以下流程：</p>
+
+
+
+<ol class="wp-block-list">
+<li>申请并开通微信公众号服务号，订阅号不可以</li>
+
+
+
+<li>认证微信公众号<qc style="color:#fb2121;background:undefined">（必须要认证，未认证的<a href="https://www.zibll.com/11006.html">查看此教程</a>）</qc></li>
+
+
+
+<li>获取AppID和AppSecret并填入主题设置</li>
+
+
+
+<li><strong>添加微信公众号IP白名单</strong>(中途换服务器换IP别忘了把新的IP加白)</li>
+
+
+
+<li><strong>设置微信公众号域名与消息推送配置</strong></li>
+
+
+
+<li><strong>设置微信公众号JS接口安全域名和网页授权域名</strong></li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(250,81,81,1);background:undefined">注意：如果域名被微信拦截了，俗称红了，该域名就不能使用微信的相关功能，包括登录、支付、等</qc></p>
+
+
+
+<p class="wp-block-paragraph">申请微信公众号以及认证百度已经有很多教程了，按照流程一步一步来就行了，这里就不在阐述了。</p>
+
+
+
+<p class="wp-block-paragraph">接下来针对已经申请并认证成功的微信公众号做详细的接入教程。</p>
+
+
+
+<h3 class="wp-block-heading" id="wznav_2">获取AppID和AppSecret</h3>
+
+
+
+<p class="wp-block-paragraph">登录<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vY29uc29sZS9pbmRleD90YWIxPWJ1c2luZXNzJmFtcDt0YWIyPWRldg%3D%3D&amp;nonce=fee44814199033531f677095bb73618608436dc0647d992cff350e7a46d62adf|1792863989" target="_blank" rel="noreferrer noopener">微信开发者平台</a>，进入<qc style="color:#1F91F3;background:undefined">选择自己的服务号或公众号</qc></p>
+
+
+
+<p class="wp-block-paragraph">1.获取AppID和AppSecret并填入<qc style="color:#1F91F3;background:undefined">主题设置-&gt;用户&amp;互动-&gt;社交登录-&gt;微信登录(公众号模式)</qc></p>
+
+
+
+<p class="wp-block-paragraph">2.设置js接口安全域名，将自己需要使用的网站域名按流程添加进去，<qc style="color:rgba(246,60,60,1);background:undefined">注意：如果未设置好JS接口安全域名，仍然可以使用扫码登录，但是在微信APP内会提示redirect_uri错误</qc></p>
+
+
+
+<p class="wp-block-paragraph">3.配置<qc style="color:#1F91F3;background:undefined">IP白名单</qc>，将网站服务器的IP地址加入到白名单，中途换服务器换IP别忘了把新的IP加进去</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-WordPress主题-zibll子比主题使用微信登录-微信公众号登录详细教程" decoding="async" width="2130" height="1736" src="https://oss.zibll.com/zibll.com/2022/11/20260129160502672-image-227.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1059" class="wp-image-44368" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/11/20260129160502672-image-227.png 2130w, https://oss.zibll.com/zibll.com/2022/11/20260129160502672-image-227.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_652 800w, https://oss.zibll.com/zibll.com/2022/11/20260129160502672-image-227.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1059 1300w" sizes="(max-width: 2130px) 100vw, 2130px" imgbox-index="1"></figure>
+</div>
+
+
+<h3 class="wp-block-heading" id="wznav_3">域名与消息推送配置</h3>
+
+
+
+<p class="wp-block-paragraph">首先进入<qc style="color:#1F91F3;background:undefined">主题设置-&gt;用户&amp;互动-&gt;社交登录-&gt;微信登录(公众号模式)</qc>：复制<code>服务器接口URL</code>，并设置一个Token并保存！<br>然后进入<a href="https://www.zibll.com/?golink=aHR0cHM6Ly9kZXZlbG9wZXJzLndlaXhpbi5xcS5jb20vY29uc29sZS9pbmRleD90YWIxPWJ1c2luZXNzJmFtcDt0YWIyPWRldg%3D%3D&amp;nonce=fee44814199033531f677095bb73618608436dc0647d992cff350e7a46d62adf|1792863989" target="_blank" rel="noreferrer noopener">微信开发者平台</a>，<qc style="color:#1F91F3;background:undefined">选择自己的服务号或公众号</qc>：在下面域名与消息推送配置中点击编辑，填写复制的<code>接口URL</code>以及Token，保存成功之后，记得点击<qc style="color:#1F91F3;background:undefined">启用</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-WordPress主题-zibll子比主题使用微信登录-微信公众号登录详细教程" decoding="async" width="2012" height="1186" src="https://oss.zibll.com/zibll.com/2021/06/微信公众号教程-13.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_604" class="wp-image-2276" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/06/微信公众号教程-13.png 2012w, https://oss.zibll.com/zibll.com/2021/06/微信公众号教程-13.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_413 700w, https://oss.zibll.com/zibll.com/2021/06/微信公众号教程-13.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_604 1024w, https://oss.zibll.com/zibll.com/2021/06/微信公众号教程-13.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_453 768w, https://oss.zibll.com/zibll.com/2021/06/微信公众号教程-13.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_905 1536w" sizes="(max-width: 2012px) 100vw, 2012px" imgbox-index="2"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-WordPress主题-zibll子比主题使用微信登录-微信公众号登录详细教程" decoding="async" width="1578" height="1398" src="https://oss.zibll.com/zibll.com/2022/11/20260129160803749-image-228.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1151" class="wp-image-44369" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2022/11/20260129160803749-image-228.png 1578w, https://oss.zibll.com/zibll.com/2022/11/20260129160803749-image-228.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_708 800w, https://oss.zibll.com/zibll.com/2022/11/20260129160803749-image-228.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1151 1300w" sizes="(max-width: 1578px) 100vw, 1578px" imgbox-index="3"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">注意事项：</p>
+
+
+
+<ul class="wp-block-list">
+<li>token可以随意填写，主题设置和微信平台保持一致即可</li>
+
+
+
+<li>必须先设置主题设置的token并保存，然后再去微信公众号平台提交服务器配置，顺序反了则会失败</li>
+
+
+
+<li>消息加解密方式必须选择明文模式</li>
+
+
+
+<li>提交成功之后记得启用服务器配置</li>
+
+
+
+<li>如果配置正确但又出现了token验证失败的问题，那么就需要检查自己的服务器是否能被微信访问，这就是网络有没有问题，有没有拦截的情况等等。具体可以通过查看网站的访问日志来看一下接口url有没有被微信访问的记录来分析</li>
+
+
+
+<li>接入成功，但是提示8000x错误，说明没有权限或者没有认证，如果是刚认证通过的，可以等几个小时再试试</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">设置<strong>JS接口安全域名</strong>和网页授权域名</h2>
+
+
+
+<p class="wp-block-paragraph">首先进入<qc style="color:#1F91F3;background:undefined">主题设置-&gt;用户&amp;互动-&gt;社交登录-&gt;微信登录(公众号模式)</qc>：复制<code>JS接口安全域名</code><br>然后进入<qc style="color:#1F91F3;background:undefined">公众号平台-&gt;公众号设置-&gt;功能设置-&gt;JS接口安全域名、网页授权域名</qc>：点击设置，根据流程设置好刚刚复制的域名<br><qc style="color:rgba(246,60,60,1);background:undefined">注意：如果未设置好JS接口安全域名，仍然可以使用扫码登录，但是在微信APP内会提示redirect_uri错误</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-WordPress主题-zibll子比主题使用微信登录-微信公众号登录详细教程" decoding="async" width="2016" height="1190" src="https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-14.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_604" class="wp-image-2278" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-14.png 2016w, https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-14.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_413 700w, https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-14.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_604 1024w, https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-14.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_453 768w, https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-14.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_907 1536w" sizes="(max-width: 2016px) 100vw, 2016px" imgbox-index="4"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-WordPress主题-zibll子比主题使用微信登录-微信公众号登录详细教程" decoding="async" width="1718" height="1258" src="https://oss.zibll.com/zibll.com/2022/04/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_750" class="wp-image-7274" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2022/04/图片-1.png 1718w, https://oss.zibll.com/zibll.com/2022/04/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_683,h_500 683w, https://oss.zibll.com/zibll.com/2022/04/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_750 1024w, https://oss.zibll.com/zibll.com/2022/04/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_562 768w, https://oss.zibll.com/zibll.com/2022/04/图片-1.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1125 1536w" sizes="(max-width: 1718px) 100vw, 1718px" imgbox-index="5"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-WordPress主题-zibll子比主题使用微信登录-微信公众号登录详细教程" decoding="async" width="1766" height="1314" src="https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-16.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_762" class="wp-image-2282" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-16.png 1766w, https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-16.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_672,h_500 672w, https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-16.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_762 1024w, https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-16.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_571 768w, https://oss.zibll.com/zibll.com/2021/07/微信公众号教程-16.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1143 1536w" sizes="(max-width: 1766px) 100vw, 1766px" imgbox-index="6"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[8]-WordPress主题-zibll子比主题使用微信登录-微信公众号登录详细教程" decoding="async" width="1716" height="1256" src="https://oss.zibll.com/zibll.com/2022/04/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_750" class="wp-image-7275" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2022/04/图片-2.png 1716w, https://oss.zibll.com/zibll.com/2022/04/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_683,h_500 683w, https://oss.zibll.com/zibll.com/2022/04/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_750 1024w, https://oss.zibll.com/zibll.com/2022/04/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_562 768w, https://oss.zibll.com/zibll.com/2022/04/图片-2.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1124 1536w" sizes="(max-width: 1716px) 100vw, 1716px" imgbox-index="7"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_5">自动回复配置</h2>
+
+
+
+<p class="wp-block-paragraph">最后根据需要配置自动回复相关功能（根据用户发送的内容自动搜索文章、帖子并自动回复的功能需zibll主题V7.5及以上版本）</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter is-resized"><img decoding="async" width="1992" height="1472" src="https://oss.zibll.com/zibll.com/2023/11/20231112130756696-image-48.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_1024,h_756" alt="图片[7]-WordPress接入未认证微信公众号订阅号使用微信扫码登录教程-Wordpress主题模板-zibll子比主题" class="wp-image-20241" style="width:900px;height:664px" srcset="https://oss.zibll.com/zibll.com/2023/11/20231112130756696-image-48.png 1992w, https://oss.zibll.com/zibll.com/2023/11/20231112130756696-image-48.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_517 700w, https://oss.zibll.com/zibll.com/2023/11/20231112130756696-image-48.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_567 768w, https://oss.zibll.com/zibll.com/2023/11/20231112130756696-image-48.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_756 1024w" sizes="(max-width: 1992px) 100vw, 1992px" imgbox-index="8"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter"><img decoding="async" width="562" height="1110" src="https://oss.zibll.com/zibll.com/2023/11/20231112130903680-image-49.png?x-oss-process=image%2Fquality,q_40%2Fresize,m_fill,w_518,h_1024" alt="图片[8]-WordPress接入未认证微信公众号订阅号使用微信扫码登录教程-Wordpress主题模板-zibll子比主题" class="wp-image-20242" srcset="https://oss.zibll.com/zibll.com/2023/11/20231112130903680-image-49.png 562w, https://oss.zibll.com/zibll.com/2023/11/20231112130903680-image-49.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_253,h_500 253w, https://oss.zibll.com/zibll.com/2023/11/20231112130903680-image-49.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_518,h_1024 518w" sizes="(max-width: 562px) 100vw, 562px" imgbox-index="9"></figure>
+</div>
+
+
+<hr class="wp-block-separator has-css-opacity is-style-dots">
+
+
+
+<div data-quantity="1" data-radius="true" class="wp-block-zibllblock-buttons radius"><span class="an_1 but jb-blue"><a href="https://www.zibll.com/zibll_word/user-function">查看更多登录教程</a></span></div>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

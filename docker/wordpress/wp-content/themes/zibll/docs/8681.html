@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题微信公众号模板消息推送配置教程[V8.5新版]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题微信公众号模板消息推送配置教程[V8.5新版]</h1>
+  <div class="meta">来源：https://www.zibll.com/8681.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">wordpress默认支持一些基本的邮件推送功能，zibll子比主题也对邮件功能做了强有力的扩展，同时还支持站内信通知、私信等等功能。但是现在这个时代单单这些是不够了，所以zibll子比主题带来了全新的微信消息推送功能。使用微信公众号将网站重要信息推送给用户及管理员。接下来我们了解一下这个功能。</p>
+
+
+
+<div class="wp-block-zibllblock-quote"><div class="quote_q" data-color="#f37f03" style="--quote-color:#f37f03"><i class="fa fa-quote-left"></i><p>升级zibll V8.5之后，全面支持最新版微信模板消息接口，适配新版的类目模板<br>同时兼容能正常使用的旧版，但是还是建议更新到新版的类目模板</p></div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">功能简介</h2>
+
+
+
+<p class="wp-block-paragraph">通过微信公众号的模板消息功能，将网站消息推送给用户及管理员。我们来看看部分消息的截图预览</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[1]-wordpress微信公众号模板消息推送功能接入详解及教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://oss.zibll.com/zibll.com/2025/12/20251228142422544-image-234.png" data-src="https://oss.zibll.com/zibll.com/2025/12/20251228142422544-image-234.png" class="wp-image-43135 lazyloaded lazyloadafter" style="width:600px" imgbox-index="0"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">支持的消息类型推送明细：</p>
+
+
+
+<ul class="wp-block-list">
+<li>通知商家发货</li>
+
+
+
+<li>快递发货后通知用户</li>
+
+
+
+<li>用户申请售后通知商家</li>
+
+
+
+<li>用户申请售后等待用户发货通知用户</li>
+
+
+
+<li>售后订单处理完成通知用户</li>
+
+
+
+<li>新订单通知用户</li>
+
+
+
+<li>新订单通知管理员</li>
+
+
+
+<li>获得创作分成通知作者</li>
+
+
+
+<li>获得推荐佣金通知推荐人</li>
+
+
+
+<li>用户申请提现通知管理员</li>
+
+
+
+<li>提现处理后通知提现用户</li>
+
+
+
+<li>用户提交身份认证通知管理员</li>
+
+
+
+<li>身份认证处理后通知用户</li>
+
+
+
+<li>收到举报后通知管理员</li>
+
+
+
+<li>处理用户举报后通知举报人</li>
+
+
+
+<li>绑定或修改手机号通知用户</li>
+
+
+
+<li>绑定或修改邮箱通知用户</li>
+
+
+
+<li>新评论通知文章作者</li>
+
+
+
+<li>评论有新回复通知用户</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">前置要求</h2>
+
+
+
+<p class="wp-block-paragraph">使用此功能之前请注意以下要求：</p>
+
+
+
+<ul class="wp-block-list">
+<li>微信公众号必须为已认证的服务号，确保已经开通模板消息功能</li>
+
+
+
+<li>已配置好微信公众号登录功能<a href="2206.html">【查看教程】</a></li>
+
+
+
+<li>根据接口规范，只有绑定了网站微信公众号登录且已关注的用户才能收到通知</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-red-color">开始此教程之前，请先按照以下教程配置好微信公证号登录功能！</mark></p>
+
+
+
+<div data-pid="2206" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="2206.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2021/06/微信登录-列表图.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_497" alt="Zibll子比主题-第三方登录-接入微信公众号扫码登录图文教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="2206.html">Zibll子比主题-第三方登录-接入微信公众号扫码登录图文教程</a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2026-01-29 16:20:40" class="ml6">8个月前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>2.8W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>51</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_2">配置教程</h2>
+
+
+
+<p class="wp-block-paragraph">配置教程主要分为三步</p>
+
+
+
+<ol class="wp-block-list">
+<li>选择自己公众号的<code>服务类目</code></li>
+
+
+
+<li>搜索并找到合适的模板，按照主题设置对应的参数进行添加</li>
+
+
+
+<li>将添加的模板ID，以及参数名称保存到主题配置</li>
+</ol>
+
+
+
+<h3 class="wp-block-heading" id="wznav_3">1.设置服务类目</h3>
+
+
+
+<p class="wp-block-paragraph">首先就是第一步选择<code>服务类目</code>，现在新版本的模板消息，支持选择最多5个<code>服务类目</code>，我们根据自己网站的类型合理选择即可。</p>
+
+
+
+<p class="wp-block-paragraph">不同类目的模板是有区别的，但是也有很多类型相同的，只要能找到我们需要的模板消息类型就都可以的。主题的消息推送主要是订单类、用户管理等等，所以我们一般可以添加商业服务、文旅等类型的类目</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#09ACE2;background:undefined">进入公众号平台，点击账号详情-服务类目，添加合适的类目</qc></p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[2]-wordpress微信公众号模板消息推送功能接入详解及教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2022/06/20251228133414909-image-226.png" class="wp-image-43121 lazyload" style="width:600px" imgbox-index="1"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img alt="图片[3]-wordpress微信公众号模板消息推送功能接入详解及教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2022/06/20251228133444323-image-227.png" class="wp-image-43122 lazyload" style="width:600px" imgbox-index="2"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">因为一共可以设置5个类目，我们可以先添加1到2个，然后进入下一步查找合适的模板，如果没有找到合适的模板，我们还可以再次添加其他的类目。</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">2.查找合适的模板</h2>
+
+
+
+<p class="wp-block-paragraph">这一步是最重要的，也是最繁琐的，没办法，现在微信对消息管理十分严格。</p>
+
+
+
+<p class="wp-block-paragraph">主要流程分为三步：</p>
+
+
+
+<ul class="wp-block-list">
+<li>确定要添加的消息名称，在主题设置中打开后，可以看到需要的参数名称</li>
+
+
+
+<li>根据要添加的消息名称，和需要的参数，通过搜索慢慢找到合适的模板</li>
+
+
+
+<li>将模板消息的ID和参数名key保存找主题配置中</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph">假设我们现在需要添加<code>新订单通知用户</code>的模板消息，在主题设置中，我们看到有<code>商品名称</code>、<code>金额</code>、<code>付款时间</code>、<code>订单号</code>这四个参数</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-wordpress微信公众号模板消息推送功能接入详解及教程-Wordpress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1456" height="1122" src="https://oss.zibll.com/zibll.com/2022/06/20251228141411430-image-233.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1001" class="wp-image-43129" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/20251228141411430-image-233.png 1456w, https://oss.zibll.com/zibll.com/2022/06/20251228141411430-image-233.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_616 800w, https://oss.zibll.com/zibll.com/2022/06/20251228141411430-image-233.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1001 1300w" sizes="(max-width: 1456px) 100vw, 1456px" imgbox-index="3"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">那么我们进入公众号-广告与服务-模板消息，在模板库-类目模板中，通过搜索，找到名称尽量类似<code>新订单通知用户</code>的的模板，然后点击详情，找到类似<code>商品名称</code>、<code>金额</code>、<code>付款时间</code>、<code>订单号</code>这四个参数，如果正好有，就添加这个四个参数，如果没有就继续查到其他的模板</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-wordpress微信公众号模板消息推送功能接入详解及教程-Wordpress主题模板-zibll子比主题" decoding="async" width="2110" height="1446" src="https://oss.zibll.com/zibll.com/2022/06/20251228134922434-image-229.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_890" class="wp-image-43125" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/20251228134922434-image-229.png 2110w, https://oss.zibll.com/zibll.com/2022/06/20251228134922434-image-229.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_548 800w, https://oss.zibll.com/zibll.com/2022/06/20251228134922434-image-229.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_890 1300w" sizes="(max-width: 2110px) 100vw, 2110px" imgbox-index="4"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-wordpress微信公众号模板消息推送功能接入详解及教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1880" height="1494" src="https://oss.zibll.com/zibll.com/2022/06/20251228135346331-image-230.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1033" class="wp-image-43126" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/20251228135346331-image-230.png 1880w, https://oss.zibll.com/zibll.com/2022/06/20251228135346331-image-230.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_635 800w, https://oss.zibll.com/zibll.com/2022/06/20251228135346331-image-230.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_1033 1300w" sizes="(max-width: 1880px) 100vw, 1880px" imgbox-index="5"></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><qc style="color:rgba(250,107,107,1);background:undefined">这里需要注意两点：</qc></p>
+
+
+
+<ol class="wp-block-list">
+<li>不要选择<code>(常量)</code>的关键词，除非主题设置中明确标注了常量，选择常量记得把主题设置中标注的常量枚举进去。</li>
+
+
+
+<li>公众号添加的参数关键词数量不能超过主题设置中的参数数量</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph">完成添加后，回到我们模板中，就可以看到刚刚添加好的模板了，点击详情，将参数的英文key填到主题设置中。</p>
+
+
+
+<p class="wp-block-paragraph"><strong><qc style="color:rgba(255,136,92,1);background:undefined">注意：显示的<code>{{thing9.DATA}}</code>，只需要填<code>thing9</code>即可！</qc></strong>注意看图：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-wordpress微信公众号模板消息推送功能接入详解及教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1578" height="1116" src="https://oss.zibll.com/zibll.com/2022/06/20251228140329661-image-231.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_919" class="wp-image-43127" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/06/20251228140329661-image-231.png 1578w, https://oss.zibll.com/zibll.com/2022/06/20251228140329661-image-231.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_800,h_565 800w, https://oss.zibll.com/zibll.com/2022/06/20251228140329661-image-231.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1300,h_919 1300w" sizes="(max-width: 1578px) 100vw, 1578px" imgbox-index="6"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">ok，到这里我们就已经完成一个模板消息的配置了，那么我们举一反三用相同的方式添加其它模板消息即可。</p>
+
+
+
+<p class="wp-block-paragraph">提醒一下：主题可以添加的模板消息非常多，不建议全部都添加，仅添加符合自己网站常用的消息即可，因为在有限的5个类目中很难全部都找到合适的模板</p>
+
+
+
+<p class="wp-block-paragraph">还有就是整个过程最麻烦的其实就是找模板，这个繁琐还不一定能找到，这时候我们记住，只要消息标题和参数的语义大致差不多就行了，只要用户能读懂是什么意思就行了</p>
+
+
+
+<p class="wp-block-paragraph">关于参数，微信公众号添加的参数不能比主题设置中的少，但是如果没有找到合适的参数，可以少添加，主题设置中留空即可。另外选择参数时，尽量选择<code>thing</code>类型，有些类型可能会失败</p>
+
+
+
+<p class="wp-block-paragraph">最后，添加完成后，记得在主题配置最下方进行测试，如果推送失败，会显示错误原因</p>
+
+
+
+<figure class="wp-block-image size-full"><img alt="图片[8]-wordpress微信公众号模板消息推送功能接入详解及教程-Wordpress主题模板-zibll子比主题" decoding="async" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail-lg.svg" data-src="https://oss.zibll.com/zibll.com/2022/06/20251228141317325-image-232.png" class="wp-image-43128 lazyload" imgbox-index="7"></figure>
+                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>

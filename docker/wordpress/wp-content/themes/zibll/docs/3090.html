@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>zibll子比主题用户权限管理系统简介及教程[V6新功能]</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;max-width:860px;margin:24px auto;padding:0 16px;color:#222;background:#fafafa}
+header{margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #e5e5e5}
+header a{color:#666;font-size:13px;text-decoration:none}
+h1{font-size:1.55rem;margin:8px 0 0}
+.meta{color:#888;font-size:12px;margin-top:6px}
+.article{background:#fff;border:1px solid #eee;border-radius:8px;padding:20px 22px}
+.article img{max-width:100%;height:auto}
+.article pre,.article code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+.article pre{overflow:auto;background:#f6f8fa;padding:12px;border-radius:6px}
+.article a{color:#2563eb}
+.list li{margin:8px 0}
+footer{margin:28px 0 40px;color:#999;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html">← 本地主题文档目录</a>
+  <h1>zibll子比主题用户权限管理系统简介及教程[V6新功能]</h1>
+  <div class="meta">来源：https://www.zibll.com/3090.html · 离线镜像</div>
+</header>
+<div class="article">
+<div data-nav="posts" class="theme-box wp-posts-content">
+            
+<p class="wp-block-paragraph">作为一款优秀的交互形WordPress主题，zibll子比主题拥有非常多的交互功能，特别是升级全新V6之后，我们又更新了全新的社区论坛系统，随之而来的就是更加丰富的用户交互功能了，例如评论、投稿、发帖、提问、举报、创建话题、板块等等。<br>同时主题有拥有多个不同的用户组，例如不同会员、不同的用户等级，认证用户，版主，分区版主等。</p>
+
+
+
+<p class="wp-block-paragraph">那么问题来了，这些交互功能应该由哪些用户可以使用呢？<br>我想实现会员可以发帖，等级达到3级才能评论，或者认证用户就不用审核直接发布等等？<br>这些功能应该如何来实现呢？这些功能设置会不会很复杂呢？</p>
+
+
+
+<p class="wp-block-paragraph">zibll子比主题V6我们带来了全新的一体化用户权限管理系统，我们采用最先进的开发逻辑，统一接口管理以及静态加速的逻辑判断，实现高度自由且细致的权限设置，让站长轻松简单的管理用户权限，同时又能实现高度的细分管理，每一项用户权限都可以细分的设置到每一个不同的用户等级、会员等级、以及其它用户组！</p>
+
+
+
+<p class="wp-block-paragraph"><qc style="color:#1F91F3;background:undefined">接下来我们开始了解如何设置权限管理：</qc></p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_0">核心逻辑</h2>
+
+
+
+<p class="wp-block-paragraph"><strong>设置权限管理之前，我们<qc style="color:rgba(247,74,74,1);background:undefined">只需要</qc><qc style="color:#A845F7;background:undefined">也必须要</qc>明白的两个核心逻辑：</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>用户功能</strong></li>
+
+
+
+<li><strong>用户角色</strong></li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><code>用户功能</code>也就是用户可以使用的功能，例如：发帖，评论，发帖无需审核、举报他人等等这些都属于用户功能</p>
+
+
+
+<p class="wp-block-paragraph"><code>用户角色</code>也就是不同的用户角色分类，例如：我是1级会员，你是2级会员，我的等级5级，你是认证用户，他是版主等</p>
+
+
+
+<p class="wp-block-paragraph">那么我们把<code>用户功能</code>和<code>用户角色</code>进行配合，细分的设置<qc style="color:#1F91F3;background:undefined">哪些功能允许哪些用户使用</qc>，这就是<code>用户权限</code>的核心逻辑</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_1">开始配置</h2>
+
+
+
+<p class="wp-block-paragraph">为什么说核心逻辑是<qc style="color:#fb2121;background:undefined">只需要</qc><qc style="color:#A845F7;background:undefined">也必须要</qc>明白的呢？因为整个zibll子比主题用户权限管理功能，配置十分简单，所有配置都是按照<qc style="color:#1F91F3;background:undefined">哪些功能允许哪些用户可以使用</qc>的逻辑来设计配置项的，这样就实现了统一配置，统一管理，功能强大的同时让配置更加简单明了！</p>
+
+
+
+<p class="wp-block-paragraph">进入<qc style="color:#09ACE2;background:undefined">主题设置-&gt;功能&amp;权限</qc>，我们就可以看到详细的主题功能了，每一行就是一个功能(权限)，点击你需要设置的功能，就可以展开进行此功能允许的用户组设置了</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[1]-wordpress主题优秀的用户权限管理功能详细教程-Wordpress主题模板-zibll子比主题" fetchpriority="high" decoding="async" width="1642" height="1266" src="https://oss.zibll.com/zibll.com/2022/12/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_790" class="wp-image-11858" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/12/图片-4.png 1642w, https://oss.zibll.com/zibll.com/2022/12/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_648,h_500 648w, https://oss.zibll.com/zibll.com/2022/12/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_790 1024w, https://oss.zibll.com/zibll.com/2022/12/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_592 768w, https://oss.zibll.com/zibll.com/2022/12/图片-4.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1184 1536w" sizes="(max-width: 1642px) 100vw, 1642px" imgbox-index="0"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[2]-wordpress主题优秀的用户权限管理功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1088" height="1050" src="https://oss.zibll.com/zibll.com/2021/12/图片-47.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_988" class="wp-image-3092" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2021/12/图片-47.png 1088w, https://oss.zibll.com/zibll.com/2021/12/图片-47.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_518,h_500 518w, https://oss.zibll.com/zibll.com/2021/12/图片-47.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_988 1024w, https://oss.zibll.com/zibll.com/2021/12/图片-47.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_741 768w" sizes="(max-width: 1088px) 100vw, 1088px" imgbox-index="1"></figure>
+</div>
+
+
+<h2 class="wp-block-heading" id="wznav_2">功能逻辑</h2>
+
+
+
+<p class="wp-block-paragraph">到这里，我相信对于大多数站长来说，已经完全明白了这个强大的用户管理系统的配置功能了，如果您还有疑惑，那么我再来了解一下功能逻辑和配置逻辑：</p>
+
+
+
+<p class="wp-block-paragraph">可以配置的功能非常多，有可能你一眼看过去觉得好多，好复杂啊。是的，确实比较多，所以您需要认真的看一看这一些功能，同时部分功能与部分功能之前也存在一些依赖关系</p>
+
+
+
+<p class="wp-block-paragraph">例如：</p>
+
+
+
+<ul class="wp-block-list">
+<li>发帖允许上传图片<qc style="color:#08B89A;background:undefined">依赖于</qc>发帖权限(贴都发不了，还怎么传图啊)</li>
+
+
+
+<li>发帖无需审核<qc style="color:#08B89A;background:undefined">优先级大于</qc>发帖无需人工审核</li>
+
+
+
+<li>修改自己管理下的帖子<qc style="color:#08B89A;background:undefined">只有</qc>版主及以上的用户组可以选择设置(连版主都不是，你还管理什么呢)</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_3">配置逻辑</h2>
+
+
+
+<p class="wp-block-paragraph">了解了功能与功能之间的关系，我们还需要了解配置的时候用户组与用于组之间的关系：</p>
+
+
+
+<ul class="wp-block-list">
+<li>整体配置关系为或者（满足其一即可）例如：发帖功能，我设置的是：VIP：1，等级：2，认证用户。那么用户只要是会员1<qc style="color:#08B89A;background:undefined">或者</qc>等级达到2级<qc style="color:#09ACE2;background:undefined">或者</qc>是认证用户则拥有发帖权限</li>
+
+
+
+<li>两个特殊：
+<ol class="wp-block-list">
+<li>所有用户，包含未登录的用户：开启此项，那么就无需其它配置了（所有用户都可以了，还设置等级什么的干嘛呢）</li>
+
+
+
+<li>已登录用户：开启此项只要是登录就拥有此权限，其它配置也就无需设置了</li>
+</ol>
+</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading" id="wznav_4">扩展权限</h2>
+
+
+
+<p class="wp-block-paragraph">除了常见的是否允许的权限之外呢，我们还支持自定义内容的相关权限，而这个配置逻辑就更加简单了，当用户达到什么标准，可以做什么。如图所示，简单明了：</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[3]-wordpress主题优秀的用户权限管理功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1636" height="1450" src="https://oss.zibll.com/zibll.com/2022/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_908" class="wp-image-11855" style="width:600px" srcset="https://oss.zibll.com/zibll.com/2022/12/图片-3.png 1636w, https://oss.zibll.com/zibll.com/2022/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_564,h_500 564w, https://oss.zibll.com/zibll.com/2022/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_908 1024w, https://oss.zibll.com/zibll.com/2022/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_768,h_681 768w, https://oss.zibll.com/zibll.com/2022/12/图片-3.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1536,h_1361 1536w" sizes="(max-width: 1636px) 100vw, 1636px" imgbox-index="2"></figure>
+</div>
+
+
+<p class="wp-block-paragraph">您也可以查看以下教程，来详细了解如何配置上传权限：</p>
+
+
+
+<div data-pid="13972" class="wp-block-zibllblock-postsbox"><div class="article-postsbox relative-h radius8">
+            <div class="posts-mini posts-item relative gradient-bg" data-opacity="0.1">
+            <div class="mr10"><div class="item-thumbnail"><a href="13972.html"><img decoding="async" src="https://oss.zibll.com/zibll.com/zibll-img/img/thumbnail.svg" data-src="https://oss.zibll.com/zibll.com/2023/02/文件上传格式大小限制.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_490" alt="zibll子比主题配置不同类型用户文件上传格式、上传大小限制教程-WordPress主题模板-zibll子比主题" class="lazyload fit-cover radius8 no-imgbox"></a></div></div>
+                <div class="posts-mini-con flex xx flex1 jsb">
+                    <div class="item-heading text-ellipsis-2 main-color">
+                        <a class="main-color" href="13972.html">zibll子比主题配置不同类型用户文件上传格式、上传大小限制教程<span class="focus-color">[V7新功能]</span></a>
+                    </div>
+                    <div class="item-meta muted-2-color flex jsb ac"><item class="meta-author flex ac"><a href="https://www.zibll.com/author/1"><span class="avatar-mini"><img decoding="async" alt="老糖的头像-WordPress主题模板-zibll子比主题" src="https://oss.zibll.com/zibll.com/2022/11/默认头像.jpg" data-src="//oss.zibll.com/zibll.com/2021/12/8FB3BAFB-9DD7-4507-9DBF-2DD773D0FB2D.png?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_150,h_150" class="lazyload avatar avatar-id-1"><img decoding="async" class="lazyload avatar-badge" src="https://www.zibll.com/wp-content/themes/zibll/img/thumbnail.svg" data-src="https://www.zibll.com/wp-content/themes/zibll/img/vip-2.svg" data-toggle="tooltip" title="" alt="代理会员" data-original-title="代理会员"></span></a><span title="2025-10-17 11:02:00" class="ml6">1年前</span></item><div class="meta-right"><item class="meta-view"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-view"></use></svg>1.3W+</item><item class="meta-like"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-like"></use></svg>59</item></div></div>
+                </div>
+                </div>
+            </div></div>
+
+
+
+<h2 class="wp-block-heading" id="wznav_5">小提醒</h2>
+
+
+
+<p class="wp-block-paragraph">用户权限配置是一项十分强大的功能，通过不同的配置方式可以实现无数的功能，但是配置的时候一定要细心一点，慢慢的琢磨功能与功能之间的逻辑关系，在面对如此多的功能和如此多的用户类型进行搭配设置的时候，难免会出现思维混乱的现象，那么这时候就需要慢慢理解了</p>
+
+
+
+<p class="wp-block-paragraph">相信我，此功能开发改版不下20次，我们已经将此功能的配置方式做到最简单化了！</p>
+
+
+
+<p class="wp-block-paragraph">实现如此多功能与如此多用户角色的配合设置又要做到简单化，并且还要实现可扩展（今后还会增加的更多的功能以及更多用户角色，例如积分等），我们认为目前的方式就是最棒的了！希望作为站长的您也能给予点赞！</p>
+
+
+
+<h2 class="wp-block-heading" id="wznav_6">全功能预览</h2>
+
+
+
+<p class="wp-block-paragraph">最后，我们截图来看一下，全部的权限功能，感受一下：<strong><qc style="color:rgba(246,76,76,1);background:undefined">强大！</qc></strong></p>
+
+
+
+<p class="wp-block-paragraph">截图时间为：2024年4月16日，版本V7.7，后续更新还会增加新功能！</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[4]-wordpress主题优秀的用户权限管理功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1176" height="1496" src="https://oss.zibll.com/zibll.com/2021/12/20240422132930602-权限管理截图-4.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1302" class="wp-image-24381" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/12/20240422132930602-权限管理截图-4.jpg 1176w, https://oss.zibll.com/zibll.com/2021/12/20240422132930602-权限管理截图-4.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_890 700w, https://oss.zibll.com/zibll.com/2021/12/20240422132930602-权限管理截图-4.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1302 1024w" sizes="(max-width: 1176px) 100vw, 1176px" imgbox-index="3"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[5]-wordpress主题优秀的用户权限管理功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1190" height="1476" src="https://oss.zibll.com/zibll.com/2021/12/20240422132927860-权限管理截图-3.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1270" class="wp-image-24380" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/12/20240422132927860-权限管理截图-3.jpg 1190w, https://oss.zibll.com/zibll.com/2021/12/20240422132927860-权限管理截图-3.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_868 700w, https://oss.zibll.com/zibll.com/2021/12/20240422132927860-权限管理截图-3.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1270 1024w" sizes="(max-width: 1190px) 100vw, 1190px" imgbox-index="4"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[6]-wordpress主题优秀的用户权限管理功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1202" height="1790" src="https://oss.zibll.com/zibll.com/2021/12/20240422132925826-权限管理截图-2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1524" class="wp-image-24379" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/12/20240422132925826-权限管理截图-2.jpg 1202w, https://oss.zibll.com/zibll.com/2021/12/20240422132925826-权限管理截图-2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_1042 700w, https://oss.zibll.com/zibll.com/2021/12/20240422132925826-权限管理截图-2.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1524 1024w" sizes="(max-width: 1202px) 100vw, 1202px" imgbox-index="5"></figure>
+</div>
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img alt="图片[7]-wordpress主题优秀的用户权限管理功能详细教程-Wordpress主题模板-zibll子比主题" decoding="async" width="1198" height="1416" src="https://oss.zibll.com/zibll.com/2021/12/20240422132922841-权限管理截图-1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1210" class="wp-image-24378" style="width:500px" srcset="https://oss.zibll.com/zibll.com/2021/12/20240422132922841-权限管理截图-1.jpg 1198w, https://oss.zibll.com/zibll.com/2021/12/20240422132922841-权限管理截图-1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_700,h_827 700w, https://oss.zibll.com/zibll.com/2021/12/20240422132922841-权限管理截图-1.jpg?x-oss-process=image%2Fquality,q_50%2Fresize,m_fill,w_1024,h_1210 1024w" sizes="(max-width: 1198px) 100vw, 1198px" imgbox-index="6"></figure>
+</div>                    </div>
+        <div class="em09 muted-3-color"><div><span>©</span> 版权声明</div><div class="posts-copyright">分享是一种美德，转载请保留原链接</div></div><div class="text-center theme-box muted-3-color box-body separator em09">THE END
+</div>
+<footer>本页由开源发行版本地镜像生成，仅供离线查阅。</footer>
+</body>
+</html>
