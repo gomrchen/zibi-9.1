@@ -22,9 +22,18 @@ class ZibCodeAut
         return is_string($code) && $code !== '' && $code === ZibAut::get_aut_code();
     }
 
-    public static function update($data)
+    /**
+     * aut_time_int 过滤器（2 参数：$time_int, $payload）
+     */
+    public static function update($time_int, $payload = null)
     {
-        return ZibAut::update_save_data($data, false);
+        if (is_array($payload)) {
+            ZibAut::update_save_data($payload, false);
+        } elseif (is_array($time_int)) {
+            ZibAut::update_save_data($time_int, false);
+            $time_int = 0;
+        }
+        return is_numeric($time_int) ? (int) $time_int : 0;
     }
 
     public static function is_token($data)
@@ -60,3 +69,23 @@ class ZibCodeAut
         return 0;
     }
 }
+
+if (!function_exists('zib_get_admin_require_intdata')) {
+    function zib_get_admin_require_intdata($data)
+    {
+        return ZibCodeAut::zib_get_admin_require_intdata($data);
+    }
+}
+
+if (!function_exists('zibpay_admin_page_aut_randstr')) {
+    function zibpay_admin_page_aut_randstr($data, $randstr)
+    {
+        if (!is_array($data)) {
+            $data = array();
+        }
+        $data['randstr'] = $randstr;
+        return $data;
+    }
+}
+
+add_filter('setup_data_randstr', 'zibpay_admin_page_aut_randstr', 10, 2);

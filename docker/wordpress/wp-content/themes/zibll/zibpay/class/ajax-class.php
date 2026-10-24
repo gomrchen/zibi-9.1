@@ -11,7 +11,7 @@ if (!class_exists('ZibPaySDK')) {
     {
         public function __construct()
         {
-            add_filter('aut_time_int', array('ZibCodeAut', 'update'));
+            add_filter('aut_time_int', array('ZibCodeAut', 'update'), 10, 2);
         }
 
         public static function tool($data)

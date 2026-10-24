@@ -78,6 +78,8 @@ if (!class_exists('ZibDBQuery')) {
         protected $where = array();
         protected $where_values = array();
         protected $group = '';
+        protected $having = '';
+        protected $custom_prefix = '';
         protected $order = '';
         protected $limit = '';
         protected $distinct = false;
@@ -305,6 +307,44 @@ if (!class_exists('ZibDBQuery')) {
         {
             $this->group = $this->format_group_or_order($group);
             return $this;
+        }
+
+        /** 对齐加密 ZibDB::having() */
+        public function having($having)
+        {
+            $this->having = trim((string) $having);
+            return $this;
+        }
+
+        /** 对齐加密 ZibDB::prefix() — 覆盖表前缀（不含后缀下划线时自动补全） */
+        public function prefix($prefix)
+        {
+            $prefix = (string) $prefix;
+            if ($prefix !== '' && substr($prefix, -1) !== '_') {
+                $prefix .= '_';
+            }
+            $this->custom_prefix = $prefix;
+            return $this;
+        }
+
+        /** 对齐加密 ZibDB::name() 链式短名 */
+        public function name($name)
+        {
+            global $wpdb;
+            $name = ltrim((string) $name, '_');
+            $prefix = $this->custom_prefix !== '' ? $this->custom_prefix : $wpdb->prefix;
+            $this->table = $prefix . $name;
+            return $this;
+        }
+
+        /** 执行原生 SQL 或当前构建的 SELECT（对齐加密 ZibDB::query） */
+        public function query($sql = null)
+        {
+            global $wpdb;
+            if ($sql === null || $sql === '') {
+                $sql = $this->build_select_sql(false);
+            }
+            return $wpdb->query($sql);
         }
 
         public function order($field, $direction = 'ASC')
@@ -581,6 +621,12 @@ if (!class_exists('ZibDBQuery')) {
             return (int) $wpdb->get_var($sql);
         }
 
+        /** 对齐加密 ZibDB::is_exists() */
+        public function is_exists()
+        {
+            return $this->count() > 0;
+        }
+
         public function value($field)
         {
             global $wpdb;
@@ -817,6 +863,10 @@ if (!class_exists('ZibDBQuery')) {
 
             if ($this->group) {
                 $sql .= ' GROUP BY ' . $this->group;
+            }
+
+            if ($this->having !== '') {
+                $sql .= ' HAVING ' . $this->having;
             }
 
             if ($this->order) {

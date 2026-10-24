@@ -47,7 +47,7 @@ class ZibCardPass
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`password`)"); //添加索引
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`type`)"); //添加索引
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`status`)"); //添加索引
-            $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`other`)"); //添加索引
+            // other 为 longtext，不可整列建索引（MySQL: BLOB/TEXT without key length）
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`create_time`,`modified_time`,`id`)"); //添加索引
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`post_id`,`order_num`,`id`)"); //添加索引
         } elseif (version_compare(THEME_VERSION, '7.0.5', '<=') && !$wpdb->get_row("show index from {$wpdb->zibpay_card_password} WHERE Key_name = 'card'")) {
@@ -55,7 +55,7 @@ class ZibCardPass
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`password`)"); //添加索引
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`type`)"); //添加索引
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`status`)"); //添加索引
-            $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`other`)"); //添加索引
+            // other 为 longtext，不可整列建索引
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`create_time`,`modified_time`,`id`)"); //添加索引
             $wpdb->query("ALTER TABLE $wpdb->zibpay_card_password ADD INDEX(`post_id`,`order_num`,`id`)"); //添加索引
         }

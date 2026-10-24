@@ -307,3 +307,17 @@ class ZibAut
         return trailingslashit($base) . ltrim($action, '/');
     }
 }
+
+if (!function_exists('zib_is_aut')) {
+    function zib_is_aut()
+    {
+        return ZibAut::is_aut();
+    }
+}
+
+if (!function_exists('aut_required')) {
+    function aut_required()
+    {
+        return ZibAut::aut_required();
+    }
+}

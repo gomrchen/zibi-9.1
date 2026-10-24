@@ -1,0 +1,226 @@
+=== 子比全量联调检查 2026-10-25 00:18:43 ===
+stamp=20261025-0018
+
+======== 1/6 明文缺口扫描 ========
+【子比明文缺口扫描】2026-10-25 00:18:43
+主题: /Users/macos/work/wordpress-91/docker/wordpress/wp-content/themes/zibll
+
+【对齐】inc/code/code.php
+【对齐】inc/code/aut.php
+【对齐】inc/code/update.php
+【对齐】inc/code/tool.php
+【对齐】inc/options/zib-update.php
+【对齐】zibpay/class/ajax-class.php
+【对齐】shop/class.setup.php
+【对齐】shop/public.php
+【对齐】bbs/class.admin.php
+【对齐】zibpay/admin-options.php
+
+【活跃 Z5 扫描】
+  无活跃 Z5（仅备份目录）
+【深度】ZibDB 链式方法（密文 file.php strings → db-class-legacy）
+  链式 API 已覆盖
+
+【深度】后台授权/更新 AJAX（清单全量必注册）
+  OK wp_ajax_admin_curl_aut
+  OK wp_ajax_admin_delete_aut
+  OK wp_ajax_admin_skip_update
+  OK wp_ajax_admin_detect_update
+  OK wp_ajax_zibll_online_update
+  OK wp_ajax_zibll_download_update
+  OK wp_ajax_zibll_update_file
+  OK wp_ajax_zib_ajax_aut_error
+
+【深度】业务 AJAX 抽查（商城/论坛成功路径）
+  OK wp_ajax_cart_add
+  OK wp_ajax_shop_submit_order
+  OK wp_ajax_shop_confirm_modal
+  OK wp_ajax_initiate_pay
+  OK wp_ajax_posts_audit
+  OK wp_ajax_plate_move
+  OK wp_ajax_posts_topping_set
+  OK wp_ajax_bbs_posts_save
+
+【深度】aut_time_int 过滤器参数个数
+  OK ZibPaySDK 注册 accepted_args=2
+
+结论: strings 可见符号/钩子均已覆盖（VM 内动态符号需运行时验证）
+
+======== 2/6 种夹具 ========
+[OK] shop_s + pay_balance_s + bbs_s = true
+[OK] 用户已存在 #2 zibll_probe_user
+[OK] 用户余额 balance=100
+[OK] 商品已存在 #5，更新 product_config
+[OK] 版块已存在 #8
+[OK] 版块B已存在 #10
+[OK] 帖子已存在 #9 → pending
+{
+    "user_login": "zibll_probe_user",
+    "user_pass": "ProbeUser!2026",
+    "user_id": 2,
+    "product_id": 5,
+    "pay_price": 9.9,
+    "pay_modo": "price",
+    "plate_id": 8,
+    "plate2_id": 10,
+    "forum_post_id": 9
+}
+
+======== 3/6 CLI 冒烟 ========
+=== 子比联调冒烟 2026-10-24 16:18:44 ===
+home: http://localhost:8080/
+
+--- 门禁类 / 符号 ---
+[OK] class ZibAut
+[OK] class ZibCodeAut
+[OK] class ZibCodeUpdeta
+[OK] class ZibDB
+[OK] class ZibPaySDK
+[OK] class zib_shop_setup
+[OK] class zib_bbs_admin
+[OK] function zib_json_exit
+[OK] function zib_shop_get_url_chick_data
+[OK] function zib_is_aut
+[OK] function aut_required
+[OK] mu-plugin ZIBLL_AUT_OFFLINE_OK
+
+--- 授权 / 签名 ---
+[OK] ZibAut::is_local — localhost 应为 true
+[OK] ZibAut::is_aut (local)
+[OK] ZibAut::get_aut_code_sign
+[OK] ZibAut::curl_aut_data keys
+[OK] zib_is_aut()
+[OK] ZibCodeAut::update(0, array)
+[OK] filter aut_time_int returns int
+[OK] ZibCodeAut::zib_get_admin_require_intdata
+[OK] ZibCodeAut::is_token 无 sign
+
+--- 商城校验壳 ---
+[OK] zib_shop_get_url_chick_data 五键 — domain,home,code,sign,version
+[OK] zib_shop_setup::isok
+[OK] filter pay_modo_chick_data
+
+--- ZibDB ---
+[OK] ZibDB::is_exists
+
+--- AJAX 注册（授权/更新门禁） ---
+[OK] registered wp_ajax_admin_curl_aut
+[OK] registered wp_ajax_admin_delete_aut
+[OK] registered wp_ajax_admin_skip_update
+[OK] registered wp_ajax_admin_detect_update
+[OK] registered wp_ajax_zibll_online_update
+[OK] registered wp_ajax_zibll_download_update
+[OK] registered wp_ajax_zibll_update_file
+[OK] registered wp_ajax_zib_ajax_aut_error
+
+--- 业务 AJAX 注册抽查 ---
+[OK] registered wp_ajax_cart_add
+[OK] registered wp_ajax_shop_submit_order
+[OK] registered wp_ajax_shop_confirm_modal
+[OK] registered wp_ajax_initiate_pay
+[OK] registered wp_ajax_posts_audit
+[OK] registered wp_ajax_plate_move
+[OK] registered wp_ajax_posts_topping_set
+[OK] registered wp_ajax_bbs_posts_save
+[OK] current_user_can manage_options
+[OK] handler zib_admin_curl_aut
+[OK] handler zib_ajax_zibll_online_update
+[OK] ZibCodeUpdeta::online_update shape — 请配置更新源或关闭在线更新
+[OK] ZibCodeUpdeta::download_update shape
+[OK] ZibCodeUpdeta::update_file shape
+[OK] 夹具 option 存在 — {"product":5,"plate":8,"post":9}
+
+合计 OK=48 FAIL=0
+
+======== 4/6 admin-ajax 探测 ========
+=== admin-ajax 探测 2026-10-24 16:18:44 ===
+admin: admin | fixtures product=5
+
+--- 授权 / 更新 ---
+[OK] ajax admin_curl_aut (空授权码) — 请输入授权码
+[OK] ajax admin_delete_aut (撤销授权) — 已撤销授权
+[OK] ajax admin_curl_aut (提交授权码) — 授权成功
+[OK] ajax admin_detect_update (检测更新) — 检测完成
+[OK] ajax admin_skip_update (忽略更新) — 已忽略此次更新
+[OK] ajax zibll_online_update (在线更新) — 请配置更新源或关闭在线更新
+[OK] ajax zibll_download_update (下载更新) — 联调环境未启用远程包下载
+[OK] ajax zibll_update_file (写盘更新) — 联调环境未启用写盘更新
+[OK] ajax zib_ajax_aut_error (授权错误桩) — 授权校验失败
+
+--- 商城 ---
+[OK] fixtures 就绪 — {"user_login":"zibll_probe_user","user_pass":"ProbeUser!2026","user_id":2,"product_id":5,"pay_price":9.9,"pay_modo":"price","plate_id":8,"plate2_id":10,"forum_post_id":9}
+[OK] cart_add 未登录 — 宿主机 curl（run-all 3b）
+[OK] cart_add 无 product_id — no_product_id
+[OK] cart_add 商品不存在 — no_product
+[OK] cart_add 探测商品 — count=1
+[OK] shop_save_user_address 空地址 — 地址数据不能为空
+[OK] shop_save_user_address 完整 — 保存成功
+[OK] shop_submit_order 无商品 — products_error
+[OK] shop_confirm_modal 有商品 — pay_price=9.9
+[OK] shop_submit_order 余额支付 — ok {"order_data":[{"order_id":30,"payment_id":30,"order_num":"2610241618454979842","pay_price":9.9,"pro
+[OK] initiate_pay 空参 — {"code":"error","msg":"\u53c2\u6570\u9519\u8bef","error":true,"ys":"danger"}
+[OK] initiate_pay payment_id=30 — {"user_id":"2","payment_method":"balance","order_num":"5202610241618456923","order_price":"9.9","ip_address":"172.19.0.3
+[OK] shop_confirm_modal 空商品 — {"code":"products_error","msg":"\u672a\u9009\u62e9\u5546\u54c1","error":true,"ys
+[OK] update_cart 空数据 — error 已更新购物车
+[OK] update_cart 真数据 — count=1 {"msg":"\u5df2\u66f4\u65b0\u8d2d\u7269\u8f66","cart_items":{"5":["2"]},"count":1
+
+--- 论坛 ---
+[OK] fixtures plate/post — plate=8 post=9
+[OK] bbs posts_audit 缺参 — {"error":true,"ys":"warning","msg":"\u73af\u5883\u5f02\u5e38\uff0c\u8bf7\u5237\u
+[OK] bbs plate_move 缺参 — {"error":1,"ys":"danger","msg":"\u8bf7\u9009\u62e9\u7248\u5757"}
+[OK] bbs posts_topping_set 缺参 — {"error":true,"ys":"warning","msg":"\u73af\u5883\u5f02\u5e38\uff0c\u8bf7\u5237\u
+[OK] bbs posts_audit 有帖 — {"msg":"\u5185\u5bb9\u5df2\u5ba1\u6838\u53d1\u5e03","reload":true,"hide_modal":true,"error":false}
+[OK] bbs posts_topping_set 有帖 — {"error":0,"ys":"","reload":true,"msg":"\u5df2\u7f6e\u9876\u6b64\u5185\u5bb9"}
+[OK] bbs plate_move 有帖 — {"error":0,"ys":"","reload":true,"msg":"\u5207\u6362\u6210\u529f"}
+[OK] bbs posts_essence_set — {"error":0,"ys":"","reload":true,"msg":"\u5df2\u5c06\u6b64\u5185\u5bb9\u8bbe\u7f6e\u4e3a\u7cbe\u534e
+[OK] bbs follow_plate — {"success":true,"data":{"type":"add","id":"8","new_count":1,"follow_plate":["8"],"active":true,"text
+[OK] bbs score_extra 缺参 — {"success":false,"data":{"msg":"\u53c2\u6570\u4f20\u5165\u9519\u8bef","code":"no
+[OK] bbs favorite_posts — {"success":true,"data":{"type":"add","id":"9","new_count":1,"favorite_posts":["9"],"active":true,"te
+
+--- 商城扩测 ---
+[OK] shop_get_user_addresses — {"success":true,"data":[{"id":"17928587256802","name":"\u8054\u8c03\u6536\u8d27\u4eba","phone":"1380
+[OK] favorite_product — {"success":true,"data":{"type":"add","id":5,"count":1,"favorite_product":[5],"active":true,"text":"\
+[OK] shop_single_related — <body style="display:none;"><main><div class="ajaxpager"><div class="text-center
+[OK] order_receive_confirm 缺参 — {"error":true,"ys":"danger","msg":"\u8ba2\u5355\u4e0d\u5b58\u5728"}
+[OK] shop_order_comment 缺参 — {"code":"order_id_error","msg":"\u8ba2\u5355ID\u4e0d\u80fd\u4e3a\u7a7a","error":
+[OK] order status 核对 — id=30 status=1 order_num=2610241618454979842
+[OK] order_receive_confirm 有单 — {"reload":true,"goto":"http:\/\/localhost:8080\/user\/order?tab=wait-evaluate","msg":"\u786e\u8ba4\u6536\u8d27\u6210\u52
+[OK] shop_order_comment 有单 — {"order_id":"30","product_id":"5","comment_id":8,"product_score":{"average":"5","product":"5","service":"5","shipping":"
+[OK] bbs_posts_draft — {"post_id":32,"goto":"http:\/\/localhost:8080\/forum-post\/32.html","post":{"ID":32,"post_author":"1","post_date":"2026-
+[OK] bbs_posts_save — {"post_id":33,"goto":"http:\/\/localhost:8080\/forum-post\/33.html","post":{"ID":33,"post_author":"1","post_date":"2026-
+
+--- 售后 / 版块审核 ---
+[OK] order_after_sale_apply — oid=30 {"order_id":"30","hide_modal":true,"msg":"\u552e\u540e\u7533\u8bf7\u5df2\u63d0\u4ea4\uff0c\u7b49\u5f
+[OK] bbs plate_audit 有版块 — {"msg":"\u5185\u5bb9\u5df2\u5ba1\u6838\u53d1\u5e03","reload":true,"hide_modal":true,"error":false}
+
+--- 门禁交叉 / 前台可达 ---
+[OK] chick_data 五键 — {"domain":"localhost","home":"http:\/\/localhost:8080\/","code":"ZIBLL-PROBE-OFFLINE","sign":"50d5a638dc855d08f53d0bc09ab72f522a471076fd88e3f996a92f1ca5a4ae6a","version":"9.1"}
+[OK] 前台首页 HTTP — code=301 via=http://nginx
+[OK] 商品页 HTTP — code=301 url=http://nginx/shop/5.html
+[OK] 论坛帖 HTTP — code=301 url=http://nginx/forum-post/9.html
+[OK] bbs posts_comment_close 缺参 — {"error":true,"ys":"warning","msg":"\u73af\u5883\u5f02\u5e38\uff0c\u8bf7\u5237\u
+[OK] bbs plate_audit 缺参 — {"error":true,"ys":"warning","msg":"\u73af\u5883\u5f02\u5e38\uff0c\u8bf7\u5237\u
+[OK] bbs score_deduct 缺参 — {"success":false,"data":{"msg":"\u53c2\u6570\u4f20\u5165\u9519\u8bef","code":"no
+
+合计 OK=54 FAIL=0
+
+======== 5/6 宿主机 HTTP（未登录/前台） ========
+[OK] cart_add 未登录 — body={"msg":"\u8bf7\u5148\u767b\u5f55","code":"no_logged","error":true,"ys":"danger"}
+[OK] 前台首页 HTTP 200
+[OK] 商品页 HTTP 200
+
+======== 6/6 清单对齐矩阵 ========
+
+| 手测节 | 自动覆盖 | 本轮 |
+|--------|----------|------|
+| A 开测/缺口 | gap-scan --deep | OK |
+| B 授权 | smoke+probe admin_curl/delete | OK |
+| C 更新 | probe online/download/update_file | OK |
+| D 商城支付 | cart→confirm→balance→initiate→收货评价 | OK |
+| E 论坛 | audit/topping/move/draft/save | OK |
+| F 门禁交叉 | chick_data + 前台 HTTP | OK |
+
+冒烟: 合计 OK=48 | 探测: 合计 OK=54 FAIL=0 | 宿主机附加 OK=7 FAIL=0
+缺陷台账: docker/子比联调缺陷台账.md
+手测清单: docker/子比手测全量链路清单.md
+矩阵文档: docker/子比联调全量检查矩阵.md

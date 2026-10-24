@@ -76,6 +76,10 @@ class zib_shop_setup
             return;
         }
 
+        $this->aut();
+        $this->tool();
+        $this->ajax();
+
         // Register post type and taxonomies via $shop->register_post_type() in class.init.php
         $shop->register_post_type();
 
@@ -112,12 +116,5 @@ class zib_shop_setup
 
 function zib_shop_get_aut_time_int($data = '')
 {
-    return 0;
-}
-
-if (!function_exists('zib_admin_aut_add_action')) {
-    function zib_admin_aut_add_action()
-    {
-        return true;
-    }
+    return apply_filters('aut_time_int', 0, $data);
 }

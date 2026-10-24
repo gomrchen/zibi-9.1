@@ -98,3 +98,10 @@ function zib_admin_update_add_action()
 }
 
 zib_admin_update_add_action();
+
+if (!function_exists('zib_update_file_clear')) {
+    function zib_update_file_clear()
+    {
+        return ZibCodeUpdeta::zib_update_file_clear();
+    }
+}

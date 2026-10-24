@@ -379,15 +379,16 @@ function zibpay_shop_admin_page()
     zibpay_page();
 }
 
-function zibpay_admin_page_aut_randstr($data, $randstr)
-{
-    if (!is_array($data)) {
-        $data = array();
+if (!function_exists('zibpay_admin_page_aut_randstr')) {
+    function zibpay_admin_page_aut_randstr($data, $randstr)
+    {
+        if (!is_array($data)) {
+            $data = array();
+        }
+        $data['randstr'] = $randstr;
+        return $data;
     }
-    $data['randstr'] = $randstr;
-    return $data;
 }
-add_filter('setup_data_randstr', 'zibpay_admin_page_aut_randstr', 10, 2);
 
 function zibpay_income_page()
 {

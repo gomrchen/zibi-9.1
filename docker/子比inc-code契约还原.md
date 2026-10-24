@@ -20,9 +20,14 @@ inc/inc.php → inc/code/require.php
   → aut.php (ZibCodeAut)
   → file.php → inc/class/db-class-legacy.php (ZibDB)
   → tool.php (授权 AJAX)
-  → update.php (更新 AJAX + ZibCodeUpdeta)
+  → update.php (更新 AJAX + ZibCodeUpdeta + `zib_update_file_clear()`)
+  → inc/options/zib-update.php（`zibll_download_update` / 授权辅助符号，与加密 `inc_options_zib-update.php` 对齐）
   → zib_admin_tool_action() 注册 init/cron/后台钩子
 ```
+
+`aut.php` 末尾：`setup_data_randstr` → `zibpay_admin_page_aut_randstr`（与加密 aut 一致；实现仍在 `zibpay/.../admin-options.php`）。
+
+全局别名：`zib_is_aut()`、`aut_required()`、`zib_get_admin_require_intdata()`。
 
 独立入口（OAuth 等）仍可能只 `require file.php`，此时仅保证 `ZibDB` 可用。
 
@@ -84,7 +89,7 @@ inc/inc.php → inc/code/require.php
 |------|------|------|
 | `get_home_url` | — | 委托 `ZibAut` |
 | `isok` | `$code` | 数组走 `is_ok`，字符串比对本地 code |
-| `update` | `$data` | 委托 `update_save_data` |
+| `update` | `$time_int, $payload` | 过滤器 `aut_time_int`；`$payload` 数组时 `update_save_data` |
 | `is_token` | `$data` | 校验 sign/token |
 | `aut` | — | 调 `timing_aut` |
 | `zib_get_admin_require_intdata` | `$data` | 更新流程 rand 整数 |

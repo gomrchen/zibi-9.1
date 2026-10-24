@@ -145,7 +145,17 @@ function zib_shop_get_is_mudata($post_id = 0)
  */
 function zib_shop_get_url_chick_data()
 {
-    return array();
+    if (!class_exists('ZibAut')) {
+        return array();
+    }
+    $code = ZibAut::get_aut_code();
+    return array(
+        'domain'  => ZibAut::get_aut_url(),
+        'home'    => ZibAut::get_home_url(),
+        'code'    => $code,
+        'sign'    => $code !== '' ? ZibAut::get_aut_code_sign($code) : '',
+        'version' => ZibAut::get_theme_version(),
+    );
 }
 
 add_filter('pay_modo_chick_data', array('ZibPaySDK', 'tool'), 10, 1);

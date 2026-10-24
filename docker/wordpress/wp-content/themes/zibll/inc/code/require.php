@@ -13,6 +13,7 @@ require_once $code_dir . 'aut.php';
 require_once $code_dir . 'file.php';
 require_once $code_dir . 'tool.php';
 require_once $code_dir . 'update.php';
+require_once dirname(__DIR__) . '/options/zib-update.php';
 
 function zib_init_add_action()
 {
