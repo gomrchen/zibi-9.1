@@ -27,11 +27,6 @@ class zib_shop_setup
     {
     }
 
-    public function aut()
-    {
-        return true;
-    }
-
     public function admin_action()
     {
         if (!$this->shop || !$this->shop->s) {
@@ -76,7 +71,6 @@ class zib_shop_setup
             return;
         }
 
-        $this->aut();
         $this->tool();
         $this->ajax();
 
@@ -112,9 +106,4 @@ class zib_shop_setup
             }
         }
     }
-}
-
-function zib_shop_get_aut_time_int($data = '')
-{
-    return apply_filters('aut_time_int', 0, $data);
 }

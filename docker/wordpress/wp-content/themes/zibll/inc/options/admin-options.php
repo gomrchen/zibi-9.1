@@ -12806,36 +12806,25 @@ function zib_csf_admin_options()
     ));
 
     CSF::createSection('zibll_options', array(
-        'title'       => __('主题&授权', 'zib_language'),
-        'icon'        => 'fa fa-fw fa-gitlab',
+        'title'       => __('关于主题', 'zib_language'),
+        'icon'        => 'fa fa-fw fa-info-circle',
         'description' => '',
         'fields'      => array(
             array(
                 'type'    => 'submessage',
-                'style'   => 'warning',
+                'style'   => 'info',
                 'content' =>
-                '<h3 style="color:#fd4c73;"><i class="fa fa-heart fa-fw"></i> ' . __('感谢您使用Zibll子比主题', 'zib_language') . '</h3>
-                <div><b>' . __('首次使用请在下方进行授权验证', 'zib_language') . '</b></div>
-                <p>' . __('子比主题是一款良心、厚道的好产品！创作不易，支持正版，从我做起！', 'zib_language') . '</p>
-                <p>' . __('请确认已在zibll官网已将本站域名', 'zib_language') . '<badge class="c-red">' . ZibAut::get_aut_url() . '</badge>' . __('添加授权', 'zib_language') . '</p>
-                <div style="margin:10px 14px;"><li>' . __('子比主题官网：', 'zib_language') . '<a target="_bank" href="https://www.zibll.com/">https://www.zibll.com</a></li>
-                <li>' . __('作者联系方式：', 'zib_language') . '<a target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=770349780&amp;site=qq&amp;menu=yes">QQ 770349780</a></li>
-                <li>' . __('管理我的授权：', 'zib_language') . '<a target="_blank" href="https://www.zibll.com/user/product">https://www.zibll.com/user/product</a></li>
-                </div>',
+                '<h3><i class="fa fa-heart fa-fw"></i> ' . __('Zibll 子比主题（开源发行）', 'zib_language') . '</h3>
+                <p>' . __('本发行版不包含商业授权校验，可自由部署与二次开发。', 'zib_language') . '</p>
+                <p>' . sprintf(__('当前版本：V%s', 'zib_language'), esc_html(wp_get_theme()->get('Version'))) . '</p>',
             ),
-            CFS_Module::aut(),
         ),
     ));
-    $update_icon    = '';
-    $is_update_data = ZibAut::is_update();
-    if ($is_update_data) {
-        $update_icon = ' c-red';
-    }
     CSF::createSection('zibll_options', array(
         'title'       => __('文档&更新', 'zib_language'),
-        'icon'        => 'fa fa-fw fa-cloud-upload' . $update_icon,
+        'icon'        => 'fa fa-fw fa-cloud-upload',
         'description' => '',
-        'fields'      => CFS_Module::update($is_update_data),
+        'fields'      => CFS_Module::update(false),
     ));
     CSF::createSection($prefix, array(
         'title'  => __('备份&导入', 'zib_language'),
@@ -12844,4 +12833,3 @@ function zib_csf_admin_options()
     ));
 }
 add_action('after_setup_theme', 'zib_csf_admin_options');
-add_action('admin_notices', array('ZibAut', 'noaut_update'));

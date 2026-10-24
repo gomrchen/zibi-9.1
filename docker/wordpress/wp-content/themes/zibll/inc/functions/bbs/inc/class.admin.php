@@ -13,36 +13,8 @@ class zib_bbs_admin
         $this->bbs = $bbs_instance;
 
         if ($this->bbs && is_admin()) {
-            $this->aut();
             $this->setup();
-            $this->admin_manage();
-            $this->ajax_posts();
         }
-    }
-
-    public function aut()
-    {
-        return;
-    }
-
-    public function chick_data($result)
-    {
-        return $result;
-    }
-
-    public function sign_str($sign_str, $aut_code)
-    {
-        return hash_hmac('sha256', (string) $sign_str, (string) $aut_code);
-    }
-
-    public function is_randstr($data, $randstr)
-    {
-        return is_string($data) && is_string($randstr) && $data === $randstr;
-    }
-
-    public function tool()
-    {
-        return true;
     }
 
     public function admin_manage()

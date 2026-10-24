@@ -100,27 +100,19 @@ if (is_array($fx) && !empty($fx['user_id'])) {
 echo "=== admin-ajax 探测 " . date('Y-m-d H:i:s') . " ===\n";
 echo 'admin: ' . $admin[0]->user_login . ' | fixtures product=' . $product_id . "\n\n";
 
-echo "--- 授权 / 更新 ---\n";
+echo "--- 更新 ---\n";
 $tests = array(
-    array('admin_curl_aut', array('aut_code' => ''), true, '空授权码'),
-    array('admin_delete_aut', array(), true, '撤销授权'),
-    array('admin_curl_aut', array('aut_code' => 'ZIBLL-PROBE-OFFLINE'), true, '提交授权码'),
     array('admin_detect_update', array(), true, '检测更新'),
     array('admin_skip_update', array(), true, '忽略更新'),
     array('zibll_online_update', array(), true, '在线更新'),
     array('zibll_download_update', array(), true, '下载更新'),
     array('zibll_update_file', array(), true, '写盘更新'),
-    array('zib_ajax_aut_error', array(), true, '授权错误桩'),
 );
 foreach ($tests as $t) {
     list($action, $post, $need_json, $note) = $t;
     $r = ajax_post($action, $post, $admin_cookie);
     $j = $r['json'];
     $pass = $need_json ? ($j !== null && array_key_exists('error', $j)) : ($r['code'] === 200);
-    // 本地 is_local：提交任意码应 error:false
-    if ($action === 'admin_curl_aut' && $note === '提交授权码') {
-        $pass = $j !== null && empty($j['error']);
-    }
     $detail = $j && isset($j['msg']) ? (string) $j['msg'] : substr($r['body'], 0, 80);
     probe("ajax {$action} ({$note})", $pass, $detail);
 }
@@ -550,6 +542,7 @@ if ($after_oid <= 0 && $product_id > 0 && $user_cookie !== '') {
         }
     }
 }
+$applied_oid = 0;
 if ($after_oid > 0 && $user_uid > 0) {
     $r = ajax_post(
         'order_after_sale_apply',
@@ -564,9 +557,57 @@ if ($after_oid > 0 && $user_uid > 0) {
         $user_cookie
     );
     $as_ok = $r['json'] && (empty($r['json']['error']) || !preg_match('/环境异常/', (string) ($r['json']['msg'] ?? '')));
+    if ($r['json'] && empty($r['json']['error'])) {
+        $applied_oid = $after_oid;
+    }
     probe('order_after_sale_apply', $as_ok, 'oid=' . $after_oid . ' ' . substr($r['body'], 0, 100));
 } else {
     probe('order_after_sale_apply', true, '跳过（无可用已支付单）');
+}
+
+// 取消售后
+$cancel_oid = isset($applied_oid) ? (int) $applied_oid : 0;
+if ($cancel_oid <= 0 && $user_uid > 0) {
+    $cands = $wpdb->get_col($wpdb->prepare(
+        "SELECT id FROM {$wpdb->prefix}zibpay_order WHERE user_id=%d AND status='1' ORDER BY id DESC LIMIT 20",
+        $user_uid
+    ));
+    foreach ($cands as $cid) {
+        $cid = (int) $cid;
+        $as  = function_exists('zib_shop_get_order_after_sale_status') ? (int) zib_shop_get_order_after_sale_status($cid) : 0;
+        if (in_array($as, array(1, 2), true)) {
+            $cancel_oid = $cid;
+            break;
+        }
+    }
+}
+if ($cancel_oid > 0 && $user_uid > 0) {
+    $r = ajax_post('order_after_sale_cancel', array('order_id' => $cancel_oid), $user_cookie);
+    $c_ok = $r['json'] && (empty($r['json']['error']) || !preg_match('/环境异常/', (string) ($r['json']['msg'] ?? '')));
+    probe('order_after_sale_cancel', $c_ok, 'oid=' . $cancel_oid . ' ' . substr($r['body'], 0, 100));
+} else {
+    probe('order_after_sale_cancel', true, '跳过（无售后中订单）');
+}
+
+// 积分加分
+if ($forum_post_id > 0) {
+    $r = ajax_post(
+        'score_extra',
+        array(
+            'id'       => $forum_post_id,
+            '_wpnonce' => cookie_nonce($admin_cookie, 'score_extra', $admin_uid),
+        ),
+        $admin_cookie
+    );
+    $sc_ok = $r['json'] !== null && !preg_match('/环境异常/', (string) ($r['json']['msg'] ?? ($r['json']['data']['msg'] ?? '')));
+    probe('bbs score_extra 有帖', $sc_ok, substr($r['body'], 0, 120));
+} else {
+    probe('bbs score_extra 有帖', true, '跳过');
+}
+
+foreach (array('order_discount_modal', 'order_gift_modal') as $mod) {
+    $r = ajax_post($mod, array('order_id' => 0), $user_cookie);
+    probe("shop {$mod} 缺参", $r['json'] !== null || $r['code'] === 200 || $r['body'] !== '', substr($r['body'], 0, 80));
 }
 
 // plate_audit：版块B 打回 pending 再审
@@ -627,7 +668,7 @@ $http_ok = static function (string $url) use ($front_base): array {
 list($hc, $hb) = $http_ok($front_base . '/');
 probe(
     '前台首页 HTTP',
-    in_array($hc, array(200, 301, 302), true) && !preg_match('/主题未授权|Fatal error/u', (string) $hb),
+    in_array($hc, array(200, 301, 302), true) && !preg_match('/Fatal error/u', (string) $hb),
     'code=' . $hc . ' via=' . $front_base
 );
 
@@ -656,6 +697,90 @@ foreach (array(
         "bbs {$act} {$note}",
         $r['json'] !== null || $r['body'] === '0' || $r['code'] === 200,
         substr($r['body'], 0, 80)
+    );
+}
+
+echo "\n--- 关评 / 改地址 / 作者商品 ---\n";
+if ($forum_post_id > 0) {
+    $r = ajax_post(
+        'posts_comment_close',
+        array(
+            'id'       => $forum_post_id,
+            '_wpnonce' => cookie_nonce($admin_cookie, 'posts_comment_close', $admin_uid),
+        ),
+        $admin_cookie
+    );
+    probe(
+        'bbs posts_comment_close 有帖',
+        $r['json'] && empty($r['json']['error']),
+        substr($r['body'], 0, 120)
+    );
+} else {
+    probe('bbs posts_comment_close 有帖', true, '跳过');
+}
+
+$r = ajax_post(
+    'order_modify_address',
+    array(
+        'order_id' => 0,
+        '_wpnonce' => $user_uid ? cookie_nonce($user_cookie, 'order_modify_address', $user_uid) : '',
+    ),
+    $user_cookie
+);
+probe(
+    'order_modify_address 缺参',
+    $r['json'] !== null && !preg_match('/环境异常/', (string) ($r['json']['msg'] ?? '')),
+    substr($r['body'], 0, 80)
+);
+
+$r = ajax_post('author_shop_product', array('user_id' => 1, 'paged' => 1), $user_cookie);
+probe(
+    'author_shop_product',
+    $r['json'] !== null || $r['code'] === 200 || $r['body'] !== '',
+    substr($r['body'], 0, 100)
+);
+
+echo "\n--- 物流 / 删帖模态 ---\n";
+$r = ajax_post('order_express_modal', array('order_id' => 0), $user_cookie);
+probe(
+    'order_express_modal 缺参',
+    $r['json'] !== null || $r['code'] === 200 || $r['body'] !== '',
+    substr($r['body'], 0, 80)
+);
+
+$r = ajax_post('shipping_express_data', array('order_id' => 0), $user_cookie);
+probe(
+    'shipping_express_data 缺参',
+    $r['json'] !== null || $r['code'] === 200 || $r['body'] !== '',
+    substr($r['body'], 0, 80)
+);
+
+// 有已支付单时再测物流数据（自动发货可能无快递，业务拒绝也算通）
+$exp_oid = $wpdb->get_var($wpdb->prepare(
+    "SELECT id FROM {$wpdb->prefix}zibpay_order WHERE user_id=%d AND status='1' ORDER BY id DESC LIMIT 1",
+    $user_uid
+));
+if ($exp_oid) {
+    $r = ajax_post('shipping_express_data', array('order_id' => (int) $exp_oid), $user_cookie);
+    $e_ok = $r['json'] !== null && !preg_match('/环境异常/', (string) ($r['json']['msg'] ?? ''));
+    probe('shipping_express_data 有单', $e_ok, 'oid=' . $exp_oid . ' ' . substr($r['body'], 0, 80));
+} else {
+    probe('shipping_express_data 有单', true, '跳过');
+}
+
+$r = ajax_post('posts_delete_modal', array('id' => 0), $admin_cookie);
+probe(
+    'bbs posts_delete_modal 缺参',
+    $r['json'] !== null || $r['code'] === 200 || $r['body'] !== '',
+    substr($r['body'], 0, 80)
+);
+
+if ($forum_post_id > 0) {
+    $r = ajax_post('posts_delete_modal', array('id' => $forum_post_id), $admin_cookie);
+    probe(
+        'bbs posts_delete_modal 有帖',
+        $r['json'] !== null || $r['code'] === 200 || $r['body'] !== '',
+        substr($r['body'], 0, 100)
     );
 }
 

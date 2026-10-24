@@ -84,7 +84,6 @@ function zib_require($data, $is_once = false, $prefix = '')
 zib_require(array(
     'inc/dependent',
     'inc/code/require',
-    'inc/code/tool',
     'vendor/autoload',
     'inc/class/class',
     'inc/options/options',

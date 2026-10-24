@@ -1,4 +1,3 @@
 <?php
-/** 历史重复文件：统一引用 inc/code 与 options/zib-update.php */
-require_once get_theme_file_path('/inc/code/code.php');
+/** 历史入口：仅加载更新辅助 */
 require_once get_theme_file_path('/inc/options/zib-update.php');

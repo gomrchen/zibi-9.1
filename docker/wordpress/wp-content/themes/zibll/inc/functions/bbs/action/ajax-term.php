@@ -11,8 +11,7 @@
  * @Remind        : 使用盗版主题会存在各种未知风险。支持正版，从我做起！
  */
 
-//引入核心文件
-require_once get_theme_file_path('/inc/code/code.php');
+//引入数据库封装
 require_once get_theme_file_path('/inc/code/file.php');
 
 //执行删除term

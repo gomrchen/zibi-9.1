@@ -141,20 +141,18 @@ function zib_shop_get_is_mudata($post_id = 0)
 }
 
 /**
- * URL check data for auth (disabled)
+ * 商城 URL 元数据（开源版：无授权签名）
  */
 function zib_shop_get_url_chick_data()
 {
-    if (!class_exists('ZibAut')) {
-        return array();
-    }
-    $code = ZibAut::get_aut_code();
+    $host = (string) (wp_parse_url(home_url(), PHP_URL_HOST) ?: '');
+    $theme = wp_get_theme();
     return array(
-        'domain'  => ZibAut::get_aut_url(),
-        'home'    => ZibAut::get_home_url(),
-        'code'    => $code,
-        'sign'    => $code !== '' ? ZibAut::get_aut_code_sign($code) : '',
-        'version' => ZibAut::get_theme_version(),
+        'domain'  => $host,
+        'home'    => home_url('/'),
+        'code'    => '',
+        'sign'    => '',
+        'version' => $theme->get('Version'),
     );
 }
 

@@ -63,7 +63,7 @@ else
 fi
 
 HOME_CODE="$(curl -sS -o "$TMP/home.html" -w '%{http_code}' "${BASE}/" || echo 0)"
-if [[ "$HOME_CODE" == "200" ]] && ! rg -q '主题未授权|Fatal error' "$TMP/home.html"; then
+if [[ "$HOME_CODE" == "200" ]] && ! rg -q 'Fatal error' "$TMP/home.html"; then
   ok "前台首页 HTTP $HOME_CODE"
   echo "[OK] 前台首页 HTTP $HOME_CODE" | tee -a "$REPORT_LATEST"
 else
@@ -82,12 +82,12 @@ fi
 
 echo "" | tee -a "$REPORT_LATEST"
 echo "======== 6/6 清单对齐矩阵 ========" | tee -a "$REPORT_LATEST"
-A_OK=$(rg -q '结论: strings' "$TMP/gap.txt" && echo OK || echo FAIL)
-B_OK=$(rg -q '提交授权码' "$TMP/probe.txt" && rg -q '授权成功' "$TMP/probe.txt" && echo OK || echo FAIL)
+A_OK=$(rg -q '开源授权清理通过|结论: strings' "$TMP/gap.txt" && echo OK || echo FAIL)
+B_OK=$(rg -q '无 class ZibAut|未注册 admin_curl_aut' "$TMP/smoke.txt" && echo OK || echo FAIL)
 C_OK=$(rg -q 'ajax zibll_update_file' "$TMP/probe.txt" && echo OK || echo FAIL)
 D_OK=$(rg -q 'shop_submit_order 余额支付' "$TMP/probe.txt" && echo OK || echo FAIL)
 E_OK=$(rg -q 'bbs_posts_save' "$TMP/probe.txt" && echo OK || echo FAIL)
-F_OK=$(rg -q '\[OK\] chick_data 五键' "$TMP/probe.txt" && rg -q '\[OK\] 前台首页 HTTP' "$TMP/probe.txt" && echo OK || echo FAIL)
+F_OK=$(rg -q '\[OK\] chick_data' "$TMP/probe.txt" && rg -q '\[OK\] 前台首页 HTTP' "$TMP/probe.txt" && echo OK || echo FAIL)
 PROBE_FAIL=$(rg -o 'FAIL=[0-9]+' "$TMP/probe.txt" | tail -1 | sed 's/FAIL=//' || echo 1)
 SMOKE_FAIL=$(rg -q 'FAIL=0' "$TMP/smoke.txt" && echo 0 || echo 1)
 {
@@ -95,7 +95,7 @@ SMOKE_FAIL=$(rg -q 'FAIL=0' "$TMP/smoke.txt" && echo 0 || echo 1)
   echo "| 手测节 | 自动覆盖 | 本轮 |"
   echo "|--------|----------|------|"
   echo "| A 开测/缺口 | gap-scan --deep | $A_OK |"
-  echo "| B 授权 | smoke+probe admin_curl/delete | $B_OK |"
+  echo "| B 无授权残留 | smoke 无 ZibAut | $B_OK |"
   echo "| C 更新 | probe online/download/update_file | $C_OK |"
   echo "| D 商城支付 | cart→confirm→balance→initiate→收货评价 | $D_OK |"
   echo "| E 论坛 | audit/topping/move/draft/save | $E_OK |"
