@@ -1,0 +1,124 @@
+[
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "aut_required",
+    "body": "return false;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "delete",
+    "body": "return true;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "is_aut",
+    "body": "return true;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "update_ok",
+    "args": "$result",
+    "body": "return true;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "save_zat_end_time",
+    "args": "$result_data",
+    "body": "return true;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "get_zat_end_time",
+    "body": "return false;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "timing_aut",
+    "body": "return;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "is_ok",
+    "args": "$data",
+    "body": "return true;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "is_singok",
+    "args": "$data",
+    "body": "return true;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "save_aut_code",
+    "args": "$aut_code",
+    "body": "return true;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "get_aut_code",
+    "body": "return get_option('zibll_code') ?: '';",
+    "comment": "免授权改造：保留原义，直接取已保存的授权码"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "timing_update",
+    "body": "return;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "skip_update",
+    "body": "return true;"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "noaut_notice",
+    "body": "return '';"
+  },
+  {
+    "file": "code.php",
+    "class": "ZibAut",
+    "method": "noaut_update",
+    "body": "return false;"
+  },
+  {
+    "file": "aut.php",
+    "class": "ZibCodeAut",
+    "method": "aut",
+    "body": "return;"
+  },
+  {
+    "file": "require.php",
+    "class": "",
+    "method": "zib_init_add_action",
+    "body": "return;",
+    "comment": "免授权改造：原为授权校验（ZibAut::is_aut + md5_file + wp_die），现已移除"
+  },
+  {
+    "file": "update.php",
+    "class": "ZibCodeUpdeta",
+    "method": "is_ok",
+    "args": "$data",
+    "body": "return true;"
+  },
+  {
+    "file": "tool.php",
+    "class": "",
+    "method": "zib_admin_aut_add_action",
+    "body": "return;"
+  }
+]

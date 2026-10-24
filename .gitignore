@@ -1,0 +1,10 @@
+.DS_Store
+*.log
+
+# Docker 本地数据与密钥
+docker/data/
+docker/.env
+
+# WordPress 上传与缓存
+docker/wordpress/wp-content/uploads/*
+!docker/wordpress/wp-content/uploads/.gitkeep
