@@ -4,6 +4,7 @@
 # Docker 本地数据与密钥
 docker/data/
 docker/.env
+docker/wordpress/wp-config-local.php
 
 # WordPress 上传与缓存
 docker/wordpress/wp-content/uploads/*

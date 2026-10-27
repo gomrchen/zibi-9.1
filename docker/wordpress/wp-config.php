@@ -41,13 +41,17 @@ if (!function_exists('getenv_docker')) {
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', getenv_docker('WORDPRESS_DB_NAME', 'wordpress') );
+define( 'DB_NAME', getenv_docker('WORDPRESS_DB_NAME', 'zibi_wanxi_co') );
 
 /** Database username */
-define( 'DB_USER', getenv_docker('WORDPRESS_DB_USER', 'example username') );
+define( 'DB_USER', getenv_docker('WORDPRESS_DB_USER', 'zibi_wanxi_co') );
 
-/** Database password */
-define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'example password') );
+/** Database password. 明文只放在未入库的 wp-config-local.php。 */
+$zibi_local = __DIR__ . '/wp-config-local.php';
+if (is_readable($zibi_local)) {
+	require $zibi_local;
+}
+define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', defined('ZIBI_DB_PASSWORD') ? ZIBI_DB_PASSWORD : 'example password') );
 
 /**
  * Docker image fallback values above are sourced from the official WordPress installation wizard:
@@ -56,7 +60,7 @@ define( 'DB_PASSWORD', getenv_docker('WORDPRESS_DB_PASSWORD', 'example password'
  */
 
 /** Database hostname */
-define( 'DB_HOST', getenv_docker('WORDPRESS_DB_HOST', 'mysql') );
+define( 'DB_HOST', getenv_docker('WORDPRESS_DB_HOST', 'localhost') );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', getenv_docker('WORDPRESS_DB_CHARSET', 'utf8mb4') );
@@ -116,6 +120,11 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
 define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
 
 /* Add any custom values between this line and the "stop editing" line. */
+
+// 宝塔本机没有 Docker 环境变量时直写文件。Docker 仍由 WORDPRESS_CONFIG_EXTRA 注入。
+if (!getenv('WORDPRESS_DB_HOST') && !defined('FS_METHOD')) {
+	define('FS_METHOD', 'direct');
+}
 
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
 // see also https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
